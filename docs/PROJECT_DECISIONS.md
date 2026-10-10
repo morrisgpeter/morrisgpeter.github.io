@@ -22,7 +22,7 @@
 | D-006 | 2026-10-10 | Evidence | Include charts, quantitative indicators, and potentially photographs/images. | Accepted | Demonstrate measurable outcomes visually. |
 | D-007 | 2026-10-10 | Future scope | Add data science, R, Python, research, and publications later. | Accepted | Design for growth without rebuilding the site. |
 | D-008 | 2026-10-10 | Navigation | Home, About, Experience, Portfolio, Contact. | Proposed | Hybrid multipage structure; exact names and layout remain open. |
-| D-009 | 2026-10-10 | Professional positioning | Engineering foundation; Commercial Leadership, Project & Program Management, and Data Science & Analytics as complementary business-results pillars. | Proposed | Reflect breadth without treating all areas as equally mature. |
+| D-009 | 2026-10-10 | Professional positioning | Engineering foundation; initially proposed three expertise pillars, including Data Science & Analytics. | Superseded | D-020 narrows the initial Home presentation to two established professional pillars; data science remains future scope. |
 | D-010 | 2026-10-10 | Experience presentation | Organize experience chronologically by company. | Proposed | Easy for recruiters to follow; commercial and delivery achievements can coexist within each role. |
 | D-011 | 2026-10-10 | Portfolio presentation | Organize work into case studies with individual project pages. | Proposed | Demonstrate outcomes and support future technical categories. |
 | D-012 | 2026-10-10 | Design direction | Classic, restrained corporate style, with clear charts and selective imagery. | Proposed | Professional credibility and readability. |
@@ -31,12 +31,15 @@
 | D-015 | 2026-10-10 | Documentation visibility | Keep `docs/PROJECT_CONTEXT.md` and `docs/PROJECT_DECISIONS.md` in the public GitHub repository until the portfolio website is live; revisit their visibility after launch. | Accepted | Simplifies collaboration and version control during initial development; review whether planning documents should move to private storage after launch. |
 | D-016 | 2026-10-10 | Visual identity | Use a dark navy-to-blue gradient Home hero with prominent professional portrait and large typography; keep internal pages predominantly light (white or very light gray), with consistent blue accents. | Accepted | Executive, modern, minimalist, visual and data-driven presentation; selective photos, maps, charts and metrics. |
 | D-017 | 2026-10-10 | Home hero messaging | **Title:** “From Customer Needs to Business Value”. **Subtitle:** “Understanding customer challenges, shaping the right solutions and leading their delivery to create measurable value and lasting relationships.” | Accepted | Customer-centered message integrating commercial solution development, project delivery, measurable value and long-term relationships. English copy approved verbatim. |
+| D-018 | 2026-10-10 | Home page structure | Five sections, in order: **Hero**, **Key Achievements**, **Areas of Expertise**, **Featured Work**, **Professional Journey**. | Accepted | Concise executive overview; dark hero followed by predominantly light sections. This does not yet confirm the separate five-page navigation proposal in D-008. |
+| D-019 | 2026-10-10 | Home key achievements & career insights | Feature **25+ Years** (Engineering, Business & Project Leadership), **7 Countries** (International Project Experience), **100+ Stakeholders** (Cross-Functional Engagement), and **6+ Industries** (Cross-Industry Experience). Explore separate charts for portfolio evolution, team leadership and stakeholder engagement (potential radar). | Accepted | Combine cumulative career measures with clearly identified examples of scale. Verify figures, scope, methodology and confidentiality before publication; 100+ stakeholders currently refers to ABB global projects, not a career-wide total. Chart formats and underlying data remain open. |
+| D-020 | 2026-10-10 | Home areas of expertise | Initially display only **Commercial Leadership** and **Project & Program Management**, as two equally prominent expertise areas. Defer **Data Science & Analytics** as a potential third Home area for later evaluation. | Accepted | Focus the Home on established professional strengths. Data science work may still appear as individual technical Portfolio projects as the site grows; reassess a third pillar once relevant projects and outcomes are demonstrated. |
 
 ## Key discussions
 
 ### Professional identity
 
-The portfolio should communicate the intersection of **commercial leadership** and **project/program management**, grounded in engineering. **Data Science & Analytics** is an additional avenue for business results, supported by academic training and future technical work. The initial presentation should not overstate data science professional experience.
+The portfolio should communicate the intersection of **commercial leadership** and **project/program management**, grounded in engineering. **Data Science & Analytics** is a future avenue supported by academic training and technical projects, but is **not** a Home expertise pillar in the initial release (D-020). Reconsider it later when demonstrable projects and results support the positioning.
 
 ### Home page
 
@@ -48,7 +51,13 @@ The portfolio should communicate the intersection of **commercial leadership** a
 
 **Confirmed visual identity (D-016):** Dark blue gradient and professional portrait on the Home; light internal pages. Portrait treatment should remain natural, with a navy jacket and a subtle smile.
 
-Proposed content blocks: professional introduction (possibly with portrait), key figures, expertise, performance/results charts, and featured projects. Examples and specific figures require validation prior to publication.
+**Confirmed Home structure (D-018):** Hero → Key Achievements → Areas of Expertise → Featured Work → Professional Journey.
+
+**Confirmed Key Achievements (D-019):** 25+ Years; 7 Countries; 100+ Stakeholders; 6+ Industries. Labels and numerical scope must be validated before publishing. In particular, the 100+ stakeholder figure is associated with ABB projects, not the whole career.
+
+**Confirmed Home expertise (D-020):** Commercial Leadership and Project & Program Management only. Data Science & Analytics is deferred for later evaluation; it can still be included in technical Portfolio work.
+
+**Career Insights to investigate:** a portfolio-value evolution chart (using comparable, clearly defined measures), a team-leadership evolution chart (distinguishing direct/indirect management from stakeholder coordination), and a stakeholder engagement radar chart (dimensions and defensible scoring methodology still to be defined). Industry coverage may be shown visually with sector icons. Verify accuracy and confidentiality before publication.
 
 ### Experience versus Portfolio
 
@@ -56,13 +65,13 @@ Proposed distinction: **Experience** explains career progression and responsibil
 
 ## Open decisions / next discussion
 
-1. Confirm the final five-page navigation or revise it.
-2. Determine relative emphasis of Commercial Leadership vs Project & Program Management on the Home page.
-3. Decide how Data Science & Analytics appears in the initial release.
+1. Confirm the final five-page navigation or revise it (Home section structure is already accepted).
+2. Draft and approve the content of the two Home expertise cards; determine how they link to detailed work.
+3. Reevaluate Data Science & Analytics as a possible third Home expertise area in a later release; individual technical Portfolio projects remain possible.
 4. Confirm language(s) and whether multilingual support is needed from the outset.
-5. Finalize the hero photograph asset and image usage/permission policy (overall visual direction is accepted in D-016).
-6. Select first-release projects and approved metrics.
-7. Define how charts are produced and maintained.
+5. Confirm the final hero photograph asset and image usage/permission policy (overall visual direction is accepted in D-016).
+6. Validate Key Achievements (25+ Years, 7 Countries, 100+ Stakeholders, 6+ Industries), including source, scope, and confidentiality; select first-release projects.
+7. Define comparable data and formats for portfolio evolution, team leadership, and stakeholder radar charts; distinguish team management from stakeholder coordination.
 8. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
 
 ## Change management

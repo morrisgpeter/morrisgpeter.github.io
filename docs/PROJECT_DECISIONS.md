@@ -38,6 +38,11 @@
 | D-022 | 2026-10-10 | Implementation sequence | Start building the Astro site now, before selecting Featured Work case studies. Implement progressively: development environment, base layout/navigation, hero, Key Achievements, two expertise cards, responsiveness and initial deployment. Add Featured Work content later. | Accepted | User prefers seeing and refining the working site incrementally rather than completing all content planning first. |
 | D-023 | 2026-10-10 | Expertise pillar order | Present the two expertise pillars in this exact order: **1. Project & Program Management; 2. Commercial Leadership**. Apply consistently in the Hero eyebrow, Areas of Expertise cards, and future related sections, on desktop and mobile. | Accepted | Prioritize project/program leadership in the visual narrative while retaining equal prominence for commercial leadership. This refines D-020 without changing the two-pillar scope or approved card copy. |
 
+| D-024 | 2026-10-10 | GitHub Pages deployment | Publish the Astro site through **GitHub Actions**, rather than deploying directly from the `main` branch. | Accepted | Astro needs a production build; Pages Source set to GitHub Actions. |
+| D-025 | 2026-10-10 | Automated workflow | Keep `.github/workflows/deploy.yml`; trigger on pushes to `main` and allow manual dispatch; use Node.js 22, `npm ci`, `npm run build`, upload `dist/`, then deploy to GitHub Pages. | Accepted | Reproducible builds and automatic publication without committing generated `dist/`. |
+| D-026 | 2026-10-10 | Astro production URL | Configure `site: 'https://morrisgpeter.github.io'` in `astro.config.mjs`, with no `base` path. | Accepted | User-site repository is served from the domain root. |
+| D-027 | 2026-10-10 | First production deployment | First custom Astro GitHub Actions deployment completed successfully on `main`, commit `b99b5ca`; live Home visually verified at `https://morrisgpeter.github.io/`. | Accepted | Confirms operational publishing pipeline and rendered Home. |
+
 ## Key discussions
 
 ### Professional identity
@@ -70,13 +75,19 @@ The portfolio should communicate the intersection of **project/program managemen
 
 > Building trusted customer relationships, identifying opportunities and developing tailored engineering solutions that drive business growth and deliver lasting value.
 
-**Implementation approach (D-022):** Begin developing the site with Astro before finalizing Featured Work. Build and review one section at a time. The Astro development environment is now operational; Header and Hero have been separated into components, with shared styles in `src/styles/global.css`. Next: extract Expertise and implement BaseLayout.
+**Implementation approach (D-022):** Begin developing the site with Astro before finalizing Featured Work. Build and review one section at a time. The Astro development environment is now operational; Header and Hero have been separated into components, with shared styles in `src/styles/global.css`. Expertise and BaseLayout are now implemented. The first Astro production deployment succeeded on 2026-10-10 (D-027).
 
 **Career Insights to investigate:** a portfolio-value evolution chart (using comparable, clearly defined measures), a team-leadership evolution chart (distinguishing direct/indirect management from stakeholder coordination), and a stakeholder engagement radar chart (dimensions and defensible scoring methodology still to be defined). Industry coverage may be shown visually with sector icons. Verify accuracy and confidentiality before publication.
 
 ### Experience versus Portfolio
 
 Proposed distinction: **Experience** explains career progression and responsibilities; **Portfolio** provides deeper evidence through selected project case studies. Avoid duplicating the same information verbatim.
+
+### Deployment milestone (2026-10-10)
+
+GitHub Pages now uses the custom Astro workflow `.github/workflows/deploy.yml` (D-024–D-027). The first successful deployment used commit `b99b5ca` on `main`; the public Home was visually checked. Future pushes to `main` trigger a new build and deployment. The `dist/` directory is Git-ignored. The local macOS Bash PATH still needs a permanent fix for `/opt/homebrew/bin`.
+
+The documentation-visibility review anticipated by D-015 is now due because the website is live; **no new visibility decision has been made**.
 
 ## Open decisions / next discussion
 
@@ -87,7 +98,9 @@ Proposed distinction: **Experience** explains career progression and responsibil
 5. Confirm the final hero photograph asset and image usage/permission policy (overall visual direction is accepted in D-016).
 6. Validate Key Achievements (25+ Years, 7 Countries, 100+ Stakeholders, 6+ Industries), including source, scope, and confidentiality; select first-release projects later, after the initial Home is implemented.
 7. Define comparable data and formats for portfolio evolution, team leadership, and stakeholder radar charts; distinguish team management from stakeholder coordination.
-8. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
+8. Review public visibility of the `docs/` planning files now that the site is live (D-015).
+9. Make the local Node.js/npm PATH persistent in the macOS VS Code Bash environment.
+10. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
 
 ## Change management
 

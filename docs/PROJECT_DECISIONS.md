@@ -29,6 +29,8 @@
 | D-013 | 2026-10-10 | Language | English first, with potential Portuguese later. | Proposed | Not explicitly confirmed. |
 | D-014 | 2026-10-10 | Documentation | Maintain `docs/PROJECT_CONTEXT.md` and `docs/PROJECT_DECISIONS.md`. | Accepted | Preserve alignment across conversations and coding sessions. |
 | D-015 | 2026-10-10 | Documentation visibility | Keep `docs/PROJECT_CONTEXT.md` and `docs/PROJECT_DECISIONS.md` in the public GitHub repository until the portfolio website is live; revisit their visibility after launch. | Accepted | Simplifies collaboration and version control during initial development; review whether planning documents should move to private storage after launch. |
+| D-016 | 2026-10-10 | Visual identity | Use a dark navy-to-blue gradient Home hero with prominent professional portrait and large typography; keep internal pages predominantly light (white or very light gray), with consistent blue accents. | Accepted | Executive, modern, minimalist, visual and data-driven presentation; selective photos, maps, charts and metrics. |
+| D-017 | 2026-10-10 | Home hero messaging | **Title:** “From Customer Needs to Business Value”. **Subtitle:** “Understanding customer challenges, shaping the right solutions and leading their delivery to create measurable value and lasting relationships.” | Accepted | Customer-centered message integrating commercial solution development, project delivery, measurable value and long-term relationships. English copy approved verbatim. |
 
 ## Key discussions
 
@@ -37,6 +39,14 @@
 The portfolio should communicate the intersection of **commercial leadership** and **project/program management**, grounded in engineering. **Data Science & Analytics** is an additional avenue for business results, supported by academic training and future technical work. The initial presentation should not overstate data science professional experience.
 
 ### Home page
+
+**Confirmed hero messaging (D-017):**
+
+> From Customer Needs to Business Value
+>
+> Understanding customer challenges, shaping the right solutions and leading their delivery to create measurable value and lasting relationships.
+
+**Confirmed visual identity (D-016):** Dark blue gradient and professional portrait on the Home; light internal pages. Portrait treatment should remain natural, with a navy jacket and a subtle smile.
 
 Proposed content blocks: professional introduction (possibly with portrait), key figures, expertise, performance/results charts, and featured projects. Examples and specific figures require validation prior to publication.
 
@@ -50,9 +60,10 @@ Proposed distinction: **Experience** explains career progression and responsibil
 2. Determine relative emphasis of Commercial Leadership vs Project & Program Management on the Home page.
 3. Decide how Data Science & Analytics appears in the initial release.
 4. Confirm language(s) and whether multilingual support is needed from the outset.
-5. Choose visual direction and photo/image policy.
+5. Finalize the hero photograph asset and image usage/permission policy (overall visual direction is accepted in D-016).
 6. Select first-release projects and approved metrics.
 7. Define how charts are produced and maintained.
+8. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
 
 ## Change management
 

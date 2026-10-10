@@ -30,24 +30,25 @@
 | D-014 | 2026-10-10 | Documentation | Maintain `docs/PROJECT_CONTEXT.md` and `docs/PROJECT_DECISIONS.md`. | Accepted | Preserve alignment across conversations and coding sessions. |
 | D-015 | 2026-10-10 | Documentation visibility | Keep `docs/PROJECT_CONTEXT.md` and `docs/PROJECT_DECISIONS.md` in the public GitHub repository until the portfolio website is live; revisit their visibility after launch. | Accepted | Simplifies collaboration and version control during initial development; review whether planning documents should move to private storage after launch. |
 | D-016 | 2026-10-10 | Visual identity | Use a dark navy-to-blue gradient Home hero with prominent professional portrait and large typography; keep internal pages predominantly light (white or very light gray), with consistent blue accents. | Accepted | Executive, modern, minimalist, visual and data-driven presentation; selective photos, maps, charts and metrics. |
-| D-017 | 2026-10-10 | Home hero messaging | **Title:** “From Customer Needs to Business Value”. **Subtitle:** “Understanding customer challenges, shaping the right solutions and leading their delivery to create measurable value and lasting relationships.” | Accepted | Customer-centered message integrating commercial solution development, project delivery, measurable value and long-term relationships. English copy approved verbatim. |
+| D-017 | 2026-10-10 | Home hero messaging | **Title:** “From customer needs to business value”. **Subtitle:** “Understanding customer challenges, shaping the right solutions and leading their delivery to create measurable value and lasting relationships.” | Accepted | Customer-centered message integrating commercial solution development, project delivery, measurable value and long-term relationships. Title capitalization revised to sentence case on 2026-10-10; subtitle unchanged. |
 | D-018 | 2026-10-10 | Home page structure | Five sections, in order: **Hero**, **Key Achievements**, **Areas of Expertise**, **Featured Work**, **Professional Journey**. | Accepted | Concise executive overview; dark hero followed by predominantly light sections. This does not yet confirm the separate five-page navigation proposal in D-008. |
 | D-019 | 2026-10-10 | Home key achievements & career insights | Feature **25+ Years** (Engineering, Business & Project Leadership), **7 Countries** (International Project Experience), **100+ Stakeholders** (Cross-Functional Engagement), and **6+ Industries** (Cross-Industry Experience). Explore separate charts for portfolio evolution, team leadership and stakeholder engagement (potential radar). | Accepted | Combine cumulative career measures with clearly identified examples of scale. Verify figures, scope, methodology and confidentiality before publication; 100+ stakeholders currently refers to ABB global projects, not a career-wide total. Chart formats and underlying data remain open. |
-| D-020 | 2026-10-10 | Home areas of expertise | Initially display only **Commercial Leadership** and **Project & Program Management**, as two equally prominent expertise areas. Defer **Data Science & Analytics** as a potential third Home area for later evaluation. | Accepted | Focus the Home on established professional strengths. Data science work may still appear as individual technical Portfolio projects as the site grows; reassess a third pillar once relevant projects and outcomes are demonstrated. |
-| D-021 | 2026-10-10 | Home expertise card copy | **Commercial Leadership** — “Turning Customer Challenges into Business Opportunities”. Description: “Building trusted customer relationships, identifying opportunities and developing tailored engineering solutions that drive business growth and deliver lasting value.” **Project & Program Management** — “Delivering Complex Projects. Creating Business Value.” Description: “Leading complex engineering projects and multidisciplinary teams, aligning stakeholders and managing risks to deliver reliable solutions, meet customer expectations and achieve business objectives.” | Accepted | Both headings and descriptions were explicitly approved; cards receive equal visual emphasis, side by side on desktop and stacked on mobile. |
+| D-020 | 2026-10-10 | Home areas of expertise | Initially display only **Project & Program Management** and **Commercial Leadership**, as two equally prominent expertise areas, in that order. Defer **Data Science & Analytics** as a potential third Home area for later evaluation. | Accepted | Focus the Home on established professional strengths. Data science work may still appear as individual technical Portfolio projects as the site grows; reassess a third pillar once relevant projects and outcomes are demonstrated. Order updated in D-023. |
+| D-021 | 2026-10-10 | Home expertise card copy | **Commercial Leadership** — “Turning Customer Challenges into Business Opportunities”. Description: “Building trusted customer relationships, identifying opportunities and developing tailored engineering solutions that drive business growth and deliver lasting value.” **Project & Program Management** — “Delivering Complex Projects. Creating Business Value.” Description: “Leading complex engineering projects and multidisciplinary teams, aligning stakeholders and managing risks to deliver reliable solutions, meet customer expectations and achieve business objectives.” | Accepted | Both headings and descriptions were explicitly approved; cards receive equal visual emphasis, side by side on desktop and stacked on mobile. Presentation order is defined by D-023. |
 | D-022 | 2026-10-10 | Implementation sequence | Start building the Astro site now, before selecting Featured Work case studies. Implement progressively: development environment, base layout/navigation, hero, Key Achievements, two expertise cards, responsiveness and initial deployment. Add Featured Work content later. | Accepted | User prefers seeing and refining the working site incrementally rather than completing all content planning first. |
+| D-023 | 2026-10-10 | Expertise pillar order | Present the two expertise pillars in this exact order: **1. Project & Program Management; 2. Commercial Leadership**. Apply consistently in the Hero eyebrow, Areas of Expertise cards, and future related sections, on desktop and mobile. | Accepted | Prioritize project/program leadership in the visual narrative while retaining equal prominence for commercial leadership. This refines D-020 without changing the two-pillar scope or approved card copy. |
 
 ## Key discussions
 
 ### Professional identity
 
-The portfolio should communicate the intersection of **commercial leadership** and **project/program management**, grounded in engineering. **Data Science & Analytics** is a future avenue supported by academic training and technical projects, but is **not** a Home expertise pillar in the initial release (D-020). Reconsider it later when demonstrable projects and results support the positioning.
+The portfolio should communicate the intersection of **project/program management** and **commercial leadership**, grounded in engineering. **Data Science & Analytics** is a future avenue supported by academic training and technical projects, but is **not** a Home expertise pillar in the initial release (D-020). Reconsider it later when demonstrable projects and results support the positioning.
 
 ### Home page
 
 **Confirmed hero messaging (D-017):**
 
-> From Customer Needs to Business Value
+> From customer needs to business value
 >
 > Understanding customer challenges, shaping the right solutions and leading their delivery to create measurable value and lasting relationships.
 
@@ -57,19 +58,19 @@ The portfolio should communicate the intersection of **commercial leadership** a
 
 **Confirmed Key Achievements (D-019):** 25+ Years; 7 Countries; 100+ Stakeholders; 6+ Industries. Labels and numerical scope must be validated before publishing. In particular, the 100+ stakeholder figure is associated with ABB projects, not the whole career.
 
-**Confirmed Home expertise (D-020):** Commercial Leadership and Project & Program Management only. Data Science & Analytics is deferred for later evaluation; it can still be included in technical Portfolio work.
+**Confirmed Home expertise (D-020, D-023):** First **Project & Program Management**, then **Commercial Leadership**. These are the only two initial Home pillars. Data Science & Analytics is deferred for later evaluation; it can still be included in technical Portfolio work.
 
-**Approved expertise card copy (D-021):**
-
-**Commercial Leadership** — *Turning Customer Challenges into Business Opportunities*
-
-> Building trusted customer relationships, identifying opportunities and developing tailored engineering solutions that drive business growth and deliver lasting value.
+**Approved expertise card copy (D-021), in presentation order:**
 
 **Project & Program Management** — *Delivering Complex Projects. Creating Business Value.*
 
 > Leading complex engineering projects and multidisciplinary teams, aligning stakeholders and managing risks to deliver reliable solutions, meet customer expectations and achieve business objectives.
 
-**Implementation approach (D-022):** Begin developing the site with Astro before finalizing Featured Work. Build and review one section at a time. Node.js/npm installation was initiated; verify installation before scaffolding Astro.
+**Commercial Leadership** — *Turning Customer Challenges into Business Opportunities*
+
+> Building trusted customer relationships, identifying opportunities and developing tailored engineering solutions that drive business growth and deliver lasting value.
+
+**Implementation approach (D-022):** Begin developing the site with Astro before finalizing Featured Work. Build and review one section at a time. The Astro development environment is now operational; Header and Hero have been separated into components, with shared styles in `src/styles/global.css`. Next: extract Expertise and implement BaseLayout.
 
 **Career Insights to investigate:** a portfolio-value evolution chart (using comparable, clearly defined measures), a team-leadership evolution chart (distinguishing direct/indirect management from stakeholder coordination), and a stakeholder engagement radar chart (dimensions and defensible scoring methodology still to be defined). Industry coverage may be shown visually with sector icons. Verify accuracy and confidentiality before publication.
 

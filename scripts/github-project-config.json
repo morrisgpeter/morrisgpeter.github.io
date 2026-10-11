@@ -1,0 +1,53 @@
+{
+  "project": {
+    "owner": "morrisgpeter",
+    "number": 3,
+    "id": "PVT_kwHOBB0qac4BmhFv",
+    "repository": "morrisgpeter/morrisgpeter.github.io"
+  },
+  "fields": {
+    "status": {
+      "id": "PVTSSF_lAHOBB0qac4BmhFvzhlJzbw",
+      "options": {
+        "Todo": "f75ad846",
+        "In progress": "47fc9ee4",
+        "In review": "0359c25b",
+        "Done": "98236657"
+      }
+    },
+    "priority": {
+      "id": "PVTSSF_lAHOBB0qac4BmhFvzhlJ0cA",
+      "options": {
+        "P0 — Critical": "48d67bb4",
+        "P1 — High": "d276b1b6",
+        "P2 — Medium": "e90f38cb",
+        "P3 — Low": "4d9e48c6"
+      }
+    },
+    "phase": {
+      "id": "PVTSSF_lAHOBB0qac4BmhFvzhlJ4CA",
+      "options": {
+        "Foundation": "bc1b8411",
+        "Presentation": "3531bdb2",
+        "Evidence": "202719f7",
+        "Quality": "dc5fe4f6"
+      }
+    },
+    "size": {
+      "id": "PVTSSF_lAHOBB0qac4BmhFvzhlJ0cE",
+      "options": {
+        "XS": "403ecd58",
+        "S": "a173ab50",
+        "M": "f98f0713",
+        "L": "341df02f",
+        "XL": "130dd0ca"
+      }
+    },
+    "start_date": {
+      "id": "PVTF_lAHOBB0qac4BmhFvzhlJ0cQ"
+    },
+    "target_date": {
+      "id": "PVTF_lAHOBB0qac4BmhFvzhlJ0cU"
+    }
+  }
+}

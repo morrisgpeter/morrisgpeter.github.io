@@ -1,0 +1,85 @@
+---
+const achievements = [
+  {
+    value: "25+ Years",
+    description: "Engineering & Business Leadership",
+    icon: "leadership",
+  },
+  {
+    value: "11 Projects · 7 Countries",
+    description: "Global Critical Power & Data Center Delivery",
+    icon: "globe",
+  },
+  {
+    value: "100+ Stakeholders",
+    description: "Coordinated Across Global Projects",
+    icon: "stakeholders",
+  },
+  {
+    value: "6 Industries",
+    description: "Cross-Industry Experience",
+    icon: "industry",
+  },
+];
+---
+
+<section class="achievements" aria-labelledby="achievements-title">
+  <div class="container">
+    <div class="section-accent" aria-hidden="true"></div>
+    <h2 id="achievements-title">Key Achievements</h2>
+    <p class="section-intro">A track record of leadership, global delivery and cross-industry experience.</p>
+
+    <div class="achievements-grid">
+      {achievements.map((item) => (
+        <article class="achievement">
+          <div class="achievement-icon" aria-hidden="true">
+            {item.icon === "leadership" && (
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="13" r="6"/><path d="M13 37v-5a11 11 0 0 1 22 0v5M10 17a5 5 0 1 0-3 9M38 17a5 5 0 1 1 3 9M4 38v-5a8 8 0 0 1 7-8M44 38v-5a8 8 0 0 0-7-8"/></svg>
+            )}
+            {item.icon === "globe" && (
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="19"/><path d="M5 24h38M24 5c-7 7-10 13-10 19s3 12 10 19M24 5c7 7 10 13 10 19s-3 12-10 19M9 13h30M9 35h30"/></svg>
+            )}
+            {item.icon === "stakeholders" && (
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="12" r="6"/><path d="M12 38v-5a12 12 0 0 1 24 0v5H12ZM8 15a5 5 0 1 0 0 10M40 15a5 5 0 1 1 0 10M4 38v-5a7 7 0 0 1 6-7M44 38v-5a7 7 0 0 0-6-7"/></svg>
+            )}
+            {item.icon === "industry" && (
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 42V23l12 7v-9l12 8V12h10v30H5ZM29 12V5h10v7M11 35h3M21 35h3M32 35h3"/></svg>
+            )}
+          </div>
+          <h3>{item.value}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .achievements { padding: 74px 0 82px; background: #fff; }
+  .section-accent { width: 48px; height: 3px; background: #1764ae; margin-bottom: 14px; }
+  .achievements h2 { font-size: clamp(28px, 3vw, 36px); margin: 0 0 10px; color: #102a4c; }
+  .section-intro { color: #526477; font-size: 17px; line-height: 1.6; margin: 0 0 38px; }
+  .achievements-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .achievement { text-align: center; padding: 4px 22px; min-width: 0; }
+  .achievement + .achievement { border-left: 1px solid #dce5ee; }
+  .achievement-icon { color: #1764ae; height: 46px; margin-bottom: 14px; display: flex; justify-content: center; }
+  .achievement-icon svg { width: 46px; height: 46px; }
+  .achievement h3 { color: #102a4c; font-size: clamp(19px, 1.8vw, 25px); line-height: 1.25; margin: 0 0 9px; }
+  .achievement p { color: #526477; font-size: 16px; line-height: 1.5; margin: 0; }
+  @media (max-width: 900px) {
+    .achievements-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 30px; }
+    .achievement:nth-child(3) { border-left: 0; }
+    .achievement:nth-child(n+3) { border-top: 1px solid #dce5ee; padding-top: 30px; }
+  }
+  @media (max-width: 480px) {
+    .achievements { padding: 55px 0 60px; }
+    .section-intro { font-size: 15px; margin-bottom: 26px; }
+    .achievements-grid { gap: 12px; }
+    .achievement { padding: 22px 10px; border: 1px solid #e5ecf3 !important; border-radius: 9px; box-shadow: 0 3px 12px rgba(7, 26, 51, .04); }
+    .achievement:nth-child(n+3) { padding-top: 22px; }
+    .achievement-icon { height: 35px; margin-bottom: 12px; }
+    .achievement-icon svg { width: 35px; height: 35px; }
+    .achievement h3 { font-size: clamp(15px, 3.8vw, 19px); }
+    .achievement p { font-size: 13px; }
+  }
+</style>

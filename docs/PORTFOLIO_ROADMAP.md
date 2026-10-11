@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-10  
+**Updated:** 2026-10-11  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -42,7 +42,7 @@
 | Order | Section | Purpose | Status |
 | --- | --- | --- | --- |
 | 1 | Hero | Professional introduction and positioning | ✅ Implemented |
-| 2 | Key Achievements | Selected career and project metrics | ⬜ Pending |
+| 2 | Key Achievements | Selected career and project metrics | 🟡 Implemented locally; publication pending |
 | 3 | Areas of Expertise | Two primary areas | ✅ Implemented |
 | 4 | Featured Work | Selected projects | ⬜ Pending |
 | 5 | Professional Journey | Career overview | ⬜ Pending |
@@ -59,21 +59,23 @@
 
 **Visual direction:** Dark navy/blue gradient, prominent professional portrait, large typography. Revisit fine details after completing the remaining sections.
 
-### 2.2 Key Achievements — next task
+### 2.2 Key Achievements — implemented locally, publication pending
 
 | Metric | Label |
 | --- | --- |
-| **25+ Years** | Engineering, Business & Project Leadership |
-| **7 Countries** | International Project Experience |
-| **100+ Stakeholders** | Cross-Functional Engagement |
-| **6+ Industries** | Cross-Industry Experience |
+| **25+ Years** | Engineering & Business Leadership |
+| **11 Projects · 7 Countries** | Global Critical Power & Data Center Delivery |
+| **100+ Stakeholders** | Coordinated Across Global Projects |
+| **6 Industries** | Cross-Industry Experience |
 
-- [ ] Validate definitions, numerical scope, and permission to publish.
-- [ ] Define the visual presentation.
-- [ ] Implement `Achievements.astro`.
-- [ ] Test desktop and mobile layouts.
+- [x] Agree final wording and clarify metric scope (D-028).
+- [x] Approve visual presentation (D-029).
+- [x] Implement `Achievements.astro` and integrate it between Hero and Areas of Expertise.
+- [x] Review desktop and 375px mobile layouts; confirm no horizontal overflow at 375px.
+- [ ] Commit and push the implementation and documentation; verify GitHub Actions deployment.
+- [ ] Recheck underlying evidence and publication/confidentiality permissions as part of final release review.
 
-**Note:** The 100+ stakeholders figure relates to ABB global projects; do not imply it is a career-wide total without supporting evidence.
+**Scope:** 11 projects, seven project-delivery countries and 100+ stakeholders refer to ABB global project work. Seven countries does not mean seven countries of in-person work (three: Brazil, New Zealand, Czech Republic). The six industries are Data Centers & Critical Power, Electric Utilities, Oil & Gas, Telecommunications, Mining, and Pulp & Paper.
 
 ### 2.3 Areas of Expertise — implemented
 
@@ -233,13 +235,13 @@ Navigation, responsiveness, accessibility, and content verification should also 
 
 ## Immediate next action
 
-**Stage 2.2 — Key Achievements**
+**Stage 2.2 — Publish Key Achievements**
 
-1. Confirm the scope and wording of the four approved indicators.
-2. Choose a layout consistent with the Home design.
-3. Implement `Achievements.astro` in VS Code.
-4. Test locally on desktop and mobile.
-5. Commit and publish through the existing GitHub Actions workflow.
+1. Copy updated decision log and roadmap into `docs/`.
+2. Check `git status` and review the diff.
+3. Commit and push the implementation and documentation to `main`.
+4. Verify the GitHub Actions deployment and live Home.
+5. Continue with Stage 2.4 — Featured Work (Stage 2.3 Areas of Expertise is already implemented).
 
 ---
 

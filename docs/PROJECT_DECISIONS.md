@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-10
+**Last updated:** 2026-10-11
 
 ## Status legend
 
@@ -42,6 +42,8 @@
 | D-025 | 2026-10-10 | Automated workflow | Keep `.github/workflows/deploy.yml`; trigger on pushes to `main` and allow manual dispatch; use Node.js 22, `npm ci`, `npm run build`, upload `dist/`, then deploy to GitHub Pages. | Accepted | Reproducible builds and automatic publication without committing generated `dist/`. |
 | D-026 | 2026-10-10 | Astro production URL | Configure `site: 'https://morrisgpeter.github.io'` in `astro.config.mjs`, with no `base` path. | Accepted | User-site repository is served from the domain root. |
 | D-027 | 2026-10-10 | First production deployment | First custom Astro GitHub Actions deployment completed successfully on `main`, commit `b99b5ca`; live Home visually verified at `https://morrisgpeter.github.io/`. | Accepted | Confirms operational publishing pipeline and rendered Home. |
+| D-028 | 2026-10-11 | Key Achievements final copy | Four Home metrics in order: **25+ Years** — Engineering & Business Leadership; **11 Projects · 7 Countries** — Global Critical Power & Data Center Delivery; **100+ Stakeholders** — Coordinated Across Global Projects; **6 Industries** — Cross-Industry Experience. | Accepted | Refines D-019, which remains as the historical initial proposal. 11 projects, seven project-delivery countries and 100+ stakeholders relate to ABB global projects; three countries of in-person work are Brazil, New Zealand and Czech Republic. Six industries: Data Centers & Critical Power, Electric Utilities, Oil & Gas, Telecommunications, Mining, Pulp & Paper. Verify public claims and confidentiality in final release review. |
+| D-029 | 2026-10-11 | Key Achievements layout | Light-background section directly after Hero; four columns with subtle dividers on desktop, two-column grid/cards on smaller screens; blue icons, navy metrics and smaller supporting text. | Accepted | `Achievements.astro` implemented and visually reviewed on desktop and at 375px mobile viewport; measured viewport/document/body widths all 375px, indicating no horizontal overflow at that width. Pending commit and GitHub publication. |
 
 ## Key discussions
 
@@ -61,7 +63,7 @@ The portfolio should communicate the intersection of **project/program managemen
 
 **Confirmed Home structure (D-018):** Hero → Key Achievements → Areas of Expertise → Featured Work → Professional Journey.
 
-**Confirmed Key Achievements (D-019):** 25+ Years; 7 Countries; 100+ Stakeholders; 6+ Industries. Labels and numerical scope must be validated before publishing. In particular, the 100+ stakeholder figure is associated with ABB projects, not the whole career.
+**Confirmed Key Achievements (D-028, refining D-019):** **25+ Years** — Engineering & Business Leadership; **11 Projects · 7 Countries** — Global Critical Power & Data Center Delivery; **100+ Stakeholders** — Coordinated Across Global Projects; **6 Industries** — Cross-Industry Experience. The 11 projects, seven countries and 100+ stakeholders refer to ABB global project work, not necessarily career-wide totals. Physical work took place in Brazil, New Zealand and Czech Republic; this is distinct from the seven countries of project delivery. Publication claims and confidentiality remain subject to final review. Layout accepted in D-029.
 
 **Confirmed Home expertise (D-020, D-023):** First **Project & Program Management**, then **Commercial Leadership**. These are the only two initial Home pillars. Data Science & Analytics is deferred for later evaluation; it can still be included in technical Portfolio work.
 
@@ -75,7 +77,7 @@ The portfolio should communicate the intersection of **project/program managemen
 
 > Building trusted customer relationships, identifying opportunities and developing tailored engineering solutions that drive business growth and deliver lasting value.
 
-**Implementation approach (D-022):** Begin developing the site with Astro before finalizing Featured Work. Build and review one section at a time. The Astro development environment is now operational; Header and Hero have been separated into components, with shared styles in `src/styles/global.css`. Expertise and BaseLayout are now implemented. The first Astro production deployment succeeded on 2026-10-10 (D-027).
+**Implementation approach (D-022):** Begin developing the site with Astro before finalizing Featured Work. Build and review one section at a time. The Astro development environment is now operational; Header and Hero have been separated into components, with shared styles in `src/styles/global.css`. Expertise and BaseLayout are now implemented. Key Achievements is implemented and locally reviewed (D-028–D-029), awaiting publication. The first Astro production deployment succeeded on 2026-10-10 (D-027).
 
 **Career Insights to investigate:** a portfolio-value evolution chart (using comparable, clearly defined measures), a team-leadership evolution chart (distinguishing direct/indirect management from stakeholder coordination), and a stakeholder engagement radar chart (dimensions and defensible scoring methodology still to be defined). Industry coverage may be shown visually with sector icons. Verify accuracy and confidentiality before publication.
 
@@ -96,7 +98,7 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 3. Reevaluate Data Science & Analytics as a possible third Home expertise area in a later release; individual technical Portfolio projects remain possible.
 4. Confirm language(s) and whether multilingual support is needed from the outset.
 5. Confirm the final hero photograph asset and image usage/permission policy (overall visual direction is accepted in D-016).
-6. Validate Key Achievements (25+ Years, 7 Countries, 100+ Stakeholders, 6+ Industries), including source, scope, and confidentiality; select first-release projects later, after the initial Home is implemented.
+6. Recheck Key Achievements evidence, precise scope and confidentiality before version 1.0; approved copy and layout are documented in D-028 and D-029. Select first-release projects separately.
 7. Define comparable data and formats for portfolio evolution, team leadership, and stakeholder radar charts; distinguish team management from stakeholder coordination.
 8. Review public visibility of the `docs/` planning files now that the site is live (D-015).
 9. Make the local Node.js/npm PATH persistent in the macOS VS Code Bash environment.

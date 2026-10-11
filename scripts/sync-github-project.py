@@ -6,6 +6,7 @@ project membership/fields for managed issues. Existing issue content and
 execution status are never overwritten.
 """
 import argparse
+from datetime import date
 import json
 import re
 import subprocess
@@ -14,7 +15,10 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 MARKER_RE = re.compile(r"<!--\s*Portfolio Sync Key:\s*([a-zA-Z0-9_-]+)\s*-->")
-FIELDS = ("priority", "phase", "status")
+SELECT_FIELDS = ("priority", "phase", "size")
+DATE_FIELDS = ("start_date", "target_date")
+REMOTE_FIELD_NAMES = {"start_date": "start date", "target_date": "target date"}
+FIELDS = SELECT_FIELDS + DATE_FIELDS + ("status",)
 
 
 def gh(*args, parse_json=True):
@@ -85,10 +89,18 @@ def validate(plan, config, issues):
                 raise ValueError(f"Key {key} points to a different issue")
         if item.get("managed") is False and number is None:
             raise ValueError(f"Unmanaged issue {key} must have a number")
+        for field in SELECT_FIELDS + ("status",):
+            if field in item and item[field] not in config["fields"][field]["options"]:
+                raise ValueError(f"Invalid {field} for {key}: {item[field]}")
+        for field in DATE_FIELDS:
+            if field in item:
+                try:
+                    date.fromisoformat(item[field])
+                except (TypeError, ValueError) as exc:
+                    raise ValueError(f"Invalid {field} for {key}: {item[field]}") from exc
+        if all(f in item for f in DATE_FIELDS) and item["start_date"] > item["target_date"]:
+            raise ValueError(f"Start date after target date for {key}")
         if item.get("managed") is not False:
-            for field in FIELDS:
-                if field in item and item[field] not in config["fields"][field]["options"]:
-                    raise ValueError(f"Invalid {field} for {key}: {item[field]}")
             if number is None and key not in remote_keys:
                 matches = [i for i in issues if i["title"] == title]
                 if matches:
@@ -113,12 +125,10 @@ def plan_actions(plan, config, issues, items, remote_keys, by_number):
             actions.append(("ADD_PROJECT", entry, issue, None))
             continue
         changes = []
-        for field in FIELDS:
-            if field == "status":
-                # Status reflects actual work and must never be overwritten.
-                continue
+        for field in SELECT_FIELDS + DATE_FIELDS:
             expected = entry.get(field)
-            if expected is not None and project_item.get(field) != expected:
+            remote_name = REMOTE_FIELD_NAMES.get(field, field)
+            if expected is not None and project_item.get(remote_name) != expected:
                 changes.append(field)
         if changes:
             actions.append(("SET_FIELDS", entry, issue, changes))
@@ -134,8 +144,13 @@ def add_to_project(issue_url, config):
 
 def set_field(item_id, field, value, config):
     p, spec = config["project"], config["fields"][field]
-    gh("project", "item-edit", "--id", item_id, "--project-id", p["id"],
-       "--field-id", spec["id"], "--single-select-option-id", spec["options"][value], parse_json=False)
+    command = ["project", "item-edit", "--id", item_id,
+               "--project-id", p["id"], "--field-id", spec["id"]]
+    if field in DATE_FIELDS:
+        command.extend(["--date", value])
+    else:
+        command.extend(["--single-select-option-id", spec["options"][value]])
+    gh(*command, parse_json=False)
 
 
 def apply(plan, config, actions):
@@ -156,7 +171,7 @@ def apply(plan, config, actions):
         elif kind == "ADD_PROJECT":
             item_id = add_to_project(issue["url"], config)
             print(f"  Added #{issue['number']} to project: {item_id}", flush=True)
-            for field in ("priority", "phase"):
+            for field in SELECT_FIELDS + DATE_FIELDS:
                 if field in entry:
                     set_field(item_id, field, entry[field], config)
             # Do not overwrite Status of an existing issue.
@@ -189,6 +204,7 @@ def main():
         print(f"[{kind}]{suffix} {entry['title']}{detail}")
     print("=" * 65)
     print(f"Planned: {len(actions)} | Create: {sum(a[0] == 'CREATE' for a in actions)} | Existing project items: {len(items)}")
+    print("Protected issues (managed: false) are not changed, including #3 and #4.")
     if not args.apply:
         print("No changes made. Run --apply only after reviewing this plan.")
         return

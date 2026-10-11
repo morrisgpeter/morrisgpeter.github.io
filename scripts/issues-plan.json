@@ -1,6 +1,6 @@
 {
   "project": "Professional Portfolio Website",
-  "version": "1.0",
+  "version": "1.1",
   "repository": "morrisgpeter/morrisgpeter.github.io",
   "sync_policy": {
     "create_missing": true,
@@ -16,7 +16,9 @@
       "title": "Development Environment & Publication",
       "phase": "Foundation",
       "priority": "P0 — Critical",
-      "managed": false
+      "managed": false,
+      "start_date": "2026-10-10",
+      "target_date": "2026-10-10"
     },
     {
       "key": "home-page",
@@ -24,7 +26,10 @@
       "title": "Complete the Home Page",
       "phase": "Presentation",
       "priority": "P1 — High",
-      "managed": false
+      "managed": false,
+      "size": "L",
+      "start_date": "2026-10-10",
+      "target_date": "2026-10-25"
     },
     {
       "key": "about-page",
@@ -32,7 +37,10 @@
       "phase": "Presentation",
       "priority": "P1 — High",
       "status": "Todo",
-      "body": "## Objective\nPresent my professional background, leadership approach and career journey.\n\n## Scope\n- Professional introduction\n- Career narrative\n- Leadership philosophy\n- International experience\n\n## Acceptance Criteria\n- Content reviewed and approved\n- Responsive layout\n- Consistent visual identity\n- Navigation working correctly"
+      "body": "## Objective\nPresent my professional background, leadership approach and career journey.\n\n## Scope\n- Professional introduction\n- Career narrative\n- Leadership philosophy\n- International experience\n\n## Acceptance Criteria\n- Content reviewed and approved\n- Responsive layout\n- Consistent visual identity\n- Navigation working correctly",
+      "size": "M",
+      "start_date": "2026-10-26",
+      "target_date": "2026-11-01"
     },
     {
       "key": "professional-experience",
@@ -40,7 +48,10 @@
       "phase": "Evidence",
       "priority": "P1 — High",
       "status": "Todo",
-      "body": "## Objective\nPresent professional experience with emphasis on responsibilities, achievements and business impact.\n\n## Scope\n- ABB\n- Fibra Engenharia\n- Aton Engenharia\n- Telenge Telecomunicacoes\n\n## Acceptance Criteria\n- Career information validated\n- Key achievements presented\n- Responsive layout\n- Consistent visual identity"
+      "body": "## Objective\nPresent professional experience with emphasis on responsibilities, achievements and business impact.\n\n## Scope\n- ABB\n- Fibra Engenharia\n- Aton Engenharia\n- Telenge Telecomunicacoes\n\n## Acceptance Criteria\n- Career information validated\n- Key achievements presented\n- Responsive layout\n- Consistent visual identity",
+      "size": "M",
+      "start_date": "2026-11-02",
+      "target_date": "2026-11-08"
     },
     {
       "key": "project-portfolio",
@@ -48,7 +59,10 @@
       "phase": "Evidence",
       "priority": "P1 — High",
       "status": "Todo",
-      "body": "## Objective\nDemonstrate project and program management capabilities through selected professional case studies.\n\n## Scope\n- Critical Power and Data Centers\n- Utilities and Automation\n- Telecommunications Infrastructure\n- Industrial Solutions\n\n## Acceptance Criteria\n- Selected case studies documented\n- Results and responsibilities clearly presented\n- Appropriate visuals included\n- Confidential information protected"
+      "body": "## Objective\nDemonstrate project and program management capabilities through selected professional case studies.\n\n## Scope\n- Critical Power and Data Centers\n- Utilities and Automation\n- Telecommunications Infrastructure\n- Industrial Solutions\n\n## Acceptance Criteria\n- Selected case studies documented\n- Results and responsibilities clearly presented\n- Appropriate visuals included\n- Confidential information protected",
+      "size": "XL",
+      "start_date": "2026-11-09",
+      "target_date": "2026-11-22"
     },
     {
       "key": "certifications-education",
@@ -56,7 +70,10 @@
       "phase": "Evidence",
       "priority": "P2 — Medium",
       "status": "Todo",
-      "body": "## Objective\nPresent academic qualifications, professional certifications and continuous learning.\n\n## Scope\n- Academic education\n- Professional certifications\n- Relevant training\n\n## Acceptance Criteria\n- Information validated\n- Clear organization\n- Responsive layout"
+      "body": "## Objective\nPresent academic qualifications, professional certifications and continuous learning.\n\n## Scope\n- Academic education\n- Professional certifications\n- Relevant training\n\n## Acceptance Criteria\n- Information validated\n- Clear organization\n- Responsive layout",
+      "size": "S",
+      "start_date": "2026-11-23",
+      "target_date": "2026-11-26"
     },
     {
       "key": "contact-page",
@@ -64,7 +81,10 @@
       "phase": "Presentation",
       "priority": "P2 — Medium",
       "status": "Todo",
-      "body": "## Objective\nProvide clear and professional ways to establish contact.\n\n## Scope\n- Professional contact information\n- LinkedIn\n- GitHub\n- Contact navigation\n\n## Acceptance Criteria\n- Links tested\n- Contact information reviewed\n- Responsive layout"
+      "body": "## Objective\nProvide clear and professional ways to establish contact.\n\n## Scope\n- Professional contact information\n- LinkedIn\n- GitHub\n- Contact navigation\n\n## Acceptance Criteria\n- Links tested\n- Contact information reviewed\n- Responsive layout",
+      "size": "S",
+      "start_date": "2026-11-27",
+      "target_date": "2026-11-29"
     },
     {
       "key": "responsive-accessibility",
@@ -72,7 +92,10 @@
       "phase": "Quality",
       "priority": "P1 — High",
       "status": "Todo",
-      "body": "## Objective\nEnsure the website provides a consistent and accessible experience across devices.\n\n## Scope\n- Desktop layouts\n- Tablet layouts\n- Mobile layouts\n- Keyboard navigation\n- Accessibility checks\n\n## Acceptance Criteria\n- Responsive layouts verified\n- Navigation tested\n- Accessibility issues reviewed"
+      "body": "## Objective\nEnsure the website provides a consistent and accessible experience across devices.\n\n## Scope\n- Desktop layouts\n- Tablet layouts\n- Mobile layouts\n- Keyboard navigation\n- Accessibility checks\n\n## Acceptance Criteria\n- Responsive layouts verified\n- Navigation tested\n- Accessibility issues reviewed",
+      "size": "M",
+      "start_date": "2026-11-30",
+      "target_date": "2026-12-06"
     },
     {
       "key": "seo-performance",
@@ -80,7 +103,10 @@
       "phase": "Quality",
       "priority": "P2 — Medium",
       "status": "Todo",
-      "body": "## Objective\nImprove website discoverability, loading performance and technical quality.\n\n## Scope\n- Page metadata\n- Semantic HTML\n- Image optimization\n- Performance testing\n\n## Acceptance Criteria\n- Metadata implemented\n- Images optimized\n- Performance reviewed"
+      "body": "## Objective\nImprove website discoverability, loading performance and technical quality.\n\n## Scope\n- Page metadata\n- Semantic HTML\n- Image optimization\n- Performance testing\n\n## Acceptance Criteria\n- Metadata implemented\n- Images optimized\n- Performance reviewed",
+      "size": "S",
+      "start_date": "2026-12-07",
+      "target_date": "2026-12-10"
     },
     {
       "key": "final-review",
@@ -88,7 +114,10 @@
       "phase": "Quality",
       "priority": "P1 — High",
       "status": "Todo",
-      "body": "## Objective\nComplete the final review and release of the professional portfolio.\n\n## Scope\n- Content review\n- Navigation testing\n- Cross-device verification\n- Production deployment\n\n## Acceptance Criteria\n- All required pages completed\n- Critical issues resolved\n- Production website verified"
+      "body": "## Objective\nComplete the final review and release of the professional portfolio.\n\n## Scope\n- Content review\n- Navigation testing\n- Cross-device verification\n- Production deployment\n\n## Acceptance Criteria\n- All required pages completed\n- Critical issues resolved\n- Production website verified",
+      "size": "S",
+      "start_date": "2026-12-11",
+      "target_date": "2026-12-13"
     }
   ]
 }

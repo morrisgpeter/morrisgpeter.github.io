@@ -13,6 +13,7 @@
 | --- | --- | --- |
 | 1 | Development environment and publication | ✅ Complete |
 | 2 | Complete the Home page | 🟡 In progress |
+| 2a | Certifications & Education (GitHub Issues #33–#35) | 🟡 Implemented and validated locally; publication pending |
 | 3 | Build About | ⬜ Pending |
 | 4 | Build Experience | ⬜ Pending |
 | 5 | Develop Portfolio | ⬜ Pending |
@@ -109,6 +110,29 @@ Candidate projects **for evaluation**, not yet selected for publication:
 - [ ] Keep it distinct from the detailed Experience page.
 
 **Stage deliverable:** Complete, responsive Home page.
+
+
+## 2a. Certifications & Education — local implementation complete; publication pending
+
+**Goal:** Present key professional certifications, academic education, and ongoing professional development in a concise, verifiable format. This dedicated page is implemented at `/certifications-education` and is distinct from the still-pending About page.
+
+**Approved content and design (D-030–D-035):**
+
+- **Professional Certifications:** PMP® (PMI, April 2025–April 2028) and PSM I (Scrum.org, November 2025), each with its original badge and tested Credly verification link.
+- **Academic Education:** UFBA Data Science & Big Data (2021–2023), IME Digital Signal Processing (1995–1996), and UFBA Electrical Engineering (1989–1993), with institutional coats of arms.
+- **Continuous Professional Development:** **15 Professional Development Credentials** (excluding PMP and PSM I), covering Leadership · Project Management · Agile · AI · Sustainability · Business Transformation. No hours metric and no individual listing of the 15 badges.
+- **Presentation:** Compact light-background desktop layout; responsive single-column mobile cards. Desktop and mobile screenshots reviewed.
+
+**GitHub Issues:**
+
+- [x] **#33 — Validate Education & Certifications:** content, badges, institutional images, metric, and direct Credly URLs agreed.
+- [x] **#34 — Implement Certifications & Education Page:** page and assets added locally; desktop and mobile visually reviewed; `npm run build` succeeded on 2026-10-11, generating two static routes.
+- [x] **#35 — Review Credentials & Links:** user tested both Credly links successfully; local page reviewed.
+- [ ] Commit and push page, image assets, and documentation to `main`.
+- [ ] Verify GitHub Actions deployment and the live page after push.
+- [ ] Consider linking the page in site navigation during the wider navigation review; no navigation change has yet been approved.
+
+**Result so far:** Ready for publication; not yet confirmed live. Issue checklists describe completed local work, not GitHub issue closure.
 
 ## 3. About — pending
 
@@ -235,13 +259,14 @@ Navigation, responsiveness, accessibility, and content verification should also 
 
 ## Immediate next action
 
-**Stage 2.2 — Publish Key Achievements**
+**Publish Certifications & Education (Issues #33–#35)**
 
-1. Copy updated decision log and roadmap into `docs/`.
-2. Check `git status` and review the diff.
-3. Commit and push the implementation and documentation to `main`.
-4. Verify the GitHub Actions deployment and live Home.
-5. Continue with Stage 2.4 — Featured Work (Stage 2.3 Areas of Expertise is already implemented).
+1. Replace `docs/PROJECT_DECISIONS.md` and `docs/PORTFOLIO_ROADMAP.md` with the updated versions.
+2. Run `git status` and review `git diff` (including any unrelated untracked files).
+3. Stage only the new page, its four image assets, and the two documentation files; commit and push to `main`.
+4. Verify GitHub Actions deployment and the live `/certifications-education` page.
+5. Confirm whether the earlier Key Achievements publication checklist is now complete; update its pending status only after checking.
+6. Continue with the next prioritized GitHub Project issue; Featured Work remains pending.
 
 ---
 

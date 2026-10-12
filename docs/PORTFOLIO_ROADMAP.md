@@ -13,7 +13,7 @@
 | --- | --- | --- |
 | 1 | Development environment and publication | ✅ Complete |
 | 2 | Complete the Home page | 🟡 In progress |
-| 2a | Certifications & Education (GitHub Issues #33–#35) | 🟡 Implemented and validated locally; publication pending |
+| 2a | Certifications & Education (GitHub Issues #33–#35) | ✅ v6 published and visually verified on GitHub Pages (2026-10-12) |
 | 3 | Build About | ⬜ Pending |
 | 4 | Build Experience | ⬜ Pending |
 | 5 | Develop Portfolio | ⬜ Pending |
@@ -112,7 +112,7 @@ Candidate projects **for evaluation**, not yet selected for publication:
 **Stage deliverable:** Complete, responsive Home page.
 
 
-## 2a. Certifications & Education — local implementation complete; publication pending
+## 2a. Certifications & Education — v6 published (2026-10-12)
 
 **Goal:** Present key professional certifications, academic education, and ongoing professional development in a concise, verifiable format. This dedicated page is implemented at `/certifications-education` and is distinct from the still-pending About page.
 
@@ -130,11 +130,11 @@ Candidate projects **for evaluation**, not yet selected for publication:
 - [x] **#33 — Validate Education & Certifications:** content, badges, institutional images, metric, and direct Credly URLs agreed.
 - [x] **#34 — Implement Certifications & Education Page:** page and assets added locally; desktop and mobile visually reviewed; `npm run build` succeeded again on 2026-10-12 for v6, generating two static routes.
 - [x] **#35 — Review Credentials & Links:** user tested both Credly links successfully; local page reviewed.
-- [ ] Commit and push page, image assets, and documentation to `main`.
-- [ ] Verify GitHub Actions deployment and the live page after push.
+- [x] Commit and push v6 page changes and documentation to `main` (publication confirmed on public site).
+- [x] Verify the v6 page on the public GitHub Pages website (Safari screenshot, 2026-10-12).
 - [ ] Consider linking the page in site navigation during the wider navigation review; no navigation change has yet been approved.
 
-**Result so far:** v6 visually approved and locally built; publication not yet confirmed. Issue checklists describe completed local work, not GitHub issue closure.
+**Result:** v6 built successfully, approved on desktop and 375px mobile, and visually confirmed on the public GitHub Pages site on 2026-10-12. This confirms the live page, not a separate audit of the GitHub Actions run or issue status. GitHub issue closure is tracked separately.
 
 **Deferred enhancements (future release):**
 
@@ -266,14 +266,13 @@ Navigation, responsiveness, accessibility, and content verification should also 
 
 ## Immediate next action
 
-**Publish Certifications & Education v6 (Issues #33–#35)**
+**Continue portfolio development after the published Certifications & Education v6 milestone.**
 
-1. Replace `docs/PROJECT_DECISIONS.md` and `docs/PORTFOLIO_ROADMAP.md` with the updated versions.
-2. Run `git status` and review `git diff` (including any unrelated untracked files).
-3. Stage only the new page, its four image assets, and the two documentation files; commit and push to `main`.
-4. Verify GitHub Actions deployment and the live `/certifications-education` page.
-5. Confirm whether the earlier Key Achievements publication checklist is now complete; update its pending status only after checking.
-6. Continue with the next prioritized GitHub Project issue; Featured Work remains pending.
+1. Confirm whether the earlier Home Key Achievements publication checklist is complete; update its status only after checking.
+2. Review the GitHub Project board and confirm the status of Issues #13 and #33–#35; do not infer issue closure from site publication.
+3. Continue with the next prioritized portfolio task; Featured Work remains pending.
+4. During a future refinement of Certifications & Education, evaluate the deferred landscape image (mountains and winding road) and select a new introductory quotation. Neither is part of v6.
+5. Consider a navigation link to Certifications & Education in the wider navigation review; no change has yet been approved.
 
 ---
 

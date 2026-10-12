@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-10
+**Last updated:** 2026-10-12
 
 ## Purpose
 
@@ -50,16 +50,16 @@ Primary initial audience: recruiters, hiring managers, and professional contacts
 
 The site must work well on both desktop and mobile. React and Next.js are not needed for the initial version. Implementation details for charts and other components remain open.
 
-## Deployment and current implementation — verified 2026-10-10
+## Deployment and current implementation — updated 2026-10-12
 
-- **Status:** Astro Home publicly accessible, with the intended hero, portrait, header, styles, and two expertise cards visible. First custom GitHub Actions deployment succeeded on commit `b99b5ca` (workflow run #1, about 35 seconds).
+- **Status:** Astro Home publicly accessible. Dedicated Certifications & Education v6 and Contact v5 pages have also been published and visually confirmed by the user. First custom GitHub Actions deployment succeeded on commit `b99b5ca` (workflow run #1, about 35 seconds).
 - **GitHub Pages source:** GitHub Actions (replaces direct branch publishing).
 - **Trigger:** push to `main`, with optional manual `workflow_dispatch`.
 - **Build job:** checkout repository, set up Node.js 22, run `npm ci`, `npm run build`, configure Pages, and upload `./dist`.
 - **Deploy job:** deploy the uploaded artifact to the `github-pages` environment.
 - **Astro configuration:** `astro.config.mjs` sets `site: 'https://morrisgpeter.github.io'`; no `base` is needed for this user-site repository.
 - **Local build:** `npm run build` succeeded; output is static and generates `dist/`. `dist/` is excluded from Git.
-- **Current implemented files:** `src/components/Header.astro`, `Hero.astro`, `Expertise.astro`; `src/layouts/BaseLayout.astro`; `src/pages/index.astro`; `src/styles/global.css`; `astro.config.mjs`.
+- **Implemented files (selected):** `src/components/Header.astro`, `Hero.astro`, `Expertise.astro`, `Achievements.astro`; `src/layouts/BaseLayout.astro`; `src/pages/index.astro`, `contact.astro`, `certifications-education.astro`; `src/styles/global.css`; `astro.config.mjs`.
 - **Home expertise order:** (1) Project & Program Management; (2) Commercial Leadership, in the hero eyebrow and cards, on desktop and mobile.
 
 ### Local development and publication commands
@@ -80,6 +80,13 @@ git push origin main   # triggers automatic deployment
 **Documentation follow-up:** these `docs/` files are currently tracked publicly. The earlier decision was to revisit visibility once the site went live; that review is now due, not yet resolved.
 
 
+### Published page milestones (2026-10-12)
+
+- **Certifications & Education v6:** `/certifications-education` published and visually verified. Features PMP and PSM I Credly verification, three academic education entries, 15 development credentials and 170+ professional-development hours, with a six-topic strip and Credly profile link. See `PROJECT_DECISIONS.md` D-030–D-040.
+- **Contact v5:** `/contact` published and verified after commit `bdf7c49`. Executive copy begins with **Get in Touch** beneath **CONTACT CHANNELS**; three direct icon/label links: Email (`mailto:morrisgpeter@hotmail.com`), LinkedIn (`https://www.linkedin.com/in/morrisgpeter/`), and Portfolio (`https://github.com/morrisgpeter`, GitHub icon). No contact form, cards, explanatory captions or arrow glyphs. Uses `/images/hero-portrait-transparent.png` and **New Zealand | Open to international opportunities.** User confirmed link functionality, desktop/mobile rendering, cross-page navigation, public release and GitHub Project updates for #14, #36–#38. See D-041–D-044.
+- **Shared Header:** navigation updated to reach Contact and Certifications & Education; remaining site-wide navigation will evolve with unfinished pages.
+- **Future GitHub profile enhancement:** professional profile README, pinned repositories, visual alignment, website link and organized technical projects (D-045). Not yet implemented.
+
 ## Content direction — agreed
 
 - Begin with professional experience and results.
@@ -97,9 +104,9 @@ A hybrid multipage site with a summary-oriented Home and detailed pages:
 2. **About** — professional background, education, credentials, capabilities.
 3. **Experience** — chronological company/career history, showing commercial and delivery contributions.
 4. **Portfolio** — selected work, with individual project pages and room for future technical categories.
-5. **Contact** — professional contact channels.
+5. **Contact** — professional contact channels (**implemented and published**).
 
-These five page names and the precise navigation structure are **proposals**, not final decisions.
+The original five-page navigation remains a **proposal** for the unfinished pages. Contact and Certifications & Education are already published and linked from the shared Header.
 
 ### Portfolio evolution — proposed
 
@@ -130,7 +137,7 @@ These are **candidate content facts**, not approval to publish. Verify definitio
 
 ## Open questions
 
-- Final navigation/page structure.
+- Final navigation/page structure for remaining About, Experience and Portfolio pages; Contact and Certifications & Education links are operational.
 - Whether to add Data Science & Analytics as a third Home pillar in a later release (not part of the initial Home).
 - Language strategy: English first was suggested but not confirmed.
 - Further typography and image refinements within the accepted dark Home / light internal-page direction.

@@ -59,6 +59,12 @@
 | D-039 | 2026-10-12 | Intro visual and quotation — deferred | Remove the former introductory quote **“Learning today to create greater impact tomorrow.”** and its placeholder. Consider a landscape image featuring mountains and a winding road, and select a **new** introductory quotation in a later release. | Accepted | Neither the landscape nor a replacement quote is approved for publication yet; track both as future enhancements. |
 | D-040 | 2026-10-12 | Certifications & Education v6 validation | Approve the v6 desktop and 375px mobile screenshots and the successful local production build, which generated `/index.html` and `/certifications-education/index.html`. | Accepted | This verifies local implementation only; commit, push, GitHub Actions deployment, and live-site checks remain pending. |
 
+| D-041 | 2026-10-12 | Contact page content | Use **CONTACT CHANNELS** eyebrow and **Get in Touch** title; retain “Great opportunities begin with meaningful conversations.” The introduction covers project/program management, commercial leadership, business development and sales, and critical infrastructure; omit “partnerships”. Close with “Always open to connecting with professionals and organizations worldwide.” | Accepted | Concise executive messaging, avoiding consecutive sentences starting with I. |
+| D-042 | 2026-10-12 | Contact channels | Display three icon-and-text links, **Email**, **LinkedIn**, and **Portfolio** (with GitHub icon), without cards, explanatory copy, arrow symbols, or a contact form. Email uses `mailto:morrisgpeter@hotmail.com`; LinkedIn `https://www.linkedin.com/in/morrisgpeter/`; Portfolio `https://github.com/morrisgpeter`. Do not show the email address as secondary text. | Accepted | Minimal, consistent presentation; GitHub profile is the destination rather than a repository list. |
+| D-043 | 2026-10-12 | Contact visual design and location | Light internal-page style, compact spacing, small portrait using `/images/hero-portrait-transparent.png`, and responsive channel links. Show **Location & Mobility** as **New Zealand | Open to international opportunities.** on desktop, allowing natural wrapping on mobile. | Accepted | Desktop and mobile screenshots approved; no implication of residence in two countries. |
+| D-044 | 2026-10-12 | Contact release and navigation | Contact v5 published at `/contact`; shared `Header.astro` links to Contact and `/certifications-education`, alongside existing navigation. Email, LinkedIn, Portfolio and cross-page navigation tested; mobile layout reviewed. Commit `bdf7c49` pushed to `main`; user confirmed live publication and GitHub Project issue statuses updated for #14, #36–#38. | Accepted | Confirms published Contact milestone, not a full site-wide navigation audit. |
+| D-045 | 2026-10-12 | GitHub profile roadmap | After primary site pages, enhance GitHub profile with a professional profile README, pinned repositories, consistent branding, portfolio website link, and organized technical projects (including analytics/data science as relevant). | Accepted | Future improvement; not part of Contact v5 release. |
+
 ## Key discussions
 
 ### Professional identity
@@ -99,6 +105,14 @@ The portfolio should communicate the intersection of **project/program managemen
 
 The dedicated `/certifications-education` page presents **Professional Certifications & Development** (PMP, PSM I, and a third metrics card), a **Continuous Professional Development** topic strip, then **Academic Education**. The metrics are **15 Professional Development Credentials** (excluding the two featured certifications) and **170+ Hours of Professional Development**, with **Last 2 years** shown in the topic strip. The strip contains six topic-specific SVG icons and a **View All Credentials** link to the user's Credly profile; individual PMP and PSM I verification links remain. Three education cards use original UFBA and IME institutional coats of arms. The intro quote and image placeholder were removed; a mountain/winding-road landscape and a newly selected quote are future ideas, not approved assets or copy. The v6 desktop and 375px mobile views were accepted; local production build succeeded on 2026-10-12. Commit/push and live deployment verification remain pending (D-036–D-040).
 
+### Contact (D-041–D-044)
+
+The published `/contact` v5 page uses a compact, light executive layout, small transparent portrait, direct icon-and-label links (Email, LinkedIn, Portfolio), and a one-line desktop location statement: **New Zealand | Open to international opportunities.** No contact form or verbose card descriptions. Shared Header navigation includes Contact and Certifications & Education. User validated desktop/mobile, links, cross-page navigation and the public deployment (commit `bdf7c49`). GitHub Project issues #14 and #36–#38 were updated by the user.
+
+### GitHub profile — future enhancement (D-045)
+
+Create a professional GitHub profile README, pin relevant repositories, align branding with the Astro site, link back to the portfolio and organize technical work. This is roadmap work, not yet implemented.
+
 ### Experience versus Portfolio
 
 Proposed distinction: **Experience** explains career progression and responsibilities; **Portfolio** provides deeper evidence through selected project case studies. Avoid duplicating the same information verbatim.
@@ -111,7 +125,7 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 
 ## Open decisions / next discussion
 
-1. Confirm the final five-page navigation or revise it (Home section structure is already accepted).
+1. Finalize the remaining site-wide navigation as About, Experience and Portfolio pages are implemented; Contact and Certifications & Education links are now live.
 2. Determine where the approved Home expertise cards link (Experience, Portfolio, or filtered views).
 3. Reevaluate Data Science & Analytics as a possible third Home expertise area in a later release; individual technical Portfolio projects remain possible.
 4. Confirm language(s) and whether multilingual support is needed from the outset.
@@ -121,7 +135,8 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 8. Review public visibility of the `docs/` planning files now that the site is live (D-015).
 9. Make the local Node.js/npm PATH persistent in the macOS VS Code Bash environment.
 10. Consider the deferred Certifications & Education introduction enhancements: mountain/winding-road landscape image and a new quote (D-039).
-11. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
+11. Plan the accepted GitHub profile enhancement after primary pages (D-045).
+12. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
 
 ## Change management
 

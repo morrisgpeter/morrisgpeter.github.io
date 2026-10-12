@@ -17,9 +17,9 @@
 | 3 | Build About | ⬜ Pending |
 | 4 | Build Experience | ⬜ Pending |
 | 5 | Develop Portfolio | ⬜ Pending |
-| 6 | Build Contact | ⬜ Pending |
+| 6 | Build Contact | ✅ Complete — v5 published, tested; GitHub Project issues updated (2026-10-12) |
 | 7 | Add data visualizations and charts | ⬜ Pending |
-| 8 | Refine navigation and responsiveness | ⬜ Pending |
+| 8 | Refine navigation and responsiveness | 🟡 In progress — Contact and Certifications links tested; site-wide review pending |
 | 9 | SEO, performance, and accessibility | ⬜ Pending |
 | 10 | Final review and version 1.0 | ⬜ Pending |
 
@@ -132,7 +132,7 @@ Candidate projects **for evaluation**, not yet selected for publication:
 - [x] **#35 — Review Credentials & Links:** user tested both Credly links successfully; local page reviewed.
 - [x] Commit and push v6 page changes and documentation to `main` (publication confirmed on public site).
 - [x] Verify the v6 page on the public GitHub Pages website (Safari screenshot, 2026-10-12).
-- [ ] Consider linking the page in site navigation during the wider navigation review; no navigation change has yet been approved.
+- [x] Add Certifications & Education to the shared Header navigation; verified across pages during Contact v5 testing.
 
 **Result:** v6 built successfully, approved on desktop and 375px mobile, and visually confirmed on the public GitHub Pages site on 2026-10-12. This confirms the live page, not a separate audit of the GitHub Actions run or issue status. GitHub issue closure is tracked separately.
 
@@ -191,17 +191,27 @@ For each company, consider **context → responsibilities → achievements → r
 
 **Stage deliverable:** Portfolio with selected professional projects.
 
-## 6. Contact — pending
+## 6. Contact — complete (v5 published 2026-10-12)
 
-**Goal:** Make professional contact easy.
+**Goal:** Make professional contact easy with a minimal executive layout.
 
-Suggested content: LinkedIn, GitHub, professional email, general location, and an appropriate availability statement.
+- [x] **#36 — Define Contact Information & Links:** Email, LinkedIn and Portfolio (GitHub profile); location **New Zealand | Open to international opportunities.**
+- [x] **#37 — Implement Contact Page:** `src/pages/contact.astro`, **CONTACT CHANNELS / Get in Touch**, compact portrait (`hero-portrait-transparent.png`), three icon-and-label links, no cards or form.
+- [x] **#38 — Test Contact Navigation & Responsiveness:** external/mail links tested, desktop/mobile screenshots approved, shared Header navigation verified between Home, Contact and Certifications & Education.
+- [x] **#14 — Complete the Contact Page:** commit `bdf7c49` pushed to `main`; user confirmed the live v5 page and updated GitHub Project issue statuses.
 
-- [ ] Confirm which contact details to publish.
-- [ ] Implement contact links and any call-to-action.
-- [ ] Test links and mobile layout.
+**Result:** Functional, responsive Contact page published at `/contact`.
 
-**Stage deliverable:** Functional Contact page.
+
+## Future improvement — GitHub Profile Enhancement (accepted)
+
+**Timing:** After the main professional portfolio pages; not required for Contact v5.
+
+- [ ] Create a professional GitHub profile README.
+- [ ] Pin and describe selected repositories.
+- [ ] Align GitHub profile branding with the Astro portfolio.
+- [ ] Link the published website from the GitHub profile.
+- [ ] Organize technical projects, including data science and analytics where relevant.
 
 ## 7. Data visualizations and charts — pending
 
@@ -266,13 +276,13 @@ Navigation, responsiveness, accessibility, and content verification should also 
 
 ## Immediate next action
 
-**Continue portfolio development after the published Certifications & Education v6 milestone.**
+**Continue portfolio development after the published Certifications & Education v6 and Contact v5 milestones.**
 
 1. Confirm whether the earlier Home Key Achievements publication checklist is complete; update its status only after checking.
 2. Review the GitHub Project board and confirm the status of Issues #13 and #33–#35; do not infer issue closure from site publication.
 3. Continue with the next prioritized portfolio task; Featured Work remains pending.
 4. During a future refinement of Certifications & Education, evaluate the deferred landscape image (mountains and winding road) and select a new introductory quotation. Neither is part of v6.
-5. Consider a navigation link to Certifications & Education in the wider navigation review; no change has yet been approved.
+5. Continue site-wide navigation review as About, Experience and Portfolio pages are implemented; Contact and Certifications & Education are now linked.
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-11  
+**Updated:** 2026-10-12  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -116,23 +116,30 @@ Candidate projects **for evaluation**, not yet selected for publication:
 
 **Goal:** Present key professional certifications, academic education, and ongoing professional development in a concise, verifiable format. This dedicated page is implemented at `/certifications-education` and is distinct from the still-pending About page.
 
-**Approved content and design (D-030–D-035):**
+**Approved content and design (D-030–D-040; v6):**
 
-- **Professional Certifications:** PMP® (PMI, April 2025–April 2028) and PSM I (Scrum.org, November 2025), each with its original badge and tested Credly verification link.
-- **Academic Education:** UFBA Data Science & Big Data (2021–2023), IME Digital Signal Processing (1995–1996), and UFBA Electrical Engineering (1989–1993), with institutional coats of arms.
-- **Continuous Professional Development:** **15 Professional Development Credentials** (excluding PMP and PSM I), covering Leadership · Project Management · Agile · AI · Sustainability · Business Transformation. No hours metric and no individual listing of the 15 badges.
-- **Presentation:** Compact light-background desktop layout; responsive single-column mobile cards. Desktop and mobile screenshots reviewed.
+- **Professional Certifications & Development:** Three matching desktop cards: PMP® (PMI, April 2025–April 2028), PSM I (Scrum.org, November 2025), and a two-metric card. The first two use original badges and tested individual Credly verification links. Category chips read **Project Management**, **Agile & Scrum**, and **Professional Development**.
+- **Development metrics:** **15 Professional Development Credentials** (excluding PMP and PSM I) and **170+ Hours of Professional Development**, rounded from the consolidated 172.75 hours. The metrics card has no redundant heading or leading icon.
+- **Continuous Professional Development topic strip:** Appears immediately below the three cards. Includes **Last 2 years**, a **View All Credentials** link to `https://www.credly.com/users/morrisgpeter/badges/credly`, and six theme-specific SVG icons: Leadership · Project Management · Agile · AI · Sustainability · Business Transformation.
+- **Academic Education:** Appears after the development strip. Three cards: UFBA Data Science & Big Data (2021–2023), IME Digital Signal Processing (1995–1996), and UFBA Electrical Engineering (1989–1993), with institutional coats of arms.
+- **Presentation:** Compact, light-background desktop layout; three stacked certification/development cards on mobile, with side-by-side metrics; six theme icons in a 3 × 2 mobile grid. Desktop and 375px mobile screenshots reviewed and approved. No Home or global-style changes required.
+- **Intro:** Removed the previous inspirational quotation and image placeholder. A mountain-and-winding-road landscape and a **new, yet-to-be-chosen** quote are deferred enhancements, not approved publication content.
 
 **GitHub Issues:**
 
 - [x] **#33 — Validate Education & Certifications:** content, badges, institutional images, metric, and direct Credly URLs agreed.
-- [x] **#34 — Implement Certifications & Education Page:** page and assets added locally; desktop and mobile visually reviewed; `npm run build` succeeded on 2026-10-11, generating two static routes.
+- [x] **#34 — Implement Certifications & Education Page:** page and assets added locally; desktop and mobile visually reviewed; `npm run build` succeeded again on 2026-10-12 for v6, generating two static routes.
 - [x] **#35 — Review Credentials & Links:** user tested both Credly links successfully; local page reviewed.
 - [ ] Commit and push page, image assets, and documentation to `main`.
 - [ ] Verify GitHub Actions deployment and the live page after push.
 - [ ] Consider linking the page in site navigation during the wider navigation review; no navigation change has yet been approved.
 
-**Result so far:** Ready for publication; not yet confirmed live. Issue checklists describe completed local work, not GitHub issue closure.
+**Result so far:** v6 visually approved and locally built; publication not yet confirmed. Issue checklists describe completed local work, not GitHub issue closure.
+
+**Deferred enhancements (future release):**
+
+- [ ] Select and incorporate a suitable landscape image showing mountains and a winding road.
+- [ ] Choose and approve a new introductory quotation; do not restore the removed draft quotation by default.
 
 ## 3. About — pending
 
@@ -259,7 +266,7 @@ Navigation, responsiveness, accessibility, and content verification should also 
 
 ## Immediate next action
 
-**Publish Certifications & Education (Issues #33–#35)**
+**Publish Certifications & Education v6 (Issues #33–#35)**
 
 1. Replace `docs/PROJECT_DECISIONS.md` and `docs/PORTFOLIO_ROADMAP.md` with the updated versions.
 2. Run `git status` and review `git diff` (including any unrelated untracked files).

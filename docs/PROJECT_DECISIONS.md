@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-11
+**Last updated:** 2026-10-12
 
 ## Status legend
 
@@ -48,9 +48,16 @@
 | D-030 | 2026-10-11 | Certifications & Education content | Create a dedicated English-language **Certifications & Education** page with the subtitle **Continuous learning for greater impact** and three sections: Professional Certifications, Academic Education, and Continuous Professional Development. | Accepted | Selective, executive presentation rather than a complete training catalogue. |
 | D-031 | 2026-10-11 | Professional certifications | Feature **PMP®** (PMI; issued April 2025; valid through April 2028) and **PSM I** (Scrum.org; issued November 2025), with their original badge images and **Verify Credential** links exclusively to Credly. | Accepted | PMP: https://www.credly.com/badges/40e3fb6d-937a-4479-a67f-bbd3026aa5bc ; PSM I: https://www.credly.com/badges/89bcaf52-15e6-4ad1-99d8-1ee939d0bb67 . User tested both links locally. |
 | D-032 | 2026-10-11 | Academic education | Show three qualifications in reverse chronological order: **Postgraduate Studies in Data Science & Big Data** (UFBA, 2021–2023); **Specialization in Digital Signal Processing** (IME, 1995–1996); **Bachelor's Degree in Electrical Engineering** (UFBA, 1989–1993). Include the original UFBA and IME institutional coats of arms. | Accepted | Use `public/images/education/ufba.png` for two cards and `ime.png` for one; do not display academic course hours or long descriptions. |
-| D-033 | 2026-10-11 | Development credential metric | Show **15** with label **Professional Development Credentials**, followed by **Leadership · Project Management · Agile · AI · Sustainability · Business Transformation**. | Accepted | Fifteen supplementary Credly credentials, excluding PMP and PSM I already shown separately; replaces proposed training-hours indicator. |
-| D-034 | 2026-10-11 | Certifications page layout | Use a light, restrained executive design: two certification cards with badges, three education cards with coats of arms, and a centered development metric. Keep desktop layout compact (roughly two screens), and stack cards on mobile. | Accepted | Desktop and mobile screenshots reviewed and accepted. Do not force the page to fit in one viewport; no Home or global-style changes required. |
+| D-033 | 2026-10-11 | Development credential metric | Show **15** with label **Professional Development Credentials**, followed by **Leadership · Project Management · Agile · AI · Sustainability · Business Transformation**. | Superseded | The 15-credential count and six topic areas remain valid, but the decision to exclude a training-hours indicator was revised by D-036. |
+| D-034 | 2026-10-11 | Certifications page layout | Use a light, restrained executive design: two certification cards with badges, three education cards with coats of arms, and a centered development metric. Keep desktop layout compact (roughly two screens), and stack cards on mobile. | Superseded | Initial layout approved; revised compact three-card layout and section ordering are recorded in D-037. |
 | D-035 | 2026-10-11 | Certifications page implementation and validation | Implement `src/pages/certifications-education.astro` using existing layout, plus badge assets in `public/images/certifications/` and education images in `public/images/education/`. | Accepted | User confirmed local rendering and both external links; `npm run build` completed successfully, generating `/certifications-education/index.html` and `/index.html`. Commit, push, and production verification still pending. |
+
+
+| D-036 | 2026-10-12 | Professional development metrics and timeframe | Show **15 Professional Development Credentials** and **170+ Hours of Professional Development** as two prominent metrics. Present **Last 2 years** in the related development-area strip, not in the metrics card. | Accepted | 15 excludes the separately featured PMP and PSM I. The hours figure is deliberately rounded from the previously consolidated 172.75 hours; do not display false precision. |
+| D-037 | 2026-10-12 | Certifications & Education v6 layout | Order: introduction → **Professional Certifications & Development** (three equal-height desktop cards: PMP, PSM I, and metrics) → linked **Continuous Professional Development** topic strip → **Academic Education** (three cards). Use matching light-blue category chips **Project Management**, **Agile & Scrum**, and **Professional Development**. Remove the metrics card's redundant title and leading icon; retain only two metric icons. | Accepted | Compact layout approved on desktop and at 375px mobile width; mobile cards stack, the two metrics remain side by side, and six SVG topic icons form two rows of three. Keep the existing Home and shared styling unchanged. |
+| D-038 | 2026-10-12 | Credly profile and development themes | Add **View All Credentials** in the Continuous Professional Development topic strip, linking to the public Credly profile. Display six topic-specific SVG icons for Leadership, Project Management, Agile, AI, Sustainability, and Business Transformation. | Accepted | Profile: https://www.credly.com/users/morrisgpeter/badges/credly . Keep individual PMP and PSM I verification links. |
+| D-039 | 2026-10-12 | Intro visual and quotation — deferred | Remove the former introductory quote **“Learning today to create greater impact tomorrow.”** and its placeholder. Consider a landscape image featuring mountains and a winding road, and select a **new** introductory quotation in a later release. | Accepted | Neither the landscape nor a replacement quote is approved for publication yet; track both as future enhancements. |
+| D-040 | 2026-10-12 | Certifications & Education v6 validation | Approve the v6 desktop and 375px mobile screenshots and the successful local production build, which generated `/index.html` and `/certifications-education/index.html`. | Accepted | This verifies local implementation only; commit, push, GitHub Actions deployment, and live-site checks remain pending. |
 
 ## Key discussions
 
@@ -88,9 +95,9 @@ The portfolio should communicate the intersection of **project/program managemen
 
 **Career Insights to investigate:** a portfolio-value evolution chart (using comparable, clearly defined measures), a team-leadership evolution chart (distinguishing direct/indirect management from stakeholder coordination), and a stakeholder engagement radar chart (dimensions and defensible scoring methodology still to be defined). Industry coverage may be shown visually with sector icons. Verify accuracy and confidentiality before publication.
 
-### Certifications & Education (D-030–D-035)
+### Certifications & Education (D-030–D-040)
 
-The dedicated `/certifications-education` page has three approved sections: **Professional Certifications**, **Academic Education**, and **Continuous Professional Development**. PMP and PSM I use original badge images and the verified Credly URLs recorded in D-031. UFBA and IME education cards use original institutional coats of arms. The development metric is **15 Professional Development Credentials** (excluding the two featured certifications), with the six approved topic areas in D-033. Desktop and mobile layouts were visually reviewed; local Astro production build succeeded on 2026-10-11. Git commit/push and verification of the live page remain pending.
+The dedicated `/certifications-education` page presents **Professional Certifications & Development** (PMP, PSM I, and a third metrics card), a **Continuous Professional Development** topic strip, then **Academic Education**. The metrics are **15 Professional Development Credentials** (excluding the two featured certifications) and **170+ Hours of Professional Development**, with **Last 2 years** shown in the topic strip. The strip contains six topic-specific SVG icons and a **View All Credentials** link to the user's Credly profile; individual PMP and PSM I verification links remain. Three education cards use original UFBA and IME institutional coats of arms. The intro quote and image placeholder were removed; a mountain/winding-road landscape and a newly selected quote are future ideas, not approved assets or copy. The v6 desktop and 375px mobile views were accepted; local production build succeeded on 2026-10-12. Commit/push and live deployment verification remain pending (D-036–D-040).
 
 ### Experience versus Portfolio
 
@@ -113,7 +120,8 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 7. Define comparable data and formats for portfolio evolution, team leadership, and stakeholder radar charts; distinguish team management from stakeholder coordination.
 8. Review public visibility of the `docs/` planning files now that the site is live (D-015).
 9. Make the local Node.js/npm PATH persistent in the macOS VS Code Bash environment.
-10. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
+10. Consider the deferred Certifications & Education introduction enhancements: mountain/winding-road landscape image and a new quote (D-039).
+11. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
 
 ## Change management
 

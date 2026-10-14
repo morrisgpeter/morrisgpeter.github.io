@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-12
+**Last updated:** 2026-10-15
 
 ## Purpose
 
@@ -87,6 +87,10 @@ git push origin main   # triggers automatic deployment
 - **Shared Header:** navigation updated to reach Contact and Certifications & Education; remaining site-wide navigation will evolve with unfinished pages.
 - **Future GitHub profile enhancement:** professional profile README, pinned repositories, visual alignment, website link and organized technical projects (D-045). Not yet implemented.
 
+### Certifications & Education — pending review (2026-10-15)
+
+The published development metrics are **15 Professional Development Credentials** and **170+ Hours of Professional Development** (rounded from 172.75 hours). The current design places **Last 2 years** in the separate development topic strip, which does not clearly establish that both metrics refer to that timeframe. **Proposed, not yet approved or implemented:** place a concise, accurate timeframe directly with both metrics under **Continuous Professional Development**; consider shortening labels to **Development Credentials** and **Learning Hours**, and removing the redundant **Professional Development** chip. First verify that all 15 credentials and all counted hours belong to the chosen period (for example, 2025–2026). See `PROJECT_DECISIONS.md` D-046.
+
 ## Content direction — agreed
 
 - Begin with professional experience and results.
@@ -145,3 +149,4 @@ These are **candidate content facts**, not approval to publish. Verify definitio
 - Charting library and interaction level.
 - Review whether project planning documents should remain in the public repository after launch.
 - Make the Node.js/npm PATH persistent for future VS Code Bash sessions.
+- Validate the actual timeframe for the 15 development credentials and 170+ hours; review and implement the proposed metrics-card clarity improvements (D-046).

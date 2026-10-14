@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-12
+**Last updated:** 2026-10-15
 
 ## Status legend
 
@@ -65,6 +65,8 @@
 | D-044 | 2026-10-12 | Contact release and navigation | Contact v5 published at `/contact`; shared `Header.astro` links to Contact and `/certifications-education`, alongside existing navigation. Email, LinkedIn, Portfolio and cross-page navigation tested; mobile layout reviewed. Commit `bdf7c49` pushed to `main`; user confirmed live publication and GitHub Project issue statuses updated for #14, #36–#38. | Accepted | Confirms published Contact milestone, not a full site-wide navigation audit. |
 | D-045 | 2026-10-12 | GitHub profile roadmap | After primary site pages, enhance GitHub profile with a professional profile README, pinned repositories, consistent branding, portfolio website link, and organized technical projects (including analytics/data science as relevant). | Accepted | Future improvement; not part of Contact v5 release. |
 
+| D-046 | 2026-10-15 | Certifications & Education — development metrics timeframe clarity | Make the timeframe for **15 development credentials** and **170+ learning hours** immediately visible alongside both figures. Proposed copy: **Continuous Professional Development** with a concise timeframe line; shorten metric labels to **Development Credentials** and **Learning Hours**; consider removing the redundant **Professional Development** chip from the metrics card. | Proposed | Current layout shows **Last 2 years** only in the separate topic strip (D-036), which does not clearly qualify the metrics. Verify the actual date range covered by all 15 credentials and the 172.75-hour source total before choosing **2025–2026**, **Last 2 years**, or another precise label. Preserve D-036 as the approved published baseline until a revised design is explicitly accepted and implemented. |
+
 ## Key discussions
 
 ### Professional identity
@@ -105,6 +107,8 @@ The portfolio should communicate the intersection of **project/program managemen
 
 The dedicated `/certifications-education` page presents **Professional Certifications & Development** (PMP, PSM I, and a third metrics card), a **Continuous Professional Development** topic strip, then **Academic Education**. The metrics are **15 Professional Development Credentials** (excluding the two featured certifications) and **170+ Hours of Professional Development**, with **Last 2 years** shown in the topic strip. The strip contains six topic-specific SVG icons and a **View All Credentials** link to the user's Credly profile; individual PMP and PSM I verification links remain. Three education cards use original UFBA and IME institutional coats of arms. The intro quote and image placeholder were removed; a mountain/winding-road landscape and a newly selected quote are future ideas, not approved assets or copy. The v6 desktop and 375px mobile views were accepted; local production build succeeded on 2026-10-12. Commit/push and live deployment verification remain pending (D-036–D-040).
 
+**Review pending (D-046, proposed 2026-10-15):** The two metrics need a directly associated timeframe; the current **Last 2 years** label in the separate topic strip is easy to miss. Validate the date range for all 15 credentials and the 172.75 hours before approving copy such as **2025–2026**. Proposed refinements are shorter metric labels and removal of the redundant chip. No code or published page change is confirmed.
+
 ### Contact (D-041–D-044)
 
 The published `/contact` v5 page uses a compact, light executive layout, small transparent portrait, direct icon-and-label links (Email, LinkedIn, Portfolio), and a one-line desktop location statement: **New Zealand | Open to international opportunities.** No contact form or verbose card descriptions. Shared Header navigation includes Contact and Certifications & Education. User validated desktop/mobile, links, cross-page navigation and the public deployment (commit `bdf7c49`). GitHub Project issues #14 and #36–#38 were updated by the user.
@@ -137,6 +141,8 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 10. Consider the deferred Certifications & Education introduction enhancements: mountain/winding-road landscape image and a new quote (D-039).
 11. Plan the accepted GitHub profile enhancement after primary pages (D-045).
 12. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
+
+13. Validate the timeframe and review the proposed Certifications & Education metrics-card copy/layout (D-046); implement only after approval.
 
 ## Change management
 

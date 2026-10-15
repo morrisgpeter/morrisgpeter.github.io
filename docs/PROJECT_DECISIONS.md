@@ -67,6 +67,16 @@
 
 | D-046 | 2026-10-15 | Certifications & Education — development metrics timeframe clarity | Make the timeframe for **15 development credentials** and **170+ learning hours** immediately visible alongside both figures. Proposed copy: **Continuous Professional Development** with a concise timeframe line; shorten metric labels to **Development Credentials** and **Learning Hours**; consider removing the redundant **Professional Development** chip from the metrics card. | Proposed | Current layout shows **Last 2 years** only in the separate topic strip (D-036), which does not clearly qualify the metrics. Verify the actual date range covered by all 15 credentials and the 172.75-hour source total before choosing **2025–2026**, **Last 2 years**, or another precise label. Preserve D-036 as the approved published baseline until a revised design is explicitly accepted and implemented. |
 
+| D-047 | 2026-10-15 | About Me narrative | Preserve the complete five-section approved English narrative verbatim: **My Professional Journey**, **An Entrepreneurial Perspective**, **How I Lead**, **A Global Perspective**, **What Connects It All**. | Accepted | Narrative is distinct from the Experience page and must not be rewritten during implementation without explicit approval. The approved source text should be kept in `docs/ABOUT_ME_APPROVED_NARRATIVE.md` (ensure it is present in the repository before coding). |
+| D-048 | 2026-10-15 | About Me opening and layout | Use **About Me** with the exact opening line **Engineering Expertise. Entrepreneurial Mindset. Global Perspective.**, displayed as three expressive lines on a light background. Follow with the five approved narrative sections in order. | Accepted | Executive, typography-led internal page; no large duplicate Home portrait. |
+| D-049 | 2026-10-15 | Professional focus evolution chart | Under **My Professional Journey**, use **The Evolution of My Professional Focus**, subtitle **How engineering, project management and commercial responsibilities have shaped my career.** Three separate, smooth, flat-bottom area bands (not stacked): Engineering navy, Project & Program Management light blue, Commercial Leadership orange. X-axis 1997–2026, companies Telenge, Aton, Fibra Engenharia, ABB. | Accepted | Use the 15 user-provided observations recorded below, with a common percentage scale; each recorded year totals 100%. Smooth interpolation is illustrative, not measured annual data. Include a clear methodology note. |
+| D-050 | 2026-10-15 | Entrepreneurship feature | In **An Entrepreneurial Perspective**, show a restrained typographic **2012** highlight with **Co-founded Fibra Engenharia** and **Building a business from the ground up.** | Accepted | Reinforce the entrepreneurship chapter without repeating Experience-page financial KPIs. |
+| D-051 | 2026-10-15 | Leadership section | Use a subtly differentiated light blue-gray background and five compact, numbered principles: **Empowerment**, **Collaboration**, **Transparency**, **Accountability**, **Hands-on Leadership**. Preserve the approved narrative text. | Accepted | Desktop horizontal presentation, responsive stacking/wrapping; no large icons or colorful cards. See approved descriptions below. |
+| D-052 | 2026-10-15 | Global perspective map | Create an executive-style geographic world map with country markers, legend, category differentiation, grouped markers for overlaps, and New Zealand highlighted as coordination/FAT base. Include **Brazil** as professional experience and business development. | Accepted | Concept approved; implement from validated geographic data, not the generated mockup. Distinguish delivery countries, customer headquarters represented at FATs in New Zealand, partner manufacturing, ABB manufacturing, Brazil career base, and New Zealand coordination/FAT base. No implication of personal travel to all locations. |
+| D-053 | 2026-10-15 | Multicultural highlight | Under **A Global Perspective**, show **25+** with **Languages in which I can say “Good morning”** and optional supporting line **Small gestures can build meaningful connections across cultures.** | Accepted | Refers to greetings, **not** language fluency. |
+| D-054 | 2026-10-15 | About Me section sequence and visual restraint | Sequence: opening → My Professional Journey + chart → An Entrepreneurial Perspective + 2012 feature → How I Lead + five principles → A Global Perspective + map + 25+ greetings → What Connects It All + quiet typographic closing. | Accepted | Primarily white/light, navy accents, measured whitespace, mobile-responsive. No additional charts or photos in initial implementation. |
+| D-055 | 2026-10-15 | About Me workflow | Content and visual planning for GitHub Issue **#19** considered complete in discussion; next stage is Issue **#20 Implement About Me Page**. | Accepted | GitHub issue status and repository files are **not** automatically updated; commit documentation and update GitHub Project manually. |
+
 ## Key discussions
 
 ### Professional identity
@@ -127,6 +137,58 @@ GitHub Pages now uses the custom Astro workflow `.github/workflows/deploy.yml` (
 
 The documentation-visibility review anticipated by D-015 is now due because the website is live; **no new visibility decision has been made**.
 
+
+### About Me — approved implementation specification (D-047–D-055)
+
+**Opening (exact):** Engineering Expertise. Entrepreneurial Mindset. Global Perspective.
+
+**Approved narrative:** Preserve the full five-section English draft exactly as previously approved. Its complete text is **not included in these two baseline documentation files**; retain a separate `docs/ABOUT_ME_APPROVED_NARRATIVE.md` as the authoritative copy before implementation.
+
+**Chart title:** The Evolution of My Professional Focus  
+**Subtitle:** How engineering, project management and commercial responsibilities have shaped my career.  
+**Explanatory note:** Illustrative distribution of professional responsibilities based on key career stages; percentages indicate relative focus and total 100% at each recorded year.
+
+| Company | Year | Engineering % | Project & Program Management % | Commercial Leadership % |
+| --- | ---: | ---: | ---: | ---: |
+| Telenge | 1997 | 70 | 30 | 0 |
+| Telenge | 2000 | 65 | 35 | 0 |
+| Telenge | 2001 | 60 | 30 | 10 |
+| Aton | 2003 | 40 | 40 | 20 |
+| Aton | 2005 | 30 | 45 | 25 |
+| Aton | 2006 | 25 | 40 | 35 |
+| Aton | 2009 | 10 | 50 | 40 |
+| Fibra | 2012 | 5 | 45 | 50 |
+| Fibra | 2014 | 5 | 50 | 45 |
+| Fibra | 2015 | 20 | 30 | 50 |
+| Fibra | 2016 | 20 | 40 | 40 |
+| ABB | 2021 | 100 | 0 | 0 |
+| ABB | 2022 | 20 | 70 | 10 |
+| ABB | 2024 | 10 | 60 | 30 |
+| ABB | 2026 | 10 | 75 | 15 |
+
+**Leadership principles (exact approved short copy):**
+
+1. **Empowerment:** Give people autonomy, encourage ownership, and support their development.
+2. **Collaboration:** Listen actively, involve others, and build solutions together.
+3. **Transparency:** Share information responsibly and maintain clear expectations.
+4. **Accountability:** Take responsibility for commitments, decisions, and results.
+5. **Hands-on Leadership:** Stay engaged, understand challenges, and support teams when needed.
+
+**Map data (categories are not necessarily physical work locations):**
+
+| Category | Countries / locations |
+| --- | --- |
+| Professional Experience & Business Development | Brazil |
+| Project Delivery Locations | United States, Canada, United Kingdom, Czech Republic, Belgium, Australia |
+| Customer FAT Participation — customer-company home countries; customer representatives attended FATs in New Zealand | Oman, South Korea, Malaysia, Taiwan, Japan, United Kingdom, Canada, Belgium, Philippines |
+| Partner Manufacturing Facilities | Hungary, Czech Republic, Finland, Italy |
+| ABB Manufacturing Facilities | Czech Republic, Mexico, United States |
+| Global Project Coordination & FAT | New Zealand |
+
+**Count:** 18 distinct named countries/territories across all categories (16 unique outside Brazil and New Zealand, plus Brazil and New Zealand). Taiwan is listed separately as provided for geographic visualization; this is not a political characterization. The generated concept image is illustrative and contains inaccurate metrics/possible placements; it must not be reused as authoritative data. The ABB Home **7 Countries** metric is a separate, approved project-delivery scope and must not be replaced by the map's wider relationship count.
+
+**Implementation notes:** responsive accessible SVG or equivalent map, tooltips/legend and keyboard-accessible country information if interactive; show overlapping roles without hiding categories; verify geography, permissions, and any confidentiality concerns. Do not imply FATs occurred in the customer-company countries.
+
 ## Open decisions / next discussion
 
 1. Finalize the remaining site-wide navigation as About, Experience and Portfolio pages are implemented; Contact and Certifications & Education links are now live.
@@ -143,6 +205,8 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 12. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
 
 13. Validate the timeframe and review the proposed Certifications & Education metrics-card copy/layout (D-046); implement only after approval.
+14. Implement the approved About Me specification (D-047–D-055), after ensuring the separate authoritative narrative file is available.
+15. Review geographic map labels, country roles and confidentiality before publishing.
 
 ## Change management
 

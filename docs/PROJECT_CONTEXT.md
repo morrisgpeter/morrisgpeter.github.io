@@ -91,6 +91,28 @@ git push origin main   # triggers automatic deployment
 
 The published development metrics are **15 Professional Development Credentials** and **170+ Hours of Professional Development** (rounded from 172.75 hours). The current design places **Last 2 years** in the separate development topic strip, which does not clearly establish that both metrics refer to that timeframe. **Proposed, not yet approved or implemented:** place a concise, accurate timeframe directly with both metrics under **Continuous Professional Development**; consider shortening labels to **Development Credentials** and **Learning Hours**, and removing the redundant **Professional Development** chip. First verify that all 15 credentials and all counted hours belong to the chosen period (for example, 2025–2026). See `PROJECT_DECISIONS.md` D-046.
 
+
+## About Me — approved specification (2026-10-15)
+
+**Planning:** GitHub Issue #19 content and visual definition completed in discussion; Issue #20 (Implement About Me Page) is next. This does **not** mean GitHub issue statuses have been changed.
+
+**Exact opening:** **Engineering Expertise. Entrepreneurial Mindset. Global Perspective.** Set on three lines, on a light internal-page background.
+
+**Approved narrative:** Preserve the full original five-section English text, without paraphrasing: **My Professional Journey**, **An Entrepreneurial Perspective**, **How I Lead**, **A Global Perspective**, **What Connects It All**. The full authoritative copy must be retained in `docs/ABOUT_ME_APPROVED_NARRATIVE.md`; it is not embedded in the baseline Context/Decisions files.
+
+**Approved layout, in order:**
+
+1. Light typographic About Me opening, with the three-part headline.
+2. My Professional Journey narrative and **The Evolution of My Professional Focus**: three independent smooth flat-bottom bands, navy Engineering, light-blue Project & Program Management, orange Commercial Leadership, spanning 1997–2026 and the four companies. Fifteen recorded year/percentage observations and methodology note are in `PROJECT_DECISIONS.md` D-049 and its About Me specification section.
+3. An Entrepreneurial Perspective narrative with **2012 — Co-founded Fibra Engenharia** and **Building a business from the ground up.**
+4. How I Lead narrative on subtle blue-gray background with five numbered principles: Empowerment, Collaboration, Transparency, Accountability, Hands-on Leadership.
+5. A Global Perspective narrative with geographic map showing **Brazil** (professional experience/business development), **New Zealand** (coordination and FAT base), project-delivery locations, customer home countries represented at New Zealand FATs, partner manufacturers, and ABB manufacturing locations. **18 distinct countries/territories** across these roles, not equivalent to 18 delivery countries or physical work locations. Add **25+ — Languages in which I can say “Good morning”**, never implying fluency.
+6. What Connects It All narrative and restrained typographic ending.
+
+**Visual approach:** Executive, spacious, minimal, primarily light backgrounds and navy accents. No additional photographs or charts in initial About Me implementation. Charts/maps should be responsive, geographically/data accurate, and accessible. Preserve Home and other page decisions unchanged. Validate confidentiality before release.
+
+**Implementation status:** **Not yet coded**. First preserve approved narrative source, then implement in Astro and review desktop/mobile and build before committing/publishing. The user-uploaded documents were updated as downloadable copies; the GitHub repository is not modified automatically.
+
 ## Content direction — agreed
 
 - Begin with professional experience and results.
@@ -146,7 +168,8 @@ These are **candidate content facts**, not approval to publish. Verify definitio
 - Language strategy: English first was suggested but not confirmed.
 - Further typography and image refinements within the accepted dark Home / light internal-page direction.
 - Which metrics, photos, and projects are cleared for public use.
-- Charting library and interaction level.
+- Charting library and interaction level (especially approved About Me chart and map).
+- Ensure `docs/ABOUT_ME_APPROVED_NARRATIVE.md` exists with the exact approved text before coding the About Me page.
 - Review whether project planning documents should remain in the public repository after launch.
 - Make the Node.js/npm PATH persistent for future VS Code Bash sessions.
 - Validate the actual timeframe for the 15 development credentials and 170+ hours; review and implement the proposed metrics-card clarity improvements (D-046).

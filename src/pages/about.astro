@@ -1,0 +1,523 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const focusData = [
+  { company: "Telenge", year: 1997, engineering: 70, project: 30, commercial: 0, milestone: "" },
+  { company: "Telenge", year: 2000, engineering: 65, project: 35, commercial: 0, milestone: "" },
+  { company: "Telenge", year: 2001, engineering: 60, project: 30, commercial: 10, milestone: "PAM" },
+  { company: "Aton", year: 2003, engineering: 40, project: 40, commercial: 20, milestone: "first USD1M contract" },
+  { company: "Aton", year: 2005, engineering: 30, project: 45, commercial: 25, milestone: "RedePetro" },
+  { company: "Aton", year: 2006, engineering: 25, project: 40, commercial: 35, milestone: "business development Fire forest monitoring and 7 power plants integration" },
+  { company: "Aton", year: 2009, engineering: 10, project: 50, commercial: 40, milestone: "PMO function as manager of all projects" },
+  { company: "Fibra", year: 2012, engineering: 5, project: 45, commercial: 50, milestone: "first contract" },
+  { company: "Fibra", year: 2014, engineering: 5, project: 50, commercial: 45, milestone: "PMO structure with new project managers" },
+  { company: "Fibra", year: 2015, engineering: 20, project: 30, commercial: 50, milestone: "new contracts for 18 telecom stations and 39 substations automation" },
+  { company: "Fibra", year: 2016, engineering: 20, project: 40, commercial: 40, milestone: "ERP and customized app for installation" },
+  { company: "Fibra", year: 2019, engineering: 20, project: 40, commercial: 40, milestone: "" },
+  { company: "Sales Consulting & Professional Development", year: 2020, engineering: 20, project: 40, commercial: 40, milestone: "Sales consulting for Fibra Engenharia, academic preparation, project management studies and professional branding" },
+  { company: "ABB", year: 2021, engineering: 70, project: 10, commercial: 20, milestone: "Assembler" },
+  { company: "ABB", year: 2022, engineering: 20, project: 70, commercial: 10, milestone: "Global projects engineer" },
+  { company: "ABB", year: 2024, engineering: 10, project: 60, commercial: 30, milestone: "more MV UPS orders" },
+  { company: "ABB", year: 2026, engineering: 10, project: 75, commercial: 15, milestone: "" },
+];
+
+const series = [
+  { key: "engineering", label: "Engineering", color: "#10365c" },
+  { key: "project", label: "Project & Program Management", color: "#6bb5dd" },
+  { key: "commercial", label: "Commercial Leadership", color: "#e38b4d" },
+] as const;
+
+const svgWidth = 1080;
+const left = 68;
+const right = 1030;
+const top = 6;
+const bottom = 296;
+const chartHeight = bottom - top;
+const xFor = (year: number) => left + ((year - 1997) / (2026 - 1997)) * (right - left);
+const yFor = (percent: number) => bottom - (percent / 100) * chartHeight;
+
+// The 2020 transition record combines sales consulting and professional development.
+// The curves between recorded years are illustrative.
+const chartPeriods = [focusData];
+type FocusRecord = (typeof focusData)[number];
+type FocusKey = "engineering" | "project" | "commercial";
+const cumulative = (point: FocusRecord, key: FocusKey) =>
+  key === "engineering" ? point.engineering :
+  key === "project" ? point.engineering + point.project : 100;
+const lower = (point: FocusRecord, key: FocusKey) =>
+  key === "engineering" ? 0 :
+  key === "project" ? point.engineering : point.engineering + point.project;
+
+// Monotone cubic interpolation avoids overshoot beyond the recorded percentages.
+function smoothLine(points: { x: number; y: number }[]) {
+  if (!points.length) return "";
+  if (points.length === 1) return `M ${points[0].x} ${points[0].y}`;
+  const slopes = points.slice(1).map((p, i) => (p.y - points[i].y) / (p.x - points[i].x));
+  const tangents = points.map((_, i) => {
+    if (i === 0) return slopes[0];
+    if (i === points.length - 1) return slopes[slopes.length - 1];
+    if (slopes[i - 1] * slopes[i] <= 0) return 0;
+    return Math.sign(slopes[i]) * Math.min(Math.abs(slopes[i - 1]), Math.abs(slopes[i]));
+  });
+  let d = `M ${points[0].x} ${points[0].y}`;
+  for (let i = 0; i < points.length - 1; i++) {
+    const dx = points[i + 1].x - points[i].x;
+    d += ` C ${points[i].x + dx / 3} ${points[i].y + tangents[i] * dx / 3}, ${points[i + 1].x - dx / 3} ${points[i + 1].y - tangents[i + 1] * dx / 3}, ${points[i + 1].x} ${points[i + 1].y}`;
+  }
+  return d;
+}
+function areaPath(key: FocusKey, records: FocusRecord[]) {
+  const upper = records.map((p) => ({ x: xFor(p.year), y: yFor(cumulative(p, key)) }));
+  const under = records.map((p) => ({ x: xFor(p.year), y: yFor(lower(p, key)) })).reverse();
+  return `${smoothLine(upper)} L ${under[0].x} ${under[0].y} ${smoothLine(under).replace(/^M [^ ]+ [^ ]+/, "")} Z`;
+}
+const companyPeriods = [
+  { start: 1997, end: 2003, label: "Telenge", dates: "1997–2003" },
+  { start: 2003, end: 2012, label: "Aton", dates: "2003–2012" },
+  { start: 2012, end: 2019, label: "Fibra Engenharia", dates: "2012–2019" },
+  { start: 2020, end: 2020, label: "Consulting & Development", dates: "2020", development: true },
+  { start: 2021, end: 2026, label: "ABB", dates: "2021–2026" },
+];
+
+---
+
+<BaseLayout
+  title="About Me | Peter Morris"
+  description="Peter Morris: engineering expertise, entrepreneurial mindset, and global perspective."
+>
+  <main id="main-content">
+    <section class="about-intro" aria-labelledby="about-heading">
+      <div class="container about-intro-inner">
+        <p class="about-eyebrow">ABOUT ME</p>
+        <h1 id="about-heading">
+          <span>Engineering Expertise.</span>
+          <span>Entrepreneurial Mindset.</span>
+          <span>Global Perspective.</span>
+        </h1>
+        <div class="about-accent" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="journey" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="journey-copy">
+          <h2 id="journey-title">My Professional Journey</h2>
+          <p>My career began in electrical engineering and evolved naturally into project management and commercial leadership. Working closely with customers opened opportunities to move beyond technical solutions, understand business challenges, and take on broader responsibilities in project delivery and business development.</p>
+          <p>Over more than 25 years, I have worked across different industries, combining engineering knowledge with project execution, customer relationships, and commercial management. These experiences have shaped how I approach challenges: understanding the bigger picture, connecting people and resources, and finding practical ways to turn opportunities into results.</p>
+          <p>Today, I bring these perspectives together, with experience in both Project &amp; Program Management and Commercial Leadership.</p>
+        </div>
+
+        <figure class="focus-figure" aria-labelledby="focus-title focus-caption">
+          <div class="focus-heading">
+            <h3 id="focus-title">The Evolution of My Professional Focus</h3>
+            <p>How engineering, project management and commercial responsibilities have shaped my career.</p><br />
+          </div>
+          <div class="focus-scroll" tabindex="0" aria-label="Stacked professional focus chart; scroll horizontally on smaller screens">
+            <svg class="focus-chart" viewBox="0 0 1080 390" role="img" aria-label="Stacked professional focus chart, 1997 to 2026" aria-describedby="chart-desc">
+              <desc id="chart-desc">A 100% stacked area chart of Engineering, Project and Program Management, and Commercial Leadership, using seventeen recorded observations. The 2020 record combines sales consulting for Fibra Engenharia with academic preparation and professional development. Individual points reveal percentages for each professional focus.</desc>
+              {[0, 25, 50, 75, 100].map((v) => (
+                <g>
+                  <line x1={left} x2={right} y1={yFor(v)} y2={yFor(v)} class="grid-line" />
+                  <text x={left - 13} y={yFor(v) + 4} text-anchor="end" class="axis-label">{v}%</text>
+                </g>
+              ))}
+              {chartPeriods.map((records) => (
+                <g>
+                  {/* Draw bottom-to-top so every color represents its own share of 100%. */}
+                  {[...series].reverse().map((item) => (
+                    <path d={areaPath(item.key, records)} fill={item.color} class="focus-area" />
+                  ))}
+                </g>
+              ))}
+              {focusData.map((point) => (
+                <g class="observation">
+                  <line x1={xFor(point.year)} x2={xFor(point.year)} y1={top} y2={bottom} class="observation-guide" />
+                  <circle cx={xFor(point.year)} cy={yFor(point.engineering)} r="3.5" class="observation-dot" />
+                  <circle cx={xFor(point.year)} cy={yFor(point.engineering + point.project)} r="3.5" class="observation-dot" />
+                  <rect
+                    x={xFor(point.year) - 10} y={top} width="20" height={chartHeight}
+                    fill="transparent" class="observation-target" tabindex="0"
+                    role="button"
+                    aria-label={`${point.company}, ${point.year}. Engineering ${point.engineering}%, Project and Program Management ${point.project}%, Commercial Leadership ${point.commercial}%`}
+                    data-year={point.year} data-company={point.company}
+                    data-engineering={point.engineering} data-project={point.project}
+                    data-commercial={point.commercial}
+                  />
+                </g>
+              ))}
+              {[1997, 2003, 2012, 2019, 2021, 2026].map((year) => (
+                <text x={xFor(year)} y="316" text-anchor={year === 1997 ? "start" : year === 2026 ? "end" : "middle"} class="year-label">{year}</text>
+              ))}
+              {companyPeriods.map((company) => (
+                <text
+                  x={(xFor(company.start) + xFor(company.end)) / 2}
+                  y={"development" in company && company.development ? "332" : "316"}
+                  text-anchor="middle"
+                  class:list={["company-label", { "development-label": "development" in company && company.development }]}
+                >{company.label}</text>
+              ))}
+              <g transform="translate(76 365)">
+                {series.map((item, index) => (
+                  <g transform={`translate(${index === 0 ? 0 : index === 1 ? 265 : 645} 0)`}>
+                    <circle cx="0" cy="0" r="8" fill={item.color} />
+                    <text x="16" y="5" class="legend-label">{item.label}</text>
+                  </g>
+                ))}
+              </g>
+            </svg>
+            <div class="focus-tooltip" id="focus-tooltip" role="status" aria-live="polite" hidden></div>
+          </div>
+          <figcaption id="focus-caption">Illustrative distribution of professional responsibilities at key career stages. The 2020 record reflects a transition period combining sales consulting for Fibra Engenharia with academic preparation and professional development.<br />
+             Percentages represent relative focus and total 100% at each recorded year. Curves between recorded observations are illustrative. Hover over or focus a recorded year to see its percentages.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+    <section class="entrepreneurial" aria-labelledby="entrepreneurial-title">
+      <div class="container">
+        <div class="entrepreneurial-shell">
+          <h2 id="entrepreneurial-title">An Entrepreneurial Perspective</h2>
+          <div class="entrepreneurial-grid">
+            <div class="entrepreneurial-copy">
+              <p>One of the defining chapters of my career was co-founding Fibra Engenharia in Brazil in January 2012.</p>
+              <p>Building a company from the ground up meant facing challenges that went well beyond engineering and project management. Winning our first customers, positioning the business in the market, structuring operations, and managing financial resources were all part of that journey.</p>
+              <p>As the partner involved in daily operations, I also had to balance business priorities, manage expectations among partners, and maintain relationships built on trust.</p>
+              <p>This experience strengthened a business perspective I had already developed earlier in my career: understanding projects not only in terms of technical execution, but also through their impact on customers, people, financial performance, and the long-term sustainability of the business.</p>
+            </div>
+            <aside class="entrepreneurial-aside" aria-label="Fibra Engenharia co-founding highlight">
+              <div class="entrepreneurial-card">
+                <p class="entrepreneurial-year">2012</p>
+                <div class="entrepreneurial-rule" aria-hidden="true"></div>
+                <p class="entrepreneurial-role">Co-founded</p>
+                <img
+                  class="entrepreneurial-logo"
+                  src="/images/fibra-engenharia-logo.png"
+                  alt="Fibra Engenharia logo"
+                  width="1448"
+                  height="710"
+                  loading="lazy"
+                />
+                <p class="entrepreneurial-tagline">Building business from the ground</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="leadership" aria-labelledby="leadership-title">
+      <div class="container">
+        <div class="leadership-shell">
+          <div class="leadership-grid">
+            <div class="leadership-copy">
+              <div class="leadership-accent" aria-hidden="true"></div>
+              <h2 id="leadership-title">How I Lead</h2>
+              <p class="leadership-lead">I believe effective leadership starts with listening.</p>
+              <p>Throughout my career, I have learned the importance of understanding how people work before introducing changes. I value autonomy, open communication, collaboration, and clear expectations, while remaining actively involved when teams need support or challenges require practical solutions.</p>
+              <p>I also believe that good processes should help people do their work, not simply add layers of control.</p>
+              <p>At ABB in New Zealand, I had the opportunity to apply this approach when helping establish a structured project delivery framework for Medium Voltage UPS projects. Starting by understanding existing practices, I worked with colleagues to introduce project kickoff meetings, improve information sharing, develop workflows, and clarify responsibilities across teams.</p>
+              <p>The experience reinforced something I have come to value throughout my career: sustainable improvements are built through collaboration, shared understanding, and continuous learning.</p>
+            </div>
+            <aside class="leadership-radar" aria-label="Leadership Philosophy: five equally emphasized leadership principles">
+              <h3>Leadership Philosophy</h3>
+              <p class="radar-intro">Five principles that guide how I work with people.</p>
+              <svg class="radar-svg" viewBox="0 0 460 420" role="img" aria-label="Qualitative radar diagram showing five equally valued principles: Empowerment, Collaboration, Transparency, Accountability and Hands-on Leadership. Not a performance rating.">
+                <g transform="translate(230 211)">
+                  <polygon points="0,-145 138,-45 85,117 -85,117 -138,-45" fill="none" stroke="#b6c9dd" stroke-width="1.5" />
+                  <polygon points="0,-105 100,-33 62,85 -62,85 -100,-33" fill="none" stroke="#d0deeb" stroke-width="1" />
+                  <polygon points="0,-65 62,-20 38,53 -38,53 -62,-20" fill="none" stroke="#d0deeb" stroke-width="1" />
+                  <path d="M0 0V-145 M0 0L138 -45 M0 0L85 117 M0 0L-85 117 M0 0L-138 -45" fill="none" stroke="#c7d7e7" stroke-width="1" />
+                  <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="#399cf0" fill-opacity="0.16" stroke="#3196e8" stroke-width="3" stroke-linejoin="round" />
+                  <g fill="#3196e8">
+                    <circle cx="0" cy="-120" r="5"/><circle cx="114" cy="-37" r="5"/><circle cx="70" cy="97" r="5"/><circle cx="-70" cy="97" r="5"/><circle cx="-114" cy="-37" r="5"/>
+                  </g>
+                </g>
+                <g class="radar-labels" fill="#071a33" font-size="14" font-weight="700">
+                  <text x="230" y="36" text-anchor="middle">Empowerment</text>
+                  <text x="384" y="160" text-anchor="middle">Collaboration</text>
+                  <text x="342" y="368" text-anchor="middle">Transparency</text>
+                  <text x="117" y="368" text-anchor="middle">Accountability</text>
+                  <text x="75" y="152" text-anchor="middle"><tspan x="75">Hands-on</tspan><tspan x="75" dy="17">Leadership</tspan></text>
+                </g>
+              </svg>
+              <p class="radar-note">A visual expression of my leadership philosophy, not a scored assessment.</p>
+            </aside>
+          </div>
+          <div class="leadership-principles" aria-label="Five leadership principles">
+            <div class="leadership-principle"><span class="principle-number">01</span><h3>Empowerment</h3><p>Give people autonomy, encourage ownership, and support their development.</p></div>
+            <div class="leadership-principle"><span class="principle-number">02</span><h3>Collaboration</h3><p>Listen actively, involve others, and build solutions together.</p></div>
+            <div class="leadership-principle"><span class="principle-number">03</span><h3>Transparency</h3><p>Share information responsibly and maintain clear expectations.</p></div>
+            <div class="leadership-principle"><span class="principle-number">04</span><h3>Accountability</h3><p>Take responsibility for commitments, decisions, and results.</p></div>
+            <div class="leadership-principle"><span class="principle-number">05</span><h3>Hands-on Leadership</h3><p>Stay engaged, understand challenges, and support teams when needed.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .about-intro {
+    background: #f5f8fb;
+    padding: clamp(70px, 8.5vw, 120px) 0 clamp(74px, 9vw, 125px);
+  }
+
+  .about-intro-inner {
+    max-width: 1200px;
+  }
+
+  .about-eyebrow {
+    margin: 0 0 28px;
+    color: #1a5276;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+  }
+
+  .about-intro h1 {
+    max-width: 1050px;
+    margin: 0;
+    color: #071a33;
+    font-size: clamp(34px, 4.7vw, 65px);
+    line-height: 1.19;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+
+  .about-intro h1 span {
+    display: block;
+  }
+
+  .about-accent {
+    width: 64px;
+    height: 4px;
+    margin-top: 38px;
+    background: #1a5276;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .about-intro {
+      padding: 58px 0 72px;
+    }
+
+    .about-eyebrow {
+      margin-bottom: 22px;
+      font-size: 11px;
+    }
+
+    .about-intro h1 {
+      font-size: clamp(30px, 7.8vw, 42px);
+      line-height: 1.25;
+      overflow-wrap: break-word;
+    }
+
+    .about-accent {
+      margin-top: 30px;
+    }
+  }
+</style>
+
+<style>
+  .journey { padding: 88px 0 110px; background: #fff; }
+  .journey-copy { max-width: 950px; }
+  .journey h2 { margin: 0 0 30px; color: #071a33; font-size: clamp(30px, 3vw, 42px); line-height: 1.2; }
+  .journey-copy p { margin: 0 0 22px; font-size: 18px; line-height: 1.85; color: #526477; }
+  .focus-figure { margin: 72px 0 0; padding: 36px 32px 26px; background: #f5f8fb; border: 1px solid #e2ebf3; border-radius: 12px; }
+  .focus-heading h3 { margin: 0 0 8px; color: #071a33; font-size: clamp(22px, 2.4vw, 30px); }
+  .focus-heading p { margin: 0 0 0; color: #526477; font-size: 16px; line-height: 1.6; }
+  .focus-scroll { position: relative; overflow-x: auto; overflow-y: hidden; }
+  .focus-chart { display: block; width: 100%; min-width: 740px; height: auto; font-family: Arial, Helvetica, sans-serif; }
+  .focus-chart .focus-area { opacity: 0.94; }
+  .focus-chart .observation-guide { stroke: #ffffff; stroke-width: 1; stroke-dasharray: 3 5; opacity: 0; }
+  .focus-chart .observation-dot { fill: #ffffff; stroke: #071a33; stroke-width: 1; opacity: 0; }
+  .focus-chart .observation:hover .observation-guide, .focus-chart .observation:focus-within .observation-guide { opacity: 0.75; }
+  .focus-chart .observation:hover .observation-dot, .focus-chart .observation:focus-within .observation-dot { opacity: 1; }
+  .focus-chart .legend-label { fill: #071a33; font-size: 14px; font-weight: 600; }
+  .focus-chart .grid-line { stroke: #cfdae5; stroke-width: 1; stroke-dasharray: 3 5; }
+  .focus-chart .axis-label { fill: #63768a; font-size: 12px; }
+  .focus-chart .year-label { fill: #425970; font-size: 13px; font-weight: 700; }
+  .focus-chart .company-label { fill: #071a33; font-size: 13px; font-weight: 700; }
+  .focus-chart .development-label { fill: #64748b; font-size: 6.5px; font-weight: 400; font-style: normal; }
+  .focus-chart .observation-target { cursor: crosshair; outline: none; }
+  .focus-chart .observation-target:focus-visible { stroke: #071a33; stroke-width: 1.5; stroke-dasharray: 3 5; }
+  .focus-tooltip { position: absolute; z-index: 5; width: max-content; max-width: min(290px, 80vw); padding: 12px 14px; background: #071a33; color: #fff; border-radius: 8px; font-size: 13px; line-height: 1.5; box-shadow: 0 8px 22px #071a3333; pointer-events: none; white-space: normal; }
+  .focus-tooltip[hidden] { display: none; }
+  .focus-tooltip strong { display: block; margin-bottom: 5px; font-size: 14px; }
+  .focus-figure figcaption { margin-top: 16px; font-size: 13px; line-height: 1.6; color: #63768a; }
+  @media (max-width: 600px) {
+    .journey { padding: 60px 0 74px; }
+    .journey-copy p { font-size: 16px; line-height: 1.75; }
+    .focus-figure { margin-top: 48px; padding: 24px 14px 20px; }
+    .focus-heading p { font-size: 14px; }
+    .focus-figure figcaption { font-size: 12px; }
+  }
+</style>
+
+<script>
+  // Custom tooltip: avoids inconsistent browser-native SVG <title> popups.
+  const chartWrap = document.querySelector<HTMLElement>(".focus-scroll");
+  const tooltip = document.querySelector<HTMLElement>("#focus-tooltip");
+  if (chartWrap && tooltip) {
+    const targets = chartWrap.querySelectorAll<SVGRectElement>(".observation-target");
+    const hide = () => { tooltip.hidden = true; };
+    const show = (target: SVGRectElement) => {
+      const d = target.dataset;
+      tooltip.replaceChildren();
+      const title = document.createElement("strong");
+      title.textContent = `${d.company} · ${d.year}`;
+      tooltip.append(title);
+      for (const [name, value] of [
+        ["Engineering", d.engineering],
+        ["Project & Program Management", d.project],
+        ["Commercial Leadership", d.commercial],
+      ]) {
+        const row = document.createElement("div");
+        row.textContent = `${name}: ${value}%`;
+        tooltip.append(row);
+      }
+      tooltip.hidden = false;
+      const wrapRect = chartWrap.getBoundingClientRect();
+      const rect = target.getBoundingClientRect();
+      const desiredLeft = rect.left - wrapRect.left + chartWrap.scrollLeft + rect.width / 2 - tooltip.offsetWidth / 2;
+      const maxLeft = chartWrap.scrollLeft + chartWrap.clientWidth - tooltip.offsetWidth - 6;
+      tooltip.style.left = `${Math.max(chartWrap.scrollLeft + 6, Math.min(desiredLeft, maxLeft))}px`;
+      // Place below chart's top edge; fixed position prevents jumping when pointer moves.
+      tooltip.style.top = "8px";
+    };
+    targets.forEach((target) => {
+      target.addEventListener("pointerenter", () => show(target));
+      target.addEventListener("pointerleave", hide);
+      target.addEventListener("focus", () => show(target));
+      target.addEventListener("blur", hide);
+    });
+    chartWrap.addEventListener("scroll", hide, { passive: true });
+  }
+</script>
+
+
+<style>
+  .entrepreneurial { padding: 0 0 110px; background: #fff; }
+  .entrepreneurial-shell {
+    padding: clamp(30px, 4vw, 54px);
+    border: 1px solid #dce8f4;
+    border-radius: 18px;
+    background: #f8fbfe;
+  }
+  .entrepreneurial-shell h2 {
+    margin: 0 0 32px;
+    color: #071a33;
+    font-size: clamp(29px, 3.4vw, 43px);
+    line-height: 1.17;
+    letter-spacing: -0.025em;
+  }
+  .entrepreneurial-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(260px, 0.9fr);
+    gap: clamp(28px, 4vw, 58px);
+    align-items: stretch;
+  }
+  .entrepreneurial-copy { max-width: 730px; }
+  .entrepreneurial-copy p {
+    margin: 0 0 23px;
+    color: #536780;
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.7;
+  }
+  .entrepreneurial-copy p:last-child { margin-bottom: 0; }
+  .entrepreneurial-aside {
+    border-left: 1px solid #d5e2ee;
+    padding-left: clamp(25px, 3vw, 42px);
+    display: flex;
+    align-items: center;
+  }
+  .entrepreneurial-card {
+    width: 100%;
+    padding: clamp(22px, 2.4vw, 30px);
+    border-radius: 14px;
+    background: #edf5fc;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .entrepreneurial-year {
+    margin: 0;
+    color: #071a33;
+    font-size: clamp(65px, 6vw, 90px);
+    font-weight: 750;
+    letter-spacing: -0.06em;
+    line-height: 1;
+  }
+  .entrepreneurial-rule {
+    width: 64px;
+    height: 5px;
+    margin: 18px 0 20px;
+    background: #55aff0;
+    border-radius: 3px;
+  }
+  .entrepreneurial-role {
+    margin: 0 0 16px;
+    color: #071a33;
+    font-size: clamp(24px, 2.4vw, 34px);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .entrepreneurial-logo {
+    display: block;
+    width: min(100%, 270px);
+    height: auto;
+    object-fit: contain;
+    margin: 0 0 16px;
+  }
+  .entrepreneurial-tagline {
+    margin: 0;
+    color: #536780;
+    font-size: clamp(17px, 1.8vw, 23px);
+    line-height: 1.4;
+  }
+  @media (max-width: 800px) {
+    .entrepreneurial { padding-bottom: 75px; }
+    .entrepreneurial-grid { grid-template-columns: 1fr; }
+    .entrepreneurial-aside { border-left: 0; padding-left: 0; }
+    .entrepreneurial-card { align-items: flex-start; }
+    .entrepreneurial-year { font-size: 76px; }
+    .entrepreneurial-logo { width: min(100%, 250px); }
+  }
+</style>
+
+<style>
+  .leadership { background: #fff; padding: 0 0 110px; }
+  .leadership-shell { background: #f0f6fc; border: 1px solid #dce9f6; border-radius: 24px; padding: clamp(24px, 3vw, 42px); }
+  .leadership-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .85fr); gap: clamp(24px, 3vw, 46px); align-items: start; }
+  .leadership-accent { width: 52px; height: 4px; background: #4ba9f1; border-radius: 4px; margin-bottom: 14px; }
+  .leadership-copy h2 { margin: 0 0 16px; color: #071a33; font-size: clamp(34px, 3.5vw, 49px); letter-spacing: -.035em; line-height: 1.12; }
+  .leadership-copy p { margin: 0 0 13px; color: #526783; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.53; }
+  .leadership-copy p:last-child { margin-bottom: 0; }
+  .leadership-copy .leadership-lead { font-size: clamp(19px, 1.8vw, 25px); line-height: 1.35; margin-bottom: 16px; }
+  .leadership-radar { border: 1px solid #d6e5f5; border-radius: 16px; padding: 17px 14px 14px; background: #fafdff; }
+  .leadership-radar h3 { color: #071a33; font-size: 21px; margin: 0 10px 4px; }
+  .radar-intro { color: #526783; font-size: 14px; margin: 0 10px 2px; line-height: 1.4; }
+  .radar-svg { display: block; width: 88%; max-width: 390px; height: auto; margin: 0 auto; overflow: visible; }
+  .radar-note { font-size: 12px; color: #61738b; line-height: 1.5; text-align: center; margin: 2px 10px 0; }
+  .leadership-principles { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 0; margin-top: 27px; }
+  .leadership-principle { padding: 0 20px; border-left: 1px solid #c8d8e9; min-width: 0; }
+  .leadership-principle:first-child { border-left: 0; padding-left: 0; }
+  .leadership-principle:last-child { padding-right: 0; }
+  .principle-number { display: block; font-size: clamp(30px,3vw,42px); font-weight: 700; color: #3196e8; line-height: 1.1; margin-bottom: 6px; }
+  .leadership-principle h3 { color: #071a33; font-size: clamp(15px,1.4vw,19px); line-height: 1.2; margin: 0 0 8px; }
+  .leadership-principle p { color: #526783; font-size: 14px; line-height: 1.5; margin: 0; }
+  @media (max-width: 950px) {
+    .leadership-grid { grid-template-columns: 1fr; }
+    .leadership-radar { width: min(100%, 490px); margin: 0 auto; }
+    .leadership-principles { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 0; }
+    .leadership-principle:nth-child(odd) { border-left: 0; padding-left: 0; }
+  }
+  @media (max-width: 580px) {
+    .leadership { padding-bottom: 75px; }
+    .leadership-shell { border-radius: 18px; }
+    .leadership-principles { grid-template-columns: 1fr; margin-top: 34px; gap: 22px; }
+    .leadership-principle { border-left: 0; border-top: 1px solid #c8d8e9; padding: 16px 0 0; }
+    .leadership-principle:first-child { border-top: 0; padding-top: 0; }
+  }
+</style>

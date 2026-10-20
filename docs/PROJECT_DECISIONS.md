@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-15
+**Last updated:** 2026-10-20
 
 ## Status legend
 
@@ -76,6 +76,13 @@
 | D-053 | 2026-10-15 | Multicultural highlight | Under **A Global Perspective**, show **25+** with **Languages in which I can say “Good morning”** and optional supporting line **Small gestures can build meaningful connections across cultures.** | Accepted | Refers to greetings, **not** language fluency. |
 | D-054 | 2026-10-15 | About Me section sequence and visual restraint | Sequence: opening → My Professional Journey + chart → An Entrepreneurial Perspective + 2012 feature → How I Lead + five principles → A Global Perspective + map + 25+ greetings → What Connects It All + quiet typographic closing. | Accepted | Primarily white/light, navy accents, measured whitespace, mobile-responsive. No additional charts or photos in initial implementation. |
 | D-055 | 2026-10-15 | About Me workflow | Content and visual planning for GitHub Issue **#19** considered complete in discussion; next stage is Issue **#20 Implement About Me Page**. | Accepted | GitHub issue status and repository files are **not** automatically updated; commit documentation and update GitHub Project manually. |
+
+| D-056 | 2026-10-20 | About Me implementation milestone | The Global Perspective page changes and `global-perspective-map-v3.svg` were committed and pushed as `a29a6e2`; final **What Connects It All** section subsequently implemented and reviewed locally. | Accepted | Do not infer the final section was published from the earlier push; confirm its separate commit and deployment. |
+| D-057 | 2026-10-20 | Global Perspective visual and labels | Use **An International Network** and **Projects, customers and manufacturing across the globe.** Legend icons match ring-and-dot map markers. Brazil retains **Experience & business**; New Zealand uses **Global Project Management** for its marker role, accessible label and legend, retaining the description of international coordination, customer relationships and FAT in New Zealand. | Accepted | Avoid implying that all business experience was in Brazil or that FAT took place in customer countries. |
+| D-058 | 2026-10-20 | Global Perspective metrics and layout | Present four indicators: **7** countries with project deliveries, **11** global projects, **110+** stakeholders across teams, **767.5 MW** MV UPS capacity (2023–2026), in a pale-blue card visually aligned with the **25+** greetings card. | Accepted | Metric definitions and the distinction between delivered and planned capacity require final verification before v1.0. |
+| D-059 | 2026-10-20 | What Connects It All final presentation | Preserve the approved three-paragraph closing text and pair it with a **Value Creation** illustration linking **Engineering**, **Business**, and **People**. On desktop, illustration appears left and narrative right. | Accepted | Visually reviewed by user; separate production deployment not yet confirmed. This refines the typography-only closing in D-054. |
+| D-060 | 2026-10-20 | Fibra logo future refinement | During a later About Me review, remove **“Engenharia”** from the displayed Fibra logo while preserving **Fibra** branding, and reduce the displayed logo size slightly. | Accepted (deferred) | Current logo remains in place; do not treat as a release blocker. |
+| D-061 | 2026-10-20 | Professional focus chart implemented design | The implemented chart is an interactive **100% stacked area** chart with an illustrative transition at 2020 and a revised 2021 allocation, superseding D-049's earlier independent-band/15-observation specification. | Accepted | Preserve actual implementation and approved methodology; verify exact observation values in `about.astro` before changing the source data. |
 
 ## Key discussions
 
@@ -174,7 +181,7 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 4. **Accountability:** Take responsibility for commitments, decisions, and results.
 5. **Hands-on Leadership:** Stay engaged, understand challenges, and support teams when needed.
 
-**Map data (categories are not necessarily physical work locations):**
+**Map data (historical planning categories; see D-057 for the implemented New Zealand label; categories are not necessarily physical work locations):**
 
 | Category | Countries / locations |
 | --- | --- |
@@ -185,7 +192,7 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 | ABB Manufacturing Facilities | Czech Republic, Mexico, United States |
 | Global Project Coordination & FAT | New Zealand |
 
-**Count:** 18 distinct named countries/territories across all categories (16 unique outside Brazil and New Zealand, plus Brazil and New Zealand). Taiwan is listed separately as provided for geographic visualization; this is not a political characterization. The generated concept image is illustrative and contains inaccurate metrics/possible placements; it must not be reused as authoritative data. The ABB Home **7 Countries** metric is a separate, approved project-delivery scope and must not be replaced by the map's wider relationship count.
+**Historical planning count (recheck against the implemented marker list):** 18 distinct named countries/territories across all categories (16 unique outside Brazil and New Zealand, plus Brazil and New Zealand). Taiwan is listed separately as provided for geographic visualization; this is not a political characterization. The generated concept image is illustrative and contains inaccurate metrics/possible placements; it must not be reused as authoritative data. The ABB Home **7 Countries** metric is a separate, approved project-delivery scope and must not be replaced by the map's wider relationship count.
 
 **Implementation notes:** responsive accessible SVG or equivalent map, tooltips/legend and keyboard-accessible country information if interactive; show overlapping roles without hiding categories; verify geography, permissions, and any confidentiality concerns. Do not imply FATs occurred in the customer-company countries.
 
@@ -205,8 +212,9 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 12. Evaluate proposed visual storytelling elements: origins and dual citizenship, places lived, Brazil regional activity map, global ABB/data-center project map, selected clients, technologies, multicultural greetings, and project-methodology chart (Waterfall/Agile/Hybrid). Confirm accuracy, permissions, and confidentiality before publication.
 
 13. Validate the timeframe and review the proposed Certifications & Education metrics-card copy/layout (D-046); implement only after approval.
-14. Implement the approved About Me specification (D-047–D-055), after ensuring the separate authoritative narrative file is available.
-15. Review geographic map labels, country roles and confidentiality before publishing.
+14. Complete About Me final QA and confirm publication of the final section (D-056–D-061); preserve the approved narrative source.
+15. Recheck map country roles, metric definitions and confidentiality as part of final QA; complete mobile and keyboard-accessibility tests.
+16. Later, refine the Fibra logo as agreed in D-060.
 
 ## Change management
 

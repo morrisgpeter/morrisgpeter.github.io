@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-12  
+**Updated:** 2026-10-20  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -14,7 +14,7 @@
 | 1 | Development environment and publication | ✅ Complete |
 | 2 | Complete the Home page | 🟡 In progress |
 | 2a | Certifications & Education (GitHub Issues #33–#35) | ✅ v6 published and visually verified on GitHub Pages (2026-10-12) |
-| 3 | Build About | ⬜ Pending |
+| 3 | Build About | 🟡 Implemented and published; final review pending |
 | 4 | Build Experience | ⬜ Pending |
 | 5 | Develop Portfolio | ⬜ Pending |
 | 6 | Build Contact | ✅ Complete — v5 published, tested; GitHub Project issues updated (2026-10-12) |
@@ -141,23 +141,33 @@ Candidate projects **for evaluation**, not yet selected for publication:
 - [ ] Select and incorporate a suitable landscape image showing mountains and a winding road.
 - [ ] Choose and approve a new introductory quotation; do not restore the removed draft quotation by default.
 
-## 3. About — pending
+## 3. About — implemented; final review pending
 
 **Goal:** Present the professional profile beyond a conventional CV.
 
-Suggested topics:
+**Published milestone:** The interactive Global Perspective implementation was committed and pushed to `main` as `a29a6e2` on 2026-10-20, including `src/pages/about.astro` and `public/images/global-perspective-map-v3.svg`. The final **What Connects It All** section was subsequently implemented and visually reviewed locally; its separate publication is **not yet confirmed**.
 
-- Professional Profile and Philosophy.
-- Engineering Background.
-- Education & Certifications.
-- International Experience.
-- Languages.
+**Implemented and visually reviewed sections, in order:**
 
-- [ ] Agree on content and narrative.
-- [ ] Select suitable photos or geographic elements.
-- [ ] Implement and review the page.
+1. About opening: **Engineering Expertise. Entrepreneurial Mindset. Global Perspective.**
+2. **My Professional Journey** and the interactive **The Evolution of My Professional Focus** chart.
+3. **An Entrepreneurial Perspective**, including the Fibra logo and 2012 co-founder feature.
+4. **How I Lead**, with five leadership principles and an unscored visual philosophy diagram.
+5. **A Global Perspective**, with interactive country markers, role details, legend, four project indicators, and the 25+ multilingual greetings feature.
+6. **What Connects It All**, with **Engineering**, **Business**, and **People** converging on **Value Creation**. Final reviewed layout: illustration left, narrative right on desktop.
 
-**Stage deliverable:** Complete About page.
+**Approved map refinements:** subtitle **Projects, customers and manufacturing across the globe.**; ring-and-dot legend symbols matching map markers; Brazil remains **Experience & business**; New Zealand becomes **Global Project Management**, with the tooltip describing international project coordination, customer relationships and FAT in New Zealand. Customer FAT countries identify delegation origins, not FAT locations.
+
+**Pending review:**
+
+- [ ] Remove **“Engenharia”** from the displayed Fibra logo while preserving the **Fibra** identity.
+- [ ] Slightly reduce the displayed Fibra logo size in the entrepreneurial side card.
+- [ ] Confirm the final **What Connects It All** implementation has been committed, pushed and deployed.
+- [ ] Test the full About page on mobile, including chart, map, markers, tooltips and keyboard navigation.
+- [ ] Recheck figures, map country roles, accessibility and publication/confidentiality requirements.
+- [ ] Update GitHub Issues #20 and #21 based on their actual status.
+
+**Stage deliverable:** Published About page with final quality review completed.
 
 ## 4. Experience — pending
 
@@ -276,11 +286,11 @@ Navigation, responsiveness, accessibility, and content verification should also 
 
 ## Immediate next action
 
-**Continue portfolio development after the published Certifications & Education v6 and Contact v5 milestones.**
+**Complete the About Me release review, then continue Experience, Portfolio and remaining Home work.**
 
 1. Confirm whether the earlier Home Key Achievements publication checklist is complete; update its status only after checking.
 2. Review the GitHub Project board and confirm the status of Issues #13 and #33–#35; do not infer issue closure from site publication.
-3. Continue with the next prioritized portfolio task; Featured Work remains pending.
+3. Confirm publication of the final About Me section and perform the pending mobile/accessibility review; Featured Work remains pending.
 4. During a future refinement of Certifications & Education, evaluate the deferred landscape image (mountains and winding road) and select a new introductory quotation. Neither is part of v6.
 5. Continue site-wide navigation review as About, Experience and Portfolio pages are implemented; Contact and Certifications & Education are now linked.
 

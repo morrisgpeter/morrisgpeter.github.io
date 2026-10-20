@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-15
+**Last updated:** 2026-10-20
 
 ## Purpose
 
@@ -92,9 +92,9 @@ git push origin main   # triggers automatic deployment
 The published development metrics are **15 Professional Development Credentials** and **170+ Hours of Professional Development** (rounded from 172.75 hours). The current design places **Last 2 years** in the separate development topic strip, which does not clearly establish that both metrics refer to that timeframe. **Proposed, not yet approved or implemented:** place a concise, accurate timeframe directly with both metrics under **Continuous Professional Development**; consider shortening labels to **Development Credentials** and **Learning Hours**, and removing the redundant **Professional Development** chip. First verify that all 15 credentials and all counted hours belong to the chosen period (for example, 2025–2026). See `PROJECT_DECISIONS.md` D-046.
 
 
-## About Me — approved specification (2026-10-15)
+## About Me — approved specification and implementation (updated 2026-10-20)
 
-**Planning:** GitHub Issue #19 content and visual definition completed in discussion; Issue #20 (Implement About Me Page) is next. This does **not** mean GitHub issue statuses have been changed.
+**Planning:** Issue #19 content planning was completed. About Me is now implemented and visually reviewed, with final QA and issue status verification still pending. Do not infer GitHub issue closure from page implementation.
 
 **Exact opening:** **Engineering Expertise. Entrepreneurial Mindset. Global Perspective.** Set on three lines, on a light internal-page background.
 
@@ -106,12 +106,20 @@ The published development metrics are **15 Professional Development Credentials*
 2. My Professional Journey narrative and **The Evolution of My Professional Focus**: three independent smooth flat-bottom bands, navy Engineering, light-blue Project & Program Management, orange Commercial Leadership, spanning 1997–2026 and the four companies. Fifteen recorded year/percentage observations and methodology note are in `PROJECT_DECISIONS.md` D-049 and its About Me specification section.
 3. An Entrepreneurial Perspective narrative with **2012 — Co-founded Fibra Engenharia** and **Building a business from the ground up.**
 4. How I Lead narrative on subtle blue-gray background with five numbered principles: Empowerment, Collaboration, Transparency, Accountability, Hands-on Leadership.
-5. A Global Perspective narrative with geographic map showing **Brazil** (professional experience/business development), **New Zealand** (coordination and FAT base), project-delivery locations, customer home countries represented at New Zealand FATs, partner manufacturers, and ABB manufacturing locations. **18 distinct countries/territories** across these roles, not equivalent to 18 delivery countries or physical work locations. Add **25+ — Languages in which I can say “Good morning”**, never implying fluency.
-6. What Connects It All narrative and restrained typographic ending.
+5. A Global Perspective narrative with geographic map showing **Brazil** (professional experience/business development), **New Zealand** (coordination and FAT base), project-delivery locations, customer home countries represented at New Zealand FATs, partner manufacturers, and ABB manufacturing locations. Multiple distinct countries across these roles, not equivalent to seven delivery countries or physical work locations; the original planning count should be rechecked against the implemented marker list. Add **25+ — Languages in which I can say “Good morning”**, never implying fluency.
+6. What Connects It All narrative and an **Engineering / Business / People → Value Creation** illustration, positioned left of the narrative on desktop.
 
-**Visual approach:** Executive, spacious, minimal, primarily light backgrounds and navy accents. No additional photographs or charts in initial About Me implementation. Charts/maps should be responsive, geographically/data accurate, and accessible. Preserve Home and other page decisions unchanged. Validate confidentiality before release.
+**Visual approach:** Executive, spacious, minimal, primarily light backgrounds and navy accents. Implemented graphics include the professional-focus chart, leadership philosophy diagram, world map and value-creation illustration. Charts/maps should be responsive, geographically/data accurate, and accessible. Preserve Home and other page decisions unchanged. Validate confidentiality before release.
 
-**Implementation status:** **Not yet coded**. First preserve approved narrative source, then implement in Astro and review desktop/mobile and build before committing/publishing. The user-uploaded documents were updated as downloadable copies; the GitHub repository is not modified automatically.
+**Implementation status:** About Me has been coded and visually reviewed. The Global Perspective section and map asset were committed and pushed as `a29a6e2` (2026-10-20). The final What Connects It All section was reviewed locally; its separate commit/push is not confirmed. Final mobile, accessibility and content QA remain pending.
+
+
+### About Me — final visual decisions and deferred refinements (2026-10-20)
+
+- **Global Perspective:** map heading **An International Network**, subtitle **Projects, customers and manufacturing across the globe.** Map legend uses ring-and-dot symbols matching the markers. Brazil's role remains **Experience & business**; New Zealand's role/legend is **Global Project Management**, with a tooltip explaining international project coordination, customer relationships and FAT in New Zealand. Customer FAT markers indicate customer origins; the FAT took place in New Zealand.
+- **Project indicators:** 7 countries with project deliveries; 11 global projects; 110+ stakeholders across teams; 767.5 MW MV UPS capacity (2023–2026). Review period and delivered-versus-planned wording before final public claims.
+- **Closing section:** **What Connects It All** uses the approved three-paragraph narrative and a three-part **Engineering / Business / People** diagram centered on **Value Creation**. Desktop layout has the illustration on the left and text on the right.
+- **Deferred Fibra visual refinement:** remove **“Engenharia”** from the displayed logo (retain the original **Fibra** identity) and slightly reduce its displayed size. These are future visual improvements, not blockers and not yet implemented.
 
 ## Content direction — agreed
 
@@ -168,8 +176,8 @@ These are **candidate content facts**, not approval to publish. Verify definitio
 - Language strategy: English first was suggested but not confirmed.
 - Further typography and image refinements within the accepted dark Home / light internal-page direction.
 - Which metrics, photos, and projects are cleared for public use.
-- Charting library and interaction level (especially approved About Me chart and map).
-- Ensure `docs/ABOUT_ME_APPROVED_NARRATIVE.md` exists with the exact approved text before coding the About Me page.
+- Final mobile/accessibility testing for the implemented About Me chart, map and illustrations.
+- Confirm `docs/ABOUT_ME_APPROVED_NARRATIVE.md` remains synchronized with the final approved About Me copy.
 - Review whether project planning documents should remain in the public repository after launch.
 - Make the Node.js/npm PATH persistent for future VS Code Bash sessions.
 - Validate the actual timeframe for the 15 development credentials and 170+ hours; review and implement the proposed metrics-card clarity improvements (D-046).

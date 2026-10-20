@@ -271,7 +271,16 @@ const companyPeriods = [
           <img src="/images/global-perspective-map-v3.svg" alt="World map with country boundaries and international project locations" width="1200" height="470" loading="lazy" />
           <div class="map-detail" id="map-detail" role="status" aria-live="polite" hidden><button class="map-detail-close" type="button" aria-label="Close country details">×</button><strong class="map-detail-name"></strong><span class="map-detail-role"></span><p class="map-detail-description"></p></div>
           <button type="button" class="map-marker marker-experience" style="left:36.944%;top:67.857%" data-name="Brazil" data-role="Professional experience &amp; business development" data-description="Engineering, utilities, automation and telecom infrastructure." aria-label="Brazil: Professional experience &amp; business development" aria-pressed="false"></button>
-<button type="button" class="map-marker marker-coordination" style="left:99.139%;top:85.357%" data-name="New Zealand" data-role="Global project coordination &amp; FAT" data-description="Project coordination and customer factory acceptance testing in New Zealand." aria-label="New Zealand: Global project coordination &amp; FAT" aria-pressed="false"></button>
+<button
+  type="button"
+  class="map-marker marker-coordination"
+  style="left:99.139%;top:85.357%"
+  data-name="New Zealand"
+  data-role="Global Project Management"
+  data-description="International project coordination, customer relationships and factory acceptance testing (FAT) in New Zealand."
+  aria-label="New Zealand: Global Project Management"
+  aria-pressed="false"
+></button>
 <button type="button" class="map-marker marker-delivery" style="left:22.778%;top:29.286%" data-name="United States" data-role="Project delivery · ABB manufacturing" data-description="Critical power projects and ABB manufacturing facilities." aria-label="United States: Project delivery · ABB manufacturing" aria-pressed="false"></button>
 <button type="button" class="map-marker marker-delivery" style="left:20.556%;top:16.429%" data-name="Canada" data-role="Project delivery · Customer FAT participation" data-description="Critical power projects; Canadian customer delegations attended FAT in New Zealand." aria-label="Canada: Project delivery · Customer FAT participation" aria-pressed="false"></button>
 <button type="button" class="map-marker marker-delivery" style="left:49.444%;top:18.571%" data-name="United Kingdom" data-role="Project delivery · Customer FAT participation" data-description="Project delivery; UK customer delegations attended FAT in New Zealand." aria-label="United Kingdom: Project delivery · Customer FAT participation" aria-pressed="false"></button>
@@ -294,7 +303,7 @@ const companyPeriods = [
           <span><i class="legend-delivery"></i> Project delivery</span>
           <span><i class="legend-customer"></i> Customer FAT</span>
           <span><i class="legend-manufacturing"></i> Manufacturing</span>
-          <span><i class="legend-coordination"></i> Coordination &amp; FAT</span>
+          <span><i class="legend-coordination"></i> Global Project Management</span>
         </div>
         <figcaption id="global-map-note">Markers show professional connections, not necessarily countries visited. Customer FAT markers indicate customer origins; FAT activities took place in New Zealand. Locations are approximate country-level positions.</figcaption>
       </figure>
@@ -309,6 +318,50 @@ const companyPeriods = [
     </div>
   </div>
 </section>
+
+    <section class="about-closing" aria-labelledby="about-closing-title">
+      <div class="about-closing-inner">
+        <div class="about-closing-visual" role="img" aria-label="Engineering, business and people are connected around a central goal: value creation.">
+          <svg viewBox="0 0 520 475" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <radialGradient id="closing-glow"><stop stop-color="#d6e9fa" stop-opacity=".85"/><stop offset="1" stop-color="#edf6fd" stop-opacity=".2"/></radialGradient>
+              <linearGradient id="closing-hub" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#103f70"/><stop offset="1" stop-color="#071a33"/></linearGradient>
+            </defs>
+            <circle cx="260" cy="253" r="174" fill="url(#closing-glow)"/>
+            <circle cx="260" cy="253" r="210" fill="none" stroke="#b8d6f1" stroke-width="2" stroke-dasharray="3 8"/>
+            <circle cx="260" cy="43" r="5" fill="#a8d3f4"/><circle cx="470" cy="253" r="5" fill="#2185d4"/><circle cx="260" cy="463" r="5" fill="#a8d3f4"/><circle cx="50" cy="253" r="5" fill="#2185d4"/>
+            <path d="M208 158 Q146 178 132 237" fill="none" stroke="#17476f" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M312 158 Q374 178 388 237" fill="none" stroke="#17476f" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M187 370 Q260 411 333 370" fill="none" stroke="#17476f" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="260" cy="100" r="97" fill="#fff" stroke="#459de8" stroke-width="1.5"/>
+            <circle cx="119" cy="331" r="97" fill="#fff" stroke="#459de8" stroke-width="1.5"/>
+            <circle cx="401" cy="331" r="97" fill="#fff" stroke="#459de8" stroke-width="1.5"/>
+            <!-- Engineering icon -->
+            <g transform="translate(260 56)" fill="none" stroke="#0c4f92" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle r="16"/><circle r="6"/><path d="M-7-26v-8h14v8M-7 26v8h14v-8M-26-7h-8v14h8M26-7h8v14h-8M-23-23l-6-6-10 10 6 6M23 23l6 6 10-10-6-6M23-23l6-6 10 10-6 6M-23 23l-6 6-10-10 6-6" transform="scale(.74)"/></g>
+            <text x="260" y="114" text-anchor="middle" class="closing-svg-title">Engineering</text><text x="260" y="137" text-anchor="middle" class="closing-svg-sub">Technical</text><text x="260" y="156" text-anchor="middle" class="closing-svg-sub">understanding</text>
+            <!-- Business icon -->
+            <g transform="translate(119 295)" fill="none" stroke="#0c4f92" stroke-width="3" stroke-linejoin="round"><rect x="-28" y="6" width="14" height="24"/><rect x="-7" y="-8" width="14" height="38"/><rect x="14" y="-22" width="14" height="52"/></g>
+            <text x="119" y="355" text-anchor="middle" class="closing-svg-title">Business</text><text x="119" y="378" text-anchor="middle" class="closing-svg-sub">Customer needs</text><text x="119" y="397" text-anchor="middle" class="closing-svg-sub">and perspective</text>
+            <!-- People icon -->
+            <g transform="translate(401 295)" fill="none" stroke="#0c4f92" stroke-width="3" stroke-linecap="round"><circle cx="-11" cy="-16" r="10"/><circle cx="15" cy="-14" r="9"/><path d="M-33 24v-7q0-20 22-20t22 20v7M12 1q22-3 22 20v3"/></g>
+            <text x="401" y="355" text-anchor="middle" class="closing-svg-title">People</text><text x="401" y="378" text-anchor="middle" class="closing-svg-sub">Collaboration</text><text x="401" y="397" text-anchor="middle" class="closing-svg-sub">and perspectives</text>
+            <!-- Value hub above connecting circles -->
+            <circle cx="260" cy="260" r="74" fill="url(#closing-hub)"/>
+            <g fill="none" stroke="#70bce9" stroke-width="3" stroke-linecap="round" transform="translate(260 236)"><path d="M-18 12V1h9v11M-4 12v-22h9v22M10 12v-32h9v32"/></g>
+            <text x="260" y="281" text-anchor="middle" class="closing-svg-hub">Value</text><text x="260" y="304" text-anchor="middle" class="closing-svg-hub">Creation</text>
+          </svg>
+        </div>
+        <div class="about-closing-text">
+          <div class="about-closing-accent" aria-hidden="true"></div>
+          <h2 id="about-closing-title">What Connects It All</h2>
+          <div class="about-closing-copy">
+            <p class="about-closing-lead">Looking back, the common thread throughout my career has been connecting technical understanding, business needs, and people.</p>
+            <p>Whether developing business opportunities, leading complex projects, building processes, or working with international teams, I aim to create an environment where people understand the objectives, work collaboratively, and deliver meaningful results.</p>
+            <p>For me, successful projects and lasting customer relationships are built on the same foundations: trust, clear communication, shared responsibility, and a commitment to delivering value.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
@@ -654,6 +707,26 @@ const companyPeriods = [
   @media(max-width:950px) {.global-top {grid-template-columns:1fr;gap:22px;}.global-left {max-width:700px;}.global-map {max-width:850px;}.global-reflection {grid-template-columns:1fr;gap:18px;}.global-languages {max-width:360px;}}
   @media(max-width:580px) {.global-perspective {padding:48px 0 55px;}.global-stats {margin-top:16px;}.global-stat {gap:7px;}.global-stat svg {width:20px;height:20px;}.global-stat strong {font-size:clamp(20px,5vw,28px);}.global-map-header {padding:13px 12px 6px;}.global-legend {padding:10px 12px 7px;}.global-map figcaption {padding:3px 12px 12px;}.global-reflection {margin-top:23px;padding-top:20px;}.global-reflection-copy p {font-size:14px;}}
 
+</style>
+
+
+<style>
+  /* Closing statement: visual synthesis of the professional narrative. */
+  .about-closing { background:#fff; padding:58px 24px 65px; }
+  .about-closing-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr); align-items:center; gap:clamp(28px,4vw,64px); }
+  .about-closing-text { min-width:0; }
+  .about-closing-accent { width:42px; height:3px; background:#3196e8; border-radius:3px; margin-bottom:18px; }
+  .about-closing h2 { margin:0 0 23px; color:#071a33; font-size:clamp(30px,3.1vw,42px); line-height:1.15; letter-spacing:-.035em; }
+  .about-closing-copy p { margin:0 0 14px; color:#526783; font-size:16px; line-height:1.58; }
+  .about-closing-copy p:last-child { margin-bottom:0; }
+  .about-closing-copy .about-closing-lead { color:#10365c; font-size:18px; line-height:1.5; font-weight:600; margin-bottom:17px; }
+  .about-closing-visual { width:100%; max-width:510px; margin:auto; }
+  .about-closing-visual svg { display:block; width:100%; height:auto; overflow:visible; }
+  .closing-svg-title { fill:#071a33; font-family:Arial,Helvetica,sans-serif; font-size:20px; font-weight:700; }
+  .closing-svg-sub { fill:#526783; font-family:Arial,Helvetica,sans-serif; font-size:15px; }
+  .closing-svg-hub { fill:white; font-family:Arial,Helvetica,sans-serif; font-size:20px; font-weight:700; }
+  @media (max-width:820px) { .about-closing-inner { grid-template-columns:1fr; gap:22px; } .about-closing-visual { max-width:430px; } }
+  @media (max-width:580px) { .about-closing { padding:49px 20px 56px; } .about-closing h2 { margin-bottom:19px; } .about-closing-copy p { font-size:15px; } .about-closing-copy .about-closing-lead { font-size:17px; } .about-closing-visual { max-width:350px; } }
 </style>
 
 <script>

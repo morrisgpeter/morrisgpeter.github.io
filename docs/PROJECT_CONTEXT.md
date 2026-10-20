@@ -111,15 +111,15 @@ The published development metrics are **15 Professional Development Credentials*
 
 **Visual approach:** Executive, spacious, minimal, primarily light backgrounds and navy accents. Implemented graphics include the professional-focus chart, leadership philosophy diagram, world map and value-creation illustration. Charts/maps should be responsive, geographically/data accurate, and accessible. Preserve Home and other page decisions unchanged. Validate confidentiality before release.
 
-**Implementation status:** About Me has been coded and visually reviewed. The Global Perspective section and map asset were committed and pushed as `a29a6e2` (2026-10-20). The final What Connects It All section was reviewed locally; its separate commit/push is not confirmed. Final mobile, accessibility and content QA remain pending.
+**Implementation status:** About Me has been coded and visually reviewed. The Global Perspective section and map asset were committed and pushed as `a29a6e2` (2026-10-20). The final What Connects It All section was subsequently confirmed by the user on the live website; the specific commit is not recorded here. Final mobile, accessibility and content QA remain pending.
 
 
-### About Me — final visual decisions and deferred refinements (2026-10-20)
+### About Me — final visual decisions and completed refinements (2026-10-20)
 
 - **Global Perspective:** map heading **An International Network**, subtitle **Projects, customers and manufacturing across the globe.** Map legend uses ring-and-dot symbols matching the markers. Brazil's role remains **Experience & business**; New Zealand's role/legend is **Global Project Management**, with a tooltip explaining international project coordination, customer relationships and FAT in New Zealand. Customer FAT markers indicate customer origins; the FAT took place in New Zealand.
 - **Project indicators:** 7 countries with project deliveries; 11 global projects; 110+ stakeholders across teams; 767.5 MW MV UPS capacity (2023–2026). Review period and delivered-versus-planned wording before final public claims.
 - **Closing section:** **What Connects It All** uses the approved three-paragraph narrative and a three-part **Engineering / Business / People** diagram centered on **Value Creation**. Desktop layout has the illustration on the left and text on the right.
-- **Deferred Fibra visual refinement:** remove **“Engenharia”** from the displayed logo (retain the original **Fibra** identity) and slightly reduce its displayed size. These are future visual improvements, not blockers and not yet implemented.
+- **Completed Fibra visual refinement:** user replaced the logo image, retaining the filename, so only **Fibra** branding appears. The displayed size and proportions were reviewed and approved; user verified the result.
 
 ## Content direction — agreed
 

@@ -14,7 +14,7 @@
 | 1 | Development environment and publication | ✅ Complete |
 | 2 | Complete the Home page | 🟡 In progress |
 | 2a | Certifications & Education (GitHub Issues #33–#35) | ✅ v6 published and visually verified on GitHub Pages (2026-10-12) |
-| 3 | Build About | 🟡 Implemented and published; final review pending |
+| 3 | Build About | 🟡 Implemented and published; visual review completed, mobile/accessibility QA pending |
 | 4 | Build Experience | ⬜ Pending |
 | 5 | Develop Portfolio | ⬜ Pending |
 | 6 | Build Contact | ✅ Complete — v5 published, tested; GitHub Project issues updated (2026-10-12) |
@@ -145,7 +145,7 @@ Candidate projects **for evaluation**, not yet selected for publication:
 
 **Goal:** Present the professional profile beyond a conventional CV.
 
-**Published milestone:** The interactive Global Perspective implementation was committed and pushed to `main` as `a29a6e2` on 2026-10-20, including `src/pages/about.astro` and `public/images/global-perspective-map-v3.svg`. The final **What Connects It All** section was subsequently implemented and visually reviewed locally; its separate publication is **not yet confirmed**.
+**Published milestone:** The interactive Global Perspective implementation was committed and pushed to `main` as `a29a6e2` on 2026-10-20, including `src/pages/about.astro` and `public/images/global-perspective-map-v3.svg`. The final **What Connects It All** section was subsequently implemented, visually reviewed, and confirmed by the user on the live website. The specific commit containing the final section has not been identified in these records.
 
 **Implemented and visually reviewed sections, in order:**
 
@@ -160,9 +160,9 @@ Candidate projects **for evaluation**, not yet selected for publication:
 
 **Pending review:**
 
-- [ ] Remove **“Engenharia”** from the displayed Fibra logo while preserving the **Fibra** identity.
-- [ ] Slightly reduce the displayed Fibra logo size in the entrepreneurial side card.
-- [ ] Confirm the final **What Connects It All** implementation has been committed, pushed and deployed.
+- [x] Remove **“Engenharia”** from the displayed Fibra logo while preserving the **Fibra** identity; user replaced the image file, retaining the existing filename, and verified the result.
+- [x] Review the displayed Fibra logo size and proportions in the entrepreneurial side card; user confirmed the final appearance meets expectations.
+- [x] Confirm the final **What Connects It All** section appears on the public website; user provided a live-site screenshot. (Specific commit not recorded.)
 - [ ] Test the full About page on mobile, including chart, map, markers, tooltips and keyboard navigation.
 - [ ] Recheck figures, map country roles, accessibility and publication/confidentiality requirements.
 - [ ] Update GitHub Issues #20 and #21 based on their actual status.
@@ -286,11 +286,11 @@ Navigation, responsiveness, accessibility, and content verification should also 
 
 ## Immediate next action
 
-**Complete the About Me release review, then continue Experience, Portfolio and remaining Home work.**
+**Complete the remaining About Me mobile/accessibility and content checks, then continue Experience, Portfolio and remaining Home work.**
 
 1. Confirm whether the earlier Home Key Achievements publication checklist is complete; update its status only after checking.
 2. Review the GitHub Project board and confirm the status of Issues #13 and #33–#35; do not infer issue closure from site publication.
-3. Confirm publication of the final About Me section and perform the pending mobile/accessibility review; Featured Work remains pending.
+3. Final About Me section is visually confirmed on the live site; perform the pending mobile/accessibility review; Featured Work remains pending.
 4. During a future refinement of Certifications & Education, evaluate the deferred landscape image (mountains and winding road) and select a new introductory quotation. Neither is part of v6.
 5. Continue site-wide navigation review as About, Experience and Portfolio pages are implemented; Contact and Certifications & Education are now linked.
 

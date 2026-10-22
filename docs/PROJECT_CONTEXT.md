@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-20
+**Last updated:** 2026-10-23
 
 ## Purpose
 
@@ -120,6 +120,22 @@ The published development metrics are **15 Professional Development Credentials*
 - **Project indicators:** 7 countries with project deliveries; 11 global projects; 110+ stakeholders across teams; 767.5 MW MV UPS capacity (2023–2026). Review period and delivered-versus-planned wording before final public claims.
 - **Closing section:** **What Connects It All** uses the approved three-paragraph narrative and a three-part **Engineering / Business / People** diagram centered on **Value Creation**. Desktop layout has the illustration on the left and text on the right.
 - **Completed Fibra visual refinement:** user replaced the logo image, retaining the filename, so only **Fibra** branding appears. The displayed size and proportions were reviewed and approved; user verified the result.
+
+## Professional Experience — ABB chapter progress (2026-10-23)
+
+The **Executive Career Timeline** format and **single Experience page with links to separately published case studies** are approved. The four employer chapters will cover ABB, Fibra Engenharia, Aton Engenharia and Telenge in reverse chronological order. Experience explains roles, leadership and outcomes; Portfolio case studies provide deeper project evidence.
+
+The ABB chapter is being developed around international MV UPS project coordination and customer interfaces. The intended chapter flow includes annual capacity visualization, discreet portfolio-value context, authorized HiPerGuard-focused imagery, four Key Contributions, two Business Impact narratives, a role-validated geographic project footprint, and links only to available case studies. **2026 MW is a forecast/planned value until verified**, not confirmed completed delivery. FAT participation means coordinating customer/internal stakeholders, not performing the tests. Technical compliance work includes interfaces with certifying bodies and suppliers, not financial governance or commercial negotiation.
+
+### StakeholderNetwork.astro — v6 visually approved
+
+The user explicitly approved **v6** after reviewing desktop and mobile screenshots on **2026-10-23**. The component illustrates **collaboration across organizational levels, not a reporting hierarchy**. Its heading is **Stakeholders Across the Project Lifecycle**, with subtitle **Connecting strategic decisions, management coordination and operational execution.** A segmented lightbulb is labeled **Strategic / Management / Operational** inside its three sections. On desktop the bulb sits beside three horizontal stakeholder panels; on mobile it remains visible, centered above three two-column function grids. Group titles were removed from the panels to avoid repeating the bulb labels.
+
+- **Strategic (5):** Customers; Sales; Business units; Finance; Legal & contracts.
+- **Management (6):** Project management; Product management; Agile units; Supply chain & procurement; Operations; Service.
+- **Operational (7):** Engineering; Quality; Manufacturing & IPU; Planning & fulfilment; Logistics; Customer service; Site & commissioning support.
+
+All **18 functions** use simple outline icons, with a restrained blue/navy palette, pale blue cards and legible responsive labels. Earlier iterations used trapezoidal/pyramidal tiers and then a bulb without internal text; v6 supersedes those visual versions. **Approval is of the visual implementation**, not proof of a commit, public deployment, automated build or full accessibility testing. Next proposed component: `DataCenterPowerFlow.astro` (technical MV UPS/data-center power-flow illustration), pending design/content review.
 
 ## Content direction — agreed
 

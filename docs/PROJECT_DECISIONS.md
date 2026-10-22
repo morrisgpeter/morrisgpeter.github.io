@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-20
+**Last updated:** 2026-10-23
 
 ## Status legend
 
@@ -85,6 +85,14 @@
 | D-061 | 2026-10-20 | Professional focus chart implemented design | The implemented chart is an interactive **100% stacked area** chart with an illustrative transition at 2020 and a revised 2021 allocation, superseding D-049's earlier independent-band/15-observation specification. | Accepted | Preserve actual implementation and approved methodology; verify exact observation values in `about.astro` before changing the source data. |
 | D-062 | 2026-10-20 | About Me live visual confirmation | The **What Connects It All** section with illustration left and narrative right, and the updated **Fibra** logo card, were visually verified by the user on the public website. | Accepted | The About Me visual design is approved; final mobile, accessibility, data and confidentiality QA remain open. The specific commit for the closing section is not recorded here. |
 
+| D-063 | 2026-10-23 | Experience page structure | Use an **Executive Career Timeline** in reverse chronological order: ABB, Fibra Engenharia, Aton Engenharia, Telenge; one main Experience page with concise employer chapters and links to individual case studies only when published. | Accepted | Career evolution and outcomes should be distinct from both CV-style listings and deeper Portfolio case studies. |
+| D-064 | 2026-10-23 | ABB chapter presentation | Develop ABB chapter with role/context, annual MW chart, discreet portfolio value, HiPerGuard-focused imagery, four Key Contributions, two Business Impact narratives, role-validated global footprint and published case-study links. | Accepted (design direction) | Annual 2026 capacity and financial claims need scope, forecast/delivery and confidentiality checks before public assertions. |
+| D-065 | 2026-10-23 | ABB responsibilities and impact wording | Four contributions: **Global Project Delivery**; **Customer & Cross-functional Leadership**; **Technical Compliance & External Coordination**; **FAT & Customer Acceptance**. Two Business Impact headings: **Supporting Portfolio Growth and Customer Confidence**; **Managing Complexity Across Global Projects**. | Accepted | FAT is stakeholder coordination, not technical testing; supplier/certification interfaces are not financial governance or commercial negotiations. Delivery improvement belongs under Global Project Delivery. |
+| D-066 | 2026-10-23 | StakeholderNetwork visual concept | Replace plain three-line/trapezoid tier graphic with a three-section lightbulb, labeling **Strategic**, **Management**, **Operational** inside the bulb, and removing duplicate tier headings from adjacent stakeholder panels. | Accepted | Distinguishes collaboration interfaces across levels without implying a reporting hierarchy. Desktop bulb at left; mobile bulb centered above cards. |
+| D-067 | 2026-10-23 | StakeholderNetwork v6 taxonomy and copy | Use heading **Stakeholders Across the Project Lifecycle** and subtitle **Connecting strategic decisions, management coordination and operational execution.** Present 18 functions: Strategic (5) Customers, Sales, Business units, Finance, Legal & contracts; Management (6) Project management, Product management, Agile units, Supply chain & procurement, Operations, Service; Operational (7) Engineering, Quality, Manufacturing & IPU, Planning & fulfilment, Logistics, Customer service, Site & commissioning support. | Accepted | Use function names without unnecessary “leadership” qualifiers for Customers and Sales. Icons are visual identifiers, not a hierarchy. |
+| D-068 | 2026-10-23 | StakeholderNetwork v6 approval and responsive behavior | **Approve StakeholderNetwork.astro v6** based on reviewed desktop and mobile screenshots: segmented bulb visible and legible at both sizes, pale-blue horizontal groups on desktop, two-column icon/function grids on mobile. | Accepted (visual QA) | User explicitly approved v6. Do not infer Git commit, live deployment, production build, or accessibility testing from screenshots. |
+| D-069 | 2026-10-23 | Next Experience component | Explore `DataCenterPowerFlow.astro` as the next technical illustration, showing medium-voltage UPS within a data-center power-supply context. | Proposed | Technical diagram and content are not yet approved; review accuracy before coding. |
+
 ## Key discussions
 
 ### Professional identity
@@ -134,6 +142,10 @@ The published `/contact` v5 page uses a compact, light executive layout, small t
 ### GitHub profile — future enhancement (D-045)
 
 Create a professional GitHub profile README, pin relevant repositories, align branding with the Astro site, link back to the portfolio and organize technical work. This is roadmap work, not yet implemented.
+
+### Experience and StakeholderNetwork (D-063–D-069)
+
+The Experience page uses an executive career timeline and links only to published case studies. The ABB chapter is in progress. **StakeholderNetwork v6 is visually approved**, with an internally labeled three-part bulb and 18 functions across Strategic (5), Management (6), and Operational (7). This represents collaboration, not direct reporting lines. Desktop and mobile screenshots were reviewed; commit/deployment and accessibility verification remain separate tasks. The `DataCenterPowerFlow.astro` concept remains proposed.
 
 ### Experience versus Portfolio
 

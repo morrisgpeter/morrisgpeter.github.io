@@ -3,14 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import StakeholderNetwork from "../components/experience/StakeholderNetwork.astro";
 import DataCenterPowerFlow from '../components/experience/DataCenterPowerFlow.astro';
 import GlobalProjectFootprint from '../components/experience/GlobalProjectFootprint.astro';
+import PortfolioGrowth from '../components/experience/PortfolioGrowth.astro';
 
-const capacity = [
-  { year: "2023", mw: 62.5 },
-  { year: "2024", mw: 12.5 },
-  { year: "2025", mw: 147.5 },
-  { year: "2026", mw: 545 },
-];
-const maxCapacity = Math.max(...capacity.map((item) => item.mw));
 const earlierRoles = [
   {
     name: "Fibra Engenharia",
@@ -54,33 +48,9 @@ const earlierRoles = [
           </div>
         </header>
 
-        <div class="delivery-overview">
-          <section class="panel chart-panel" aria-labelledby="delivery-title">
-            <div class="section-heading"><h3 id="delivery-title">Project Delivery Scale</h3><p>Annual project capacity · MW</p></div>
-            <div class="capacity-chart" role="img" aria-label="Project capacity by year: 2023, 62.5 megawatts; 2024, 12.5; 2025, 147.5; 2026, 545. Delivery status for 2026 pending confirmation.">
-              {capacity.map((item) => (
-                <div class="bar-group">
-                  <strong>{item.mw} MW</strong>
-                  <div class="bar-track"><div class="bar" style={`height: ${Math.max(3, item.mw / maxCapacity * 100)}%`}></div></div>
-                  <span>{item.year}</span>
-                </div>
-              ))}
-            </div>
-            <p class="chart-note">Capacity represented in project portfolio; annual delivery classification to be confirmed before publication.</p>
-          </section>
-          <section class="panel value-panel" aria-labelledby="portfolio-title">
-            <div class="section-heading"><h3 id="portfolio-title">Portfolio Value</h3><p>2022–2025</p></div>
-            <p class="value">~USD 70M</p>
-            <p>International Critical Power project portfolio</p>
-          </section>
-        </div>
+        <PortfolioGrowth />
 
-        <section class="panel upcoming-panel" aria-labelledby="stakeholder-title">
-          <div class="section-heading"><h3 id="stakeholder-title">Stakeholders Across the Project Lifecycle</h3><p>Connecting strategic decisions, management coordination and operational execution.</p></div>
-          <StakeholderNetwork />
-        </section>
-
-        <DataCenterPowerFlow />
+        <GlobalProjectFootprint />
 
         <section class="contribution-section" aria-labelledby="contributions-title">
           <h3 id="contributions-title">Key Contributions</h3>
@@ -92,6 +62,13 @@ const earlierRoles = [
           </div>
         </section>
 
+        <section class="panel upcoming-panel" aria-labelledby="stakeholder-title">
+          <div class="section-heading"><h3 id="stakeholder-title">Stakeholders Across the Project Lifecycle</h3><p>Connecting strategic decisions, management coordination and operational execution.</p></div>
+          <StakeholderNetwork />
+        </section>
+
+        <DataCenterPowerFlow />
+
         <section class="impact-section" aria-labelledby="impact-title">
           <h3 id="impact-title">Business Impact</h3>
           <div class="impact-grid">
@@ -100,7 +77,6 @@ const earlierRoles = [
           </div>
         </section>
 
-        <GlobalProjectFootprint />
       </article>
 
       <div class="transition-note"><span class="timeline-marker" aria-hidden="true"></span><p><strong>2020</strong> · Sales Consulting & Professional Development</p></div>

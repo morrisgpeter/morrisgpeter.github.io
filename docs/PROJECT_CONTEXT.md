@@ -121,22 +121,6 @@ The published development metrics are **15 Professional Development Credentials*
 - **Closing section:** **What Connects It All** uses the approved three-paragraph narrative and a three-part **Engineering / Business / People** diagram centered on **Value Creation**. Desktop layout has the illustration on the left and text on the right.
 - **Completed Fibra visual refinement:** user replaced the logo image, retaining the filename, so only **Fibra** branding appears. The displayed size and proportions were reviewed and approved; user verified the result.
 
-## Professional Experience — ABB chapter progress (2026-10-23)
-
-The **Executive Career Timeline** format and **single Experience page with links to separately published case studies** are approved. The four employer chapters will cover ABB, Fibra Engenharia, Aton Engenharia and Telenge in reverse chronological order. Experience explains roles, leadership and outcomes; Portfolio case studies provide deeper project evidence.
-
-The ABB chapter is being developed around international MV UPS project coordination and customer interfaces. The intended chapter flow includes annual capacity visualization, discreet portfolio-value context, authorized HiPerGuard-focused imagery, four Key Contributions, two Business Impact narratives, a role-validated geographic project footprint, and links only to available case studies. **2026 MW is a forecast/planned value until verified**, not confirmed completed delivery. FAT participation means coordinating customer/internal stakeholders, not performing the tests. Technical compliance work includes interfaces with certifying bodies and suppliers, not financial governance or commercial negotiation.
-
-### StakeholderNetwork.astro — v6 visually approved
-
-The user explicitly approved **v6** after reviewing desktop and mobile screenshots on **2026-10-23**. The component illustrates **collaboration across organizational levels, not a reporting hierarchy**. Its heading is **Stakeholders Across the Project Lifecycle**, with subtitle **Connecting strategic decisions, management coordination and operational execution.** A segmented lightbulb is labeled **Strategic / Management / Operational** inside its three sections. On desktop the bulb sits beside three horizontal stakeholder panels; on mobile it remains visible, centered above three two-column function grids. Group titles were removed from the panels to avoid repeating the bulb labels.
-
-- **Strategic (5):** Customers; Sales; Business units; Finance; Legal & contracts.
-- **Management (6):** Project management; Product management; Agile units; Supply chain & procurement; Operations; Service.
-- **Operational (7):** Engineering; Quality; Manufacturing & IPU; Planning & fulfilment; Logistics; Customer service; Site & commissioning support.
-
-All **18 functions** use simple outline icons, with a restrained blue/navy palette, pale blue cards and legible responsive labels. Earlier iterations used trapezoidal/pyramidal tiers and then a bulb without internal text; v6 supersedes those visual versions. **Approval is of the visual implementation**, not proof of a commit, public deployment, automated build or full accessibility testing. Next proposed component: `DataCenterPowerFlow.astro` (technical MV UPS/data-center power-flow illustration), pending design/content review.
-
 ## Content direction — agreed
 
 - Begin with professional experience and results.
@@ -197,3 +181,17 @@ These are **candidate content facts**, not approval to publish. Verify definitio
 - Review whether project planning documents should remain in the public repository after launch.
 - Make the Node.js/npm PATH persistent for future VS Code Bash sessions.
 - Validate the actual timeframe for the 15 development credentials and 170+ hours; review and implement the proposed metrics-card clarity improvements (D-046).
+
+
+## Experience — ABB Global Footprint (approved 2026-10-23)
+
+**Component:** `src/components/experience/GlobalProjectFootprint.astro`; approved iteration: `GlobalProjectFootprint_v22.astro`. **Status:** visual/interaction scope accepted by the user for this iteration; publication, full automated QA, and disclosure approval are separate checks.
+
+- The ABB Experience chapter includes a **Global Footprint** visualization showing project-related activity, not personal travel or exact facilities. Three selectable regional views: **North America**, **Europe**, **Oceania**. Current interface shows **10**, **7**, and **2** distinct locations respectively (counts are locations, not projects).
+- Activity filters: All locations, Projects, Manufacturing, Suppliers, Technology Demonstrations. Map markers use blue capacity-scaled circles with the number of projects inside; green, orange, purple markers represent the other activities. A concise legend explains circle area (ordered MW) and number (project count).
+- Regional buttons include recognizable geographic silhouette SVGs, left-aligned with the region name and location count; **no MW total** in these buttons. North America shows US state borders; other maps retain regional geographic context.
+- Tooltips only appear on deliberate hover/focus or selection; changing region/filter must not automatically open a tooltip. Tooltips must remain inside the map at edges, including mobile. Project tooltip copy is concise: `City, ISO alpha-3 country · N projects · X MW`; nonproject markers display `City, ISO alpha-3 country` only. Do not repeat activity category or 'ordered capacity' in the tooltip.
+- The detail card, Browse locations dropdown/table, and duplicated specific project data below the map were removed. Keep the map as the primary information surface. The top subtitle is intended as a single line when width permits, naturally wrapping on narrower screens. ABB branding in the small section eyebrow was removed/deemphasized.
+- Locations include supplier **Wytheville, Virginia, USA**. North America project markers were repositioned to better reflect city coordinates; Europe markers around Brno and Oceania's Napier manufacturing/technology markers remain close, without connecting lines. Map positions remain **approximate**.
+- Responsive screenshots were reviewed for all three regions, with mobile accepted as sufficient for this release; future polish may revisit map readability and clustered markers.
+- Important: **ordered capacity may include future deliveries**, and is not necessarily delivered capacity. Revalidate city list, project count, unit counts, capacity definitions, confidentiality, and permissions before publishing externally.

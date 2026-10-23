@@ -1,0 +1,206 @@
+---
+/**
+ * Global Footprint — v15 regional interactive maps.
+ * Coordinates are approximate city centers, not customer or facility addresses.
+ * Validate role attribution and public disclosure before release.
+ */
+const categories = [
+  { id: 'projects', label: 'Projects', color: '#2878c6' },
+  { id: 'manufacturing', label: 'Manufacturing', color: '#249779' },
+  { id: 'suppliers', label: 'Suppliers', color: '#dc8b36' },
+  { id: 'demonstrations', label: 'Technology Demonstrations', color: '#8c63bb' },
+];
+const locations = [
+  // Projects consolidated by city from 20 order records (2021–2026).
+  { city: 'Lévis', country: 'Canada', lat: 46.74, lon: -71.18, category: 'projects', count: 5, units: 39, mw: 95.75 },
+  { city: 'London', country: 'United Kingdom', lat: 51.51, lon: -0.13, category: 'projects', count: 1, units: 15, mw: 37.5 },
+  { city: 'Brussels', country: 'Belgium', lat: 50.85, lon: 4.35, category: 'projects', count: 1, units: 4, mw: 10 },
+  { city: 'Sydney', country: 'Australia', lat: -33.87, lon: 151.21, category: 'projects', count: 1, units: 2, mw: 5 },
+  { city: 'Bossier City', country: 'United States', lat: 32.52, lon: -93.73, category: 'projects', count: 1, units: 1, mw: 2.5 },
+  { city: 'Ellendale', country: 'United States', lat: 46.00, lon: -98.53, category: 'projects', count: 4, units: 160, mw: 400 },
+  { city: 'El Cajon', country: 'United States', lat: 32.79, lon: -116.96, category: 'projects', count: 1, units: 3, mw: 7.5 },
+  { city: 'Fargo', country: 'United States', lat: 46.88, lon: -96.79, category: 'projects', count: 4, units: 160, mw: 400 },
+  { city: 'Austin', country: 'United States', lat: 30.27, lon: -97.74, category: 'projects', count: 1, units: 20, mw: 50 },
+  { city: 'Dallas', country: 'United States', lat: 32.78, lon: -96.80, category: 'projects', count: 1, units: 80, mw: 200 },
+  // Manufacturing, FAT, suppliers and demonstrations (city centers, not site addresses).
+  { city: 'Napier', country: 'New Zealand', lat: -39.49, lon: 176.92, category: 'manufacturing', detail: 'Manufacturing, testing and customer FAT coordination' },
+  { city: 'San Luis Potosí', country: 'Mexico', lat: 22.15, lon: -100.98, category: 'manufacturing', detail: 'Manufacturing' },
+  { city: 'Mebane', country: 'United States', lat: 36.10, lon: -79.27, category: 'manufacturing', detail: 'Manufacturing' },
+  { city: 'Brno', country: 'Czech Republic', lat: 49.20, lon: 16.61, category: 'manufacturing', detail: 'Manufacturing' },
+  { city: 'Trutnov', country: 'Czech Republic', lat: 50.56, lon: 15.91, category: 'suppliers' },
+  { city: 'Kaarina', country: 'Finland', lat: 60.41, lon: 22.37, category: 'suppliers' },
+  { city: 'Busto Arsizio', country: 'Italy', lat: 45.61, lon: 8.85, category: 'suppliers' },
+  { city: 'Wytheville', country: 'United States', lat: 36.95, lon: -81.09, category: 'suppliers' },
+  { city: 'Kecskemét', country: 'Hungary', lat: 46.91, lon: 19.69, category: 'suppliers' },
+  { city: 'Brno', country: 'Czech Republic', lat: 49.20, lon: 16.61, category: 'demonstrations', detail: 'HiPerGuard First of Kind (FoK) demonstration' },
+  { city: 'Napier', country: 'New Zealand', lat: -39.49, lon: 176.92, category: 'demonstrations', detail: 'Technology demonstrations (classification pending confirmation)' },
+];
+// The regional maps are cropped directly from the original world map SVG.
+// Regional bounds use the same equirectangular projection as that asset.
+const regions = [
+  { id:'north-america', label:'North America', subtitle:'United States · Canada · Mexico', box:[150,95,300,145] },
+  { id:'europe', label:'Europe', subtitle:'Projects · manufacturing · suppliers', box:[540,67,225,108] },
+  { id:'oceania', label:'Oceania', subtitle:'Australia · New Zealand', box:[950,334,248,118] },
+] as const;
+const regionFor = (country:string) => ['United States','Canada','Mexico'].includes(country) ? 'north-america' : ['Australia','New Zealand'].includes(country) ? 'oceania' : 'europe';
+const project = (lon:number, lat:number) => ({x:(lon+180)/360*1200, y:(85-lat)/170*570});
+// Marker-only layout: no leader lines. Offsets prevent overlap while staying
+// near city centers. Values use the source map's 1200 × 570 coordinate system.
+const offsets: Record<string,[number,number]> = {
+  'Ellendale:projects':[-7,-2], 'Fargo:projects':[7,-2],
+  'Dallas:projects':[2,-2], 'Austin:projects':[-5,4],
+  'Bossier City:projects':[2,1],
+  'Brno:manufacturing':[-1.7,1.5], 'Brno:demonstrations':[1.7,1.5],
+  'Trutnov:suppliers':[-1.5,-2.5],
+  // Small separation around Napier's actual position on NZ North Island.
+  'Napier:manufacturing':[-2.0,-1.2], 'Napier:demonstrations':[2.0,1.2],
+};
+const markers = locations.map((item,index)=>{
+  const region=regionFor(item.country);
+  const box=regions.find(r=>r.id===region)!.box;
+  const anchor=project(item.lon,item.lat);
+  const [dx,dy]=offsets[`${item.city}:${item.category}`]||[0,0];
+  const x=(anchor.x-box[0]+dx)/box[2]*100;
+  const y=(anchor.y-box[1]+dy)/box[3]*100;
+  return {...item,index,region,x,y,anchorX:(anchor.x-box[0])/box[2]*100,anchorY:(anchor.y-box[1])/box[3]*100,
+    diameter:item.category==='projects'?Math.round(14+38*Math.sqrt((item.mw||0)/400)):12};
+});
+const uniqueCities=(region:string)=>new Set(markers.filter(m=>m.region===region).map(m=>`${m.city}|${m.country}`)).size;
+---
+<section class="gpf panel" aria-labelledby="gpf-title" data-footprint data-places={JSON.stringify(locations)}>
+  <div class="gpf-header"><div><h3 id="gpf-title">Global Footprint</h3><p>Connecting projects, manufacturing, suppliers and technology demonstrations across global markets.</p></div></div>
+  <div class="gpf-filters" role="group" aria-label="Filter locations by activity">
+    <button type="button" class="gpf-filter is-active" data-filter="all" aria-pressed="true">All locations</button>
+    {categories.map(c => <button type="button" class="gpf-filter" data-filter={c.id} aria-pressed="false"><span class="gpf-dot" style={`--dot:${c.color}`} aria-hidden="true"></span>{c.label}</button>)}
+  </div>
+  <div class="gpf-regions" role="group" aria-label="Choose a geographic region">
+    {regions.map((r,i)=><button type="button" class:list={['gpf-region',{'is-active':i===0}]} data-region-tab={r.id} aria-pressed={i===0?'true':'false'}><svg class="gpf-region-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d={r.id==='north-america' ? 'M7.3,35.1 L6.9,35.3 L6.9,34.8 L7.3,35.1 Z M17.4,23.6 L17.3,23.3 L18.3,23.5 L19.1,24.2 L17.4,23.6 Z M15.7,22.5 L15.5,22.1 L16.0,22.1 L15.9,22.5 L16.2,22.8 L15.7,22.5 Z M7.4,20.8 L7.9,20.6 L8.3,20.8 L7.6,21.1 L7.4,20.8 Z M3.3,19.8 L3.1,20.0 L2.6,19.8 L3.0,19.7 L3.3,19.8 Z M17.0,22.6 L15.1,20.6 L14.2,20.5 L11.9,19.8 L10.2,19.5 L9.8,19.6 L9.9,19.9 L8.5,20.2 L8.9,19.4 L7.6,20.1 L7.9,20.3 L7.6,20.6 L6.0,21.4 L3.6,22.0 L6.2,20.8 L6.5,20.3 L4.6,20.4 L4.7,20.0 L3.9,19.9 L3.1,19.3 L3.7,18.7 L5.1,18.4 L4.8,18.2 L5.1,18.1 L3.5,18.2 L2.3,17.7 L3.7,17.4 L4.8,17.6 L2.8,16.7 L4.7,16.0 L6.7,15.6 L14.2,16.5 L16.7,16.0 L17.0,16.2 L17.4,15.9 L18.3,16.3 L18.8,16.0 L18.8,16.3 L19.9,16.2 L22.7,16.7 L22.2,16.9 L24.2,16.9 L24.6,17.1 L25.0,16.9 L24.6,16.7 L24.9,16.6 L27.4,17.0 L28.5,16.9 L28.5,16.7 L28.8,16.6 L29.4,16.8 L29.4,17.1 L30.1,16.5 L29.3,16.1 L29.3,15.7 L29.8,15.4 L30.6,15.6 L31.1,16.0 L30.8,16.2 L31.5,16.3 L31.5,16.7 L32.0,16.4 L32.5,16.6 L32.3,16.9 L32.7,17.2 L33.4,16.6 L33.4,16.1 L35.0,16.4 L34.7,16.8 L34.9,17.2 L33.3,17.4 L32.7,18.1 L31.4,18.5 L31.4,18.8 L31.0,18.8 L30.1,19.5 L29.9,20.3 L30.5,20.3 L30.8,21.0 L31.4,20.9 L33.6,21.6 L34.6,21.7 L34.7,22.4 L35.5,23.2 L36.0,22.7 L35.5,21.9 L36.8,21.2 L36.0,20.3 L36.5,19.9 L36.2,19.0 L37.8,18.9 L38.7,19.4 L39.4,19.5 L39.5,20.3 L40.1,20.5 L41.3,19.7 L42.5,21.0 L42.3,21.2 L44.0,21.9 L44.6,22.4 L44.6,22.8 L43.0,23.5 L40.6,23.5 L38.8,24.8 L39.7,24.3 L41.1,23.9 L41.4,24.1 L41.1,24.3 L41.3,25.0 L41.8,25.2 L42.4,25.2 L42.8,24.7 L43.1,25.2 L41.0,26.1 L40.7,26.0 L40.7,25.7 L41.3,25.4 L40.3,25.5 L39.0,26.2 L38.9,26.5 L39.2,26.8 L37.8,27.0 L38.5,27.0 L37.7,27.1 L37.4,27.8 L37.2,27.6 L37.3,28.0 L37.0,28.4 L36.8,27.7 L36.9,28.1 L36.6,28.0 L36.9,28.2 L37.1,29.1 L35.0,30.6 L35.4,32.3 L35.3,32.9 L34.8,32.7 L34.4,31.5 L33.9,31.1 L33.5,31.3 L33.1,31.0 L32.0,31.0 L32.0,31.4 L31.7,31.5 L30.3,31.3 L29.0,32.0 L28.7,34.0 L29.5,35.3 L30.0,35.6 L31.2,35.3 L31.6,34.5 L32.9,34.4 L32.5,35.6 L31.3,35.7 L31.2,35.9 L31.5,36.4 L31.1,36.4 L30.9,37.0 L30.3,36.4 L29.2,36.5 L26.1,35.2 L25.7,33.9 L23.4,31.5 L23.0,30.7 L22.4,30.5 L22.4,31.1 L24.4,33.7 L24.2,33.8 L23.4,33.1 L23.3,32.6 L22.3,32.0 L22.6,31.7 L22.1,31.3 L21.4,30.0 L20.2,29.4 L18.8,27.3 L19.0,25.3 L18.7,24.3 L19.3,24.4 L19.5,24.7 L19.4,24.0 L18.3,23.5 L17.6,23.3 L17.5,22.7 L17.0,22.6 Z M20.7,15.2 L20.3,15.6 L19.3,15.8 L18.2,15.4 L18.9,14.7 L18.6,14.5 L21.3,14.5 L22.1,14.8 L20.7,15.2 Z M23.4,14.4 L22.7,14.3 L23.5,14.2 L21.3,14.1 L22.2,13.7 L24.5,14.0 L24.0,13.7 L24.3,13.5 L25.8,14.0 L23.4,14.4 Z M21.5,13.6 L19.9,13.9 L19.4,13.8 L20.8,13.3 L21.9,13.2 L21.5,13.6 Z M28.0,16.3 L28.6,16.0 L29.6,16.4 L28.0,16.3 Z M26.9,16.3 L27.0,16.6 L25.7,16.4 L22.9,16.7 L21.4,16.1 L23.3,16.0 L21.2,15.9 L21.0,15.8 L21.9,15.6 L20.7,15.5 L21.2,15.1 L22.2,14.9 L22.6,14.9 L22.4,15.1 L24.2,15.0 L24.9,15.5 L25.1,15.3 L24.8,14.9 L25.1,14.9 L25.9,15.1 L26.3,15.7 L27.6,16.1 L26.9,16.3 Z M29.2,15.1 L29.2,15.5 L28.6,15.6 L27.0,15.2 L27.8,15.1 L27.4,14.8 L27.8,14.7 L28.9,14.7 L28.7,15.0 L29.2,15.1 Z M25.3,14.8 L26.3,14.8 L25.9,15.1 L25.3,14.8 Z M30.2,14.1 L30.1,14.4 L29.1,14.2 L29.9,14.0 L30.2,14.1 Z M27.6,14.0 L27.0,14.0 L27.0,13.7 L28.5,13.6 L28.8,13.7 L28.6,14.2 L27.6,14.2 L27.6,14.0 Z M24.2,13.1 L23.4,13.3 L22.9,13.2 L23.2,13.1 L24.2,13.1 Z M28.5,12.8 L29.2,12.8 L29.6,12.9 L29.0,13.2 L28.5,12.8 Z M28.1,13.1 L26.0,13.0 L26.4,12.8 L25.9,12.6 L27.6,12.8 L28.1,13.1 Z M23.6,12.8 L24.3,12.9 L23.2,12.9 L23.6,12.8 Z M41.3,24.9 L41.5,24.7 L42.2,25.0 L41.9,25.1 L41.3,24.9 Z M44.2,23.7 L45.4,23.9 L45.3,24.2 L45.6,24.1 L45.6,24.9 L45.2,24.8 L45.2,24.5 L44.7,24.8 L44.5,24.8 L44.8,24.6 L44.4,24.5 L43.2,24.4 L44.5,23.0 L44.7,23.0 L44.2,23.7 Z M34.0,18.9 L34.2,18.8 L34.8,18.8 L34.3,19.1 L34.0,18.9 Z M35.4,18.5 L34.3,18.3 L33.4,18.7 L33.3,18.5 L32.8,18.5 L33.1,18.3 L33.3,17.7 L35.4,18.5 Z M37.3,17.0 L36.6,17.2 L36.5,17.0 L37.0,16.7 L37.3,17.0 Z M36.3,15.1 L39.7,15.9 L40.4,16.4 L39.7,16.6 L42.3,17.3 L41.5,18.0 L40.5,17.5 L40.0,17.5 L39.9,17.7 L41.0,18.2 L41.2,18.6 L41.1,18.9 L39.7,18.5 L40.7,19.1 L38.8,18.8 L37.4,18.1 L36.3,18.3 L36.0,18.1 L36.3,17.9 L37.7,17.8 L37.6,17.7 L38.2,17.1 L38.1,17.0 L35.9,16.0 L35.0,16.2 L32.2,15.9 L31.9,15.8 L32.3,15.6 L31.8,15.6 L31.6,15.3 L32.3,14.8 L33.3,14.7 L33.0,14.9 L33.3,15.1 L33.6,14.8 L34.6,14.7 L35.2,15.1 L35.2,15.3 L36.3,15.1 Z M29.4,15.0 L30.0,14.5 L31.5,14.7 L30.1,15.3 L29.7,15.3 L29.4,15.0 Z M36.9,15.0 L35.6,15.0 L35.2,14.7 L36.2,14.7 L36.9,15.0 Z M30.2,13.7 L29.0,13.6 L31.1,13.6 L32.0,14.0 L35.0,14.0 L35.5,14.3 L31.8,14.4 L30.8,14.3 L30.2,13.7 Z M34.6,11.3 L38.2,11.1 L42.3,11.4 L40.1,11.8 L40.9,11.8 L38.8,12.4 L36.6,12.6 L37.2,12.6 L36.9,12.7 L37.2,12.9 L35.6,13.4 L36.3,13.6 L35.3,13.8 L31.9,13.7 L31.9,13.5 L32.5,13.4 L32.4,13.1 L33.6,13.3 L32.5,13.0 L33.6,12.6 L32.9,12.2 L34.8,12.2 L32.6,12.1 L31.1,11.6 L34.3,11.5 L34.6,11.3 Z M30.8,11.9 L33.3,12.6 L32.1,13.0 L30.6,13.0 L30.2,12.8 L30.5,12.6 L29.2,12.3 L30.1,12.0 L29.9,11.9 L30.8,11.9 Z' : r.id==='europe' ? 'M4.6,36.0 L4.0,35.6 L4.6,34.0 L4.1,32.1 L5.3,31.5 L10.2,31.8 L10.6,31.3 L10.8,29.7 L8.1,28.1 L8.0,27.5 L10.5,27.5 L10.2,26.6 L11.0,27.0 L12.9,26.3 L13.1,25.7 L14.9,25.1 L15.6,23.9 L18.4,23.6 L18.9,23.2 L18.4,21.9 L18.7,20.7 L20.4,20.1 L20.1,20.8 L20.7,21.2 L19.6,22.0 L20.7,23.2 L22.0,22.8 L23.3,23.4 L26.1,22.5 L27.8,22.8 L29.1,22.2 L29.4,20.4 L30.1,20.1 L31.4,20.7 L31.7,19.6 L30.8,19.0 L35.5,18.3 L34.6,17.9 L30.4,18.4 L29.2,17.7 L29.3,15.7 L32.5,14.1 L31.3,13.4 L29.9,13.6 L29.1,14.2 L29.2,14.7 L26.3,16.1 L25.7,17.2 L27.1,18.2 L25.5,19.3 L24.7,21.5 L22.3,22.1 L20.2,18.7 L18.6,19.7 L16.4,19.4 L15.8,16.7 L20.4,14.6 L23.8,11.9 L27.4,10.3 L34.7,9.2 L37.3,9.8 L36.2,10.0 L37.1,10.5 L41.5,10.9 L45.2,12.2 L45.3,12.8 L43.1,13.4 L38.8,12.9 L40.1,13.5 L40.3,14.7 L41.9,15.2 L41.6,14.4 L42.1,14.1 L44.0,14.6 L44.7,14.4 L44.2,13.8 L46.0,13.1 L46.0,31.9 L44.3,31.8 L41.7,30.3 L43.7,28.7 L40.3,29.5 L41.4,30.4 L39.4,31.0 L38.2,30.3 L38.9,29.6 L36.8,29.2 L35.3,30.6 L34.3,32.5 L34.6,33.0 L33.1,33.1 L33.5,33.3 L33.0,33.9 L31.1,34.0 L31.7,34.5 L30.2,34.4 L31.4,36.5 L30.6,36.3 L30.6,37.5 L30.1,37.5 L27.6,34.4 L27.7,33.2 L22.5,29.9 L21.8,30.2 L22.0,31.3 L26.8,34.5 L25.5,34.2 L25.2,34.8 L25.7,35.5 L24.9,36.2 L24.3,34.6 L19.0,31.0 L17.1,32.0 L14.3,32.1 L14.3,33.1 L12.4,33.8 L11.6,35.2 L11.9,35.6 L10.0,37.3 L7.0,37.8 L6.5,37.1 L4.5,37.1 L4.6,36.0 Z M18.6,35.3 L18.4,33.8 L19.3,33.6 L19.7,35.3 L18.6,35.3 Z M19.4,32.1 L19.6,32.8 L19.3,33.5 L18.7,32.8 L19.4,32.1 Z M3.9,23.3 L5.6,22.3 L7.2,22.7 L6.2,24.6 L4.8,25.1 L3.6,25.0 L4.3,24.1 L3.9,23.3 Z M7.9,22.0 L7.2,22.1 L7.1,20.1 L7.7,19.4 L9.3,19.4 L8.5,20.3 L10.2,20.2 L9.2,21.6 L10.1,21.6 L12.2,24.1 L13.1,24.2 L12.6,25.0 L13.0,25.4 L7.1,26.3 L9.0,25.3 L7.5,24.8 L8.3,24.6 L8.0,23.6 L9.3,23.7 L9.4,23.2 L7.8,22.5 L7.9,22.0 Z M21.9,21.5 L21.6,22.5 L20.7,21.7 L21.9,21.5 Z M21.9,36.5 L22.0,36.1 L24.4,36.0 L24.1,37.3 L21.9,36.5 Z M31.1,38.1 L33.2,38.4 L30.9,38.4 L31.1,38.1 Z' : 'M37.6,34.4 L41.3,31.4 L41.6,32.0 L42.3,32.0 L41.3,33.3 L41.5,33.6 L40.5,33.9 L39.9,34.9 L39.1,35.4 L37.4,35.1 L37.6,34.4 Z M25.5,31.7 L25.2,33.2 L24.0,33.4 L23.2,31.6 L25.5,31.7 Z M42.9,32.2 L42.5,31.9 L42.7,31.1 L42.0,30.8 L42.6,29.4 L41.2,27.6 L42.3,28.1 L43.4,29.5 L45.0,29.6 L44.7,30.6 L44.2,30.6 L42.9,32.2 Z M9.8,26.9 L7.1,27.2 L5.9,27.9 L4.0,27.4 L4.5,26.1 L2.9,22.1 L3.2,22.4 L2.9,21.8 L3.4,22.3 L2.9,21.0 L3.1,19.8 L5.0,18.6 L7.7,18.0 L9.1,15.9 L9.7,16.3 L9.4,16.0 L10.9,14.4 L11.7,14.2 L13.4,14.9 L14.0,13.3 L15.3,13.1 L14.8,12.5 L15.2,12.4 L17.1,13.2 L17.8,12.9 L18.1,13.2 L17.2,14.9 L20.3,16.7 L20.9,15.8 L21.7,12.1 L22.7,14.6 L23.1,14.4 L23.6,14.9 L24.3,17.5 L25.8,18.4 L26.4,19.7 L27.1,19.7 L28.6,22.1 L28.9,23.4 L28.5,25.7 L26.8,28.3 L26.6,29.5 L24.2,30.5 L23.3,30.1 L23.4,29.8 L22.5,30.3 L20.5,29.8 L19.8,28.6 L18.9,28.3 L19.0,27.5 L18.1,28.1 L18.7,26.5 L17.5,27.8 L16.4,26.3 L14.5,25.6 L11.2,26.1 L9.8,26.9 Z'} fill="currentColor" fill-rule="evenodd"/></svg><span><strong>{r.label}</strong><small>{uniqueCities(r.id)} locations</small></span></button>)}
+  </div>
+  <div class="gpf-map-wrap">
+    <div class="gpf-map" role="group" aria-label="Interactive regional map; select a marker to identify its location">
+      {regions.map((r,i)=><img class="gpf-map-image" src={`/images/experience/footprint-${r.id}.svg`} alt="" width="1200" height="570" loading={i===0?'eager':'lazy'} data-region-image={r.id} hidden={i!==0}/>)}
+      {markers.map(item=><button type="button" class:list={['gpf-marker',`gpf-${item.category}`,{'gpf-bubble':item.category==='projects'}]} style={`left:${item.x}%;top:${item.y}%;--size:${item.diameter}px;`} data-index={item.index} data-category={item.category} data-region={item.region} aria-label={`${item.city}, ${item.country}, ${categories.find(c=>c.id===item.category)?.label}${item.count?`, ${item.count} projects, ${item.mw} MW ordered capacity`:''}`} hidden={item.region!=='north-america'}><span class="gpf-marker-core" aria-hidden="true">{item.category==='projects'?item.count:''}</span></button>)}
+      <div class="gpf-tooltip" data-marker-tooltip role="status" aria-live="polite" hidden></div>
+    </div>
+    <div class="gpf-legend" aria-label="Map legend"><strong>Project Locations · Ordered Capacity</strong><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:46px"></span><span>400 MW</span></div><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:34px"></span><span>200 MW</span></div><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:25px"></span><span>100 MW</span></div><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:17px"></span><span>10 MW</span></div><small>Each blue circle represents a project location. Its size indicates the total ordered capacity (MW), while the number inside shows how many projects are associated with that location.</small><div class="gpf-legend-rule"></div>{categories.filter(c=>c.id!=='projects').map(c=><div class="gpf-legend-item"><span class="gpf-dot" style={`--dot:${c.color}`}></span>{c.label}</div>)}</div>
+  </div>
+  <p class="gpf-note">Illustrative overview of international project activities. Locations are approximate. Ordered capacity may include projects scheduled for future delivery.</p>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-footprint]').forEach(root => {
+    const places: Array<{city:string;country:string;category:string;detail?:string;count?:number;units?:number;mw?:number}> = JSON.parse(root.dataset.places || '[]');
+    const markers=[...root.querySelectorAll<HTMLButtonElement>('.gpf-marker')];
+    const images=[...root.querySelectorAll<HTMLImageElement>('[data-region-image]')];
+    const tabs=[...root.querySelectorAll<HTMLButtonElement>('[data-region-tab]')];
+    const tooltip=root.querySelector<HTMLElement>('[data-marker-tooltip]');
+    let currentRegion='north-america';
+    let currentFilter='all';
+    let current=-1; // Do not preselect a location.
+    const inRegion=(index:number)=>markers[index]?.dataset.region===currentRegion;
+    function describe(index:number){
+      const p=places[index];const m=markers[index];if(!p||!m||!tooltip||m.hidden)return;
+      const countryCodes: Record<string,string> = {
+        'United States':'USA', 'Canada':'CAN', 'Mexico':'MEX',
+        'United Kingdom':'GBR', 'Belgium':'BEL', 'Australia':'AUS',
+        'New Zealand':'NZL', 'Czech Republic':'CZE',
+        'Finland':'FIN', 'Italy':'ITA', 'Hungary':'HUN'
+      };
+      tooltip.replaceChildren();
+      const heading=document.createElement('strong');
+      heading.textContent=`${p.city}, ${countryCodes[p.country] || p.country}`;
+      tooltip.append(heading);
+      if(p.category==='projects'){
+        const detail=document.createElement('span');
+        detail.textContent=` · ${p.count} ${p.count===1?'project':'projects'} · ${p.mw} MW`;
+        tooltip.append(detail);
+      }
+      // Position after measuring the tooltip, keeping it fully inside the map.
+      tooltip.hidden=false;
+      tooltip.style.left='0px';
+      tooltip.style.top='0px';
+      tooltip.style.transform='none';
+      const map=tooltip.parentElement!;
+      const mapRect=map.getBoundingClientRect();
+      const markerRect=m.getBoundingClientRect();
+      const tooltipWidth=tooltip.offsetWidth;
+      const tooltipHeight=tooltip.offsetHeight;
+      const padding=8;
+      const gap=12;
+      const centerX=markerRect.left+markerRect.width/2-mapRect.left;
+      const markerTop=markerRect.top-mapRect.top;
+      const markerBottom=markerRect.bottom-mapRect.top;
+      const x=Math.max(padding,Math.min(centerX-tooltipWidth/2,mapRect.width-tooltipWidth-padding));
+      const above=markerTop-tooltipHeight-gap>=padding;
+      const y=above ? markerTop-tooltipHeight-gap : markerBottom+gap;
+      tooltip.style.left=`${Math.round(x)}px`;
+      tooltip.style.top=`${Math.round(Math.max(padding,Math.min(y,mapRect.height-tooltipHeight-padding)))}px`;
+    }
+    function hideTooltip(){if(tooltip)tooltip.hidden=true;}
+
+    function show(index:number){const p=places[index];if(!p)return;
+      if(!inRegion(index)){const region=markers[index]?.dataset.region;if(region)currentRegion=region;}
+      if(currentFilter!=='all'&&p.category!==currentFilter)currentFilter='all';
+      current=index;renderVisibility();
+      markers.forEach(m=>m.classList.toggle('is-selected',Number(m.dataset.index)===index));
+      describe(index);
+    }
+    function renderVisibility(){
+      tabs.forEach(t=>{const active=t.dataset.regionTab===currentRegion;t.classList.toggle('is-active',active);t.setAttribute('aria-pressed',String(active));});
+      images.forEach(img=>img.hidden=img.dataset.regionImage!==currentRegion);
+      root.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach(b=>{const active=b.dataset.filter===currentFilter;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',String(active));});
+      markers.forEach(m=>m.hidden=m.dataset.region!==currentRegion||(currentFilter!=='all'&&m.dataset.category!==currentFilter));
+    }
+    function clearSelection(){
+      current=-1;
+      markers.forEach(m=>m.classList.remove('is-selected'));
+      hideTooltip();
+    }
+    tabs.forEach(t=>t.addEventListener('click',()=>{
+      currentRegion=t.dataset.regionTab||'north-america';
+      clearSelection();
+      renderVisibility();
+    }));
+    root.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach(b=>b.addEventListener('click',()=>{
+      currentFilter=b.dataset.filter||'all';
+      clearSelection();
+      renderVisibility();
+    }));
+    markers.forEach(m=>{
+      const index=Number(m.dataset.index);
+      m.addEventListener('click',()=>show(index));
+      m.addEventListener('mouseenter',()=>describe(index));
+      m.addEventListener('mouseleave',()=>{if(current>=0&&markers[current]&&!markers[current].hidden)describe(current);else hideTooltip();});
+      m.addEventListener('focus',()=>describe(index));
+      m.addEventListener('blur',()=>{if(current>=0&&markers[current]&&!markers[current].hidden)describe(current);else hideTooltip();});
+    });
+    renderVisibility();
+  });
+</script>
+<style>
+.gpf{margin:1.2rem 0 1.8rem;padding:1.5rem;min-width:0;overflow:hidden;color:#173d69}.gpf-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}.gpf-header h3{margin:0 0 .35rem;font-size:1.4rem;color:#113460}.gpf-header p{margin:0;color:#61758b;font-size:.9rem;line-height:1.6;max-width:none}.gpf-kicker{font-size:.68rem;font-weight:800;letter-spacing:.12em;color:#3978ad;white-space:nowrap;padding-top:.25rem}.gpf-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.4rem 0 1rem}.gpf-filter{display:inline-flex;align-items:center;gap:.42rem;border:1px solid #d8e5f1;background:#fff;border-radius:999px;padding:.55rem .85rem;color:#3d5875;font:inherit;font-size:.8rem;font-weight:650;cursor:pointer}.gpf-filter.is-active{background:#e9f3fc;border-color:#82b5df;color:#174d84}.gpf-dot{display:inline-block;flex:none;width:.62rem;height:.62rem;border-radius:50%;background:var(--dot)}.gpf-map-wrap{display:grid;grid-template-columns:minmax(0,1fr) 190px;align-items:stretch;gap:1rem}.gpf-map{position:relative;width:100%;aspect-ratio:1200/570;background:#f3f8fd;border:1px solid #e0eaf4;border-radius:12px;overflow:hidden;isolation:isolate}.gpf-map>img{display:block;width:100%;height:100%;object-fit:fill;pointer-events:none}.gpf-map>img[hidden]{display:none}.gpf-marker{position:absolute;transform:translate(-50%,-50%);width:max(24px,var(--size));height:max(24px,var(--size));display:grid;place-items:center;border:0;background:transparent;padding:0;cursor:pointer;border-radius:50%;z-index:2}.gpf-marker-core{display:grid;place-items:center;width:12px;height:12px;background:var(--marker);border:2px solid white;border-radius:50%;box-shadow:0 0 0 2px var(--marker),0 2px 7px #274b6a50}.gpf-bubble .gpf-marker-core{width:var(--size);height:var(--size);border:2px solid #fff;box-shadow:0 1px 8px #204e8155;color:#fff;font-size:clamp(9px,1.15vw,14px);font-weight:800}.gpf-marker:hover,.gpf-marker:focus-visible,.gpf-marker.is-selected{z-index:6}.gpf-marker:hover .gpf-marker-core,.gpf-marker:focus-visible .gpf-marker-core,.gpf-marker.is-selected .gpf-marker-core{outline:3px solid #83b9ef;outline-offset:2px}.gpf-projects{--marker:#2878c6}.gpf-manufacturing{--marker:#249779}.gpf-suppliers{--marker:#dc8b36}.gpf-demonstrations{--marker:#8c63bb}.gpf-marker[hidden]{display:none}.gpf-legend{position:static;width:190px;padding:.85rem;background:#fffffff0;border:1px solid #dce8f5;border-radius:11px;box-shadow:0 2px 12px #214d7310;font-size:.7rem}.gpf-legend strong{display:block;font-size:.72rem;margin-bottom:.5rem}.gpf-scale{display:flex;align-items:center;gap:.65rem;min-height:39px}.gpf-scale-dot{width:var(--sample);height:var(--sample);flex:none;border-radius:50%;background:#2878c6;border:2px solid #fff;box-shadow:0 0 0 1px #2878c6}.gpf-legend small{display:block;color:#5e7791;line-height:1.35;margin:.45rem 0}.gpf-legend-rule{height:1px;background:#dce8f5;margin:.65rem 0}.gpf-legend-item{display:flex;align-items:center;gap:.55rem;margin:.5rem 0}.gpf-note{font-size:.75rem;line-height:1.6;color:#6d8093;margin:1rem 0 0}.gpf button:focus-visible{outline:3px solid #1e78c6;outline-offset:3px}
+@media(max-width:960px){.gpf-legend{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;column-gap:.85rem;row-gap:.4rem}.gpf-legend strong,.gpf-legend small{grid-column:1/-1}.gpf-legend .gpf-scale{min-width:0;gap:.4rem}.gpf-legend .gpf-legend-item{grid-column:1/-1;margin:.1rem 0}.gpf-map-wrap{grid-template-columns:1fr}.gpf-legend{position:static;width:auto;display:flex;flex-wrap:wrap;align-items:center;gap:.55rem 1rem;margin-top:.65rem}.gpf-legend strong{width:100%;margin:0}.gpf-scale{min-height:30px}.gpf-scale-dot{transform:scale(.65);margin:-7px}.gpf-legend-rule{display:none}.gpf-legend small{width:100%}}
+@media(max-width:760px){.gpf{padding:1rem}.gpf-header{display:block}.gpf-kicker{display:block;margin-top:.7rem}.gpf-bottom{grid-template-columns:1fr}.gpf-filter{font-size:.74rem;padding:.5rem .65rem}.gpf-map{aspect-ratio:1200/570}.gpf-bubble .gpf-marker-core{width:clamp(14px,calc(var(--size)*.72),38px);height:clamp(14px,calc(var(--size)*.72),38px);font-size:10px}}
+@media(max-width:480px){.gpf-map{aspect-ratio:1200/570;min-height:220px}.gpf-marker{width:22px;height:22px}.gpf-bubble .gpf-marker-core{width:clamp(12px,calc(var(--size)*.55),28px);height:clamp(12px,calc(var(--size)*.55),28px);font-size:9px}.gpf-legend{font-size:.67rem}.gpf-table{font-size:.7rem}.gpf-table td,.gpf-table th{padding:.42rem .32rem}}
+</style>
+
+<style>
+.gpf-regions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:0 0 .75rem}.gpf-region{display:flex;align-items:center;gap:.85rem;text-align:left;border:1px solid #d8e5f1;background:#f8fbfe;border-radius:11px;padding:.8rem 1rem;color:#1b4775;font:inherit;cursor:pointer}.gpf-region.is-active{background:#173e70;border-color:#173e70;color:white}.gpf-region strong{display:block;font-size:.85rem}.gpf-region small{display:block;margin-top:.15rem;font-size:.72rem;opacity:.76}.gpf-region:focus-visible{outline:3px solid #277cc5;outline-offset:2px}.gpf-map-image[hidden]{display:none!important}
+@media(max-width:600px){.gpf-regions{gap:.35rem}.gpf-region{padding:.6rem .4rem;gap:.3rem;flex-direction:column;text-align:center}.gpf-region strong{font-size:.68rem}.gpf-region small{font-size:.61rem}}
+</style>
+
+<style>
+.gpf-region-icon{width:40px;height:40px;flex:none;color:#8eabc8;transition:color .15s ease}
+.gpf-region.is-active .gpf-region-icon{color:#e1efff}
+@media(max-width:600px){.gpf-region{flex-direction:row;justify-content:center;text-align:left;gap:.35rem}.gpf-region-icon{width:28px;height:28px}.gpf-region strong{font-size:.68rem}.gpf-region small{font-size:.61rem}}
+</style>
+
+<style>
+@media (min-width: 1250px) { .gpf-header p { white-space: nowrap; font-size: clamp(.76rem, 1vw, .9rem); } }
+</style>
+
+<style>
+.gpf-tooltip{position:absolute;z-index:10;box-sizing:border-box;max-width:calc(100% - 16px);width:max-content;padding:.55rem .75rem;background:#173e70;color:white;border-radius:8px;box-shadow:0 4px 14px #173e7040;pointer-events:none;font-size:.75rem;line-height:1.4;text-align:center}
+.gpf-tooltip strong,.gpf-tooltip span{display:block}
+.gpf-tooltip span{opacity:.9;margin-top:.15rem}
+.gpf-tooltip[hidden]{display:none}
+</style>

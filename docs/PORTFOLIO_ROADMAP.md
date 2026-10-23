@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-23  
+**Updated:** 2026-10-20  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -15,7 +15,7 @@
 | 2 | Complete the Home page | 🟡 In progress |
 | 2a | Certifications & Education (GitHub Issues #33–#35) | ✅ v6 published and visually verified on GitHub Pages (2026-10-12) |
 | 3 | Build About | 🟡 Implemented and published; visual review completed, mobile/accessibility QA pending |
-| 4 | Build Experience | 🟡 In progress — ABB chapter and StakeholderNetwork v6 reviewed |
+| 4 | Build Experience | ⬜ Pending |
 | 5 | Develop Portfolio | ⬜ Pending |
 | 6 | Build Contact | ✅ Complete — v5 published, tested; GitHub Project issues updated (2026-10-12) |
 | 7 | Add data visualizations and charts | ⬜ Pending |
@@ -169,7 +169,7 @@ Candidate projects **for evaluation**, not yet selected for publication:
 
 **Stage deliverable:** Published About page with final quality review completed.
 
-## 4. Experience — in progress
+## 4. Experience — pending
 
 **Goal:** Show career progression, responsibilities, and measurable outcomes rather than simply reproducing a CV.
 
@@ -182,36 +182,9 @@ Candidate projects **for evaluation**, not yet selected for publication:
 
 For each company, consider **context → responsibilities → achievements → results → relevant technologies and capabilities**.
 
-- [x] Agree on chronological presentation and page design: Executive Career Timeline and one Experience page linking to separately published case studies.
-- [ ] Draft and verify remaining company-specific content (ABB, Fibra, Aton, Telenge); ABB chapter planning is underway.
-- [ ] Complete and publish the Experience page; verify production build and live deployment.
-
-### ABB chapter — design and implementation progress (2026-10-23)
-
-**Approved page direction:** Executive Career Timeline, latest employer first (ABB → Fibra Engenharia → Aton Engenharia → Telenge), with concise employer chapters and separate, progressively published case studies. Do not create dead links to unpublished cases. Avoid repeating the Home/About headline metrics unnecessarily.
-
-**ABB chapter content sequence under development:** ABB role/context → annual MV UPS capacity chart (2023: 62.5 MW; 2024: 12.5 MW; 2025: 147.5 MW; 2026: 545 MW; verify planned versus delivered wording) → discreet ~USD 70M portfolio value (2022–2025; validate publication) → authorized technical illustration/photo with HiPerGuard as the primary project product → Key Contributions → Business Impact → Global Project Footprint → published case-study links.
-
-**Key Contributions:** Global Project Delivery; Customer & Cross-functional Leadership; Technical Compliance & External Coordination; FAT & Customer Acceptance. FAT work is **coordination** of customers and internal teams across HiPerGuard, SureWave, AVC and PCS100 UPS-I, **not execution of technical tests**. Do not describe certification/supplier interactions as commercial negotiations or financial governance.
-
-**Business Impact headings:** Supporting Portfolio Growth and Customer Confidence; Managing Complexity Across Global Projects. Delivery-performance improvement belongs under Global Project Delivery, not as a third Business Impact block.
-
-**Global Project Footprint candidate locations:** Austin, Bossier City, El Cajon, Ellendale and Fargo (USA); Quebec City (Canada); Brno (Czechia); Brussels (Belgium); Kecskemét (Hungary); London (UK); Napier (New Zealand); Sydney (Australia). These are **12 cities in 7 countries and 3 continents**; the role of each city must be validated before assigning markers or implying project installations, travel, FAT, manufacturing, or customer locations. This broader location list must not be conflated with the separate seven project-delivery-country metric.
-
-**StakeholderNetwork.astro — v6 APPROVED after desktop and mobile screenshot review:**
-
-- Heading: **Stakeholders Across the Project Lifecycle**; subtitle: **Connecting strategic decisions, management coordination and operational execution.**
-- A three-section **lightbulb** on the left (desktop) and centered above the stakeholder groups (mobile), labeled **Strategic**, **Management**, **Operational** directly inside its segments. These headings are intentionally omitted from the corresponding right-side cards to avoid repetition.
-- Three light-blue groups of function-specific outline icons and labels; five strategic, six management and seven operational functions (18 total). Desktop displays horizontal rows; 375px mobile uses two-column cards. The bulb must remain visible on mobile.
-- **Strategic (5):** Customers; Sales; Business units; Finance; Legal & contracts.
-- **Management (6):** Project management; Product management; Agile units; Supply chain & procurement; Operations; Service.
-- **Operational (7):** Engineering; Quality; Manufacturing & IPU; Planning & fulfilment; Logistics; Customer service; Site & commissioning support.
-- This is an illustrative **collaboration-interface map**, not a reporting hierarchy or claim of direct line management. Icon adjustments were made for Supply chain & procurement and other functions; v6 screenshots show consistent iconography and readable mobile labels.
-- [x] User approved StakeholderNetwork v6 after desktop and mobile visual review on 2026-10-23.
-- [ ] Confirm component is committed and deployed; screenshots alone do not establish a production release or accessibility audit.
-- [ ] Verify keyboard/screen-reader interpretation, mobile behavior on additional widths and any site-wide performance impact.
-
-**Next planned component:** `DataCenterPowerFlow.astro`, a technical visualization of medium-voltage UPS power supply to a data center. Concept and technical content require review before implementation; not yet approved.
+- [ ] Agree on chronological presentation and page design.
+- [ ] Draft and verify company-specific content.
+- [ ] Implement the Experience page.
 
 **Stage deliverable:** Structured professional experience.
 
@@ -313,14 +286,35 @@ Navigation, responsiveness, accessibility, and content verification should also 
 
 ## Immediate next action
 
-**Continue the ABB Experience chapter after the StakeholderNetwork v6 visual approval; keep About Me QA, remaining Home and Portfolio work open.**
+**Complete the remaining About Me mobile/accessibility and content checks, then continue Experience, Portfolio and remaining Home work.**
 
 1. Confirm whether the earlier Home Key Achievements publication checklist is complete; update its status only after checking.
 2. Review the GitHub Project board and confirm the status of Issues #13 and #33–#35; do not infer issue closure from site publication.
 3. Final About Me section is visually confirmed on the live site; perform the pending mobile/accessibility review; Featured Work remains pending.
 4. During a future refinement of Certifications & Education, evaluate the deferred landscape image (mountains and winding road) and select a new introductory quotation. Neither is part of v6.
-5. Confirm StakeholderNetwork v6 build/commit/deployment and accessibility; then scope `DataCenterPowerFlow.astro` without treating the design as already approved. Continue site-wide navigation review as pages are implemented.
+5. Continue site-wide navigation review as About, Experience and Portfolio pages are implemented; Contact and Certifications & Education are now linked.
 
 ---
 
 **Related documents:** `docs/PROJECT_CONTEXT.md` and `docs/PROJECT_DECISIONS.md` are the authoritative references for project context and accepted decisions. This roadmap tracks execution and should be updated as work progresses.
+
+
+## ABB Experience — Global Footprint milestone (2026-10-23)
+
+- [x] Agree on three selectable maps: North America, Europe, Oceania.
+- [x] Add regional silhouette SVGs, activity filters, blue capacity-scaled project circles, and clear legend.
+- [x] Add US state boundaries and supplier at Wytheville, Virginia; improve regional positioning.
+- [x] Review desktop and mobile visualizations for all three regions; accept current mobile experience.
+- [x] Remove detailed Browse locations table and duplicated location/project cards.
+- [x] Simplify tooltips to city/country plus project count and MW only for project markers.
+- [x] Correct auto-opening tooltips and map-edge clipping in v22; user accepted current iteration.
+
+**Status:** Global Footprint design iteration **complete / accepted**. This is not confirmation of a Git commit, deployment, final accessibility audit, or public-data authorization.
+
+**Deferred / before publication:**
+- [ ] Verify current `GlobalProjectFootprint.astro` matches approved v22 and run `npm run build`.
+- [ ] Check keyboard accessibility, focus, hover and tap behavior, and mobile tooltip boundaries.
+- [ ] Validate city coordinates, 10/7/2 location counts, project counts, ordered MW, and future-delivery definitions.
+- [ ] Obtain disclosure/confidentiality approval for specific customer, supplier, and project data.
+- [ ] Revisit clustered marker layout and map responsiveness only if future QA shows an issue.
+- [ ] Commit and publish approved implementation; verify the live site and update GitHub Project issue status separately.

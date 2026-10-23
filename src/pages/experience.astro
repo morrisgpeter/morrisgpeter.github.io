@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import StakeholderNetwork from "../components/experience/StakeholderNetwork.astro";
+import DataCenterPowerFlow from '../components/experience/DataCenterPowerFlow.astro';
+import GlobalProjectFootprint from '../components/experience/GlobalProjectFootprint.astro';
+
+const capacity = [
+  { year: "2023", mw: 62.5 },
+  { year: "2024", mw: 12.5 },
+  { year: "2025", mw: 147.5 },
+  { year: "2026", mw: 545 },
+];
+const maxCapacity = Math.max(...capacity.map((item) => item.mw));
+const earlierRoles = [
+  {
+    name: "Fibra Engenharia",
+    years: "2012–2019",
+    title: "Portfolio Management & Commercial Leadership",
+    summary: "Led engineering service portfolios and business development across utility automation, telecommunications and distributed energy projects in Brazil.",
+  },
+  {
+    name: "Aton Engenharia",
+    years: "2003–2012",
+    title: "Project Management & Solutions Development",
+    summary: "Managed multidisciplinary delivery and developed technical solutions for industrial, energy, oil and gas, and forest monitoring applications.",
+  },
+  {
+    name: "Telenge Telecomunicações",
+    years: "1997–2003",
+    title: "Engineering Management",
+    summary: "Coordinated telecommunications infrastructure and engineering services for utilities, public-sector organizations and industrial customers.",
+  },
+];
+---
+
+<BaseLayout title="Professional Experience | Peter Morris" description="Professional experience in international project delivery, engineering and commercial leadership.">
+  <main id="main-content" class="experience-page">
+    <section class="page-intro container">
+      <p class="eyebrow">PROFESSIONAL EXPERIENCE</p>
+      <h1>Connecting engineering, people and business outcomes.</h1>
+      <p class="intro-copy">A career spanning engineering delivery, project and program management, and commercial leadership across international markets.</p>
+    </section>
+
+    <div class="container career-timeline">
+      <article class="career-entry current" aria-labelledby="abb-title">
+        <div class="timeline-marker" aria-hidden="true"></div>
+        <header class="entry-header">
+          <div>
+            <p class="entry-period">2021 – Present · Napier, New Zealand</p>
+            <div class="company-brand"><img class="company-logo" src="/images/abb_logo.png" alt="ABB" width="128" height="50" /></div>
+            <h2 id="abb-title">Global Sales Project Engineer</h2>
+            <p class="entry-division">Electrification · Smart Power · Critical Power</p>
+            <p class="entry-description">Coordinating post-order execution of international medium-voltage UPS projects for mission-critical infrastructure, connecting customer requirements with engineering, manufacturing, suppliers and delivery teams.</p>
+          </div>
+        </header>
+
+        <div class="delivery-overview">
+          <section class="panel chart-panel" aria-labelledby="delivery-title">
+            <div class="section-heading"><h3 id="delivery-title">Project Delivery Scale</h3><p>Annual project capacity · MW</p></div>
+            <div class="capacity-chart" role="img" aria-label="Project capacity by year: 2023, 62.5 megawatts; 2024, 12.5; 2025, 147.5; 2026, 545. Delivery status for 2026 pending confirmation.">
+              {capacity.map((item) => (
+                <div class="bar-group">
+                  <strong>{item.mw} MW</strong>
+                  <div class="bar-track"><div class="bar" style={`height: ${Math.max(3, item.mw / maxCapacity * 100)}%`}></div></div>
+                  <span>{item.year}</span>
+                </div>
+              ))}
+            </div>
+            <p class="chart-note">Capacity represented in project portfolio; annual delivery classification to be confirmed before publication.</p>
+          </section>
+          <section class="panel value-panel" aria-labelledby="portfolio-title">
+            <div class="section-heading"><h3 id="portfolio-title">Portfolio Value</h3><p>2022–2025</p></div>
+            <p class="value">~USD 70M</p>
+            <p>International Critical Power project portfolio</p>
+          </section>
+        </div>
+
+        <section class="panel upcoming-panel" aria-labelledby="stakeholder-title">
+          <div class="section-heading"><h3 id="stakeholder-title">Stakeholders Across the Project Lifecycle</h3><p>Connecting strategic decisions, management coordination and operational execution.</p></div>
+          <StakeholderNetwork />
+        </section>
+
+        <DataCenterPowerFlow />
+
+        <section class="contribution-section" aria-labelledby="contributions-title">
+          <h3 id="contributions-title">Key Contributions</h3>
+          <div class="contribution-grid">
+            <div class="panel"><h4>Global Project Delivery</h4><p>Coordinate international project execution, schedules, deliverables and cross-functional teams, supporting delivery performance across multiple markets.</p></div>
+            <div class="panel"><h4>Customer & Cross-functional Leadership</h4><p>Connect customers, local sales teams and internal stakeholders to align expectations, resolve issues and support project delivery.</p></div>
+            <div class="panel"><h4>Technical Compliance & External Coordination</h4><p>Coordinate technical requirements with certification bodies, relevant stakeholders and strategic equipment suppliers across jurisdictions.</p></div>
+            <div class="panel"><h4>FAT & Customer Acceptance</h4><p>Coordinate customer participation and internal readiness for Factory Acceptance Tests across HiPerGuard, SureWave, AVC and PCS100 UPS-I technologies.</p></div>
+          </div>
+        </section>
+
+        <section class="impact-section" aria-labelledby="impact-title">
+          <h3 id="impact-title">Business Impact</h3>
+          <div class="impact-grid">
+            <div class="panel"><h4>Supporting Portfolio Growth and Customer Confidence</h4><p>Supported the expansion of international Critical Power projects through growing delivery volumes while maintaining customer acceptance and trusted relationships.</p></div>
+            <div class="panel"><h4>Managing Complexity Across Global Projects</h4><p>Aligned engineering, manufacturing, supply chain, local sales teams, suppliers and certification bodies to address requirements and resolve challenges across markets.</p></div>
+          </div>
+        </section>
+
+        <GlobalProjectFootprint />
+      </article>
+
+      <div class="transition-note"><span class="timeline-marker" aria-hidden="true"></span><p><strong>2020</strong> · Sales Consulting & Professional Development</p></div>
+
+      {earlierRoles.map((role) => (
+        <article class="career-entry earlier" aria-label={`${role.name}, ${role.years}`}>
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <p class="entry-period">{role.years}</p>
+          <h2>{role.name}</h2>
+          <h3>{role.title}</h3>
+          <p>{role.summary}</p>
+          <p class="future-note">Detailed project examples will be added in a subsequent stage.</p>
+        </article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .experience-page{background:#f5f8fc;color:#152c4c;padding:0 0 6rem}.container{width:min(1160px,calc(100% - 40px));margin-inline:auto}.page-intro{padding:4.5rem 0 3.25rem}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:#2474bb}.page-intro h1{font-size:clamp(2rem,4vw,3.6rem);line-height:1.12;max-width:830px;margin:.8rem 0 1rem;color:#102b50}.intro-copy{font-size:1.08rem;line-height:1.7;max-width:730px;color:#52657d}.career-timeline{border-left:2px solid #c8d9eb;padding-left:30px}.career-entry{position:relative;margin:0 0 2.2rem}.timeline-marker{position:absolute;left:-39px;top:17px;width:16px;height:16px;border:3px solid #2a7ac1;border-radius:50%;background:white}.current>.timeline-marker{background:#2a7ac1;box-shadow:0 0 0 5px #dcecf9}.entry-header{padding:2rem;background:linear-gradient(120deg,#fff 50%,#e9f3fb);border-radius:16px;margin-bottom:1.2rem;border:1px solid #e2eaf4}.entry-period{font-size:.88rem;color:#56728f;margin:0 0 .75rem}.company-brand{display:flex;align-items:center;margin:0 0 .55rem}.company-logo{display:block;width:clamp(84px,10vw,118px);height:auto;object-fit:contain}.entry-header h2{font-size:clamp(1.6rem,3vw,2.35rem);margin:.15rem 0;color:#102b50}.entry-division{font-weight:650;color:#2b5785;margin:.4rem 0 1rem}.entry-description{max-width:760px;line-height:1.7;color:#435a72;margin:0}.panel{background:#fff;border:1px solid #e1eaf4;border-radius:14px;padding:1.35rem;box-shadow:0 5px 18px rgba(23,57,96,.035)}.delivery-overview{display:grid;grid-template-columns:minmax(0,2fr) minmax(230px,1fr);gap:1rem;margin-bottom:1rem}.section-heading h3,.contribution-section>h3,.impact-section>h3{font-size:1.2rem;color:#113460;margin:0 0 .25rem}.section-heading p{font-size:.88rem;color:#657a91;margin:0}.capacity-chart{display:flex;align-items:end;gap:1.2rem;height:230px;padding:1.3rem .4rem 0;border-bottom:1px solid #c9d9ea}.bar-group{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:.35rem;min-width:0}.bar-group strong{font-size:.84rem;color:#153d74;white-space:nowrap}.bar-track{height:175px;width:100%;display:flex;align-items:flex-end;justify-content:center}.bar{width:min(76px,80%);background:linear-gradient(#3f9bee,#2171c4);border-radius:4px 4px 0 0}.bar-group span{font-size:.82rem;color:#62788e}.chart-note,.diagram-note{font-size:.78rem;line-height:1.5;color:#64778a;margin:1rem 0 0}.value-panel{display:flex;flex-direction:column}.value{font-size:clamp(2rem,4vw,3.1rem);font-weight:850;letter-spacing:-.04em;color:#123c74;margin:auto 0 .3rem}.value-panel>p:last-child{margin:0 0 auto;color:#61768c;line-height:1.5}.upcoming-panel{margin-bottom:1rem}.stakeholder-levels{display:grid;gap:.65rem;margin-top:1.2rem}.stakeholder-row{display:grid;grid-template-columns:125px 1fr;align-items:center;gap:1rem;padding:.85rem 1rem;background:#f1f6fc;border-radius:9px}.stakeholder-row p{margin:0;font-size:.9rem;line-height:1.55}.level{font-weight:800;color:#15589d}.power-flow{display:flex;align-items:center;gap:.55rem;margin:1.4rem 0;flex-wrap:wrap}.power-flow span{flex:1;min-width:110px;text-align:center;padding:1.1rem .5rem;border:1px solid #c9dbef;border-radius:9px;background:#eff6fe;font-weight:700;font-size:.86rem}.power-flow b{color:#2979c4}.contribution-section,.impact-section{margin:1.8rem 0}.contribution-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-top:.85rem}.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin-top:.85rem}.contribution-grid h4,.impact-grid h4{font-size:.96rem;color:#16477f;margin:0 0 .75rem}.contribution-grid p,.impact-grid p{font-size:.87rem;line-height:1.65;color:#4e6278;margin:0}.map-categories{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0}.map-categories span{border:1px solid #d7e5f3;border-radius:99px;padding:.45rem .8rem;font-size:.78rem;color:#285d93}.map-categories span:nth-child(2){color:#248050}.map-categories span:nth-child(3){color:#cb7826}.map-categories span:nth-child(4){color:#8b4bb2}.footprint>p{color:#60768d;font-size:.88rem}.transition-note{position:relative;padding:1rem 0 1.4rem;color:#5b7087}.transition-note .timeline-marker{width:12px;height:12px;left:-37px;top:19px;border-width:2px}.transition-note p{margin:0}.earlier{background:#fff;border:1px solid #e1eaf4;border-radius:14px;padding:1.5rem 1.7rem}.earlier h2{color:#113460;font-size:1.5rem;margin:0 0 .35rem}.earlier h3{font-size:1rem;color:#32699d;margin:0 0 .7rem}.earlier>p:not(.entry-period){line-height:1.65;color:#4c6279;margin:.4rem 0}.earlier .future-note{font-size:.82rem;color:#778ba0!important;margin-top:1rem!important}@media(max-width:850px){.delivery-overview{grid-template-columns:1fr}.contribution-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.container{width:min(100% - 28px,1160px)}.career-timeline{padding-left:18px}.timeline-marker{left:-27px}.transition-note .timeline-marker{left:-25px}.page-intro{padding:3rem 0 2rem}.entry-header,.panel{padding:1.1rem}.contribution-grid,.impact-grid{grid-template-columns:1fr}.stakeholder-row{grid-template-columns:1fr;gap:.3rem}.power-flow{flex-direction:column;align-items:stretch}.power-flow b{transform:rotate(90deg);align-self:center}.capacity-chart{gap:.3rem}.bar-group strong{font-size:.73rem}}
+</style>

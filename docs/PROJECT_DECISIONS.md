@@ -85,14 +85,6 @@
 | D-061 | 2026-10-20 | Professional focus chart implemented design | The implemented chart is an interactive **100% stacked area** chart with an illustrative transition at 2020 and a revised 2021 allocation, superseding D-049's earlier independent-band/15-observation specification. | Accepted | Preserve actual implementation and approved methodology; verify exact observation values in `about.astro` before changing the source data. |
 | D-062 | 2026-10-20 | About Me live visual confirmation | The **What Connects It All** section with illustration left and narrative right, and the updated **Fibra** logo card, were visually verified by the user on the public website. | Accepted | The About Me visual design is approved; final mobile, accessibility, data and confidentiality QA remain open. The specific commit for the closing section is not recorded here. |
 
-| D-063 | 2026-10-23 | Experience page structure | Use an **Executive Career Timeline** in reverse chronological order: ABB, Fibra Engenharia, Aton Engenharia, Telenge; one main Experience page with concise employer chapters and links to individual case studies only when published. | Accepted | Career evolution and outcomes should be distinct from both CV-style listings and deeper Portfolio case studies. |
-| D-064 | 2026-10-23 | ABB chapter presentation | Develop ABB chapter with role/context, annual MW chart, discreet portfolio value, HiPerGuard-focused imagery, four Key Contributions, two Business Impact narratives, role-validated global footprint and published case-study links. | Accepted (design direction) | Annual 2026 capacity and financial claims need scope, forecast/delivery and confidentiality checks before public assertions. |
-| D-065 | 2026-10-23 | ABB responsibilities and impact wording | Four contributions: **Global Project Delivery**; **Customer & Cross-functional Leadership**; **Technical Compliance & External Coordination**; **FAT & Customer Acceptance**. Two Business Impact headings: **Supporting Portfolio Growth and Customer Confidence**; **Managing Complexity Across Global Projects**. | Accepted | FAT is stakeholder coordination, not technical testing; supplier/certification interfaces are not financial governance or commercial negotiations. Delivery improvement belongs under Global Project Delivery. |
-| D-066 | 2026-10-23 | StakeholderNetwork visual concept | Replace plain three-line/trapezoid tier graphic with a three-section lightbulb, labeling **Strategic**, **Management**, **Operational** inside the bulb, and removing duplicate tier headings from adjacent stakeholder panels. | Accepted | Distinguishes collaboration interfaces across levels without implying a reporting hierarchy. Desktop bulb at left; mobile bulb centered above cards. |
-| D-067 | 2026-10-23 | StakeholderNetwork v6 taxonomy and copy | Use heading **Stakeholders Across the Project Lifecycle** and subtitle **Connecting strategic decisions, management coordination and operational execution.** Present 18 functions: Strategic (5) Customers, Sales, Business units, Finance, Legal & contracts; Management (6) Project management, Product management, Agile units, Supply chain & procurement, Operations, Service; Operational (7) Engineering, Quality, Manufacturing & IPU, Planning & fulfilment, Logistics, Customer service, Site & commissioning support. | Accepted | Use function names without unnecessary “leadership” qualifiers for Customers and Sales. Icons are visual identifiers, not a hierarchy. |
-| D-068 | 2026-10-23 | StakeholderNetwork v6 approval and responsive behavior | **Approve StakeholderNetwork.astro v6** based on reviewed desktop and mobile screenshots: segmented bulb visible and legible at both sizes, pale-blue horizontal groups on desktop, two-column icon/function grids on mobile. | Accepted (visual QA) | User explicitly approved v6. Do not infer Git commit, live deployment, production build, or accessibility testing from screenshots. |
-| D-069 | 2026-10-23 | Next Experience component | Explore `DataCenterPowerFlow.astro` as the next technical illustration, showing medium-voltage UPS within a data-center power-supply context. | Proposed | Technical diagram and content are not yet approved; review accuracy before coding. |
-
 ## Key discussions
 
 ### Professional identity
@@ -142,10 +134,6 @@ The published `/contact` v5 page uses a compact, light executive layout, small t
 ### GitHub profile — future enhancement (D-045)
 
 Create a professional GitHub profile README, pin relevant repositories, align branding with the Astro site, link back to the portfolio and organize technical work. This is roadmap work, not yet implemented.
-
-### Experience and StakeholderNetwork (D-063–D-069)
-
-The Experience page uses an executive career timeline and links only to published case studies. The ABB chapter is in progress. **StakeholderNetwork v6 is visually approved**, with an internally labeled three-part bulb and 18 functions across Strategic (5), Management (6), and Operational (7). This represents collaboration, not direct reporting lines. Desktop and mobile screenshots were reviewed; commit/deployment and accessibility verification remain separate tasks. The `DataCenterPowerFlow.astro` concept remains proposed.
 
 ### Experience versus Portfolio
 
@@ -209,6 +197,21 @@ The documentation-visibility review anticipated by D-015 is now due because the 
 
 **Implementation notes:** responsive accessible SVG or equivalent map, tooltips/legend and keyboard-accessible country information if interactive; show overlapping roles without hiding categories; verify geography, permissions, and any confidentiality concerns. Do not imply FATs occurred in the customer-company countries.
 
+## ABB Global Footprint — accepted decisions (2026-10-23)
+
+| D-070 | 2026-10-23 | Regional footprint structure | Replace a single world map with selectable North America, Europe and Oceania regional maps; show counts of distinct locations, not MW, on region selectors. | Accepted | Better geographic legibility. |
+| D-071 | 2026-10-23 | Footprint activity categories | Retain filters for All locations, Projects, Manufacturing, Suppliers, Technology Demonstrations; distinguish categories by color. | Accepted | Map itself carries the information. |
+| D-072 | 2026-10-23 | Project circle semantics | Blue bubble **area** conveys total ordered MW for a project location; numeral inside gives project count; explanatory legend retained. | Accepted | Do not confuse ordered and delivered capacity. |
+| D-073 | 2026-10-23 | Regional selectors | Use recognizable, subtle geographic silhouette SVGs at left of region label and location count; do not show regional MW totals. | Accepted | Replace unsuitable emojis and abstract silhouettes. |
+| D-074 | 2026-10-23 | Geographic precision | Use regional framing and near-geographic marker placement, US state boundaries on North America, and avoid connection lines; keep distinct circles where possible. | Accepted | Regional map should reduce visual displacement. |
+| D-075 | 2026-10-23 | North America data | Add supplier in Wytheville, Virginia, USA; regional location count becomes 10 (Europe 7, Oceania 2). | Accepted | Confirmed addition; avoid confusing locations with project count. |
+| D-076 | 2026-10-23 | Regional approval | North America, Europe and Oceania maps visually accepted on desktop and mobile; Oceania shows Sydney and Napier, with Napier on New Zealand North Island. | Accepted | Mobile considered acceptable; future refinement deferred. |
+| D-077 | 2026-10-23 | Information density | Remove detailed project panel, Browse locations dropdown and location table; preserve interactive map and legend. | Accepted | Avoid excessive specificity and repetition. |
+| D-078 | 2026-10-23 | Section heading | Use Global Footprint with restrained/no ABB Critical Power eyebrow; subtitle should remain one line when space permits and wrap responsively. | Accepted | Cleaner section hierarchy. |
+| D-079 | 2026-10-23 | Tooltip content | Projects: `City, ISO alpha-3 country · N projects · X MW`; other categories: `City, ISO alpha-3 country`. No repeated category or ordered-capacity wording. | Accepted | Concise; legend already defines symbols. |
+| D-080 | 2026-10-23 | Tooltip behavior | Tooltips appear only after hover/focus/marker selection; no automatic tooltip on changing region/filter. Constrain popovers within map bounds on desktop/mobile; avoid duplicate native browser tooltip. | Accepted | Fix unintended first-marker popovers and clipped edges; v22 approved. |
+| D-081 | 2026-10-23 | Footprint milestone | Mark the ABB Global Footprint component **complete for the current design iteration** at v22. | Accepted | Does not imply code committed/published or confidentiality/QA clearance. |
+
 ## Open decisions / next discussion
 
 1. Finalize the remaining site-wide navigation as About, Experience and Portfolio pages are implemented; Contact and Certifications & Education links are now live.
@@ -237,3 +240,11 @@ When a decision is confirmed or revised:
 2. Mark replaced decisions **Superseded** rather than silently erasing them.
 3. Update `PROJECT_CONTEXT.md` if the change affects the overall vision or architecture.
 4. Commit both files to Git alongside the relevant changes.
+
+
+### Global Footprint deferred work / release gates (2026-10-23)
+
+- Optional later visual pass: inspect clusters (e.g., Fargo/Ellendale, Brno, Napier), tooltip readability at narrow widths, and region selector spacing. **Not a blocker for the accepted iteration.**
+- Validate the 10/7/2 distinct-location inventory and exact cities/coordinates against source data; confirm the meaning and provenance of ordered MW and project counts.
+- Review confidentiality, client/site attribution, and supplier disclosure before public release; the map is illustrative, not proof of personal travel or exact facility coordinates.
+- Run build, keyboard/focus/touch and accessibility checks; verify real-device mobile interaction and publication status separately.

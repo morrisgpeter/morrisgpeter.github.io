@@ -15,7 +15,7 @@
 | 2 | Complete the Home page | 🟡 In progress |
 | 2a | Certifications & Education (GitHub Issues #33–#35) | ✅ v6 published and visually verified on GitHub Pages (2026-10-12) |
 | 3 | Build About | 🟡 Implemented and published; visual review completed, mobile/accessibility QA pending |
-| 4 | Build Experience | 🟡 In progress — ABB Global Footprint and Portfolio Growth visual iterations accepted; full page/release QA pending |
+| 4 | Build Experience | 🟡 In progress — ABB growth chart and approved chapter order published and visually confirmed; full Experience/page QA pending |
 | 5 | Develop Portfolio | ⬜ Pending |
 | 6 | Build Contact | ✅ Complete — v5 published, tested; GitHub Project issues updated (2026-10-12) |
 | 7 | Add data visualizations and charts | 🟡 In progress — About and ABB Experience visualizations implemented; site-wide QA pending |
@@ -330,11 +330,22 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [x] Fix mobile chart clipping: show the entire curve without horizontal scrolling; hide titles inside mobile plot while keeping numbered markers, buttons and descriptions.
 - [x] Review and accept mobile screenshots.
 
-**Status:** ABB Portfolio Growth section **implemented locally and visually approved for desktop and mobile**. This is not confirmation of publication, Git commit, accessibility or disclosure approval.
+**Status:** ABB Portfolio Growth section **committed and pushed** with the revised ABB section order in `936c826` (2026-10-23); user confirmed the updated live Experience page. Accessibility, source-data and disclosure reviews remain outstanding.
 
 **Remaining release checks:**
 - [ ] Confirm source totals (**1,208.25 MVA**, **USD 255.41M**) and issue dates against `ABB_Project_Orders_2021-2026(2).xlsx` before future changes.
 - [ ] Run `npm run build` and test keyboard/focus/touch behavior and small-screen accessibility.
 - [ ] Verify permission to publish portfolio commercial totals and descriptions of internal ABB initiatives.
-- [ ] Commit and push the accepted code and updated docs; verify GitHub Actions and live site.
+- [x] Commit and push the accepted code (`936c826`); user confirmed the updated live Experience page. GitHub Actions run details were not separately reviewed.
 - [ ] Reconcile separate historical MW delivered/planned claims in About/Global Footprint with this ordered-MVA chart during final content QA.
+
+
+## ABB Experience — section order and publication milestone (2026-10-23)
+
+- [x] Approve the ABB chapter sequence: **Introduction → Project Delivery Scale & Portfolio Value → Global Footprint → Key Contributions → Stakeholders Across the Project Lifecycle → Data Center Power Flow → Business Impact**.
+- [x] Reorder the sections in `src/pages/experience.astro` without intentionally changing the approved component content.
+- [x] Commit the reordered page and new `PortfolioGrowth.astro` as **`936c826`** and push to `main`.
+- [x] Confirm the resulting Experience page is displayed correctly on the live site (user confirmation, 2026-10-23).
+- [ ] Complete final ABB/Experience source-data, confidentiality, accessibility and cross-device QA; verify build and GitHub Actions logs if needed.
+
+**Status:** ABB chapter order and Portfolio Growth implementation **published and visually accepted**. This does **not** mark the entire Experience page or its final release checks complete.

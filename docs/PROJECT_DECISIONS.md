@@ -263,3 +263,11 @@ When a decision is confirmed or revised:
 | D-088 | 2026-10-23 | Approval versus publication | Consider the **PortfolioGrowth** desktop/mobile visual iteration accepted; do not infer build success, Git commit, GitHub Pages deployment, accessibility compliance or disclosure authorization. | Accepted | Release checks remain independent. |
 
 **Source and consistency note:** The source spreadsheet was used in the working discussion; verify it again before any data revisions. Earlier ABB figures (e.g., MW delivered/planned or ~USD 70M for a narrower period) represent different metrics and must not replace or be merged with the newly approved ordered-MVA/order-value series without reconciling definitions.
+
+
+## ABB Experience — approved sequence and publication (2026-10-23)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-089 | 2026-10-23 | ABB chapter section order | Present sections in this order: **ABB introduction → Project Delivery Scale & Portfolio Value → Global Footprint → Key Contributions → Stakeholders Across the Project Lifecycle → Data Center Power Flow → Business Impact**. | Accepted | Establish role, scale and geographic reach first; then explain contributions, organizational/technical complexity and outcomes. No component content changes intended. |
+| D-090 | 2026-10-23 | ABB Experience implementation and live verification | Commit `936c826` added `src/components/experience/PortfolioGrowth.astro` and reordered `src/pages/experience.astro`; push to `main` succeeded and the user confirmed the published page displays correctly. | Accepted (implemented) | Updates D-088’s earlier *not-yet-confirmed* commit/publication status. Does not establish an independent build log, accessibility audit, source-data verification or confidentiality authorization. |

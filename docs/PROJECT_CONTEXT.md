@@ -199,7 +199,7 @@ These are **candidate content facts**, not approval to publish. Verify definitio
 
 ## Experience — ABB Project Delivery Scale & Portfolio Value (approved 2026-10-23)
 
-**Component:** `src/components/experience/PortfolioGrowth.astro`. **Status:** implemented locally and visually accepted by the user on desktop and mobile screenshots; repository commit, public deployment, automated build, accessibility and confidentiality checks are not confirmed.
+**Component:** `src/components/experience/PortfolioGrowth.astro`. **Status:** committed and pushed to `main` as `936c826` on 2026-10-23 together with the ABB section reordering; user confirmed the updated live Experience page. Automated build details, accessibility audit and confidentiality authorization have not been independently verified.
 
 - **Approved heading:** **PROJECT DELIVERY SCALE & PORTFOLIO VALUE** / **Scaling MV UPS to 1.2 GVA**. Intro: “Cumulative ordered capacity and key initiatives that strengthened delivery governance and operational readiness during a period of accelerated growth.”
 - **Summary cards:** **1.2 GVA — Total Ordered Capacity** and **USD 255M — Total Order Value**, both covering **2021–Oct 2026**. Do not show order count or precise figures in the public-facing cards. Source spreadsheet analyzed in discussion: `ABB_Project_Orders_2021-2026(2).xlsx`, 20 orders, total **1,208.25 MVA** and **USD 255.41M**; retain full precision only for internal calculations. These are **nominal ordered capacity** and **total order value**, not delivered/installed capacity or recognized revenue.
@@ -207,4 +207,19 @@ These are **candidate content facts**, not approval to publish. Verify definitio
 - **Four milestones:** **Aug 2023 — Cross-Border VAT Resolution**; **Nov 2024 — MV UPS Project Delivery Workflow**; **Jan 2025 — Business Model Workshop** (presented lessons learned and delivery workflow to senior representatives of Sales, Service, Business Units, Project Management, Marketing and Product Management); **4 Aug 2025 — Product Documentation Package** (publication date confirmed). Milestones are independent professional initiatives, not order events or proof that they caused order growth.
 - **Interaction and responsiveness:** numbered markers link to the **Key Initiatives** descriptive panel. Desktop retains short labels near markers. Mobile fits the **entire 2023–2026 curve** without horizontal scrolling, hides marker titles within the plot, retains numbered markers and date buttons, and stacks initiative descriptions. User approved screenshots of both layouts.
 - **Scope:** only this ABB Experience section was revised; other Experience sections were not intentionally changed. The previously proposed energy equivalents and Orders and Deliveries panels are excluded.
-- **Release gates:** verify source calculations, order issue dates, rounding, confidentiality/disclosure permissions for commercial figures and internal initiatives, keyboard/focus/touch accessibility, `npm run build`, Git commit, deployment and live rendering before claiming public release. Review older ABB figures in this file (e.g., 767.5 MW, ~USD 70M) separately: they use different definitions/time windows and must not be silently conflated with **1.2 GVA ordered capacity / USD 255M order value**.
+- **Release gates:** verify source calculations, order issue dates, rounding, confidentiality/disclosure permissions for commercial figures and internal initiatives, keyboard/focus/touch accessibility and `npm run build` evidence as part of final QA. Code commit/push and user confirmation of live rendering are complete. Review older ABB figures in this file (e.g., 767.5 MW, ~USD 70M) separately: they use different definitions/time windows and must not be silently conflated with **1.2 GVA ordered capacity / USD 255M order value**.
+
+
+## Experience — ABB approved section sequence (2026-10-23)
+
+The ABB chapter in `src/pages/experience.astro` follows this **approved, published order**:
+
+1. **ABB introduction / Global Sales Project Engineer**
+2. **Project Delivery Scale & Portfolio Value**
+3. **Global Footprint**
+4. **Key Contributions**
+5. **Stakeholders Across the Project Lifecycle**
+6. **Data Center Power Flow**
+7. **Business Impact**
+
+**Narrative rationale:** role → portfolio scale → international reach → individual contributions → stakeholder coordination → technical context → business outcomes. Only section placement was intentionally changed; approved component content and interactions were retained. The reordering and new `PortfolioGrowth.astro` were committed and pushed as `936c826` (`feat: add ABB portfolio growth chart and reorganize experience sections`). The user confirmed the resulting live Experience page on 2026-10-23. This confirmation does not replace final accessibility, source-data or confidentiality checks.

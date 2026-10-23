@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-20  
+**Updated:** 2026-10-23  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -15,10 +15,10 @@
 | 2 | Complete the Home page | 🟡 In progress |
 | 2a | Certifications & Education (GitHub Issues #33–#35) | ✅ v6 published and visually verified on GitHub Pages (2026-10-12) |
 | 3 | Build About | 🟡 Implemented and published; visual review completed, mobile/accessibility QA pending |
-| 4 | Build Experience | ⬜ Pending |
+| 4 | Build Experience | 🟡 In progress — ABB Global Footprint and Portfolio Growth visual iterations accepted; full page/release QA pending |
 | 5 | Develop Portfolio | ⬜ Pending |
 | 6 | Build Contact | ✅ Complete — v5 published, tested; GitHub Project issues updated (2026-10-12) |
-| 7 | Add data visualizations and charts | ⬜ Pending |
+| 7 | Add data visualizations and charts | 🟡 In progress — About and ABB Experience visualizations implemented; site-wide QA pending |
 | 8 | Refine navigation and responsiveness | 🟡 In progress — Contact and Certifications links tested; site-wide review pending |
 | 9 | SEO, performance, and accessibility | ⬜ Pending |
 | 10 | Final review and version 1.0 | ⬜ Pending |
@@ -169,7 +169,7 @@ Candidate projects **for evaluation**, not yet selected for publication:
 
 **Stage deliverable:** Published About page with final quality review completed.
 
-## 4. Experience — pending
+## 4. Experience — in progress
 
 **Goal:** Show career progression, responsibilities, and measurable outcomes rather than simply reproducing a CV.
 
@@ -184,7 +184,7 @@ For each company, consider **context → responsibilities → achievements → r
 
 - [ ] Agree on chronological presentation and page design.
 - [ ] Draft and verify company-specific content.
-- [ ] Implement the Experience page.
+- [ ] Complete and release the Experience page (ABB Global Footprint and Portfolio Growth iterations visually approved).
 
 **Stage deliverable:** Structured professional experience.
 
@@ -318,3 +318,23 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Obtain disclosure/confidentiality approval for specific customer, supplier, and project data.
 - [ ] Revisit clustered marker layout and map responsiveness only if future QA shows an issue.
 - [ ] Commit and publish approved implementation; verify the live site and update GitHub Project issue status separately.
+
+
+## ABB Experience — Project Delivery Scale & Portfolio Value milestone (2026-10-23)
+
+- [x] Agree on ordered-capacity and order-value definitions, including distinction from delivered capacity.
+- [x] Implement `src/components/experience/PortfolioGrowth.astro` with **1.2 GVA** ordered capacity and **USD 255M** order value (2021–Oct 2026); do not show order count or exact decimals.
+- [x] Present cumulative ordered capacity as an **MVA step chart** from Jan 2023 through Oct 2026, including older orders in the baseline.
+- [x] Add four dated professional milestones and interactive **Key Initiatives** descriptions.
+- [x] Visually review and approve desktop version, including separated milestone titles 2 and 3.
+- [x] Fix mobile chart clipping: show the entire curve without horizontal scrolling; hide titles inside mobile plot while keeping numbered markers, buttons and descriptions.
+- [x] Review and accept mobile screenshots.
+
+**Status:** ABB Portfolio Growth section **implemented locally and visually approved for desktop and mobile**. This is not confirmation of publication, Git commit, accessibility or disclosure approval.
+
+**Remaining release checks:**
+- [ ] Confirm source totals (**1,208.25 MVA**, **USD 255.41M**) and issue dates against `ABB_Project_Orders_2021-2026(2).xlsx` before future changes.
+- [ ] Run `npm run build` and test keyboard/focus/touch behavior and small-screen accessibility.
+- [ ] Verify permission to publish portfolio commercial totals and descriptions of internal ABB initiatives.
+- [ ] Commit and push the accepted code and updated docs; verify GitHub Actions and live site.
+- [ ] Reconcile separate historical MW delivered/planned claims in About/Global Footprint with this ordered-MVA chart during final content QA.

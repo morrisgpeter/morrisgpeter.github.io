@@ -248,3 +248,18 @@ When a decision is confirmed or revised:
 - Validate the 10/7/2 distinct-location inventory and exact cities/coordinates against source data; confirm the meaning and provenance of ordered MW and project counts.
 - Review confidentiality, client/site attribution, and supplier disclosure before public release; the map is illustrative, not proof of personal travel or exact facility coordinates.
 - Run build, keyboard/focus/touch and accessibility checks; verify real-device mobile interaction and publication status separately.
+
+
+## ABB Portfolio Growth — accepted decisions (2026-10-23)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-082 | 2026-10-23 | ABB growth section scope | Retain only section heading/intro, two headline indicators, one cumulative ordered-capacity chart and a **Key Initiatives** panel; omit energy equivalents and separate Orders and Deliveries panels. | Accepted | Keep the story focused on project scale and professional contributions. |
+| D-083 | 2026-10-23 | Metrics and definitions | Display **1.2 GVA Total Ordered Capacity** and **USD 255M Total Order Value** for **2021–Oct 2026**; no order count or precise decimals on the page. Underlying source totals: **1,208.25 MVA** and **USD 255.41M** across 20 orders. | Accepted | Rounded display; nominal ordered capacity is not delivered power and order value is not recognized revenue. |
+| D-084 | 2026-10-23 | Chart and time basis | **Cumulative MV UPS Order Capacity (MVA)** with stepwise cumulative capacity from **Jan 2023 to Oct 2026**, using **order-issue dates** and including pre-2023 orders in the baseline; vertical axis in **MVA**. Subtitle: **Cumulative portfolio capacity (MVA) and key initiatives supporting project delivery and governance.** | Accepted | Accurate time representation; distinguish order dates from scheduled delivery dates. |
+| D-085 | 2026-10-23 | Professional milestones | Show four numbered milestones directly on the curve: **Aug 2023 VAT Resolution**, **Nov 2024 Delivery Workflow**, **Jan 2025 Business Model Workshop**, **4 Aug 2025 Product Documentation Package**. Link to the descriptive **Key Initiatives** panel. | Accepted | Contextualize governance and process contributions without implying causation of sales growth; workshop documents remain confidential. |
+| D-086 | 2026-10-23 | Visual copy and layout | Heading **Scaling MV UPS to 1.2 GVA**; blue/light visual identity; two indicator cards; milestone labels on desktop; retain close chronological placement of markers 2 and 3 while separating their labels. | Accepted | User approved desktop screenshots. |
+| D-087 | 2026-10-23 | Mobile behavior | Fit the entire 2023–2026 plot within the mobile card **without horizontal scrolling**; hide plot milestone titles, retain numbered markers and selectable date buttons; display Key Initiatives in one column. | Accepted | User approved mobile screenshots after responsive correction; markers 2/3 are close but distinguishable. |
+| D-088 | 2026-10-23 | Approval versus publication | Consider the **PortfolioGrowth** desktop/mobile visual iteration accepted; do not infer build success, Git commit, GitHub Pages deployment, accessibility compliance or disclosure authorization. | Accepted | Release checks remain independent. |
+
+**Source and consistency note:** The source spreadsheet was used in the working discussion; verify it again before any data revisions. Earlier ABB figures (e.g., MW delivered/planned or ~USD 70M for a narrower period) represent different metrics and must not replace or be merged with the newly approved ordered-MVA/order-value series without reconciling definitions.

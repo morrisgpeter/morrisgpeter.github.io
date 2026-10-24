@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-23
+**Last updated:** 2026-10-24
 
 ## Status legend
 
@@ -271,3 +271,15 @@ When a decision is confirmed or revised:
 | --- | --- | --- | --- | --- | --- |
 | D-089 | 2026-10-23 | ABB chapter section order | Present sections in this order: **ABB introduction → Project Delivery Scale & Portfolio Value → Global Footprint → Key Contributions → Stakeholders Across the Project Lifecycle → Data Center Power Flow → Business Impact**. | Accepted | Establish role, scale and geographic reach first; then explain contributions, organizational/technical complexity and outcomes. No component content changes intended. |
 | D-090 | 2026-10-23 | ABB Experience implementation and live verification | Commit `936c826` added `src/components/experience/PortfolioGrowth.astro` and reordered `src/pages/experience.astro`; push to `main` succeeded and the user confirmed the published page displays correctly. | Accepted (implemented) | Updates D-088’s earlier *not-yet-confirmed* commit/publication status. Does not establish an independent build log, accessibility audit, source-data verification or confidentiality authorization. |
+
+
+## Fibra Engenharia — SFibra Digital Innovation (approved 2026-10-24)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-091 | 2026-10-24 | SFibra narrative | Approve the section heading **Connecting field execution to customer value** and the introduction describing the integrated installation, configuration, commissioning and testing workflow. | Accepted | Connect operational needs with customer value. |
+| D-092 | 2026-10-24 | SFibra challenge | Add **The Challenge** before the three stages, explaining that fragmented records, inconsistent field documentation and manual processes contributed to errors, rework, delays and administrative effort; emphasize standardization, data accuracy, traceability and customer visibility. | Accepted | Describe actual operational problems, not only potential risks. |
+| D-093 | 2026-10-24 | SFibra solution visualization | Retain the approved three-stage responsive presentation: **Field Operations & Commissioning**, **Digital Platform**, **Customer Visibility & Acceptance**; retain four benefit indicators: **Operational Efficiency**, **Data Quality**, **End-to-End Traceability**, **Customer Visibility**. | Accepted | User visually reviewed desktop presentation and previously accepted mobile responsiveness. |
+| D-094 | 2026-10-24 | SFibra individual contribution | Describe leadership from concept through implementation, **acting as Product Owner and Product Manager**: product vision, app and portal functionality, technical/commercial feasibility, development, deployment and adoption coordination. | Accepted | Describes responsibilities exercised, not necessarily formal job titles or personal coding. |
+| D-095 | 2026-10-24 | SFibra value and disclosure | Retain **Business Value** explaining reduced manual documentation/rework, stronger consistency/traceability, customer transparency and differentiated proposals. Retain the note identifying all illustrated interfaces, identifiers and map markers as conceptual, not original system records. No unverified numeric gains. | Accepted | Credible, evidence-conscious case study. |
+| D-096 | 2026-10-24 | SFibra review status | **FibraSFibra_Text_Approved_v12.astro** accepted in discussion after visual review and final challenge-copy refinement. | Accepted (local design/content) | Local replacement, production build, commit/push and public deployment are not yet verified. |

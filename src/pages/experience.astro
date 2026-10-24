@@ -1,17 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import FibraExperience from "../components/experience/fibra/FibraExperience.astro";
 import StakeholderNetwork from "../components/experience/StakeholderNetwork.astro";
 import DataCenterPowerFlow from '../components/experience/DataCenterPowerFlow.astro';
 import GlobalProjectFootprint from '../components/experience/GlobalProjectFootprint.astro';
 import PortfolioGrowth from '../components/experience/PortfolioGrowth.astro';
 
 const earlierRoles = [
-  {
-    name: "Fibra Engenharia",
-    years: "2012–2019",
-    title: "Portfolio Management & Commercial Leadership",
-    summary: "Led engineering service portfolios and business development across utility automation, telecommunications and distributed energy projects in Brazil.",
-  },
   {
     name: "Aton Engenharia",
     years: "2003–2012",
@@ -80,6 +75,8 @@ const earlierRoles = [
       </article>
 
       <div class="transition-note"><span class="timeline-marker" aria-hidden="true"></span><p><strong>2020</strong> · Sales Consulting & Professional Development</p></div>
+
+      <FibraExperience />
 
       {earlierRoles.map((role) => (
         <article class="career-entry earlier" aria-label={`${role.name}, ${role.years}`}>

@@ -1,0 +1,186 @@
+---
+// SFibra case study | Three-stage responsive workflow.
+// Conceptual visuals based on the approved SFibra illustration, not historical screenshots.
+const stages = [
+  { number: '01', title: 'Field Operations & Commissioning', alt: 'Conceptual field technician beside a utility recloser using the SFibra commissioning mobile application.', detail: 'Guided field teams through equipment installation, configuration, commissioning and testing with the customer operations center, while recording technical evidence and acceptance details.' },
+  { number: '02', title: 'Digital Platform', alt: 'Conceptual SFibra cloud servers and centralized digital platform functions.', detail: 'Centralized field records, synchronized service information and automatically generated technical documentation for customer access.' },
+  { number: '03', title: 'Customer Visibility & Acceptance', alt: 'Conceptual customer portal with a recloser map, service status, documents and acceptance notification.', detail: "Enabled customers to monitor each recloser’s status, location and documentation, while recording final acceptance details and automatically issuing email notifications." },
+];
+const benefits = [
+  { icon: 'gear', title: 'Operational Efficiency', detail: 'Reduced manual work and accelerated technical documentation.', tone: 'blue' },
+  { icon: 'check', title: 'Data Quality', detail: 'Standardized field procedures and consistent technical records.', tone: 'green' },
+  { icon: 'trace', title: 'End-to-End Traceability', detail: 'Complete service history, from installation to customer acceptance.', tone: 'violet' },
+  { icon: 'eye', title: 'Customer Visibility', detail: 'Centralized access to equipment status, location and documentation.', tone: 'sky' },
+];
+---
+<section class="sfibra" aria-labelledby="sfibra-title">
+  <header class="sfibra-heading">
+    <p class="eyebrow">SFIBRA · DIGITAL INNOVATION</p>
+    <h3 id="sfibra-title">Connecting field execution to customer value</h3>
+    <p>Developed to streamline utility field operations, SFibra integrated equipment installation, configuration, commissioning and testing into a digital workflow, connecting field teams with customer operations and improving service visibility.</p>
+  </header>
+
+  <div class="sfibra-challenge">
+    <h4>The Challenge</h4>
+    <p>As utility field operations expanded, fragmented records, inconsistent field documentation and manual processes contributed to errors, rework, delays and additional administrative effort. The challenge was to standardize installation and commissioning procedures, improve data accuracy and traceability, and provide customers with reliable visibility into service progress and acceptance.</p>
+  </div>
+
+  <ol class="sfibra-stages" aria-label="SFibra end-to-end workflow">
+    {stages.map((stage) => (
+      <li class="stage">
+        <div class="stage-title"><span class="stage-number">{stage.number}</span><h4>{stage.title}</h4></div>
+        <div class="stage-visual">
+          {stage.number === '01' && <div class="field-scene">
+            <div class="field-photo" role="img" aria-label="Conceptual illustration of a field technician working beside a utility recloser"></div>
+            <div class="mobile-device" aria-label="Illustrative SFibra commissioning checklist">
+              <div class="phone-speaker"></div><div class="mobile-brand">◉ SFibra</div><div class="mobile-label">Commissioning</div>
+              {['Equipment information','Installation check','Configuration','Functional tests','Communication test','Customer acceptance'].map(item => <div class="mobile-row"><span aria-hidden="true">✓</span>{item}</div>)}
+              <div class="mobile-mini"><span>▣ Photos</span><span>⌖ Location</span></div><div class="mobile-action">Complete service</div>
+            </div>
+          </div>}
+          {stage.number === '02' && <div class="platform-scene" aria-label="Illustrative digital platform and its four functions">
+            <div class="platform-cloud" aria-hidden="true">
+              <svg viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="sfibraCloud" x1="45" y1="20" x2="220" y2="170" gradientUnits="userSpaceOnUse"><stop stop-color="#72d0ff"/><stop offset="1" stop-color="#0675d4"/></linearGradient></defs>
+                <path d="M65 155C32 155 15 133 15 106c0-27 20-49 48-50C75 25 105 8 141 8c41 0 73 28 79 66 29 1 47 19 47 44 0 23-20 37-46 37H65Z" fill="url(#sfibraCloud)"/>
+                {[0,1,2].map(i => <g><rect x="94" y={84+i*23} width="95" height="20" rx="5" fill="#104475" stroke="#a4e2ff" stroke-width="2"/><circle cx="110" cy={94+i*23} r="3.8" fill="#6fe7b0"/><rect x="161" y={91+i*23} width="17" height="5" rx="2" fill="#082f57"/></g>)}
+              </svg>
+            </div>
+            <div class="platform-functions">
+              {[
+                { title: 'Centralized data storage', icon: 'database' },
+                { title: 'Automatic file generation', icon: 'document' },
+                { title: 'Controlled access', icon: 'shield' },
+                { title: 'Data synchronization', icon: 'sync' },
+              ].map(f => <div class="platform-feature">
+                <span class="platform-feature-icon" aria-hidden="true">
+                  {f.icon === 'database' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/></svg>}
+                  {f.icon === 'document' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 2h9l5 5v15H5zM14 2v5h5M8 12h8M8 16h8"/></svg>}
+                  {f.icon === 'shield' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2 20 5v7c0 5-3 8-8 10-5-2-8-5-8-10V5z"/><rect x="9" y="11" width="6" height="6" rx="1"/><path d="M10 11V9a2 2 0 0 1 4 0v2"/></svg>}
+                  {f.icon === 'sync' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7V3l-4 4h4a8 8 0 0 0-14-2M4 17v4l4-4H4a8 8 0 0 0 14 2"/></svg>}
+                </span><span>{f.title}</span>
+              </div>)}
+            </div>
+          </div>}
+          {stage.number === '03' && <div class="customer-scene">
+            <div class="monitor"><div class="monitor-bar"><strong>◉ SFibra</strong><span>Map</span><span>Equipment</span><span>Reports</span></div><div class="monitor-content"><div class="mock-map" aria-label="Illustrative geographic map with roads, green areas, a river and recloser locations">
+              <svg viewBox="0 0 320 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <rect width="320" height="280" fill="#e9efe3"/>
+                <path d="M0 0H130L106 74 47 110 0 97Z M198 0H320V90L262 104 213 62Z M0 194L71 178 123 214 108 280H0Z M211 194L320 174V280H187Z" fill="#d0e4c5"/>
+                <path d="M-20 152C41 137 76 175 128 160S223 104 340 120" fill="none" stroke="#9bd0e2" stroke-width="17"/>
+                <path d="M-20 152C41 137 76 175 128 160S223 104 340 120" fill="none" stroke="#c4e8f3" stroke-width="9"/>
+                <g fill="#f5edda" stroke="#d8d9c8" stroke-width="1">
+                  <path d="M9 12 72 8 61 51 11 56Z M80 7 121 10 106 55 68 54Z M141 7 191 10 196 59 130 58Z M230 12 299 7 296 60 243 65Z"/>
+                  <path d="M13 67 62 64 57 107 9 109Z M70 67 116 70 111 119 67 111Z M145 72 197 70 199 119 143 124Z M236 76 296 73 298 116 247 125Z"/>
+                  <path d="M10 190 63 185 61 231 9 238Z M77 192 123 182 142 229 79 235Z M160 181 208 177 222 231 163 239Z M242 181 303 182 299 234 246 231Z"/>
+                </g>
+                <g fill="none" stroke="#c4c6bb" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M-12 40 72 62 144 46 224 70 337 47"/><path d="M45 -12 77 75 113 135 104 290"/><path d="M210 -15 203 72 228 146 271 293"/><path d="M-12 250 88 222 169 248 332 211"/>
+                </g>
+                <g fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M-12 40 72 62 144 46 224 70 337 47"/><path d="M45 -12 77 75 113 135 104 290"/><path d="M210 -15 203 72 228 146 271 293"/><path d="M-12 250 88 222 169 248 332 211"/>
+                </g>
+                <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M0 84 46 119 84 129M142 0 146 44M164 89 154 150 185 187M288 0 274 80M5 207 53 175M180 280 186 239"/></g>
+                <g fill="#708a80" font-family="Arial,sans-serif" font-size="10" font-weight="600" opacity=".9"><text x="17" y="30">NORTH</text><text x="155" y="104">CENTRAL</text><text x="14" y="219">WEST</text><text x="250" y="199">EAST</text></g>
+              </svg>
+              <i style="--x:24%;--y:35%"></i><i style="--x:65%;--y:25%"></i><i style="--x:48%;--y:73%"></i><i style="--x:79%;--y:61%"></i>
+            </div><div class="equipment-info"><strong>Recloser #1034</strong><span class="status">● Accepted</span><span>✓ Installation</span><span>✓ Configuration</span><span>✓ Commissioning tests</span><span>⌖ Location</span><span>▤ Documents & photos</span></div></div></div>
+            <div class="email-note"><div class="email-icon" aria-hidden="true">✉</div><div class="email-content"><strong>Service Accepted <span aria-hidden="true">✓</span></strong><p>Automatic email notification</p><div class="acceptance-fields"><span>Acceptance time</span><span>Fibra team</span><span>Customer approver</span></div></div></div>
+          </div>}
+        </div>
+        <p class="stage-detail">{stage.detail}</p>
+      </li>
+    ))}
+  </ol>
+
+  <div class="sfibra-benefits" aria-label="SFibra business benefits">
+    {benefits.map((benefit) => (
+      <div class={`benefit benefit--${benefit.tone}`}>
+        <span class="benefit-icon" aria-hidden="true">
+          {benefit.icon === 'gear' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4l.6 2.4 2.1.9 2.1-1.3 2.8 2.8-1.3 2.1.9 2.1L23 11v4l-2.4.6-.9 2.1 1.3 2.1-2.8 2.8-2.1-1.3-2.1.9L14 24h-4l-.6-2.4-2.1-.9-2.1 1.3-2.8-2.8 1.3-2.1-.9-2.1L.5 15v-4l2.4-.6.9-2.1-1.3-2.1 2.8-2.8 2.1 1.3 2.1-.9z" transform="translate(0 -1) scale(.98)"/><circle cx="12" cy="12" r="3"/></svg>}
+          {benefit.icon === 'check' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v13a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5M8 12h4M8 15h3"/><circle cx="17.5" cy="17.5" r="4.5" fill="#d2f2e9"/><path d="m15.5 17.5 1.3 1.3 2.4-2.5"/></svg>}
+          {benefit.icon === 'trace' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v5M5 17v-5h14v5"/></svg>}
+          {benefit.icon === 'eye' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>}
+        </span>
+        <div><h4>{benefit.title}</h4><p>{benefit.detail}</p></div>
+      </div>
+    ))}
+  </div>
+
+  <p class="sfibra-caption">Conceptual reconstruction of the SFibra workflow. Interfaces, equipment identifiers and map markers are illustrative, not original system records.</p>
+
+  <div class="sfibra-outcome">
+    <div><span class="outcome-label">MY CONTRIBUTION</span><p>Led the SFibra initiative from concept to implementation, acting as Product Owner and Product Manager throughout its development. Defined the product vision and key functionalities of the mobile application and customer portal, assessed technical and commercial feasibility, and coordinated development, deployment and adoption with the team.</p></div>
+    <div><span class="outcome-label">BUSINESS VALUE</span><p>SFibra streamlined field operations, reduced manual documentation and rework, and improved the consistency and traceability of commissioning records. By providing customers with timely access to service information and automated acceptance notifications, the solution also strengthened service transparency and differentiated Fibra's engineering proposals.</p></div>
+  </div>
+</section>
+
+<style>
+  .sfibra,.sfibra *{box-sizing:border-box}
+  .sfibra{background:linear-gradient(120deg,#fff 5%,#f4f9fe 100%);border:1px solid #dce9f5;border-radius:20px;padding:clamp(1.2rem,3vw,2.7rem);color:#17385e;margin:1rem 0 2rem}
+  .sfibra-heading{max-width:1050px;margin-bottom:1.7rem}
+  .eyebrow{color:#2478bd;font-weight:800;letter-spacing:.16em;font-size:.76rem;margin:0 0 1rem}
+  .eyebrow:after{content:"";display:block;width:54px;height:3px;background:#2c8bce;margin-top:.8rem}
+  .sfibra-heading h3{font-size:clamp(1.7rem,3vw,2.7rem);line-height:1.15;letter-spacing:-.025em;color:#12365e;margin:0 0 1rem}
+  .sfibra-heading>p:last-child{color:#516b85;line-height:1.65;font-size:1rem;margin:0}
+  .sfibra-challenge{max-width:1050px;margin:0 0 1.7rem;padding:1rem 1.2rem;background:#f1f8fe;border-left:3px solid #2c8bce;border-radius:0 10px 10px 0}
+  .sfibra-challenge h4{margin:0 0 .4rem;color:#12365e;font-size:.94rem;font-weight:800}
+  .sfibra-challenge p{margin:0;color:#516b85;font-size:.91rem;line-height:1.65}
+  .sfibra-stages{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.65rem,1.5vw,1.15rem);margin:0;padding:0}
+  .stage{min-width:0;display:flex;flex-direction:column;background:#fff;border:1px solid #d9e8f5;border-radius:14px;overflow:hidden}
+  .stage-title{display:flex;align-items:center;gap:.6rem;padding:.7rem .75rem;background:linear-gradient(90deg,#0866af,#74c3ee);color:#fff;min-height:3.7rem}
+  .stage-number{flex:none;display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:#fff;color:#125b99;font-size:.84rem;font-weight:850}
+  .stage-title h4{margin:0;color:#fff;font-size:clamp(.73rem,1.13vw,.94rem);line-height:1.25;letter-spacing:.035em;text-transform:uppercase}
+  .stage-image{background:#eaf5fc;overflow:hidden;line-height:0}
+  .stage-image img{width:100%;height:auto;display:block}
+  .stage-detail{margin-top:auto;padding:.85rem 1rem 1.1rem;color:#516b85;font-size:.88rem;line-height:1.55;flex:1}
+  .sfibra-benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:#f1f8fe;border:1px solid #d9e8f5;border-radius:14px;margin-top:1rem;padding:1rem .5rem}
+  .benefit{min-width:0;display:flex;align-items:flex-start;gap:.65rem;padding:.4rem .85rem}
+  .benefit+.benefit{border-left:1px solid #cbdfee}
+  .benefit-icon{flex:none;display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:#cceafd;color:#0b5592;font-size:1.35rem;font-weight:800}.benefit-icon svg{width:1.45rem;height:1.45rem;display:block}
+  .benefit--green .benefit-icon{background:#d2f2e9;color:#00775e}.benefit--violet .benefit-icon{background:#e4e4fc;color:#5142a5}.benefit--sky .benefit-icon{background:#d5edff;color:#135e99}
+  .benefit h4{font-size:.84rem;color:#17385e;line-height:1.25;margin:.1rem 0 .3rem}
+  .benefit p{font-size:.77rem;line-height:1.45;color:#516b85;margin:0}
+  .sfibra-caption{font-size:.74rem;color:#73869b;line-height:1.5;margin:.65rem 0 0}
+  .sfibra-outcome{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding-top:1.7rem}
+  .sfibra-outcome>div+div{border-left:1px solid #d8e5f0;padding-left:2rem}
+  .outcome-label{font-size:.72rem;font-weight:800;color:#2478bd;letter-spacing:.13em}
+  .sfibra-outcome p{font-size:.91rem;line-height:1.65;color:#4f6882;margin:.55rem 0 0}
+  @media(max-width:900px){.sfibra-stages{grid-template-columns:1fr;max-width:650px;margin-inline:auto}.stage-title h4{font-size:1rem}.stage-image{min-height:0}.stage-image img{height:auto}.stage-detail{font-size:.95rem}.sfibra-benefits{grid-template-columns:repeat(2,minmax(0,1fr))}.benefit:nth-child(3){border-left:0}.benefit:nth-child(n+3){border-top:1px solid #cbdfee;padding-top:1rem;margin-top:.6rem}}
+  @media(max-width:700px){.sfibra-outcome{grid-template-columns:1fr;gap:1.1rem}.sfibra-outcome>div+div{border-left:0;border-top:1px solid #d8e5f0;padding:1.1rem 0 0}}
+  @media(max-width:440px){.sfibra-benefits{grid-template-columns:1fr}.benefit+.benefit{border-left:0;border-top:1px solid #cbdfee;padding-top:.9rem;margin-top:.5rem}.benefit:nth-child(n+3){margin-top:.5rem}.sfibra-heading h3{font-size:1.65rem}.stage-title h4{font-size:.86rem}}
+
+  /* Customer acceptance: stacked traceability fields and clearer map */
+  .email-note{align-items:flex-start;bottom:3%;padding:9px 11px;gap:9px}
+  .email-icon{line-height:1.1;flex:none}
+  .email-content{min-width:0}
+  .email-note p{margin:2px 0 5px}
+  .acceptance-fields{display:flex;flex-direction:column;gap:2px;color:#607a91;font-size:clamp(8px,.7vw,10px);line-height:1.18}
+  .mock-map svg{display:block}
+  @media(max-width:900px){.acceptance-fields{font-size:clamp(9px,1.7vw,12px);gap:3px}}
+  @media(max-width:440px){.email-note{bottom:2%;padding:7px 9px;gap:7px}.email-icon{font-size:22px}.acceptance-fields{font-size:9px;gap:2px}.email-note p{margin:2px 0 4px}}
+</style>
+
+<style>
+  .stage-visual{height:clamp(220px,22vw,330px);background:#eaf5fc;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .field-scene,.platform-scene,.customer-scene{width:100%;height:100%;position:relative}
+  .field-photo{position:absolute;inset:0 34% 0 0;background-image:url('/images/sfibra/sfibra-field.webp');background-size:auto 100%;background-position:left center;background-repeat:no-repeat}
+  .field-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 65%,#eaf5fc 100%)}
+  .mobile-device{position:absolute;right:1.5%;top:5%;width:43%;height:90%;border:5px solid #17293a;border-radius:20px;background:#fff;box-shadow:0 6px 14px #1b446444;overflow:hidden;padding:7px 5px 9px;font-family:Arial,sans-serif;color:#1b385b}
+  .phone-speaker{height:3px;width:25%;border-radius:9px;background:#273a4a;margin:0 auto 6px}
+  .mobile-brand{background:#0b4b8a;color:#fff;font-size:clamp(12px,1.35vw,18px);font-weight:700;padding:6px;margin:-1px -7px 7px}.mobile-label{font-size:clamp(9px,1vw,13px);font-weight:700;margin-bottom:5px}
+  .mobile-row{font-size:clamp(8px,.68vw,10px);display:flex;gap:3px;align-items:center;margin:4px 0;white-space:nowrap}.mobile-row span{background:#1aa957;color:#fff;border-radius:50%;width:12px;height:12px;display:grid;place-items:center;font-size:8px;flex:none}
+  .mobile-mini{display:flex;justify-content:space-around;font-size:clamp(8px,.75vw,10px);margin-top:7px;color:#195b96}.mobile-action{background:#1477c4;color:#fff;text-align:center;border-radius:20px;font-size:clamp(8px,.8vw,11px);font-weight:700;padding:5px 2px;margin-top:8px}
+  /* Digital Platform: editable vector illustration and responsive 2 × 2 feature grid. */
+  .platform-scene{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(6px,1vw,12px);padding:clamp(10px,1.6vw,18px);background:radial-gradient(ellipse at 50% 30%,#f8fcff 0%,#eaf5fc 75%)}
+  .platform-cloud{width:min(55%,190px);flex:0 0 auto;line-height:0}
+  .platform-cloud svg{display:block;width:100%;height:auto;filter:drop-shadow(0 4px 6px #1a6a9b19)}
+  .platform-functions{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .platform-feature{min-width:0;min-height:56px;background:#fff;border:1px solid #d4e6f5;border-radius:11px;display:flex;align-items:center;gap:7px;padding:8px;color:#17385e;font-size:clamp(9px,.8vw,12px);font-weight:700;line-height:1.25}
+  .platform-feature-icon{display:grid;place-items:center;flex:0 0 29px;width:29px;height:29px;border-radius:50%;background:#e6f4ff;color:#176fb7}
+  .platform-feature-icon svg{width:18px;height:18px}
+
+  .customer-scene{display:flex;align-items:center;justify-content:center;padding:12px}.monitor{position:absolute;top:9%;left:5%;right:5%;height:72%;background:#162738;border:7px solid #162738;border-radius:12px;box-shadow:0 9px 0 -4px #a7b9c8}.monitor-bar{height:26px;background:#0d4a88;color:#fff;display:flex;align-items:center;gap:7px;padding:0 8px;font-size:clamp(7px,.72vw,10px)}.monitor-bar strong{font-size:clamp(10px,1vw,14px);margin-right:auto}.monitor-content{display:grid;grid-template-columns:54% 46%;height:calc(100% - 26px);background:#fff}.mock-map{position:relative;background:#e4efdf;overflow:hidden}.mock-map svg{width:100%;height:100%;position:absolute}.mock-map i{position:absolute;left:var(--x);top:var(--y);width:10px;height:10px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#1783c8;border:2px solid #fff;box-shadow:0 1px 3px #1235}.mock-map i:nth-of-type(2){background:#21a86d}.mock-map i:nth-of-type(3){background:#ef7844}.equipment-info{display:flex;flex-direction:column;gap:6px;padding:8px 5px;font-size:clamp(8px,.75vw,11px);color:#264c70}.equipment-info strong{font-size:clamp(9px,.95vw,13px);color:#163a60}.equipment-info .status{color:#087e4a;font-weight:800}.email-note{position:absolute;bottom:5%;left:16%;right:3%;background:#fff;border-radius:11px;padding:10px;display:flex;gap:10px;align-items:center;box-shadow:0 5px 20px #17395c33;border:1px solid #dceaf5}.email-icon{font-size:30px;color:#1a659e}.email-note strong{display:block;color:#163a60;font-size:clamp(11px,1.05vw,15px)}.email-note strong span{color:#12a55a}.email-note p{margin:3px 0;color:#385e7c;font-size:clamp(9px,.8vw,11px)}.email-note small{display:block;font-size:clamp(8px,.72vw,10px);color:#607a91}
+  @media(max-width:900px){.platform-cloud{width:min(55%,210px)}.platform-feature{font-size:clamp(11px,2.5vw,14px)}.stage-visual{height:clamp(240px,58vw,390px)}.mobile-brand{font-size:18px}.mobile-label{font-size:14px}.mobile-row{font-size:clamp(9px,1.6vw,12px);margin:clamp(4px,1vw,8px) 0}.mobile-mini,.mobile-action{font-size:12px}.equipment-info{font-size:clamp(10px,2vw,14px)}.monitor-bar{font-size:12px;height:34px}.monitor-bar strong{font-size:17px}.monitor-content{height:calc(100% - 34px)}.equipment-info strong{font-size:16px}.email-note strong{font-size:16px}.email-note p{font-size:13px}.email-note small{font-size:11px}}
+  @media(max-width:440px){.platform-cloud{width:52%;max-width:155px}.platform-feature{font-size:10px;min-height:55px;padding:6px;gap:5px}.platform-feature-icon{flex-basis:25px;width:25px;height:25px}.platform-feature-icon svg{width:16px;height:16px}.stage-visual{height:260px}.mobile-device{width:49%;right:1%;border-width:4px;padding:4px}.mobile-brand{font-size:13px}.mobile-label{font-size:10px}.mobile-row{font-size:8px;gap:2px;margin:5px 0}.mobile-row span{width:12px;height:12px}.mobile-mini,.mobile-action{font-size:8px}.monitor-bar{height:25px;font-size:8px}.monitor-bar strong{font-size:11px}.monitor-content{height:calc(100% - 25px)}.equipment-info{font-size:9px;gap:4px}.equipment-info strong{font-size:10px}.email-note{padding:7px}.email-note strong{font-size:12px}.email-note p{font-size:10px}.email-note small{font-size:8px}}
+</style>

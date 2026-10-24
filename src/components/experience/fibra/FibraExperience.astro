@@ -1,0 +1,86 @@
+---
+import FibraTimeline from "./FibraTimeline.astro";
+import FibraSFibra from './FibraSFibra.astro';
+// Fibra Engenharia — ABB-aligned introduction and business impact.
+// Future modules (timeline, SFibra, commercial cases, people) will follow.
+const metrics = [
+  {
+    value: "USD 8.5M",
+    label: "Service contract portfolio",
+    detail: "Approximate value reached through contract extensions over six years; not annual revenue.",
+  },
+  {
+    value: "39",
+    label: "Municipalities",
+    detail: "Substation automation project footprint in Bahia.",
+  },
+  {
+    value: "2,760",
+    label: "Reclosers",
+    detail: "Grid-modernization equipment deployed across the program.",
+  },
+  {
+    value: "50+",
+    label: "Professionals",
+    detail: "Multidisciplinary delivery teams coordinated through project managers.",
+  },
+];
+---
+
+<article class="fibra-entry" aria-labelledby="fibra-title">
+  <div class="fibra-marker" aria-hidden="true"></div>
+  <header class="fibra-hero">
+    <p class="fibra-period">2012 – 2019 · Salvador, Aracaju, Brazil</p>
+    <div class="fibra-brand">
+      <h2 id="fibra-title" class="sr-only">Fibra Engenharia</h2>
+      <img class="fibra-logo" src="/images/fibra-engenharia-logo.png" alt="Fibra Engenharia logo" width="1448" height="564" />
+    </div>
+    <h3 class="fibra-role">Portfolio Manager &amp; Commercial Director</h3>
+    <p class="fibra-unit">Co-founder · Engineering Services</p>
+    <p class="fibra-intro">Co-founded an engineering services company, leading commercial development, project portfolio delivery and multidisciplinary teams across utilities, telecommunications and energy infrastructure.</p>
+  </header>
+
+  <section class="fibra-impact" aria-labelledby="fibra-impact-title">
+    <div class="fibra-section-heading">
+      <p class="fibra-kicker">BUSINESS IMPACT</p>
+      <h3 id="fibra-impact-title">From business development to project delivery</h3>
+    </div>
+    <div class="fibra-metrics">
+      {metrics.map((metric) => (
+        <div class="fibra-metric">
+          <strong>{metric.value}</strong>
+          <h4>{metric.label}</h4>
+          <p>{metric.detail}</p>
+        </div>
+      ))}
+    </div>
+    <p class="fibra-method-note">Figures are historical estimates based on the professional interview and supporting materials; final publication wording remains subject to evidence review.</p>
+  </section>
+  <FibraTimeline />
+  <FibraSFibra />
+</article>
+
+<style>
+  .fibra-entry{position:relative;margin:0 0 2.2rem;color:#152c4c}
+  .fibra-marker{position:absolute;left:-39px;top:22px;width:16px;height:16px;border:3px solid #2a7ac1;border-radius:50%;background:#fff}
+  .fibra-hero{background:linear-gradient(115deg,#fff 0%,#fff 58%,#eaf4fb 100%);border:1px solid #e1eaf4;border-radius:16px;padding:clamp(1.6rem,3.5vw,2.8rem);margin-bottom:1rem}
+  .fibra-period{color:#56728f;font-size:.95rem;margin:0 0 1rem}
+  .fibra-kicker{font-size:.72rem;letter-spacing:.14em;font-weight:800;color:#2474bb;margin:0 0 .8rem}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .fibra-brand{display:flex;align-items:center;margin:0 0 .7rem}
+  .fibra-logo{display:block;width:clamp(150px,18vw,205px);height:auto;object-fit:contain}
+  .fibra-role{font-size:clamp(1.75rem,3.3vw,2.8rem);line-height:1.14;margin:0 0 .55rem;color:#102b50;font-weight:750}
+  .fibra-unit{font-size:clamp(1rem,1.6vw,1.2rem);font-weight:700;color:#315f90;margin:0 0 1.25rem}
+  .fibra-intro{color:#435a72;line-height:1.75;max-width:880px;margin:0;font-size:1rem}
+  .fibra-impact{background:#fff;border:1px solid #e1eaf4;border-radius:16px;padding:clamp(1.3rem,3vw,2rem)}
+  .fibra-section-heading h3{font-size:1.2rem;color:#113460;margin:0 0 1.5rem}
+  .fibra-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+  .fibra-metric{padding:0 1.1rem;border-left:1px solid #d9e5f1}
+  .fibra-metric:first-child{border-left:0;padding-left:0}
+  .fibra-metric strong{display:block;color:#155c9b;font-size:clamp(1.6rem,2.7vw,2.4rem);letter-spacing:-.04em;line-height:1.1}
+  .fibra-metric h4{font-size:.92rem;color:#153b68;margin:.75rem 0 .45rem}
+  .fibra-metric p{font-size:.81rem;line-height:1.55;color:#52677e;margin:0}
+  .fibra-method-note{font-size:.75rem;line-height:1.5;color:#70849a;margin:1.5rem 0 0}
+  @media(max-width:900px){.fibra-metrics{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1.5rem}.fibra-metric:nth-child(3){border-left:0;padding-left:0}}
+  @media(max-width:560px){.fibra-marker{left:-27px}.fibra-metrics{grid-template-columns:1fr;gap:1.2rem}.fibra-metric,.fibra-metric:nth-child(3){border-left:0;border-top:1px solid #d9e5f1;padding:1rem 0 0}.fibra-metric:first-child{border-top:0;padding-top:0}.fibra-hero{padding:1.4rem}}
+</style>

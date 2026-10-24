@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-23
+**Last updated:** 2026-10-24
 
 ## Purpose
 
@@ -223,3 +223,15 @@ The ABB chapter in `src/pages/experience.astro` follows this **approved, publish
 7. **Business Impact**
 
 **Narrative rationale:** role → portfolio scale → international reach → individual contributions → stakeholder coordination → technical context → business outcomes. Only section placement was intentionally changed; approved component content and interactions were retained. The reordering and new `PortfolioGrowth.astro` were committed and pushed as `936c826` (`feat: add ABB portfolio growth chart and reorganize experience sections`). The user confirmed the resulting live Experience page on 2026-10-23. This confirmation does not replace final accessibility, source-data or confidentiality checks.
+
+
+## Experience — Fibra SFibra Digital Innovation (approved 2026-10-24)
+
+**Component:** `src/components/experience/fibra/FibraSFibra.astro`. Approved candidate: `FibraSFibra_Text_Approved_v12.astro`. The user approved the section's English copy and reviewed the desktop visuals; responsive design had been accepted in earlier review. **This is not confirmation of a Git commit, build or live deployment.**
+
+- **Story:** SFibra addressed errors, rework, delays and administrative effort caused by fragmented field records, inconsistent documentation and manual processes during growing utility field operations.
+- **Flow:** Field Operations & Commissioning → Digital Platform → Customer Visibility & Acceptance. Customer operations accepted the service; SFibra recorded acceptance details and generated email notifications.
+- **Benefits:** Operational Efficiency, Data Quality, End-to-End Traceability, Customer Visibility. Business Value also includes stronger customer transparency and differentiated Fibra engineering proposals. Avoid unverified numerical improvement claims.
+- **My Contribution:** User directly conceived the solution and defined mobile-app and customer-portal features, evaluated technical/commercial feasibility, coordinated development and implementation, acting as Product Owner and Product Manager. This refers to functions performed, not necessarily formal titles or software programming.
+- **Visual integrity:** Keep approved illustrations and responsive CSS; maintain the disclosure that workflow visuals, equipment identifiers and map markers are conceptual reconstructions, not original system records.
+- **Release checks:** Copy approved v12 into the project component, run `npm run build`, review local desktop/mobile, check `git diff`, then commit and push. Verify GitHub Actions/live rendering and relevant confidentiality/rights separately.

@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-23  
+**Updated:** 2026-10-24  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -349,3 +349,16 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Complete final ABB/Experience source-data, confidentiality, accessibility and cross-device QA; verify build and GitHub Actions logs if needed.
 
 **Status:** ABB chapter order and Portfolio Growth implementation **published and visually accepted**. This does **not** mark the entire Experience page or its final release checks complete.
+
+
+## Fibra Experience — SFibra Digital Innovation milestone (2026-10-24)
+
+- [x] Approve the narrative: challenge → three-stage digital workflow → four operational benefits → My Contribution → Business Value.
+- [x] Approve **The Challenge** wording describing actual errors, rework, delays and administrative effort due to fragmented records, inconsistent documentation and manual processes.
+- [x] Approve **My Contribution** describing acting as Product Owner and Product Manager, from product concept and functionality definition to feasibility, development, deployment and adoption.
+- [x] Visually review desktop SFibra section; earlier responsive/mobile presentation accepted. Retain conceptual-illustration disclosure and avoid unverified percentages.
+- [ ] Copy `FibraSFibra_Text_Approved_v12.astro` to `src/components/experience/fibra/FibraSFibra.astro` in the local repository.
+- [ ] Run `npm run build`, inspect local page and `git diff`; commit and push approved component and documentation.
+- [ ] Verify GitHub Actions publication and live Experience page; perform final accessibility, evidence and disclosure checks separately.
+
+**Status:** SFibra design and copy accepted; implementation in the user's repository and public publication are not yet confirmed.

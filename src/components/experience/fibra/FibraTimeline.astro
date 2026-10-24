@@ -1,0 +1,136 @@
+---
+// Fibra Engenharia: compact chronology based on the historical interview.
+// Date ranges indicate broad phases, not precise project start dates.
+const milestones = [
+  { period: '2012', label: 'Company founded', detail: 'Established Fibra and secured its first industrial and utility contracts.' },
+  { period: '2013–2014', label: 'Delivery capability', detail: 'Built project teams and expanded utility field operations.' },
+  { period: '2014–2015', label: 'Commercial resilience', detail: 'Managed supplier and customer negotiations amid a sharp depreciation of the Brazilian real.' },
+  { period: '2016', label: 'SFibra introduced', detail: 'Rolled out digital field records and automated reporting.' },
+  { period: '2017–2018', label: 'Portfolio expansion', detail: 'Consolidated utility services, including automation and smart metering.' },
+  { period: '2018–2019', label: 'Solar diversification', detail: 'Expanded into B2B distributed solar solutions.' },
+];
+---
+<section class="fibra-timeline" aria-labelledby="fibra-timeline-title">
+  <div class="timeline-header">
+    <p class="timeline-kicker">BUILDING &amp; SCALING FIBRA</p>
+    <h3 id="fibra-timeline-title">From an idea to a growing engineering business</h3>
+    <p>Building delivery capability, long-term customer relationships and new solutions.</p>
+  </div>
+
+  <div class="timeline-layout">
+    <div class="timeline-track" aria-label="Fibra business milestones from 2012 to 2019">
+      <ol class="milestones">
+        {milestones.map((item) => (
+          <li class="milestone">
+            <span class="milestone-dot" aria-hidden="true"></span>
+            <time class="milestone-period">{item.period}</time>
+            <strong class="milestone-label">{item.label}</strong>
+            <p>{item.detail}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <aside class="geography" aria-labelledby="fibra-geography-title">
+      <p class="geography-kicker" id="fibra-geography-title">GEOGRAPHIC FOOTPRINT</p>
+      <div class="brazil-map-wrap">
+        <svg id="fibra-brazil-map" viewBox="0 0 260 285" role="img" aria-label="Map of Brazil with Bahia and Sergipe highlighted" preserveAspectRatio="xMidYMid meet">
+          <title>Brazil: Bahia and Sergipe highlighted</title>
+          <g id="fibra-state-shapes"></g>
+        </svg>
+        <p class="map-loading" id="fibra-map-status">Loading geographic map…</p>
+      </div>
+      <div class="map-legend" aria-label="Highlighted operating states">
+        <span><i class="legend-swatch bahia" aria-hidden="true"></i> Bahia</span>
+        <span><i class="legend-swatch sergipe" aria-hidden="true"></i> Sergipe</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .fibra-timeline{display:grid;grid-template-columns:minmax(0,3.1fr) minmax(220px,1fr);grid-template-rows:auto auto;column-gap:1.6rem;align-items:start;background:linear-gradient(115deg,#fff 0%,#f5f9fd 100%);border:1px solid #e1eaf4;border-radius:16px;padding:clamp(1.35rem,3vw,2rem);margin-top:1rem;color:#152c4c}
+  .timeline-kicker,.geography-kicker{font-size:.72rem;letter-spacing:.16em;font-weight:800;color:#2474bb;margin:0 0 .65rem}
+  .timeline-kicker::after{content:"";display:block;width:42px;height:2px;background:#2d83c7;margin-top:.65rem}
+  .timeline-header h3{font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.3;color:#113460;margin:0 0 .45rem}
+  .timeline-header>p:last-child{color:#52677e;font-size:.92rem;line-height:1.55;margin:0 0 1.35rem}
+  .timeline-header{grid-column:1;grid-row:1}
+  .timeline-layout{display:contents}
+  .timeline-track{grid-column:1;grid-row:2}
+  .geography{grid-column:2;grid-row:1 / span 2;align-self:start}
+  .timeline-track{min-width:0;overflow-x:auto;padding:5px 0 .25rem}
+  .milestones{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));list-style:none;padding:0 16px 0 6px;margin:0;position:relative;gap:0}
+  .milestones::before{content:"";position:absolute;top:7px;left:13px;right:12px;height:2px;background:#3184c6}
+  .milestones::after{content:"";position:absolute;right:1px;top:1px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid #3184c6}
+  .milestone{position:relative;min-width:0;padding:1.75rem .65rem 0 0}
+  .milestone-dot{position:absolute;top:0;left:0;width:16px;height:16px;border:3px solid #e8f3fd;border-radius:50%;background:#1679bf;box-shadow:0 0 0 1px #1679bf}
+  .milestone-period{display:block;font-weight:800;color:#12365f;font-size:.85rem;white-space:nowrap;margin-bottom:.5rem}
+  .milestone-label{display:block;color:#153e69;font-size:.81rem;line-height:1.35;margin-bottom:.35rem}
+  .milestone p{color:#52677e;font-size:.74rem;line-height:1.5;margin:0}
+  .geography{border-left:1px solid #d9e6f1;padding-left:1.4rem;min-width:0}
+  .geography-kicker{font-size:.66rem;margin-bottom:.55rem}
+  .brazil-map-wrap{position:relative;max-width:340px;margin:0 auto}
+  .brazil-map-wrap svg{display:block;width:100%;height:auto}
+  .map-loading{font-size:.72rem;color:#647d97;text-align:center;margin:.3rem 0}
+  .map-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;font-size:.72rem;color:#3b5673;margin-top:.25rem}
+  .map-legend span{display:inline-flex;align-items:center;gap:.35rem}
+  .legend-swatch{display:inline-block;width:11px;height:11px;border-radius:2px}
+  .legend-swatch.bahia{background:#2484c7}.legend-swatch.sergipe{background:#0c477b}
+  :global(#fibra-state-shapes path){stroke:#fff;stroke-width:.65;vector-effect:non-scaling-stroke}
+  @media(max-width:1050px){
+    .fibra-timeline{display:block}
+    .timeline-layout{display:grid;grid-template-columns:1fr;gap:1.4rem}
+    .timeline-header,.timeline-track,.geography{grid-column:auto;grid-row:auto}
+    .geography{border-left:0;border-top:1px solid #d9e6f1;padding:1rem 0 0}
+    .brazil-map-wrap{max-width:300px}
+  }
+  @media(max-width:760px){
+    .milestones{display:block;padding:0 6px 13px 6px}
+    .milestones::before,.milestones::after{display:none}
+    .milestone{border-top:0;border-left:2px solid #bdd7ec;padding:.05rem 0 1.1rem 1.2rem;margin-left:.4rem}
+    .milestone-dot{top:2px;left:-9px}
+    .milestone-period{margin-bottom:.25rem}
+    .milestone p{font-size:.81rem}
+    .milestone:last-child{padding-bottom:1.3rem}
+    .milestone:last-child::after{content:"";position:absolute;left:-6px;bottom:-11px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:10px solid #3184c6}
+    .geography{margin-top:.2rem}
+  }
+</style>
+
+<script>
+  // Real state boundaries from the public Click That Hood Brazil states GeoJSON.
+  // Geometry is rendered with native SVG and a simple equirectangular projection.
+  const DATA_URL = 'https://cdn.jsdelivr.net/gh/codeforamerica/click_that_hood@48ba05ad/public/data/brazil-states.geojson';
+  const map = document.getElementById('fibra-brazil-map');
+  const shapes = document.getElementById('fibra-state-shapes');
+  const status = document.getElementById('fibra-map-status');
+  if (map && shapes && status) {
+    const project = ([lon, lat]) => [12 + (lon + 74.1) * 5.7, 8 + (5.4 - lat) * 5.7];
+    const rings = (geometry) => geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+    const makePath = (geometry) => rings(geometry).map(polygon => polygon.map(ring => ring.map((point, i) => {
+      const [x,y] = project(point);
+      return `${i ? 'L' : 'M'}${x.toFixed(2)},${y.toFixed(2)}`;
+    }).join(' ') + ' Z').join(' ')).join(' ');
+    const nameOf = (feature) => String(feature.properties?.name || feature.properties?.nome || feature.properties?.sigla || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+    fetch(DATA_URL).then(response => {
+      if (!response.ok) throw new Error('Map unavailable');
+      return response.json();
+    }).then(data => {
+      const features = data.features || [];
+      if (!features.length) throw new Error('No state boundaries');
+      for (const feature of features) {
+        const name = nameOf(feature);
+        const isBahia = name === 'bahia' || name === 'ba';
+        const isSergipe = name === 'sergipe' || name === 'se';
+        const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        path.setAttribute('d', makePath(feature.geometry));
+        path.setAttribute('fill', isSergipe ? '#0c477b' : isBahia ? '#2484c7' : '#dce8f3');
+        const title = document.createElementNS('http://www.w3.org/2000/svg','title');
+        title.textContent = feature.properties?.name || 'Brazilian state';
+        path.append(title);
+        shapes.append(path);
+      }
+      status.remove();
+    }).catch(() => {status.textContent = 'Map temporarily unavailable · Bahia and Sergipe';});
+  }
+</script>

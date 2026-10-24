@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-24  
+**Updated:** 2026-10-25  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -362,3 +362,13 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Verify GitHub Actions publication and live Experience page; perform final accessibility, evidence and disclosure checks separately.
 
 **Status:** SFibra design and copy accepted; implementation in the user's repository and public publication are not yet confirmed.
+
+
+## Home — Key Achievements indicators review (pending, 2026-10-25)
+
+- [ ] Revisit the four indicators currently displayed on the Home page: **25+ Years**, **11 Projects · 7 Countries**, **100+ Stakeholders**, **6 Industries**.
+- [ ] Reconcile project count, countries, stakeholder count and scope against the updated ABB Experience portfolio evidence; do not automatically substitute order counts for project counts or ordered MVA for delivered capacity.
+- [ ] Agree revised wording, metric definitions, timeframes and disclosure suitability before editing `src/components/Achievements.astro`.
+- [ ] Review desktop/mobile, run `npm run build`, commit and verify live publication after approval.
+
+**Status:** Reminder recorded; no changes to Home indicators approved or implemented yet.

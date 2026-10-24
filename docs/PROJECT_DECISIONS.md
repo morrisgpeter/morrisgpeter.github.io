@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-24
+**Last updated:** 2026-10-25
 
 ## Status legend
 
@@ -283,3 +283,10 @@ When a decision is confirmed or revised:
 | D-094 | 2026-10-24 | SFibra individual contribution | Describe leadership from concept through implementation, **acting as Product Owner and Product Manager**: product vision, app and portal functionality, technical/commercial feasibility, development, deployment and adoption coordination. | Accepted | Describes responsibilities exercised, not necessarily formal job titles or personal coding. |
 | D-095 | 2026-10-24 | SFibra value and disclosure | Retain **Business Value** explaining reduced manual documentation/rework, stronger consistency/traceability, customer transparency and differentiated proposals. Retain the note identifying all illustrated interfaces, identifiers and map markers as conceptual, not original system records. No unverified numeric gains. | Accepted | Credible, evidence-conscious case study. |
 | D-096 | 2026-10-24 | SFibra review status | **FibraSFibra_Text_Approved_v12.astro** accepted in discussion after visual review and final challenge-copy refinement. | Accepted (local design/content) | Local replacement, production build, commit/push and public deployment are not yet verified. |
+
+
+## Home Key Achievements — pending review (2026-10-25)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-097 | 2026-10-25 | Home Key Achievements update | Revisit the four Home indicators shown in the screenshot, comparing their definitions and evidence with the expanded ABB Experience portfolio; propose updated copy only after validation. | Open | User requested this as a reminder, **not** approval of replacement values. Keep D-028 as the existing accepted copy until revised. Distinguish projects from orders and ordered capacity from delivered capacity; check confidentiality and responsive presentation. |

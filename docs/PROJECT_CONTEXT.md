@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-24
+**Last updated:** 2026-10-25
 
 ## Purpose
 
@@ -235,3 +235,8 @@ The ABB chapter in `src/pages/experience.astro` follows this **approved, publish
 - **My Contribution:** User directly conceived the solution and defined mobile-app and customer-portal features, evaluated technical/commercial feasibility, coordinated development and implementation, acting as Product Owner and Product Manager. This refers to functions performed, not necessarily formal titles or software programming.
 - **Visual integrity:** Keep approved illustrations and responsive CSS; maintain the disclosure that workflow visuals, equipment identifiers and map markers are conceptual reconstructions, not original system records.
 - **Release checks:** Copy approved v12 into the project component, run `npm run build`, review local desktop/mobile, check `git diff`, then commit and push. Verify GitHub Actions/live rendering and relevant confidentiality/rights separately.
+
+
+## Home Key Achievements — review requested (2026-10-25)
+
+The user flagged the Home screenshot and requested a future review of the four currently published indicators: **25+ Years**, **11 Projects · 7 Countries**, **100+ Stakeholders**, and **6 Industries**. Reconcile the figures and their meanings with the expanded ABB Experience evidence before proposing replacements. **Twenty orders are not necessarily twenty distinct projects**; ordered MVA and delivered MW/MVA are different measures. Preserve existing Home copy and layout until revised indicators are explicitly agreed. Track execution in `PORTFOLIO_ROADMAP.md`.

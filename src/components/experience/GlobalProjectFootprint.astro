@@ -12,16 +12,16 @@ const categories = [
 ];
 const locations = [
   // Projects consolidated by city from 20 order records (2021–2026).
-  { city: 'Lévis', country: 'Canada', lat: 46.74, lon: -71.18, category: 'projects', count: 5, units: 39, mw: 95.75 },
-  { city: 'London', country: 'United Kingdom', lat: 51.51, lon: -0.13, category: 'projects', count: 1, units: 15, mw: 37.5 },
-  { city: 'Brussels', country: 'Belgium', lat: 50.85, lon: 4.35, category: 'projects', count: 1, units: 4, mw: 10 },
-  { city: 'Sydney', country: 'Australia', lat: -33.87, lon: 151.21, category: 'projects', count: 1, units: 2, mw: 5 },
-  { city: 'Bossier City', country: 'United States', lat: 32.52, lon: -93.73, category: 'projects', count: 1, units: 1, mw: 2.5 },
-  { city: 'Ellendale', country: 'United States', lat: 46.00, lon: -98.53, category: 'projects', count: 4, units: 160, mw: 400 },
-  { city: 'El Cajon', country: 'United States', lat: 32.79, lon: -116.96, category: 'projects', count: 1, units: 3, mw: 7.5 },
-  { city: 'Fargo', country: 'United States', lat: 46.88, lon: -96.79, category: 'projects', count: 4, units: 160, mw: 400 },
-  { city: 'Austin', country: 'United States', lat: 30.27, lon: -97.74, category: 'projects', count: 1, units: 20, mw: 50 },
-  { city: 'Dallas', country: 'United States', lat: 32.78, lon: -96.80, category: 'projects', count: 1, units: 80, mw: 200 },
+  { city: 'Lévis', country: 'Canada', lat: 46.74, lon: -71.18, category: 'projects', count: 5, units: 39, mva: 95.75 },
+  { city: 'London', country: 'United Kingdom', lat: 51.51, lon: -0.13, category: 'projects', count: 1, units: 15, mva: 37.5 },
+  { city: 'Brussels', country: 'Belgium', lat: 50.85, lon: 4.35, category: 'projects', count: 1, units: 4, mva: 10 },
+  { city: 'Sydney', country: 'Australia', lat: -33.87, lon: 151.21, category: 'projects', count: 1, units: 2, mva: 5 },
+  { city: 'Bossier City', country: 'United States', lat: 32.52, lon: -93.73, category: 'projects', count: 1, units: 1, mva: 2.5 },
+  { city: 'Ellendale', country: 'United States', lat: 46.00, lon: -98.53, category: 'projects', count: 4, units: 160, mva: 400 },
+  { city: 'El Cajon', country: 'United States', lat: 32.79, lon: -116.96, category: 'projects', count: 1, units: 3, mva: 7.5 },
+  { city: 'Fargo', country: 'United States', lat: 46.88, lon: -96.79, category: 'projects', count: 4, units: 160, mva: 400 },
+  { city: 'Austin', country: 'United States', lat: 30.27, lon: -97.74, category: 'projects', count: 1, units: 20, mva: 50 },
+  { city: 'Dallas', country: 'United States', lat: 32.78, lon: -96.80, category: 'projects', count: 1, units: 80, mva: 200 },
   // Manufacturing, FAT, suppliers and demonstrations (city centers, not site addresses).
   { city: 'Napier', country: 'New Zealand', lat: -39.49, lon: 176.92, category: 'manufacturing', detail: 'Manufacturing, testing and customer FAT coordination' },
   { city: 'San Luis Potosí', country: 'Mexico', lat: 22.15, lon: -100.98, category: 'manufacturing', detail: 'Manufacturing' },
@@ -63,7 +63,7 @@ const markers = locations.map((item,index)=>{
   const x=(anchor.x-box[0]+dx)/box[2]*100;
   const y=(anchor.y-box[1]+dy)/box[3]*100;
   return {...item,index,region,x,y,anchorX:(anchor.x-box[0])/box[2]*100,anchorY:(anchor.y-box[1])/box[3]*100,
-    diameter:item.category==='projects'?Math.round(14+38*Math.sqrt((item.mw||0)/400)):12};
+    diameter:item.category==='projects'?Math.round(14+38*Math.sqrt((item.mva||0)/400)):12};
 });
 const uniqueCities=(region:string)=>new Set(markers.filter(m=>m.region===region).map(m=>`${m.city}|${m.country}`)).size;
 ---
@@ -79,16 +79,16 @@ const uniqueCities=(region:string)=>new Set(markers.filter(m=>m.region===region)
   <div class="gpf-map-wrap">
     <div class="gpf-map" role="group" aria-label="Interactive regional map; select a marker to identify its location">
       {regions.map((r,i)=><img class="gpf-map-image" src={`/images/experience/footprint-${r.id}.svg`} alt="" width="1200" height="570" loading={i===0?'eager':'lazy'} data-region-image={r.id} hidden={i!==0}/>)}
-      {markers.map(item=><button type="button" class:list={['gpf-marker',`gpf-${item.category}`,{'gpf-bubble':item.category==='projects'}]} style={`left:${item.x}%;top:${item.y}%;--size:${item.diameter}px;`} data-index={item.index} data-category={item.category} data-region={item.region} aria-label={`${item.city}, ${item.country}, ${categories.find(c=>c.id===item.category)?.label}${item.count?`, ${item.count} projects, ${item.mw} MW ordered capacity`:''}`} hidden={item.region!=='north-america'}><span class="gpf-marker-core" aria-hidden="true">{item.category==='projects'?item.count:''}</span></button>)}
+      {markers.map(item=><button type="button" class:list={['gpf-marker',`gpf-${item.category}`,{'gpf-bubble':item.category==='projects'}]} style={`left:${item.x}%;top:${item.y}%;--size:${item.diameter}px;`} data-index={item.index} data-category={item.category} data-region={item.region} aria-label={`${item.city}, ${item.country}, ${categories.find(c=>c.id===item.category)?.label}${item.count?`, ${item.count} projects, ${item.mva} MVA ordered capacity`:''}`} hidden={item.region!=='north-america'}><span class="gpf-marker-core" aria-hidden="true">{item.category==='projects'?item.count:''}</span></button>)}
       <div class="gpf-tooltip" data-marker-tooltip role="status" aria-live="polite" hidden></div>
     </div>
-    <div class="gpf-legend" aria-label="Map legend"><strong>Project Locations · Ordered Capacity</strong><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:46px"></span><span>400 MW</span></div><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:34px"></span><span>200 MW</span></div><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:25px"></span><span>100 MW</span></div><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:17px"></span><span>10 MW</span></div><small>Each blue circle represents a project location. Its size indicates the total ordered capacity (MW), while the number inside shows how many projects are associated with that location.</small><div class="gpf-legend-rule"></div>{categories.filter(c=>c.id!=='projects').map(c=><div class="gpf-legend-item"><span class="gpf-dot" style={`--dot:${c.color}`}></span>{c.label}</div>)}</div>
+    <div class="gpf-legend" aria-label="Map legend"><strong>Project Locations · Ordered Capacity</strong><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:46px"></span><span>400 MVA</span></div><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:34px"></span><span>200 MVA</span></div><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:25px"></span><span>100 MVA</span></div><div class="gpf-scale"><span class="gpf-scale-dot" style="--sample:17px"></span><span>10 MVA</span></div><small>Each blue circle represents a project location. Its size indicates the total ordered capacity (MVA), while the number inside shows how many projects are associated with that location.</small><div class="gpf-legend-rule"></div>{categories.filter(c=>c.id!=='projects').map(c=><div class="gpf-legend-item"><span class="gpf-dot" style={`--dot:${c.color}`}></span>{c.label}</div>)}</div>
   </div>
   <p class="gpf-note">Illustrative overview of international project activities. Locations are approximate. Ordered capacity may include projects scheduled for future delivery.</p>
 </section>
 <script>
   document.querySelectorAll<HTMLElement>('[data-footprint]').forEach(root => {
-    const places: Array<{city:string;country:string;category:string;detail?:string;count?:number;units?:number;mw?:number}> = JSON.parse(root.dataset.places || '[]');
+    const places: Array<{city:string;country:string;category:string;detail?:string;count?:number;units?:number;mva?:number}> = JSON.parse(root.dataset.places || '[]');
     const markers=[...root.querySelectorAll<HTMLButtonElement>('.gpf-marker')];
     const images=[...root.querySelectorAll<HTMLImageElement>('[data-region-image]')];
     const tabs=[...root.querySelectorAll<HTMLButtonElement>('[data-region-tab]')];
@@ -111,7 +111,7 @@ const uniqueCities=(region:string)=>new Set(markers.filter(m=>m.region===region)
       tooltip.append(heading);
       if(p.category==='projects'){
         const detail=document.createElement('span');
-        detail.textContent=` · ${p.count} ${p.count===1?'project':'projects'} · ${p.mw} MW`;
+        detail.textContent=` · ${p.count} ${p.count===1?'project':'projects'} · ${p.mva} MVA`;
         tooltip.append(detail);
       }
       // Position after measuring the tooltip, keeping it fully inside the map.

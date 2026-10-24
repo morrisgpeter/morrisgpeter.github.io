@@ -88,7 +88,7 @@ const initiatives = [
   { id: 1, date: '2023-08-01', label: 'Aug 2023', title: 'Cross-Border VAT Resolution', description: 'Helped resolve tax and commercial risks in an international supply model, protecting project economics and supporting a repeatable delivery approach.' },
   { id: 2, date: '2024-11-01', label: 'Nov 2024', title: 'MV UPS Project Delivery Workflow', description: 'Developed and finalized the project delivery workflow to improve coordination and clarify execution responsibilities.' },
   { id: 3, date: '2025-01-01', label: 'Jan 2025', title: 'Business Model Workshop', description: 'Presented lessons learned and the project delivery workflow to senior representatives from Sales, Service, Business Units, Project Management, Marketing and Product Management.' },
-  { id: 4, date: '2025-08-04', label: '4 Aug 2025', title: 'Product Documentation Package', description: 'Published a structured document register mapping approved product documentation to stakeholder groups and access requirements.' },
+  { id: 4, date: '2025-08-04', label: 'Aug 2025', title: 'Product Documentation Package', description: 'Published a structured document register mapping approved product documentation to stakeholder groups and access requirements.' },
 ];
 const start = Date.parse('2023-01-01T00:00:00Z');
 const end = Date.parse('2026-12-31T00:00:00Z');
@@ -126,11 +126,11 @@ const shortLabels = { 1: ['VAT', 'Resolution'], 2: ['Delivery', 'Workflow'], 3: 
   <header class="portfolio-head">
     <div class="portfolio-headline">
       <p class="portfolio-eyebrow">PROJECT DELIVERY SCALE &amp; PORTFOLIO VALUE</p>
-      <h3 id="portfolio-growth-title">Scaling MV UPS to 1.2 GVA</h3>
+      <h3 id="portfolio-growth-title">Scaling MV UPS to 1,200 MVA</h3>
       <p>Cumulative ordered capacity and key initiatives that strengthened delivery governance and operational readiness during a period of accelerated growth.</p>
     </div>
     <div class="portfolio-kpis" aria-label="Portfolio totals">
-      <div class="portfolio-kpi"><strong>1.2 GVA</strong><span>Total Ordered Capacity</span><small>2021–Oct 2026</small></div>
+      <div class="portfolio-kpi"><strong>1,200 MVA</strong><span>Total Ordered Capacity</span><small>2021–Oct 2026</small></div>
       <div class="portfolio-kpi"><strong>USD 255M</strong><span>Total Order Value</span><small>2021–Oct 2026</small></div>
     </div>
   </header>
@@ -138,7 +138,7 @@ const shortLabels = { 1: ['VAT', 'Resolution'], 2: ['Delivery', 'Workflow'], 3: 
     <h4>Cumulative MV UPS Order Capacity (MVA)</h4>
     <p class="portfolio-chart-subtitle">Cumulative portfolio capacity (MVA) and key initiatives supporting project delivery and governance.</p>
     <div class="portfolio-chart-scroll">
-      <svg class="portfolio-chart-desktop" viewBox="0 0 1000 365" role="img" aria-label="Step chart showing cumulative nominal ordered capacity from January 2023 to October 2026, ending at approximately 1.2 GVA, with four professional initiative markers.">
+      <svg class="portfolio-chart-desktop" viewBox="0 0 1000 365" role="img" aria-label="Step chart showing cumulative nominal ordered capacity from January 2023 to October 2026, ending at approximately 1,200 MVA, with four professional initiative markers.">
         <defs><linearGradient id="portfolio-area-gradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#4a9cda" stop-opacity=".3"/><stop offset="100%" stop-color="#4a9cda" stop-opacity=".035"/></linearGradient></defs>
         {ticks.map((tick) => <g><line x1={x0} x2={x1} y1={y(tick)} y2={y(tick)} class="portfolio-grid"/><text x={x0 - 12} y={y(tick) + 5} class="portfolio-axis" text-anchor="end">{tick.toLocaleString('en-US')}</text></g>)}
         {years.map((year) => <g><line x1={x(`${year}-01-01`)} x2={x(`${year}-01-01`)} y1={y1} y2={y0} class="portfolio-year-grid"/><text x={x(`${year}-01-01`)} y="339" class="portfolio-axis" text-anchor="middle">{year}</text></g>)}
@@ -154,7 +154,7 @@ const shortLabels = { 1: ['VAT', 'Resolution'], 2: ['Delivery', 'Workflow'], 3: 
           </text>
         </g>)}
         <circle cx={points[points.length - 1].x} cy={points[points.length - 1].y} r="6" fill="#1d6aa8" stroke="white" stroke-width="2"/>
-        <text x="960" y="17" text-anchor="end" class="portfolio-end-label">Oct 2026 · 1.2 GVA</text>
+        <text x="960" y="17" text-anchor="end" class="portfolio-end-label">Oct 2026 · 1,200 MVA</text>
       </svg>
       <svg class="portfolio-chart-mobile" viewBox="0 0 420 278" role="img" aria-label="Mobile step chart of cumulative MV UPS ordered capacity from 2023 to 2026, with four numbered milestones. Select the numbered buttons below for details.">
         {mobileTicks.map((tick) => <g><line x1={mobileX0} x2={mobileX1} y1={mobileY(tick)} y2={mobileY(tick)} class="portfolio-grid"/><text x={mobileX0 - 8} y={mobileY(tick) + 4} class="portfolio-axis" text-anchor="end">{tick.toLocaleString('en-US')}</text></g>)}

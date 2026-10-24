@@ -290,3 +290,35 @@ When a decision is confirmed or revised:
 | ID | Date | Topic | Decision / direction | Status | Rationale / notes |
 | --- | --- | --- | --- | --- | --- |
 | D-097 | 2026-10-25 | Home Key Achievements update | Revisit the four Home indicators shown in the screenshot, comparing their definitions and evidence with the expanded ABB Experience portfolio; propose updated copy only after validation. | Open | User requested this as a reminder, **not** approval of replacement values. Keep D-028 as the existing accepted copy until revised. Distinguish projects from orders and ordered capacity from delivered capacity; check confidentiality and responsive presentation. |
+
+
+## Fibra Engenharia — Business Impact and Timeline refinements (2026-10-25)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-098 | 2026-10-25 | Fibra Business Impact growth metric | Replace **USD 8.5M / six-year framing** with **8.5× — Services Contract Growth — Scaling the engineering services portfolio**. | Accepted (visually reviewed) | Emphasize relative business expansion without implying a specific annual revenue, portfolio ceiling or directly comparable absolute value; confirm comparable underlying contract measures during evidence review. |
+| D-099 | 2026-10-25 | Fibra infrastructure metric | Use **39 — MV Substation Automation Projects — Strengthening power distribution infrastructure**. | Accepted (visually reviewed) | Emphasize technical project scope rather than municipality count; do not equate projects with 39 fully automated substations. |
+| D-100 | 2026-10-25 | Fibra remaining impact indicators | Use **2,760 — Reclosers Deployed — Grid modernization program**; **50+ — Professionals — Through project management teams**; **>95% — Commissioning Data Accuracy — Reduced rework through SFibra**. | Accepted (visually reviewed) | Approved five-indicator presentation; preserve precise titles and supporting text. |
+| D-101 | 2026-10-25 | Fibra timeline revisions | **2012–2013 Delivery Capability — Building project execution capacity and operational processes.**; **2013–2014 Commercial Development — Initial contracts, customer relationships and portfolio development.**; **2017–2018 Portfolio Diversification — Expansion into additional services and business opportunities.** | Accepted (visually reviewed) | Distinguish early operational capability, commercial development and later diversification; keep the other four milestones and Bahia/Sergipe map. |
+| D-102 | 2026-10-25 | Fibra visual review and internal note | Accept five-column desktop/stacked mobile Business Impact and seven-event responsive timeline; remove public note about historical estimates and evidence review; standardize timeline punctuation. | Accepted (visually reviewed) | Clean executive presentation; evidence validation remains an internal release check. `FibraSFibra.astro` unchanged. |
+| D-103 | 2026-10-25 | Fibra/SFibra published baseline | Fibra Experience and SFibra were committed as **`43dd16d`**, pushed to `main`, and confirmed functioning on GitHub Pages by the user. | Accepted (published baseline) | Updates the earlier pending-release note in D-096. This does not confirm publication of the later D-098–D-102 refinements, which still require build/commit/push/live verification. |
+
+**Approved exact five-indicator copy:**
+
+| Indicator | Title | Supporting copy |
+| --- | --- | --- |
+| **8.5×** | Services Contract Growth | Scaling the engineering services portfolio |
+| **39** | MV Substation Automation Projects | Strengthening power distribution infrastructure |
+| **2,760** | Reclosers Deployed | Grid modernization program |
+| **50+** | Professionals | Through project management teams |
+| **>95%** | Commissioning Data Accuracy | Reduced rework through SFibra |
+
+**Refined timeline copy:**
+
+| Period | Milestone | Description |
+| --- | --- | --- |
+| **2012–2013** | Delivery Capability | Building project execution capacity and operational processes. |
+| **2013–2014** | Commercial Development | Initial contracts, customer relationships and portfolio development. |
+| **2017–2018** | Portfolio Diversification | Expansion into additional services and business opportunities. |
+
+**Outstanding:** Confirm successful production build, inspect final diff, commit/push the two updated Astro files and documentation, and verify the live site. Independently verify supporting metric definitions, permissions, accessibility and source evidence.

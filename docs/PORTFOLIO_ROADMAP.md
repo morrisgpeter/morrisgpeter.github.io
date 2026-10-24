@@ -372,3 +372,36 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Review desktop/mobile, run `npm run build`, commit and verify live publication after approval.
 
 **Status:** Reminder recorded; no changes to Home indicators approved or implemented yet.
+
+
+## Fibra Experience — Business Impact & Timeline refinement (2026-10-25)
+
+**Previous publication confirmed:** Fibra Experience and SFibra were committed as `43dd16d`, pushed to `main`, and confirmed working on GitHub Pages by the user. This supersedes the earlier pending-publication checklist in the SFibra milestone above; final accessibility, evidence and disclosure checks remain open.
+
+- [x] Approve five revised Business Impact indicators and their exact copy:
+
+| Indicator | Title | Supporting copy |
+| --- | --- | --- |
+| **8.5×** | Services Contract Growth | Scaling the engineering services portfolio |
+| **39** | MV Substation Automation Projects | Strengthening power distribution infrastructure |
+| **2,760** | Reclosers Deployed | Grid modernization program |
+| **50+** | Professionals | Through project management teams |
+| **>95%** | Commissioning Data Accuracy | Reduced rework through SFibra |
+
+- [x] Approve revised Building & Scaling Fibra milestones:
+
+| Period | Milestone | Description |
+| --- | --- | --- |
+| **2012–2013** | Delivery Capability | Building project execution capacity and operational processes. |
+| **2013–2014** | Commercial Development | Initial contracts, customer relationships and portfolio development. |
+| **2017–2018** | Portfolio Diversification | Expansion into additional services and business opportunities. |
+
+- [x] Visually review desktop and mobile layouts; user accepted the five-indicator arrangement, seven-event timeline and geographic footprint.
+- [x] Remove the internal-facing historical-estimates/evidence-review note from the public Business Impact interface; retain evidence verification as an internal release task.
+- [x] Standardize punctuation of the revised timeline descriptions, including Portfolio Diversification.
+- [ ] Run `npm run build` after final local replacement and confirm successful compilation.
+- [ ] Inspect `git diff`, commit and push only the two modified Astro components and updated project documentation.
+- [ ] Confirm the revised Business Impact and timeline are live on GitHub Pages.
+- [ ] Reconfirm that 8.5× compares equivalent services-contract measures and that 39 refers to MV substation automation projects (not necessarily 39 fully automated substations).
+
+**Status:** Copy and responsive visuals approved; final revision's build, commit and publication not yet confirmed. The SFibra component itself remains unchanged.

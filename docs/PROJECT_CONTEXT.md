@@ -240,3 +240,32 @@ The ABB chapter in `src/pages/experience.astro` follows this **approved, publish
 ## Home Key Achievements — review requested (2026-10-25)
 
 The user flagged the Home screenshot and requested a future review of the four currently published indicators: **25+ Years**, **11 Projects · 7 Countries**, **100+ Stakeholders**, and **6 Industries**. Reconcile the figures and their meanings with the expanded ABB Experience evidence before proposing replacements. **Twenty orders are not necessarily twenty distinct projects**; ordered MVA and delivered MW/MVA are different measures. Preserve existing Home copy and layout until revised indicators are explicitly agreed. Track execution in `PORTFOLIO_ROADMAP.md`.
+
+
+## Experience — Fibra publication and approved refinements (2026-10-25)
+
+**Published baseline:** Fibra Experience, including SFibra Digital Innovation, was committed as `43dd16d`, pushed to `main`, and subsequently confirmed functioning on the public GitHub Pages Experience page by the user. This updates the older pending-release wording in the SFibra section above.
+
+**Approved Business Impact presentation:** Five equal-priority indicators in `src/components/experience/fibra/FibraExperience.astro`:
+
+| Indicator | Title | Supporting copy |
+| --- | --- | --- |
+| **8.5×** | Services Contract Growth | Scaling the engineering services portfolio |
+| **39** | MV Substation Automation Projects | Strengthening power distribution infrastructure |
+| **2,760** | Reclosers Deployed | Grid modernization program |
+| **50+** | Professionals | Through project management teams |
+| **>95%** | Commissioning Data Accuracy | Reduced rework through SFibra |
+
+The relative **8.5×** growth metric replaces **USD 8.5M** and removes the six-year headline to avoid misleading absolute-value comparisons. **39** refers to **MV Substation Automation Projects**, not the number of municipalities or a claim that exactly 39 substations were fully automated. Do not conflate contract growth with annual revenue. Source equivalence and disclosure remain release checks.
+
+**Approved Building & Scaling Fibra revisions:** `src/components/experience/fibra/FibraTimeline.astro` retains seven milestones and the Bahia/Sergipe geographic footprint. Three milestones have revised copy:
+
+| Period | Milestone | Description |
+| --- | --- | --- |
+| **2012–2013** | Delivery Capability | Building project execution capacity and operational processes. |
+| **2013–2014** | Commercial Development | Initial contracts, customer relationships and portfolio development. |
+| **2017–2018** | Portfolio Diversification | Expansion into additional services and business opportunities. |
+
+The other timeline milestones remain unchanged. User reviewed desktop/mobile screenshots and approved the presentation. The public-facing note saying figures were historical estimates based on an interview and subject to final evidence review was removed as inappropriate internal-process copy; maintain internal source checks instead. Punctuation is consistent. `FibraSFibra.astro` is unchanged.
+
+**Release status for this refinement:** Visual review complete; a final local production build, Git commit/push and live-site confirmation of these specific changes have not yet been provided.

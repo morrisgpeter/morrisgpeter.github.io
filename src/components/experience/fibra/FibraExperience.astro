@@ -4,26 +4,11 @@ import FibraSFibra from './FibraSFibra.astro';
 // Fibra Engenharia — ABB-aligned introduction and business impact.
 // Future modules (timeline, SFibra, commercial cases, people) will follow.
 const metrics = [
-  {
-    value: "USD 8.5M",
-    label: "Service contract portfolio",
-    detail: "Approximate value reached through contract extensions over six years; not annual revenue.",
-  },
-  {
-    value: "39",
-    label: "Municipalities",
-    detail: "Substation automation project footprint in Bahia.",
-  },
-  {
-    value: "2,760",
-    label: "Reclosers",
-    detail: "Grid-modernization equipment deployed across the program.",
-  },
-  {
-    value: "50+",
-    label: "Professionals",
-    detail: "Multidisciplinary delivery teams coordinated through project managers.",
-  },
+  { value: "8.5×", label: "Services Contract Growth", detail: "Scaling the engineering services portfolio" },
+  { value: "39", label: "MV Substation Automation Projects", detail: "Strengthening power distribution infrastructure" },
+  { value: "2,760", label: "Reclosers Deployed", detail: "Grid modernization program" },
+  { value: "50+", label: "Professionals", detail: "Through project management teams" },
+  { value: ">95%", label: "Commissioning Data Accuracy", detail: "Reduced rework through SFibra" },
 ];
 ---
 
@@ -54,7 +39,6 @@ const metrics = [
         </div>
       ))}
     </div>
-    <p class="fibra-method-note">Figures are historical estimates based on the professional interview and supporting materials; final publication wording remains subject to evidence review.</p>
   </section>
   <FibraTimeline />
   <FibraSFibra />
@@ -74,13 +58,12 @@ const metrics = [
   .fibra-intro{color:#435a72;line-height:1.75;max-width:880px;margin:0;font-size:1rem}
   .fibra-impact{background:#fff;border:1px solid #e1eaf4;border-radius:16px;padding:clamp(1.3rem,3vw,2rem)}
   .fibra-section-heading h3{font-size:1.2rem;color:#113460;margin:0 0 1.5rem}
-  .fibra-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+  .fibra-metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
   .fibra-metric{padding:0 1.1rem;border-left:1px solid #d9e5f1}
   .fibra-metric:first-child{border-left:0;padding-left:0}
   .fibra-metric strong{display:block;color:#155c9b;font-size:clamp(1.6rem,2.7vw,2.4rem);letter-spacing:-.04em;line-height:1.1}
   .fibra-metric h4{font-size:.92rem;color:#153b68;margin:.75rem 0 .45rem}
   .fibra-metric p{font-size:.81rem;line-height:1.55;color:#52677e;margin:0}
-  .fibra-method-note{font-size:.75rem;line-height:1.5;color:#70849a;margin:1.5rem 0 0}
-  @media(max-width:900px){.fibra-metrics{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1.5rem}.fibra-metric:nth-child(3){border-left:0;padding-left:0}}
-  @media(max-width:560px){.fibra-marker{left:-27px}.fibra-metrics{grid-template-columns:1fr;gap:1.2rem}.fibra-metric,.fibra-metric:nth-child(3){border-left:0;border-top:1px solid #d9e5f1;padding:1rem 0 0}.fibra-metric:first-child{border-top:0;padding-top:0}.fibra-hero{padding:1.4rem}}
+  @media(max-width:900px){.fibra-metrics{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1.5rem}.fibra-metric:nth-child(odd){border-left:0;padding-left:0}}
+  @media(max-width:560px){.fibra-marker{left:-27px}.fibra-metrics{grid-template-columns:1fr;gap:1.2rem}.fibra-metric,.fibra-metric:nth-child(odd){border-left:0;border-top:1px solid #d9e5f1;padding:1rem 0 0}.fibra-metric:first-child{border-top:0;padding-top:0}.fibra-hero{padding:1.4rem}}
 </style>

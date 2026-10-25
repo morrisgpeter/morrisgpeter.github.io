@@ -151,11 +151,24 @@ const solarMilestones = [
 <script>
   import { sankey, sankeyJustify } from 'd3-sankey';
 
+  // D3 enriches nodes with optional layout coordinates at runtime.
+  // Keep domain types independent of SankeyNode/SankeyLink to avoid recursive inheritance.
+  interface FlowNode {
+    id: string; label: string; type: 'blue' | 'teal';
+    depth?: number; y0?: number;
+  }
+  interface FlowLink {
+    source: string | FlowNode; target: string | FlowNode; value: number;
+  }
+  type Card = { id: string; x: number; y: number; label: string; type: 'blue' | 'teal'; w: number; h: number };
+  type PathItem = { d: string; color: string; weight: number; title: string };
+  type Heading = { text: string; x: number; y: number };
+
   // D3 orders the nodes; editorial weights control only stroke width.
   // No measured revenue, project volume or conservation of flows is implied.
   // Weights are editorial estimates of relative commercial significance,
   // not revenue, number of contracts or physical quantities. Adjust after review.
-  const nodes = [
+  const nodes: FlowNode[] = [
     { id:'recloser', label:'Power Grid Automation', type:'blue' },
     { id:'telecom', label:'Telecommunications', type:'blue' },
     { id:'coelba', label:'First and Strategic Utility Account', type:'blue' },
@@ -166,7 +179,7 @@ const solarMilestones = [
     { id:'scada', label:'SCADA Solutions', type:'blue' },
     { id:'newbiz', label:'Automation & Telecommunications', type:'teal' },
   ];
-  const edges = [
+  const edges: {source: string; target: string; weight: number}[] = [
     {source:'recloser',target:'coelba',weight:4},
     {source:'telecom',target:'coelba',weight:1},
     {source:'recloser',target:'new',weight:4},
@@ -177,14 +190,13 @@ const solarMilestones = [
     {source:'coelba',target:'scada',weight:3},
     {source:'new',target:'newbiz',weight:10},
   ];
-  const edgeWeight = (from,to) => edges.find(e=>e.source===from&&e.target===to)?.weight ?? 1;
+  const edgeWeight = (from: string,to: string) => edges.find(e=>e.source===from&&e.target===to)?.weight ?? 1;
   const NS='http://www.w3.org/2000/svg';
-  function svgEl(tag, attrs={}) {
+  function svgEl(tag: string, attrs: Record<string, string | number> = {}): SVGElement {
     const e=document.createElementNS(NS,tag);
     for(const [k,v] of Object.entries(attrs)) e.setAttribute(k,String(v));
     return e;
   }
-  const subtitles = {0:'Initial Solutions',1:'Account Development',2:'Business Expansion'};
   function draw() {
     const svg=document.getElementById('fibra-d3-sankey');
     const container=document.getElementById('fibra-sankey-container');
@@ -192,24 +204,24 @@ const solarMilestones = [
     const width=Math.max(280,Math.floor(container.getBoundingClientRect().width));
     const mobile=width<700;
     const W=width;
-    const graph=sankey().nodeId(d=>d.id).nodeWidth(10).nodePadding(20)
+    const graph=sankey<FlowNode, FlowLink>().nodeId(d=>d.id).nodeWidth(10).nodePadding(20)
       .nodeAlign(sankeyJustify).extent([[0,0],[900,600]])({
         nodes:nodes.map(d=>({...d})),
         links:edges.map(({source,target})=>({source,target,value:1})),
       });
-    const ordered=[0,1,2].map(depth=>graph.nodes.filter(n=>n.depth===depth).sort((a,b)=>a.y0-b.y0));
-    const coord=new Map();
+    const ordered=[0,1,2].map(depth=>graph.nodes.filter(n=>n.depth===depth).sort((a,b)=>(a.y0 ?? 0)-(b.y0 ?? 0)));
+    const coord=new Map<string, Card>();
     const cardW=mobile?W-68:Math.min(265,Math.max(175,W*.235));
     const cardH=mobile?65:64;
-    let H;
-    const paths=[];
-    const cards=[];
-    const headings=[];
-    function heading(text,x,y){headings.push({text,x,y});}
-    function card(id,x,y,label,type){cards.push({id,x,y,label,type});}
-    function connect(a,b,type,weight=1,offset=0){
+    let H = 490;
+    const paths: PathItem[] = [];
+    const cards: Card[] = [];
+    const headings: Heading[] = [];
+    function heading(text: string,x: number,y: number){headings.push({text,x,y});}
+    function card(id: string,x: number,y: number,label: string,type: 'blue' | 'teal'){cards.push({id,x,y,label,type,w:cardW,h:cardH});}
+    function connect(a: Card,b: Card,type: 'blue' | 'teal',weight=1,offset=0){
       const teal=type==='teal';
-      let d;
+      let d: string;
       if(mobile){
         const sx=a.x+a.w/2+offset,sy=a.y+a.h;
         const tx=b.x+b.w/2+offset,ty=b.y;
@@ -229,12 +241,13 @@ const solarMilestones = [
       const groupStarts=[85,150,16],gaps=[220,205,94];
       ordered.forEach((group,depth)=>group.forEach((node,i)=>{
         const x=xCols[depth],y=groupStarts[depth]+i*gaps[depth];
-        const c={...node,x,y,w:cardW,h:cardH};coord.set(node.id,c);
+        const c: Card={id:node.id,label:node.label,type:node.type,x,y,w:cardW,h:cardH};coord.set(node.id,c);
         card(node.id,x,y,node.label,node.type);
       }));
       for(const link of graph.links){
-        const a=coord.get(link.source.id),b=coord.get(link.target.id);
-        connect(a,b,(link.source.type==='teal'||link.target.type==='teal')?'teal':'blue',edgeWeight(link.source.id,link.target.id));
+        const source=link.source as FlowNode, target=link.target as FlowNode;
+        const a=coord.get(source.id),b=coord.get(target.id);
+        if(a && b) connect(a,b,(source.type==='teal'||target.type==='teal')?'teal':'blue',edgeWeight(source.id,target.id));
       }
     }else{
       // Mobile: independent account-development pathways. Every connector is
@@ -248,10 +261,10 @@ const solarMilestones = [
       const rightGutter=86;
       const x=leftGutter,w=W-leftGutter-rightGutter;
       const railLeft=12;
-      const c=(id,label,y,type)=>({id,label,x,y,w,h:cardH,type});
-      const addCard=o=>card(o.id,o.x,o.y,o.label,o.type);
-      const addHeading=(text,y,hx=x)=>heading(text,hx,y);
-      const mobileLink=(a,b,side,type,weight,index=0,total=1)=>{
+      const c=(id: string,label: string,y: number,type: 'blue' | 'teal'): Card=>({id,label,x,y,w,h:cardH,type});
+      const addCard=(o: Card)=>card(o.id,o.x,o.y,o.label,o.type);
+      const addHeading=(text: string,y: number,hx=x)=>heading(text,hx,y);
+      const mobileLink=(a: Card,b: Card,side: 'left' | 'right',type: 'blue' | 'teal',weight: number,index=0,total=1)=>{
         const left=side==='left';
         const sx=left?a.x:a.x+a.w,tx=left?b.x:b.x+b.w;
         // Separate exit/entry points for links with a shared source.
@@ -285,7 +298,7 @@ const solarMilestones = [
       // connector lane on their right. Keep the account and green route intact.
       const outcomeX=x-30;
       addHeading('Business Expansion',350,outcomeX);
-      const outcomesAt=(id,label,y)=>({...c(id,label,y,'blue'),x:outcomeX});
+      const outcomesAt=(id: string,label: string,y: number): Card=>({...c(id,label,y,'blue'),x:outcomeX});
       const outputs=[
         outcomesAt('renewal','Contract Renewal & Expansion',367),
         outcomesAt('substation','Substation Automation',439),
@@ -298,7 +311,7 @@ const solarMilestones = [
       for(const [index,o] of outputs.entries())
         mobileLink(account,o,'right','blue',edgeWeight('coelba',o.id),index,outputs.length);
 
-      const next=outputs.at(-1).y+cardH+30;
+      const next=outputs[outputs.length-1]!.y+cardH+30;
       addHeading('New Customer Development',next);
       addHeading('Initial Solutions',next+33);
       const b1=c('new-recloser','Power Grid Automation',next+50,'teal');
@@ -335,7 +348,7 @@ const solarMilestones = [
       g.append(svgEl('rect',{x:c.x,y:c.y,width:5,height:cardH,rx:3,fill:teal?'#24a89d':'#3184c6'}));
       // Single title only. Wrap long labels into at most two lines.
       const maxChars=mobile?30:34;
-      const words=c.label.split(' '), lines=[];
+      const words=c.label.split(' '), lines: string[]=[];
       let line='';
       for(const word of words){
         const next=line?`${line} ${word}`:word;

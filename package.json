@@ -14,5 +14,8 @@
   "dependencies": {
     "astro": "^7.3.8",
     "d3-sankey": "^0.12.3"
+  },
+  "devDependencies": {
+    "@types/d3-sankey": "^0.12.5"
   }
 }

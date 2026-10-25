@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-25  
+**Updated:** 2026-10-26  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -431,3 +431,16 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Confirm the solar image has the agreed concise caption **AI-generated illustration**; this is a separate pending content adjustment, not a prerequisite for relocating the process.
 
 **Status:** Relocation decision accepted. Component removal can be prepared separately; integration into Commercial Expertise remains deferred. No build, commit or publication is claimed here.
+
+## Fibra Experience — Commercial Risk Management (approved visual iteration, 2026-10-26)
+
+- [x] Approve the three-column desktop case-study card **COMMERCIAL RISK MANAGEMENT / Protecting a Fixed-Price Contract**: contract context and individual contribution at left; USD/BRL exchange-rate chart in the middle; Strategic Actions and Business Outcomes at right.
+- [x] Approve chart presentation: **USD/BRL EXCHANGE RATE**, monthly average **Jul 2014 – Jul 2015**, line in portfolio blue, **Proposal** marker in blue (August 2014), **Signed** marker in turquoise (December 2014), and a subtle **Planned delivery** band. The proposal/signed labels, dots and guide lines use coordinated colors consistent with the page palette.
+- [x] Retain chart source attribution: **Banco Central do Brasil, SGS series 3698 (monthly average USD selling rate)**. Explain that the exchange-rate trend is market context, **not Fibra's actual cost exposure**.
+- [x] Retain the narrative: August 2014 BRL-priced proposal, December fixed-price contract signing, coordination with US- and Israel-based suppliers, anticipated purchase orders, and use of group-company import channels to protect margins and delivery commitments.
+- [x] Retain right-hand items: **Strategic Actions** — Anticipated purchase orders; Imported through group companies. **Business Outcomes** — Maintained margins; Delivered on schedule.
+- [x] User visually approved the latest screenshot and requested no further changes to the accepted design.
+- [ ] Verify the implemented Astro component's exact filename, mobile rendering, build, commit/push and live publication separately; these were not established by the screenshot approval.
+- [ ] Validate exchange-rate points, milestone timing, historical assertions, source citation/link, accessibility and any necessary disclosure approvals before final release.
+
+**Status:** Content and visual presentation approved for the current iteration. Do not revise the approved card without a new request.

@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-25
+**Last updated:** 2026-10-26
 
 ## Purpose
 
@@ -276,3 +276,9 @@ The other timeline milestones remain unchanged. User reviewed desktop/mobile scr
 The user approved relocating **Commercial Growth Process** from the Fibra Engenharia Experience chapter to a future **Commercial Expertise** area. Fibra Experience retains its two specific commercial narratives, **Commercial Development in Action** and **Distributed Solar Journey**. The process represents capabilities used at Fibra and developed across the wider career (including Telenge, Aton, Fibra and ABB), rather than an asserted formal company methodology.
 
 The four-stage reference is **Market Opportunities → Solution Development → Commercial Execution → Business Expansion**, with the existing skill labels preserved in `PROJECT_DECISIONS.md` (D-106–D-107). Remove the process-only UI/data/styles from `src/components/experience/fibra/FibraCommercial.astro` while preserving the approved Sankey-inspired chart and responsive solar timeline. Review the current Commercial Expertise structure before any new integration or redesign. This architectural decision is accepted; no new code deployment is implied.
+
+## Experience — Fibra Commercial Risk Management (approved 2026-10-26)
+
+The user approved the **COMMERCIAL RISK MANAGEMENT / Protecting a Fixed-Price Contract** case-study card. Its desktop layout uses three columns: left-side explanation of the August 2014 BRL-priced proposal and December fixed-price contract, a central **USD/BRL EXCHANGE RATE** chart, and right-side **Strategic Actions** / **Business Outcomes**. The chart covers monthly averages from **Jul 2014 to Jul 2015** and marks **Proposal** (blue, August 2014), **Signed** (turquoise, December 2014), and a muted **Planned delivery** window. Source text attributes the series to **Banco Central do Brasil, SGS 3698 (monthly average USD selling rate)** and explicitly says that the currency movement illustrates market context, not Fibra's actual cost exposure.
+
+The approved narrative describes negotiations with US- and Israel-based suppliers, anticipated purchase orders, and group-company import channels. Actions are **Anticipated purchase orders** and **Imported through group companies**; outcomes are **Maintained margins** and **Delivered on schedule**. Blue/turquoise chart accents were adjusted to match the page's existing design system, and the user approved the final screenshot. Preserve this presentation unless a future change is requested. Screenshot approval alone does not establish the component filename, production build, Git commit, live deployment, accessibility compliance, data verification or disclosure clearance.

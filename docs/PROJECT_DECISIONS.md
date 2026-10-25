@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-25
+**Last updated:** 2026-10-26
 
 ## Status legend
 
@@ -349,3 +349,12 @@ When a decision is confirmed or revised:
 4. **Business Expansion:** Key Account Management; Contract Expansion; Portfolio Diversification.
 
 **Scope:** This decision approves relocation and removal from the Fibra component, not a redesigned process or a new page.
+
+## Fibra Engenharia — Commercial Risk Management approval (2026-10-26)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-108 | 2026-10-26 | Fixed-price contract case-study layout | Approve **COMMERCIAL RISK MANAGEMENT / Protecting a Fixed-Price Contract** with three desktop columns: contract story; USD/BRL chart; Strategic Actions and Business Outcomes. | Accepted (visual design) | User explicitly approved the latest screenshot. Preserve approved composition and typography. |
+| D-109 | 2026-10-26 | Currency chart styling and source | Use **USD/BRL EXCHANGE RATE**, monthly average **Jul 2014 – Jul 2015**, portfolio-blue line, blue **Proposal** (Aug 2014) and turquoise **Signed** (Dec 2014) markers with matching labels/guides, and muted **Planned delivery** shading. Cite **Banco Central do Brasil, SGS series 3698**, monthly average USD selling rate; clarify market context versus actual Fibra exposure. | Accepted (visual design and copy) | Replaces the earlier visually inconsistent green Signed marker; does not independently verify source data. |
+| D-110 | 2026-10-26 | Commercial risk response and outcomes | Retain **Anticipated purchase orders** and **Imported through group companies** as Strategic Actions, and **Maintained margins** and **Delivered on schedule** as Business Outcomes. Retain contract story: August 2014 BRL-priced proposal, December signing at original fixed prices, US/Israel supplier negotiations and proactive procurement. | Accepted (case-study narrative) | Distinguish commercial response from exchange-rate chart, which is contextual rather than a measurement of realized exposure. |
+| D-111 | 2026-10-26 | Design freeze and release verification | Treat the latest Commercial Risk Management card screenshot as the approved visual iteration; make no further changes unless requested. Verify build, component path, responsive/mobile QA, Git commit/push, live publication, data accuracy, accessibility and disclosure separately. | Accepted (visual iteration; release checks open) | Visual approval is not evidence of deployment or final technical QA. |

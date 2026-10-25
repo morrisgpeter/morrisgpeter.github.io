@@ -444,3 +444,17 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Validate exchange-rate points, milestone timing, historical assertions, source citation/link, accessibility and any necessary disclosure approvals before final release.
 
 **Status:** Content and visual presentation approved for the current iteration. Do not revise the approved card without a new request.
+
+
+## Fibra Experience — People & Culture (final visual approval, 2026-10-26)
+
+- [x] Approve the leadership-scale narrative: approximately **3 project managers mentored** and **50+ professionals** coordinated via delegated leadership; avoid implying direct reporting lines.
+- [x] Approve the three pillar cards and their copy: **Mentoring and Knowledge Sharing**, **Empowering Teams**, **Long-Term Relationships**.
+- [x] Replace the unclear handshake/link icon with a **three-person circular network SVG**; preserve the first two icons/cards.
+- [x] Visually review and accept desktop/mobile layouts, spacing, image, and **Illustrative image** label.
+- [x] Freeze the approved **Commercial Risk Management** content and layout; do not change it while applying People & Culture updates.
+- [ ] Place the reviewed final source at `src/components/experience/fibra/FibraRiskPeople.astro` and inspect the Git diff for unintended changes, particularly the Commercial Risk Management section.
+- [ ] Run `npm run build`, check mobile/desktop and accessibility, commit and push, then confirm the live page.
+- [ ] Check the status of other Fibra refinements and the separate **Commercial Growth Process** removal before deciding which additional files to include in the same commit.
+
+**Status:** People & Culture visual/content design approved. Build, commit and deployment not yet verified.

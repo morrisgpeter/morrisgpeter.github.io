@@ -358,3 +358,23 @@ When a decision is confirmed or revised:
 | D-109 | 2026-10-26 | Currency chart styling and source | Use **USD/BRL EXCHANGE RATE**, monthly average **Jul 2014 – Jul 2015**, portfolio-blue line, blue **Proposal** (Aug 2014) and turquoise **Signed** (Dec 2014) markers with matching labels/guides, and muted **Planned delivery** shading. Cite **Banco Central do Brasil, SGS series 3698**, monthly average USD selling rate; clarify market context versus actual Fibra exposure. | Accepted (visual design and copy) | Replaces the earlier visually inconsistent green Signed marker; does not independently verify source data. |
 | D-110 | 2026-10-26 | Commercial risk response and outcomes | Retain **Anticipated purchase orders** and **Imported through group companies** as Strategic Actions, and **Maintained margins** and **Delivered on schedule** as Business Outcomes. Retain contract story: August 2014 BRL-priced proposal, December signing at original fixed prices, US/Israel supplier negotiations and proactive procurement. | Accepted (case-study narrative) | Distinguish commercial response from exchange-rate chart, which is contextual rather than a measurement of realized exposure. |
 | D-111 | 2026-10-26 | Design freeze and release verification | Treat the latest Commercial Risk Management card screenshot as the approved visual iteration; make no further changes unless requested. Verify build, component path, responsive/mobile QA, Git commit/push, live publication, data accuracy, accessibility and disclosure separately. | Accepted (visual iteration; release checks open) | Visual approval is not evidence of deployment or final technical QA. |
+
+
+## Fibra Engenharia — People & Culture final approval (2026-10-26)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-112 | 2026-10-26 | Leadership scale and narrative | Approve **PEOPLE & CULTURE / Developing Teams and Building Lasting Relationships** with approximately **three project managers mentored** and **more than 50 multidisciplinary professionals coordinated through delegated leadership**. Retain autonomy, accountability, knowledge sharing and long-term professional relationships. | Accepted (content) | Distinguish indirect team coordination from direct line management; avoid implying 50 direct reports. |
+| D-113 | 2026-10-26 | Three leadership pillars | Retain **Mentoring and Knowledge Sharing**, **Empowering Teams**, and **Long-Term Relationships**, with the approved concise descriptions; preserve the illustrative Fibra team image and **Illustrative image** disclosure. | Accepted (visual/content) | User approved the desktop and mobile layouts and the balanced text/card/image composition. |
+| D-114 | 2026-10-26 | Long-Term Relationships icon | Replace unsuccessful handshake/link concepts with a **three-person circular network SVG**, using blue outlined figures and connecting arcs. Preserve the first two cards and icons. | Accepted (final visual iteration) | The corrected three-card component was visually reviewed on desktop and mobile and approved; the intermediate version that removed two cards is superseded and must not be reused. |
+| D-115 | 2026-10-26 | Fibra Risk & People release boundary | Preserve the already approved **Commercial Risk Management** section unchanged while updating **People & Culture**. Treat visual/content approval as distinct from build, Git commit/push, public deployment and final accessibility/source QA. | Accepted (release scope) | Use `src/components/experience/fibra/FibraRiskPeople.astro` as the target path; final reviewed source provided as `FibraRiskPeople_RelationshipNetwork_v5_FIXED.astro`. |
+
+**Approved People & Culture paragraph:**
+
+> Developed and mentored approximately three project managers, coordinating multidisciplinary teams of more than 50 professionals through delegated leadership. Promoted autonomy, accountability, and knowledge sharing while building trusted professional relationships that extended beyond individual projects.
+
+**Approved pillar descriptions:**
+
+- **Mentoring and Knowledge Sharing:** Mentored project managers and shared practical experience to strengthen leadership capabilities.
+- **Empowering Teams:** Delegated responsibilities across project teams, encouraging autonomy and accountability.
+- **Long-Term Relationships:** Built trust and professional connections that continued beyond individual projects.

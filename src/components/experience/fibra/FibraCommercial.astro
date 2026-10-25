@@ -1,0 +1,360 @@
+---
+// Fibra Engenharia | Commercial Leadership
+// Version 15: D3-assisted qualitative pathways with illustrative relative significance weights.
+const solarMilestones = [
+  { year: '2015', title: 'Regulatory Evolution', note: 'ANEEL Resolution 687/2015' },
+  { year: '2016–17', title: 'Market Opportunity', note: 'Declining PV costs' },
+  { year: 'Mar 2017', title: 'Technical Development', note: 'Grid-connected & stand-alone PV systems training' },
+  { year: '2018–19', title: 'Commercial Expansion', note: 'B2B solar solutions' },
+];
+
+---
+<section class="fibra-commercial" aria-labelledby="fibra-commercial-title">
+  <header class="commercial-header">
+    <p class="commercial-kicker">COMMERCIAL LEADERSHIP</p>
+    <h3 id="fibra-commercial-title">From Market Opportunities to Business Growth</h3>
+    <p>Connecting market opportunities, technical expertise and commercial execution to grow Fibra Engenharia’s business.</p>
+  </header>
+
+  <div class="account-story" aria-labelledby="account-story-title">
+    <div class="story-heading">
+      <h4 id="account-story-title">Commercial Development in Action</h4>
+
+    </div>
+    <div class="d3-sankey" id="fibra-sankey-container">
+      <div class="d3-column-labels" aria-hidden="true"><span>Initial Solutions</span><span>Account Development</span><span>Business Expansion</span></div>
+      <svg id="fibra-d3-sankey" role="img" aria-label="Qualitative diagram showing initial power grid automation and telecommunications leading to the first and strategic utility account and new customer development, then business expansion. Line widths represent illustrative relative commercial significance, not financial values."></svg>
+    </div>
+    <p class="diagram-caption">Illustrative relative commercial significance. Not based on financial values.</p>
+  </div>
+
+  <section class="solar-journey" aria-labelledby="solar-journey-title">
+    <div class="solar-story">
+      <header class="solar-header">
+        <p class="solar-kicker">DISTRIBUTED SOLAR JOURNEY</p>
+        <h4 id="solar-journey-title">From Market Opportunity to New Business</h4>
+        <p>Identifying market changes, building technical capability and developing B2B solar solutions.</p>
+      </header>
+      <ol class="milestones">
+        {solarMilestones.map((item) => (
+          <li><span class="milestone-marker" aria-hidden="true"></span><strong>{item.year}</strong><span class="milestone-title">{item.title}</span><small>{item.note}</small></li>
+        ))}
+      </ol>
+    </div>
+    <figure class="solar-visual">
+      <img src="/images/fibra/fibra-solar-panels.png" alt="Solar photovoltaic panels at sunset, illustrative image" loading="lazy" decoding="async" />
+    </figure>
+  </section>
+
+
+</section>
+<style>
+  .fibra-commercial{margin-top:1rem;padding:clamp(1.35rem,3vw,2rem);border:1px solid #e1eaf4;border-radius:16px;background:linear-gradient(115deg,#fff 0%,#f5f9fd 100%);color:#152c4c}
+  .commercial-kicker{font-size:.72rem;letter-spacing:.16em;font-weight:800;color:#2474bb;margin:0 0 .65rem}
+  .commercial-kicker::after{content:"";display:block;width:42px;height:2px;background:#2d83c7;margin-top:.65rem}
+  .commercial-header h3{font-size:clamp(1.25rem,2vw,1.65rem);color:#113460;margin:0 0 .45rem}
+  .commercial-header>p:last-child{font-size:.92rem;line-height:1.55;color:#52677e;margin:0 0 1.6rem}
+
+  .story-heading{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem}
+  .story-heading h4{font-size:.9rem;color:#153b68;margin:0}
+  .diagram-note,.diagram-caption{font-size:.69rem;color:#70849a}
+  .account-story{padding:1rem;border:1px solid #d9e6f1;border-radius:12px;background:#fff}
+  .d3-sankey{width:100%;min-width:0}
+  .d3-column-labels{display:flex;justify-content:space-between;color:#2474bb;font-size:.79rem;font-weight:800;margin:.15rem 0 .5rem}
+  .d3-column-labels span:nth-child(2){text-align:center}
+  #fibra-d3-sankey{display:block;width:100%;height:auto;overflow:hidden}
+  .d3-sankey .sankey-link{fill:none;stroke-linecap:round;opacity:.76;transition:opacity .2s}
+  .d3-sankey .sankey-link:hover{opacity:1}
+  .d3-sankey .sankey-node rect{stroke:#d9e6f1;stroke-width:1.2}
+  .d3-sankey .sankey-node text{font-family:inherit;fill:#113460;font-size:13px;font-weight:750}
+  .d3-sankey .sankey-node .subtext{fill:#52677e;font-size:10.5px;font-weight:400}
+  .mobile-pathways{display:none}
+  @media(max-width:700px){
+    .d3-column-labels{display:none}
+    .account-story{padding:.75rem}
+    .d3-sankey .sankey-node text{font-size:12px}
+    .d3-sankey .sankey-node .subtext{font-size:10px}
+  }
+  .flow-diagram{position:relative;height:460px;display:grid;grid-template-columns:22% 23% 32%;justify-content:space-between;gap:0;isolation:isolate}
+  .flow-lines{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+  .flow-col{position:relative;height:100%;min-width:0}
+  .flow-col h5{position:absolute;top:0;left:0;font-size:.79rem;color:#2474bb;margin:0}
+  .flow-node{position:absolute;left:0;right:0;box-sizing:border-box;padding:.75rem .8rem;border-radius:10px;background:#f1f7fd;border:1px solid #d9e6f1;border-left:4px solid #3184c6;display:flex;flex-direction:column;gap:.27rem;box-shadow:0 3px 10px #14365a0a}
+  .flow-node strong{font-size:.77rem;line-height:1.3;color:#113460}
+  .flow-node span{font-size:.68rem;line-height:1.4;color:#52677e}
+  .source.recloser{top:70px}.source.telecom{top:260px}
+  .strategic{top:125px}.new-account{top:310px;border-left-color:#24a89d;background:#eff9f8}
+  .outcome{min-height:64px}.outcome:nth-of-type(1){top:27px}.outcome:nth-of-type(2){top:119px}.outcome:nth-of-type(3){top:211px}.outcome:nth-of-type(4){top:303px}.outcome:nth-of-type(5){top:391px}
+  .outcome.teal{border-left-color:#24a89d;background:#eff9f8}
+  .diagram-caption{margin:.45rem 0 0;line-height:1.45}
+  /* Distributed solar: same visual vocabulary as Building & Scaling Fibra. */
+  .solar-journey{margin-top:1.25rem;padding:clamp(1.2rem,3vw,2rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,28%);gap:clamp(1.2rem,2.5vw,2rem);background:linear-gradient(115deg,#fff 0%,#f5f9fd 100%);border:1px solid #d9e6f1;border-radius:16px;align-items:stretch}
+  .solar-story{min-width:0;display:flex;flex-direction:column}
+  .solar-header{margin-bottom:clamp(1.8rem,3vw,2.7rem)}
+  .solar-kicker{font-size:.72rem;letter-spacing:.16em;font-weight:800;color:#2474bb;margin:0 0 .7rem}
+  .solar-kicker::after{content:"";display:block;width:42px;height:2px;background:#2d83c7;margin-top:.65rem}
+  .solar-header h4{font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.2;color:#113460;margin:0 0 .7rem}
+  .solar-header>p:last-child{font-size:clamp(.82rem,1.2vw,.94rem);line-height:1.5;color:#52677e;margin:0}
+  .solar-visual{margin:0;padding-left:clamp(.8rem,1.5vw,1.25rem);border-left:1px solid #d9e6f1;min-width:0;display:flex;align-items:stretch}
+  .solar-visual img{display:block;width:100%;height:100%;min-height:220px;max-height:360px;object-fit:cover;border-radius:11px}
+  .milestones{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:auto 0 0;padding:1.3rem 0 0;position:relative}
+  .milestones::before{content:'';position:absolute;left:.85rem;right:0;top:.37rem;height:2px;background:#3184c6}
+  .milestones::after{content:'';position:absolute;right:-1px;top:.08rem;border-top:.37rem solid transparent;border-bottom:.37rem solid transparent;border-left:.68rem solid #3184c6}
+  .milestones>li{position:relative;min-width:0;text-align:left;display:flex;align-items:flex-start;flex-direction:column;gap:.28rem;padding:0 .35rem}
+  .milestone-marker{position:absolute;top:-1.37rem;left:.35rem;width:1rem;height:1rem;border:1px solid #3184c6;background:#3184c6;box-shadow:inset 0 0 0 3px #fff;border-radius:50%;z-index:1}
+  .milestones strong{font-size:clamp(.79rem,1.1vw,.92rem);color:#113460}
+  .milestone-title{font-size:clamp(.74rem,1.1vw,.87rem);font-weight:750;color:#2474bb;line-height:1.3}
+  .milestones small{font-size:clamp(.69rem,.95vw,.79rem);line-height:1.42;color:#52677e}
+  @media(max-width:1050px){.solar-journey{grid-template-columns:minmax(0,1fr) 28%}.solar-header{margin-bottom:2rem}.milestones{gap:.2rem}}
+  @media(max-width:760px){.solar-journey{grid-template-columns:1fr}.solar-visual{padding-left:0;padding-top:1rem;border-left:0;border-top:1px solid #d9e6f1}.solar-visual img{height:210px;min-height:0;max-height:none}.solar-header{margin-bottom:2rem}.milestones{margin:0}}
+  @media(max-width:620px){
+    /* Match the vertical mobile timeline used in Building & Scaling Fibra. */
+    .milestones{display:flex;flex-direction:column;gap:0;padding:0;margin:0;position:relative}
+    .milestones::before{content:"";display:block;position:absolute;left:.48rem;right:auto;top:.6rem;bottom:0;width:2px;height:auto;background:#b7d4e9}
+    .milestones::after{content:"";display:block;position:absolute;left:calc(.48rem - .34rem + 1px);right:auto;top:auto;bottom:-.63rem;border-left:.34rem solid transparent;border-right:.34rem solid transparent;border-top:.63rem solid #3184c6;border-bottom:0;width:0;height:0;background:none}
+    .milestones>li{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:.3rem;min-height:0;padding:0 0 1.55rem 2rem;border:0}
+    .milestones>li:last-child{padding-bottom:2.2rem}
+    .milestone-marker{display:block;position:absolute;left:0;top:.12rem;width:1rem;height:1rem;border:1px solid #3184c6;background:#3184c6;box-shadow:inset 0 0 0 3px #fff;border-radius:50%;z-index:1}
+    .milestones strong{font-size:.95rem;line-height:1.4}
+    .milestone-title{font-size:.9rem;line-height:1.35}
+    .milestones small{font-size:.83rem;line-height:1.5}
+    .solar-header h4{font-size:1.35rem}
+  }
+  @media(max-width:850px){
+    .flow-diagram{display:none}
+    .mobile-pathways h5{font-size:.8rem;color:#2474bb;margin:0 0 .65rem}
+    .mobile-sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+    .mobile-pathways .flow-node{position:static;min-width:0;min-height:0;padding:.8rem .85rem}
+    .mobile-branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.2rem}
+    .mobile-branch{position:relative;padding:1rem;border:1px solid #d9e6f1;border-radius:12px;background:#f9fcff}
+    .new-branch{background:#f5fbfa;border-color:#cbe6e2}
+    .branch-stem{position:relative;min-height:2.2rem;display:flex;align-items:flex-end;padding-bottom:.55rem;font-size:.7rem;font-weight:700;color:#2474bb}
+    .branch-stem::before{content:'';position:absolute;left:50%;top:-2.25rem;height:2.3rem;border-left:2px solid #8ebfe0}
+    .branch-stem::after{content:'▼';position:absolute;left:calc(50% - .35rem);top:-.1rem;font-size:.65rem;color:#3184c6}
+    .new-branch .branch-stem{color:#168f86}.new-branch .branch-stem::before{border-color:#65bcb3}.new-branch .branch-stem::after{color:#24a89d}
+    .branch-down{text-align:center;font-size:1.3rem;color:#3184c6;margin:.3rem 0}
+    .new-branch .branch-down{color:#24a89d}
+    .mobile-results{display:grid;gap:.55rem}
+    .mobile-branch h5{margin-bottom:.5rem}
+  }
+  @media(max-width:620px){
+    .mobile-sources,.mobile-branches{grid-template-columns:1fr}
+    .mobile-branches{gap:.8rem}
+    .branch-stem::before{top:-1.95rem;height:2rem}
+    .mobile-branch{padding:.85rem}
+    .mobile-results{grid-template-columns:1fr}
+  }
+
+  @media(max-width:620px){.examples-grid{grid-template-columns:1fr}.example-solar{order:0}}
+</style>
+
+<script>
+  import { sankey, sankeyJustify } from 'd3-sankey';
+
+  // D3 orders the nodes; editorial weights control only stroke width.
+  // No measured revenue, project volume or conservation of flows is implied.
+  // Weights are editorial estimates of relative commercial significance,
+  // not revenue, number of contracts or physical quantities. Adjust after review.
+  const nodes = [
+    { id:'recloser', label:'Power Grid Automation', type:'blue' },
+    { id:'telecom', label:'Telecommunications', type:'blue' },
+    { id:'coelba', label:'First and Strategic Utility Account', type:'blue' },
+    { id:'new', label:'New Customer Accounts', type:'teal' },
+    { id:'renewal', label:'Contract Renewal & Expansion', type:'blue' },
+    { id:'substation', label:'Substation Automation', type:'blue' },
+    { id:'metering', label:'Smart Metering', type:'blue' },
+    { id:'scada', label:'SCADA Solutions', type:'blue' },
+    { id:'newbiz', label:'Automation & Telecommunications', type:'teal' },
+  ];
+  const edges = [
+    {source:'recloser',target:'coelba',weight:4},
+    {source:'telecom',target:'coelba',weight:1},
+    {source:'recloser',target:'new',weight:4},
+    {source:'telecom',target:'new',weight:1},
+    {source:'coelba',target:'renewal',weight:7},
+    {source:'coelba',target:'substation',weight:6},
+    {source:'coelba',target:'metering',weight:2},
+    {source:'coelba',target:'scada',weight:3},
+    {source:'new',target:'newbiz',weight:10},
+  ];
+  const edgeWeight = (from,to) => edges.find(e=>e.source===from&&e.target===to)?.weight ?? 1;
+  const NS='http://www.w3.org/2000/svg';
+  function svgEl(tag, attrs={}) {
+    const e=document.createElementNS(NS,tag);
+    for(const [k,v] of Object.entries(attrs)) e.setAttribute(k,String(v));
+    return e;
+  }
+  const subtitles = {0:'Initial Solutions',1:'Account Development',2:'Business Expansion'};
+  function draw() {
+    const svg=document.getElementById('fibra-d3-sankey');
+    const container=document.getElementById('fibra-sankey-container');
+    if(!svg||!container) return;
+    const width=Math.max(280,Math.floor(container.getBoundingClientRect().width));
+    const mobile=width<700;
+    const W=width;
+    const graph=sankey().nodeId(d=>d.id).nodeWidth(10).nodePadding(20)
+      .nodeAlign(sankeyJustify).extent([[0,0],[900,600]])({
+        nodes:nodes.map(d=>({...d})),
+        links:edges.map(({source,target})=>({source,target,value:1})),
+      });
+    const ordered=[0,1,2].map(depth=>graph.nodes.filter(n=>n.depth===depth).sort((a,b)=>a.y0-b.y0));
+    const coord=new Map();
+    const cardW=mobile?W-68:Math.min(265,Math.max(175,W*.235));
+    const cardH=mobile?65:64;
+    let H;
+    const paths=[];
+    const cards=[];
+    const headings=[];
+    function heading(text,x,y){headings.push({text,x,y});}
+    function card(id,x,y,label,type){cards.push({id,x,y,label,type});}
+    function connect(a,b,type,weight=1,offset=0){
+      const teal=type==='teal';
+      let d;
+      if(mobile){
+        const sx=a.x+a.w/2+offset,sy=a.y+a.h;
+        const tx=b.x+b.w/2+offset,ty=b.y;
+        const dy=Math.max(14,(ty-sy)*.46);
+        d=`M ${sx} ${sy} C ${sx} ${sy+dy}, ${tx} ${ty-dy}, ${tx} ${ty}`;
+      }else{
+        const sx=a.x+a.w,sy=a.y+a.h/2;
+        const tx=b.x,ty=b.y+b.h/2;
+        const dx=Math.max(18,(tx-sx)*.5);
+        d=`M ${sx} ${sy} C ${sx+dx} ${sy}, ${tx-dx} ${ty}, ${tx} ${ty}`;
+      }
+      paths.push({d,color:teal?'#65bbb5':'#7ab5df',weight,title:`${a.label} → ${b.label}`});
+    }
+    if(!mobile){
+      H=490;
+      const xCols=[8,(W-cardW)/2,W-cardW-8];
+      const groupStarts=[85,150,16],gaps=[220,205,94];
+      ordered.forEach((group,depth)=>group.forEach((node,i)=>{
+        const x=xCols[depth],y=groupStarts[depth]+i*gaps[depth];
+        const c={...node,x,y,w:cardW,h:cardH};coord.set(node.id,c);
+        card(node.id,x,y,node.label,node.type);
+      }));
+      for(const link of graph.links){
+        const a=coord.get(link.source.id),b=coord.get(link.target.id);
+        connect(a,b,(link.source.type==='teal'||link.target.type==='teal')?'teal':'blue',edgeWeight(link.source.id,link.target.id));
+      }
+    }else{
+      // Mobile: independent account-development pathways. Every connector is
+      // routed through the side gutters, outside card interiors and headings.
+      // D3 retains the source/target relationships; visual widths are editorial.
+      // Wide side gutters allow separate, curved routes without crossing headings.
+      // Card interiors and headings remain clear even on narrow phones.
+      // Reserve a dedicated 84px right-hand routing corridor. The
+      // links stay entirely outside card interiors, even at narrow widths.
+      const leftGutter=50;
+      const rightGutter=86;
+      const x=leftGutter,w=W-leftGutter-rightGutter;
+      const railLeft=12;
+      const c=(id,label,y,type)=>({id,label,x,y,w,h:cardH,type});
+      const addCard=o=>card(o.id,o.x,o.y,o.label,o.type);
+      const addHeading=(text,y,hx=x)=>heading(text,hx,y);
+      const mobileLink=(a,b,side,type,weight,index=0,total=1)=>{
+        const left=side==='left';
+        const sx=left?a.x:a.x+a.w,tx=left?b.x:b.x+b.w;
+        // Separate exit/entry points for links with a shared source.
+        const shift=total===1?0:(index-(total-1)/2)*9;
+        const sy=a.y+a.h/2+(left?0:shift);
+        const ty=b.y+b.h/2+(left?shift:0);
+        // Four distinct right-side rails, all inside the reserved corridor.
+        // Each path is drawn behind cards but never enters a card's rectangle.
+        // Right-hand rails remain to the right of every destination card.
+        // Each outcome uses its own lane, with space for the widest stroke.
+        const rail=left?railLeft+index*7:W-69+index*14;
+        const direction=left?-1:1;
+        const radius=Math.min(15,Math.max(8,(Math.abs(ty-sy)-12)/4));
+        const d=`M ${sx} ${sy} `+
+          `C ${sx+direction*radius} ${sy}, ${rail} ${sy}, ${rail} ${sy+radius} `+
+          `L ${rail} ${ty-radius} `+
+          `C ${rail} ${ty}, ${tx+direction*radius} ${ty}, ${tx} ${ty}`;
+        paths.push({d,color:type==='teal'?'#65bbb5':'#7ab5df',weight,
+          title:`${a.label} → ${b.label}`});
+      };
+
+      addHeading('Strategic Account Development',26);
+      addHeading('Initial Solutions',59);
+      const a1=c('recloser','Power Grid Automation',76,'blue');
+      const a2=c('telecom','Telecommunications',148,'blue');
+      [a1,a2].forEach(addCard);
+      addHeading('Account Development',237);
+      const account=c('coelba','First and Strategic Utility Account',254,'blue');
+      addCard(account);
+      // Shift only the strategic outcomes left, creating a clear, dedicated
+      // connector lane on their right. Keep the account and green route intact.
+      const outcomeX=x-30;
+      addHeading('Business Expansion',350,outcomeX);
+      const outcomesAt=(id,label,y)=>({...c(id,label,y,'blue'),x:outcomeX});
+      const outputs=[
+        outcomesAt('renewal','Contract Renewal & Expansion',367),
+        outcomesAt('substation','Substation Automation',439),
+        outcomesAt('metering','Smart Metering',511),
+        outcomesAt('scada','SCADA Solutions',583),
+      ];
+      outputs.forEach(addCard);
+      mobileLink(a1,account,'left','blue',edgeWeight('recloser','coelba'),0,2);
+      mobileLink(a2,account,'left','blue',edgeWeight('telecom','coelba'),1,2);
+      for(const [index,o] of outputs.entries())
+        mobileLink(account,o,'right','blue',edgeWeight('coelba',o.id),index,outputs.length);
+
+      const next=outputs.at(-1).y+cardH+30;
+      addHeading('New Customer Development',next);
+      addHeading('Initial Solutions',next+33);
+      const b1=c('new-recloser','Power Grid Automation',next+50,'teal');
+      const b2=c('new-telecom','Telecommunications',next+122,'teal');
+      [b1,b2].forEach(addCard);
+      addHeading('Account Development',next+210);
+      const newAccount=c('new','New Customer Accounts',next+227,'teal');
+      addCard(newAccount);
+      addHeading('Business Expansion',next+322);
+      const result=c('newbiz','Automation & Telecommunications',next+339,'teal');
+      addCard(result);
+      mobileLink(b1,newAccount,'left','teal',edgeWeight('recloser','new'),0,2);
+      mobileLink(b2,newAccount,'left','teal',edgeWeight('telecom','new'),1,2);
+      mobileLink(newAccount,result,'right','teal',edgeWeight('new','newbiz'));
+      H=result.y+cardH+22;
+
+    }
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    svg.replaceChildren();
+    // Set fill="none" as an SVG attribute: Astro-scoped CSS does not
+    // reliably target elements created dynamically in a browser script.
+    for(const p of paths){
+      const path=svgEl('path',{d:p.d,fill:'none',stroke:p.color,'stroke-width':(mobile?1.45:2.5)*p.weight,'stroke-linecap':'round',opacity:'.85'});
+      const title=svgEl('title');title.textContent=p.title;path.append(title);svg.append(path);
+    }
+    for(const h of headings){
+      const t=svgEl('text',{x:h.x,y:h.y,fill:'#2474bb','font-size':mobile?13:14,'font-weight':800});
+      t.textContent=h.text;svg.append(t);
+    }
+    for(const c of cards){
+      const teal=c.type==='teal';
+      const g=svgEl('g');
+      g.append(svgEl('rect',{x:c.x,y:c.y,width:c.w??cardW,height:cardH,rx:10,fill:teal?(c.id==='new'?'#d9f1ed':'#eff9f8'):(c.id==='coelba'?'#e1f0fc':'#f1f7fd'),stroke:'#d9e6f1','stroke-width':1.2}));
+      g.append(svgEl('rect',{x:c.x,y:c.y,width:5,height:cardH,rx:3,fill:teal?'#24a89d':'#3184c6'}));
+      // Single title only. Wrap long labels into at most two lines.
+      const maxChars=mobile?30:34;
+      const words=c.label.split(' '), lines=[];
+      let line='';
+      for(const word of words){
+        const next=line?`${line} ${word}`:word;
+        if(next.length>maxChars&&line){lines.push(line);line=word;}
+        else line=next;
+      }
+      if(line)lines.push(line);
+      const fontSize=mobile?12.5:13;
+      const text=svgEl('text',{x:c.x+16,y:c.y+cardH/2-(lines.length-1)*8+4,fill:'#113460','font-size':fontSize,'font-weight':700});
+      lines.forEach((part,i)=>{const tspan=svgEl('tspan',{x:c.x+16,dy:i?16:0});tspan.textContent=part;text.append(tspan);});
+      g.append(text);svg.append(g);
+    }
+  }
+  draw();
+  const container=document.getElementById('fibra-sankey-container');
+  if(container&&typeof ResizeObserver!=='undefined'){
+    let frame=0;
+    const observer=new ResizeObserver(()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(draw)});
+    observer.observe(container);
+    document.addEventListener('astro:before-swap',()=>{observer.disconnect();cancelAnimationFrame(frame)},{once:true});
+  }
+</script>

@@ -332,3 +332,20 @@ When a decision is confirmed or revised:
 | D-105 | 2026-10-25 | Commercial Development chart, deferred review | **Record an optional future review** of chart clarity, mobile vertical length, flow routing, ribbon proportions, terminology and representation of commercial competencies (sales, business development, account management and bid/proposal). **Do not change the accepted chart now.** | Open (deferred) | Future refinement only, not a blocker for the current design. Revalidate historical claims before changing labels or relationships. |
 
 **Interpretation note:** The graphic's ribbon widths indicate *illustrative relative commercial significance*, not financial values. Preserve the existing explanatory note and do not infer measured revenue shares from the flows.
+
+
+## Fibra Engenharia — Commercial Growth Process relocation (2026-10-25)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-106 | 2026-10-25 | Commercial Growth Process placement | **Remove Commercial Growth Process from Fibra Experience and reserve it for the future Commercial Expertise area.** Keep **Commercial Development in Action** and **Distributed Solar Journey** in Fibra. | Accepted (architecture) | Fibra Experience should focus on specific achievements; Commercial Expertise should describe cross-career capabilities. Do not imply the four-stage process was a formal methodology institutionalized at Fibra. |
+| D-107 | 2026-10-25 | Commercial Growth Process future integration | Preserve the existing four-stage content as a reference; inspect the actual Commercial Expertise layout before choosing its final placement, copy or presentation. | Accepted (deferred implementation) | Avoid duplication and premature redesign. No Commercial Expertise implementation or publication is implied. |
+
+**Preserved process reference (not yet approved as final Commercial Expertise copy):**
+
+1. **Market Opportunities:** Market Intelligence; Opportunity Identification; Customer Needs Assessment.
+2. **Solution Development:** Solution Selling; Technical Feasibility; Financial & Payback Analysis.
+3. **Commercial Execution:** Bid & Proposal Management; Cost Estimation & Pricing; Contract Negotiation.
+4. **Business Expansion:** Key Account Management; Contract Expansion; Portfolio Diversification.
+
+**Scope:** This decision approves relocation and removal from the Fibra component, not a redesigned process or a new page.

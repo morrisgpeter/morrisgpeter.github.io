@@ -269,3 +269,10 @@ The relative **8.5×** growth metric replaces **USD 8.5M** and removes the six-y
 The other timeline milestones remain unchanged. User reviewed desktop/mobile screenshots and approved the presentation. The public-facing note saying figures were historical estimates based on an interview and subject to final evidence review was removed as inappropriate internal-process copy; maintain internal source checks instead. Punctuation is consistent. `FibraSFibra.astro` is unchanged.
 
 **Release status for this refinement:** Visual review complete; a final local production build, Git commit/push and live-site confirmation of these specific changes have not yet been provided.
+
+
+## Experience / Commercial Expertise — Commercial Growth Process architecture (2026-10-25)
+
+The user approved relocating **Commercial Growth Process** from the Fibra Engenharia Experience chapter to a future **Commercial Expertise** area. Fibra Experience retains its two specific commercial narratives, **Commercial Development in Action** and **Distributed Solar Journey**. The process represents capabilities used at Fibra and developed across the wider career (including Telenge, Aton, Fibra and ABB), rather than an asserted formal company methodology.
+
+The four-stage reference is **Market Opportunities → Solution Development → Commercial Execution → Business Expansion**, with the existing skill labels preserved in `PROJECT_DECISIONS.md` (D-106–D-107). Remove the process-only UI/data/styles from `src/components/experience/fibra/FibraCommercial.astro` while preserving the approved Sankey-inspired chart and responsive solar timeline. Review the current Commercial Expertise structure before any new integration or redesign. This architectural decision is accepted; no new code deployment is implied.

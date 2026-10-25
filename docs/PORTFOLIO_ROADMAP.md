@@ -418,3 +418,16 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Independently verify build, repository commit/push, live publication, accessibility and disclosure suitability if not already confirmed.
 
 **Status:** **Current visual version accepted as final for this iteration.** Future improvement is recorded as an optional review; no immediate chart changes are requested. Acceptance does not independently establish deployment or technical QA.
+
+
+## Fibra Experience — Commercial Growth Process relocation (approved, 2026-10-25)
+
+- [x] Decide to move **Commercial Growth Process** out of Fibra Experience into the future **Commercial Expertise** area.
+- [x] Preserve **Commercial Development in Action** and **Distributed Solar Journey** in Fibra Experience; both visual iterations were approved.
+- [x] Preserve the existing four-stage process content in `PROJECT_DECISIONS.md` as a reference for future reuse.
+- [ ] Remove the process markup, data and process-only styles from `src/components/experience/fibra/FibraCommercial.astro`, without changing the approved diagrams or solar timeline.
+- [ ] Inspect the Commercial Expertise implementation/architecture before integrating or redesigning the process; avoid duplicate skills content.
+- [ ] Review local desktop/mobile and run `npm run build`; inspect the diff, commit/push and verify publication.
+- [ ] Confirm the solar image has the agreed concise caption **AI-generated illustration**; this is a separate pending content adjustment, not a prerequisite for relocating the process.
+
+**Status:** Relocation decision accepted. Component removal can be prepared separately; integration into Commercial Expertise remains deferred. No build, commit or publication is claimed here.

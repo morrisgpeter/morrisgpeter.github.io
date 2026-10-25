@@ -405,3 +405,16 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Reconfirm that 8.5× compares equivalent services-contract measures and that 39 refers to MV substation automation projects (not necessarily 39 fully automated substations).
 
 **Status:** Copy and responsive visuals approved; final revision's build, commit and publication not yet confirmed. The SFibra component itself remains unchanged.
+
+
+## Fibra Experience — Commercial Development in Action (accepted, 2026-10-25)
+
+- [x] Accept the current **Commercial Development in Action** chart and close this design iteration without further changes.
+- [x] Retain the two commercial-development paths: **Strategic Account Development** and **New Customer Development**.
+- [x] Retain the chart's three-stage story: **Initial Solutions → Account Development → Business Expansion**, including the current solution and account labels.
+- [x] Retain the responsive presentation: left-to-right flow on desktop and vertically arranged paths on mobile.
+- [x] Retain the qualification: **“Illustrative relative commercial significance. Not based on financial values.”** Flow widths are illustrative and must not be read as audited financial quantities.
+- [ ] **Future review (deferred, not a blocker):** Revisit the chart's visual clarity, mobile height/readability, flow routing, relative ribbon widths and whether its labels adequately communicate sales, business development, key account management and bid/proposal capabilities. Recheck historical accuracy before revising the narrative.
+- [ ] Independently verify build, repository commit/push, live publication, accessibility and disclosure suitability if not already confirmed.
+
+**Status:** **Current visual version accepted as final for this iteration.** Future improvement is recorded as an optional review; no immediate chart changes are requested. Acceptance does not independently establish deployment or technical QA.

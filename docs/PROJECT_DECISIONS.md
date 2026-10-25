@@ -322,3 +322,13 @@ When a decision is confirmed or revised:
 | **2017–2018** | Portfolio Diversification | Expansion into additional services and business opportunities. |
 
 **Outstanding:** Confirm successful production build, inspect final diff, commit/push the two updated Astro files and documentation, and verify the live site. Independently verify supporting metric definitions, permissions, accessibility and source evidence.
+
+
+## Fibra Engenharia — Commercial Development in Action (2026-10-25)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-104 | 2026-10-25 | Commercial Development chart, current version | **Accept the current “Commercial Development in Action” visualization as final for this iteration**, without further changes. Keep the **Strategic Account Development** and **New Customer Development** paths, structured around **Initial Solutions → Account Development → Business Expansion**. Preserve the current desktop horizontal and mobile vertical layouts. | Accepted (visual design) | User explicitly chose to finish with the existing version. This is not a new claim of build, commit, publication or accessibility verification. |
+| D-105 | 2026-10-25 | Commercial Development chart, deferred review | **Record an optional future review** of chart clarity, mobile vertical length, flow routing, ribbon proportions, terminology and representation of commercial competencies (sales, business development, account management and bid/proposal). **Do not change the accepted chart now.** | Open (deferred) | Future refinement only, not a blocker for the current design. Revalidate historical claims before changing labels or relationships. |
+
+**Interpretation note:** The graphic's ribbon widths indicate *illustrative relative commercial significance*, not financial values. Preserve the existing explanatory note and do not infer measured revenue shares from the flows.

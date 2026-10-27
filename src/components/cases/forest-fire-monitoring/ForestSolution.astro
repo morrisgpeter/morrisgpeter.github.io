@@ -1,0 +1,298 @@
+---
+// Section 02 — From Idea to Solution
+// Image assets are stored in:
+// public/images/cases/forest-fire-monitoring/
+const imageBase = '/images/cases/forest-fire-monitoring';
+const skills = [
+  ['Camera systems', 'Selection, configuration and integration'],
+  ['Radio links', 'Point-to-point links and repeaters'],
+  ['Communication networks', 'Network design and integration'],
+];
+const newSkills = [
+  ['Monitoring software', 'Application and integration development'],
+  ['Solar power systems', 'Sizing and field engineering'],
+  ['Battery storage', 'Autonomous operation at remote sites'],
+];
+const skillIcons: Record<string, string> = {
+  'Camera systems': '<rect x="3" y="7" width="14" height="11" rx="3"/><path d="m17 11 4-3v9l-4-3M7 7l2-3h5l2 3"/>',
+  'Radio links': '<path d="M12 20V10m-4 10h8M9 10l3-5 3 5M5 8a10 10 0 0 0 0 8m14-8a10 10 0 0 1 0 8M2 5a15 15 0 0 0 0 14m20-14a15 15 0 0 1 0 14"/>',
+  'Communication networks': '<rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4H5v4m7-4h7v4"/>',
+  'Monitoring software': '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3m-2-8-2 10"/>',
+  'Solar power systems': '<circle cx="12" cy="12" r="4"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4M4 4l3 3m10 10 3 3M20 4l-3 3M7 17l-3 3"/>',
+  'Battery storage': '<rect x="5" y="5" width="14" height="17" rx="2"/><path d="M10 2h4m-2 8v7m-3-3h6"/>',
+};
+const workflow = [
+  ['01', 'Site assessment', 'Terrain, access, coverage and infrastructure'],
+  ['02', 'Camera placement', 'Viewing angles and tower locations'],
+  ['03', 'Radio network', 'Line of sight, links and repeaters'],
+  ['04', 'Autonomous power', 'Solar panels and battery sizing'],
+  ['05', 'Integration & testing', 'Software, equipment and customer validation'],
+];
+---
+<section class="forest-solution" aria-labelledby="forest-solution-title">
+  <div class="forest-solution__wrap">
+    <div class="forest-solution__intro">
+      <p class="forest-solution__eyebrow"><span>02</span> FROM IDEA TO SOLUTION</p>
+      <h2 id="forest-solution-title">Turning an Opportunity<br class="desktop-only" /> into a Working System</h2>
+      <p>I combined expertise in cameras, radio links and networks with new capabilities in monitoring software and autonomous solar power.</p>
+      <p>Each deployment was tailored to terrain, camera coverage, power supply and video transmission routes.</p>
+      <p>I coordinated development, integration and field validation of the first installation.</p>
+      <div class="forest-solution__rule" aria-hidden="true"></div>
+      <div class="forest-solution__skills">
+        <h3>Building on Experience. Developing New Capabilities.</h3>
+        <div class="forest-solution__skill-cols">
+          <div><h4>Existing expertise</h4>{skills.map(([title, detail]) => <div class="forest-solution__skill"><span class="forest-solution__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={skillIcons[title]} /></span><p><strong>{title}</strong><small>{detail}</small></p></div>)}</div>
+          <div><h4>New capabilities</h4>{newSkills.map(([title, detail]) => <div class="forest-solution__skill"><span class="forest-solution__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={skillIcons[title]} /></span><p><strong>{title}</strong><small>{detail}</small></p></div>)}</div>
+        </div>
+        <div class="forest-solution__integrate"><span aria-hidden="true">◎</span><p><strong>Integrating the solution</strong><small>Combining hardware, communications, energy and custom software for each customer environment.</small></p></div>
+      </div>
+    </div>
+
+    <div class="forest-solution__right">
+      <div class="forest-solution__panel">
+        <h3>Integrated forest monitoring solution</h3>
+        <p class="forest-solution__lead">Remote equipment, radio links and custom software connect forest sites to the customer’s monitoring centre.</p>
+        <div class="forest-solution__architecture">
+          <article class="forest-solution__arch-card">
+            <div class="forest-solution__arch-heading"><span>1</span><h4>Remote monitoring site</h4></div>
+            <img class="forest-solution__arch-illustration" src={`${imageBase}/forest-system-remote-site.jpg`} alt="Conceptual image of a forest monitoring tower with a PTZ camera, solar panel and radio equipment" loading="lazy" />
+            <ul><li>Remote PTZ cameras</li><li>Solar panels and batteries</li><li>Radio transceiver</li><li>New or existing towers</li></ul>
+          </article>
+          <article class="forest-solution__arch-card">
+            <div class="forest-solution__arch-heading"><span>2</span><h4>Communication network</h4></div>
+            <img class="forest-solution__arch-illustration" src={`${imageBase}/forest-system-radio-network.png`} alt="Conceptual image of a radio network connecting three towers across forested terrain" loading="lazy" />
+            <ul><li>Site-specific radio links</li><li>Repeaters when required</li><li>Terrain and line-of-sight planning</li><li>Video and PTZ commands</li></ul>
+          </article>
+          <article class="forest-solution__arch-card">
+            <div class="forest-solution__arch-heading"><span>3</span><h4>Customer monitoring centre</h4></div>
+            <img class="forest-solution__arch-illustration" src={`${imageBase}/forest-system-monitoring-centre.jpg`} alt="Conceptual image of a customer monitoring centre with forest camera views and geographic maps" loading="lazy" />
+            <ul><li>Custom monitoring application</li><li>Remote PTZ control and live views</li><li>Fire location via triangulation</li><li>Geographic coordinates on a map</li></ul>
+          </article>
+        </div>
+      </div>
+      <div class="forest-solution__panel forest-solution__detection">
+        <h3>Fire detection and geographic location</h3>
+        <p class="forest-solution__lead">Operators identify smoke; software combines camera bearings to estimate fire coordinates on a map.</p>
+        <div class="forest-solution__detection-flow forest-solution__detection-flow--two">
+          <figure>
+            <img src={`${imageBase}/forest-fire-visual-observation.png`} alt="Historical monitoring software camera view showing smoke over a forest" loading="lazy" />
+            <figcaption><b>1</b><span><strong>Visual observation</strong><small>Operator identifies smoke using a remote PTZ camera</small></span></figcaption>
+          </figure>
+          <span class="forest-solution__flow-arrow" aria-hidden="true">→</span>
+          <figure>
+            <img src={`${imageBase}/forest-system-triangulation-map.png`} alt="Illustrative monitoring map with three towers and separate lines of sight converging on an estimated fire location" loading="lazy" />
+            <figcaption><b>2</b><span><strong>Line-of-sight triangulation</strong><small>Software estimates geographic coordinates from camera bearings</small></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="forest-solution__workflow"><div class="forest-solution__workflow-head"><h3>Engineered for each customer’s environment</h3><p>Tailored to terrain, coverage, connectivity and infrastructure.</p></div><div class="forest-solution__workflow-steps">{workflow.map(([number, title, description]) => <div class="forest-solution__workflow-step"><span>{number}</span><strong>{title}</strong><small>{description}</small></div>)}</div></div>
+  </div>
+</section>
+<style>
+.forest-solution{background:#f7fafc;color:#15334b;padding:clamp(2.2rem,4vw,4rem) 0;font-family:inherit}.forest-solution *{box-sizing:border-box}.forest-solution__wrap{width:min(1440px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:minmax(280px,.83fr) minmax(0,1.9fr);gap:1.1rem;align-items:start}.forest-solution__intro{min-width:0}.forest-solution__eyebrow{display:flex;gap:.9rem;align-items:center;letter-spacing:.13em;font-size:.78rem;font-weight:800;color:#37617c;margin:0 0 .75rem}.forest-solution__eyebrow span{font-size:2rem;letter-spacing:0;color:#133d5d}.forest-solution h2{font-size:clamp(1.85rem,2.5vw,2.65rem);line-height:1.12;margin:0 0 1.05rem;color:#102f4e}.forest-solution__intro>p:not(.forest-solution__eyebrow){color:#496177;font-size:.94rem;line-height:1.55;margin:.7rem 0}.forest-solution__rule{width:55px;height:3px;background:#61c8a4;margin:1rem 0}.forest-solution h3{font-size:1.12rem;line-height:1.22;color:#123c4c;margin:0 0 .6rem}.forest-solution__skills,.forest-solution__workflow{border:1px solid #d8e8e2;background:#eff7f3;border-radius:15px;padding:1rem}.forest-solution__skill-cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.forest-solution__skill-cols>div+div{border-left:1px solid #c8dfd6;padding-left:1rem}.forest-solution h4{font-size:.85rem;margin:0 0 .65rem;color:#17434b}.forest-solution__skill{display:flex;gap:.55rem;align-items:flex-start;margin:.7rem 0}.forest-solution__dot{width:30px;height:30px;border-radius:50%;background:#d3ebe0;color:#116f69;display:grid;place-items:center;flex:none;font-weight:800}.forest-solution__skill p,.forest-solution__integrate p{margin:0;min-width:0}.forest-solution__skill strong,.forest-solution__integrate strong{display:block;font-size:.77rem;color:#183f46;line-height:1.25}.forest-solution small{display:block;font-size:.72rem;line-height:1.38;color:#57717a}.forest-solution__integrate{border-top:1px solid #d0e4dc;margin-top:.6rem;padding-top:.85rem;display:flex;align-items:center;gap:.7rem}.forest-solution__integrate>span{font-size:2rem;color:#19877d}.forest-solution__right{display:grid;gap:1rem;min-width:0}.forest-solution__panel{border:1px solid #dbe6ec;background:#fff;border-radius:15px;padding:1rem;min-width:0}.forest-solution__lead{font-size:.85rem;color:#536d80;line-height:1.45;margin:0 0 .85rem}.forest-solution__architecture{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:.75rem}.forest-solution__arch-card{border:1px solid #dbece6;background:#f2f8f5;border-radius:12px;padding:.65rem;min-width:0}.forest-solution__arch-heading{display:flex;align-items:center;gap:.45rem;min-height:2.3rem}.forest-solution__arch-heading span,.forest-solution__detection figcaption b{background:#15987e;color:white;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-size:.75rem;flex:none}.forest-solution__arch-heading h4{margin:0;font-size:.78rem}.forest-solution__tower,.forest-solution__network{width:100%;height:145px;display:block;border-radius:9px;background:linear-gradient(#dcecf6,#f5f8f3)}.forest-solution__tower svg{width:100%;height:100%}.forest-solution__arch-card ul{padding-left:1rem;margin:.55rem 0 0;color:#36575f;font-size:.74rem;line-height:1.5}.forest-solution__arch-card li{margin:.18rem 0}.forest-solution__connection{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#197f79;gap:.1rem}.forest-solution__connection span{font-size:2rem}.forest-solution__connection small{text-align:center;font-size:.61rem}.forest-solution__screens{display:flex;gap:4px;height:145px;align-items:center;background:#243b49;border-radius:9px;padding:8px}.forest-solution__screen{flex:1;height:75%;border:3px solid #172c37;border-radius:4px;background:#d4e9e0}.forest-solution__screen--forest{background:linear-gradient(#b7d5e8 40%,#83b49d 41%,#427a59 72%,#2c5a43)}.forest-solution__screen svg{width:100%;height:100%}.forest-solution__detection-flow{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr);gap:.35rem;align-items:center}.forest-solution__detection figure{margin:0;min-width:0}.forest-solution__detection figure>img,.forest-solution__map,.forest-solution__coordinates{width:100%;height:160px;object-fit:cover;border-radius:9px;display:block;background:#e8f2ec;overflow:hidden}.forest-solution__map svg{width:100%;height:100%}.forest-solution__coordinates{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;text-align:center;padding:.3rem}.forest-solution__coordinates>span{font-size:.65rem;font-weight:800;letter-spacing:.12em;color:#317b76}.forest-solution__coordinates svg{height:75px;max-width:100%}.forest-solution__coordinates strong{font-size:.7rem}.forest-solution__coordinates small{font-size:.62rem}.forest-solution__detection figcaption{display:flex;align-items:start;gap:.5rem;padding-top:.55rem}.forest-solution__detection figcaption strong{display:block;font-size:.73rem;color:#204454}.forest-solution__flow-arrow{font-size:1.5rem;text-align:center;color:#19877d}.forest-solution__workflow{grid-column:1/-1}.forest-solution__workflow-head{display:flex;gap:1rem;align-items:baseline;justify-content:space-between}.forest-solution__workflow-head p{font-size:.8rem;color:#56717a;margin:0 0 .7rem}.forest-solution__workflow-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.65rem}.forest-solution__workflow-step{background:#fff;border:1px solid #dcece7;border-radius:10px;padding:.8rem;display:grid;grid-template-columns:30px 1fr;column-gap:.5rem;align-content:start}.forest-solution__workflow-step>span{grid-row:1/3;background:#d6eee3;color:#127e73;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.75rem}.forest-solution__workflow-step strong{font-size:.8rem;color:#204c53}.forest-solution__workflow-step small{grid-column:2;margin-top:.3rem}
+@media(max-width:1100px){.forest-solution__wrap{grid-template-columns:1fr}.forest-solution__intro{display:grid;grid-template-columns:1fr 1fr;column-gap:1.2rem}.forest-solution__intro .forest-solution__eyebrow,.forest-solution__intro h2,.forest-solution__intro .forest-solution__rule{grid-column:1}.forest-solution__intro>p{grid-column:1}.forest-solution__skills{grid-column:2;grid-row:1/7}.forest-solution__workflow-head{display:block}}
+@media(max-width:700px){.forest-solution__wrap{width:min(100% - 28px,540px)}.forest-solution__intro{display:block}.forest-solution h2{font-size:clamp(1.75rem,7vw,2.3rem)}.desktop-only{display:none}.forest-solution__architecture{grid-template-columns:1fr}.forest-solution__connection{flex-direction:row;gap:1rem;padding:.2rem}.forest-solution__connection span{transform:rotate(90deg)}.forest-solution__arch-card{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}.forest-solution__arch-heading{grid-column:1/-1}.forest-solution__tower,.forest-solution__network,.forest-solution__screens{height:135px}.forest-solution__arch-card ul{margin:0}.forest-solution__detection-flow{grid-template-columns:1fr}.forest-solution__flow-arrow{transform:rotate(90deg)}.forest-solution__detection figure>img,.forest-solution__map,.forest-solution__coordinates{height:170px}.forest-solution__workflow-steps{grid-template-columns:1fr 1fr}.forest-solution__workflow-head p{margin-bottom:1rem}}
+@media(max-width:400px){.forest-solution__skill-cols{gap:.55rem}.forest-solution__skill-cols>div+div{padding-left:.55rem}.forest-solution__workflow-steps{grid-template-columns:1fr}.forest-solution__arch-card{grid-template-columns:1fr}.forest-solution__arch-card ul{padding-left:1.25rem}}
+</style>
+
+<style>
+/* v2 visual refinements: consistent technical icons and evidence-led imagery */
+.forest-solution__dot{width:36px;height:36px;background:#d4ebe1}
+.forest-solution__dot svg{width:20px;height:20px;display:block}
+.forest-solution__tower--photo{background:linear-gradient(180deg,#c5e0f1,#edf7f4)}
+.forest-solution__screens--real{padding:9px;background:#203746;display:flex;align-items:center;justify-content:center}
+.forest-solution__monitor{width:100%;height:100%;position:relative;overflow:hidden;border:3px solid #112c38;border-radius:4px;background:#102b39}
+.forest-solution__monitor img{width:100%;height:100%;object-fit:cover;display:block}
+.forest-solution__monitor-bar{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(6,32,43,.9));color:white;display:flex;justify-content:space-between;align-items:end;padding:15px 7px 5px;font-size:.57rem;font-weight:800;letter-spacing:.08em}
+.forest-solution__live-dot{width:7px;height:7px;background:#4de0ac;border-radius:50%}
+.forest-solution__map--detailed svg{display:block;width:100%;height:100%}
+.forest-solution__coordinates--result{gap:4px;background:#e8f3ec;padding:.5rem}
+.forest-solution__result-map{width:100%;height:100px;border-radius:6px;overflow:hidden}
+.forest-solution__result-map svg{width:100%;height:100%;display:block}
+.forest-solution__coordinates--result strong{font-size:.76rem}
+.forest-solution__coordinates--result small{max-width:200px}
+@media(max-width:700px){.forest-solution__result-map{height:105px}.forest-solution__coordinates--result{height:auto;min-height:185px}}
+</style>
+
+<style>
+/* v3 — compact desktop layout; mobile retains the readable stacked flow. */
+@media (min-width:1101px) {
+  .forest-solution {padding: 14px 0 18px;}
+  .forest-solution__wrap {width:min(1600px,calc(100% - 32px));gap:10px;grid-template-columns:minmax(300px,.78fr) minmax(0,1.92fr);}
+  .forest-solution__right {gap:10px;}
+  .forest-solution__panel {padding:12px 14px;border-radius:12px;}
+  .forest-solution__eyebrow {margin-bottom:5px;font-size:.72rem;}
+  .forest-solution__eyebrow span {font-size:1.65rem;}
+  .forest-solution h2 {font-size:clamp(1.75rem,2.25vw,2.3rem);margin-bottom:9px;line-height:1.1;}
+  .forest-solution__intro>p:not(.forest-solution__eyebrow) {font-size:.86rem;line-height:1.37;margin:7px 0;}
+  .forest-solution__rule {margin:10px 0;width:48px;}
+  .forest-solution h3 {font-size:1rem;margin-bottom:5px;}
+  .forest-solution__lead {font-size:.77rem;line-height:1.32;margin-bottom:8px;}
+  .forest-solution__skills {padding:11px 13px;border-radius:12px;}
+  .forest-solution__skill-cols {gap:9px;}
+  .forest-solution__skill-cols>div+div {padding-left:9px;}
+  .forest-solution h4 {font-size:.75rem;margin-bottom:5px;}
+  .forest-solution__skill {gap:7px;margin:6px 0;}
+  .forest-solution__dot {width:29px;height:29px;}
+  .forest-solution__dot svg {width:17px;height:17px;}
+  .forest-solution__skill strong,.forest-solution__integrate strong {font-size:.72rem;}
+  .forest-solution small {font-size:.66rem;line-height:1.26;}
+  .forest-solution__integrate {padding-top:7px;margin-top:6px;}
+  .forest-solution__integrate>span {font-size:1.5rem;}
+  .forest-solution__architecture {grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+  .forest-solution__arch-card {padding:7px;border-radius:9px;}
+  .forest-solution__arch-heading {min-height:27px;gap:6px;}
+  .forest-solution__arch-heading span,.forest-solution__detection figcaption b {width:21px;height:21px;font-size:.68rem;}
+  .forest-solution__arch-heading h4 {font-size:.72rem;}
+  .forest-solution__tower,.forest-solution__network,.forest-solution__screens {height:105px;}
+  .forest-solution__arch-card ul {margin:5px 0 0;padding-left:14px;font-size:.67rem;line-height:1.3;}
+  .forest-solution__arch-card li {margin:2px 0;}
+  .forest-solution__connection span {font-size:1.5rem;}
+  .forest-solution__connection small {font-size:.52rem;}
+  .forest-solution__detection-flow {grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr) 18px minmax(0,1fr);gap:4px;}
+  .forest-solution__detection figure>img,.forest-solution__map,.forest-solution__coordinates {height:112px;}
+  .forest-solution__result-map {height:62px;}
+  .forest-solution__coordinates--result {padding:4px;gap:1px;}
+  .forest-solution__coordinates--result>span {font-size:.55rem;}
+  .forest-solution__coordinates--result strong {font-size:.66rem;}
+  .forest-solution__coordinates--result small {font-size:.57rem;}
+  .forest-solution__detection figcaption {padding-top:5px;gap:6px;}
+  .forest-solution__detection figcaption strong {font-size:.67rem;}
+  .forest-solution__workflow {padding:10px 12px;border-radius:12px;}
+  .forest-solution__workflow-head {align-items:center;gap:12px;}
+  .forest-solution__workflow-head p {font-size:.7rem;margin:0 0 6px;}
+  .forest-solution__workflow-steps {gap:7px;}
+  .forest-solution__workflow-step {padding:7px;grid-template-columns:23px 1fr;column-gap:6px;}
+  .forest-solution__workflow-step>span {width:22px;height:22px;font-size:.65rem;}
+  .forest-solution__workflow-step strong {font-size:.71rem;}
+  .forest-solution__workflow-step small {font-size:.62rem;margin-top:2px;}
+}
+</style>
+
+<style>
+/* Richer visual references for the three architecture cards only. */
+.forest-solution__arch-illustration{display:block;width:100%;height:145px;object-fit:cover;border-radius:9px;background:#dcecf0;}
+@media(max-width:700px){.forest-solution__arch-illustration{height:135px;}}
+</style>
+
+<style>
+/* Fix: use three equal columns after removing connector elements. */
+@media (max-width:700px){.forest-solution__architecture{grid-template-columns:1fr;gap:10px}}
+</style>
+
+<style>
+/* Two-image detection flow: keep all other section layouts unchanged. */
+.forest-solution__detection-flow--two{grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr);gap:8px;}
+.forest-solution__detection-flow--two figure>img{width:100%;height:160px;object-fit:contain;object-position:center;background:#eef4f1;}
+@media(min-width:1101px){.forest-solution__detection-flow--two{grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);gap:7px;}}
+@media(max-width:700px){.forest-solution__detection-flow--two{grid-template-columns:minmax(0,1fr);gap:8px;} .forest-solution__detection-flow--two .forest-solution__flow-arrow{transform:rotate(90deg);} .forest-solution__detection-flow--two figure>img{height:auto;aspect-ratio:16/9;object-fit:contain;}}
+</style>
+
+<style>
+/* v10: make the two evidence images more prominent without cropping.
+   Preserve the compact desktop layout and the existing mobile stack. */
+.forest-solution__detection-flow--two {
+  grid-template-columns: minmax(0, 1fr) 14px minmax(0, 1fr);
+  gap: 4px;
+}
+.forest-solution__detection-flow--two figure > img {
+  width: 100%;
+  height: 185px;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  border-radius: 8px;
+}
+.forest-solution__detection-flow--two .forest-solution__flow-arrow {
+  font-size: 1.25rem;
+}
+@media (max-width: 1100px) and (min-width: 701px) {
+  .forest-solution__detection-flow--two figure > img {height: 200px;}
+}
+@media (max-width: 700px) {
+  .forest-solution__detection-flow--two {grid-template-columns: minmax(0, 1fr);gap: 8px;}
+  .forest-solution__detection-flow--two figure > img {
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+}
+</style>
+
+
+<style>
+/* v11 — Three-column layout proposed by the portfolio owner.
+   Left: narrative / expertise / customer engineering.
+   Centre: three vertically stacked solution cards.
+   Right: two large software evidence images. */
+@media (min-width: 1101px) {
+  .forest-solution__wrap {
+    width: min(1740px, calc(100% - 36px));
+    display: grid;
+    grid-template-columns: minmax(275px, .92fr) minmax(265px, .75fr) minmax(420px, 1.45fr);
+    gap: 1rem;
+    align-items: start;
+  }
+  .forest-solution__right { display: contents; }
+  .forest-solution__intro { grid-column: 1; grid-row: 1; }
+  .forest-solution__workflow { grid-column: 1; grid-row: 2; }
+  .forest-solution__right > .forest-solution__panel:first-child {
+    grid-column: 2; grid-row: 1 / span 2;
+  }
+  .forest-solution__right > .forest-solution__detection {
+    grid-column: 3; grid-row: 1 / span 2;
+  }
+  .forest-solution__architecture { grid-template-columns: minmax(0,1fr); gap: .75rem; }
+  .forest-solution__arch-card { padding: .7rem; }
+  .forest-solution__arch-illustration { height: clamp(135px, 11vw, 195px); width: 100%; object-fit: cover; }
+  .forest-solution__detection-flow--two {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: .7rem;
+  }
+  .forest-solution__detection-flow--two figure { min-width: 0; }
+  .forest-solution__detection-flow--two figure > img {
+    width: 100%;
+    height: clamp(235px, 20vw, 355px);
+    object-fit: contain;
+    background: #f0f6f3;
+  }
+  .forest-solution__detection-flow--two .forest-solution__flow-arrow {
+    transform: rotate(90deg);
+    line-height: 1;
+    justify-self: center;
+  }
+  .forest-solution__workflow-head { display: block; }
+  .forest-solution__workflow-head p { margin-bottom: .65rem; }
+  .forest-solution__workflow-steps { grid-template-columns: 1fr; gap: .5rem; }
+  .forest-solution__workflow-step { padding: .65rem .75rem; }
+  .forest-solution__workflow-step small { margin-top: .1rem; }
+}
+@media (min-width: 1101px) and (max-width: 1300px) {
+  .forest-solution__wrap { grid-template-columns: minmax(260px, .95fr) minmax(250px, .8fr) minmax(345px, 1.35fr); }
+  .forest-solution__detection-flow--two figure > img { height: 225px; }
+}
+</style>
+
+<style>
+/* v12 — Use more of the available vertical space for the two software images.
+   The historical screenshots remain fully visible (no cropping).
+   Desktop-only adjustment; existing mobile styles remain unchanged. */
+@media (min-width: 1301px) {
+  .forest-solution__detection-flow--two figure > img {
+    height: clamp(310px, 24vw, 425px);
+    object-fit: contain;
+    object-position: center;
+  }
+  .forest-solution__detection-flow--two { gap: .9rem; }
+}
+@media (min-width: 1101px) and (max-width: 1300px) {
+  .forest-solution__detection-flow--two figure > img {
+    height: clamp(250px, 22vw, 310px);
+    object-fit: contain;
+  }
+}
+</style>

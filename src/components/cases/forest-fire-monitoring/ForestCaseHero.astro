@@ -1,0 +1,76 @@
+---
+const clients = [
+  { name: "Saint-Gobain", logo: "/images/cases/forest-fire-monitoring/logos/forest-logo-saint-gobain-placeholder.png" },
+  { name: "Gerdau", logo: "/images/cases/forest-fire-monitoring/logos/forest-logo-gerdau-placeholder.png" },
+  { name: "ArcelorMittal", logo: "/images/cases/forest-fire-monitoring/logos/forest-logo-arcelormittal-placeholder.png" },
+  { name: "WestRock", logo: "/images/cases/forest-fire-monitoring/logos/forest-logo-westrock-placeholder.png" },
+];
+---
+<section class="forest-hero" aria-labelledby="forest-case-title">
+  <div class="forest-hero__photo" aria-hidden="true">
+    <img src="/images/cases/forest-fire-monitoring/forest-fire-monitoring-hero-panorama.jpg" alt="" />
+  </div>
+  <div class="forest-hero__shade" aria-hidden="true"></div>
+
+  <div class="forest-hero__inner">
+    <div class="forest-hero__top">
+      <span>REPRESENTATIVE CASE / PROJECT</span>
+      <span>ATON ENGENHARIA · 2007–2012</span>
+    </div>
+
+    <div class="forest-hero__body">
+      <p class="forest-hero__eyebrow">PRODUCT · PROJECT · COMMERCIAL MANAGEMENT</p>
+      <h1 id="forest-case-title">Forest Fire<br /><em>Monitoring</em></h1>
+      <h2>From observation to a<br class="desktop-break" /> profitable business.</h2>
+      <p class="forest-hero__description">Identifying a market opportunity, developing a remote monitoring solution and helping build a recurring-revenue business for large forest operations.</p>
+    </div>
+
+    <div class="forest-hero__summary" aria-label="Project scale and main clients">
+      <div class="forest-hero__stat">
+        <svg viewBox="0 0 56 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M28 13 10 60h36L28 13Zm-9 22h18M15 47h26M28 13v47M17 35l24 12M39 35 15 47"/><path d="M20 13a8 8 0 0 1 16 0M15 13a13 13 0 0 1 26 0"/></svg>
+        <div><strong>24</strong><span>Operational towers</span></div>
+      </div>
+      <div class="forest-hero__stat">
+        <svg viewBox="0 0 62 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 8-12 23h7L2 45h28l-9-14h7L16 8Zm0 37v15M43 4 31 27h7l-9 15h28l-9-15h7L43 4Zm0 38v18"/></svg>
+        <div><strong>~1,400 km²</strong><span>Forest area monitored</span></div>
+      </div>
+      <div class="forest-hero__clients">
+        <span class="forest-hero__clients-label">MAIN CLIENTS</span>
+        <ul>{clients.map((client) => <li><img src={client.logo} alt={client.name} loading="lazy" decoding="async" /></li>)}</ul>
+      </div>
+    </div>
+    <p class="forest-hero__note">Background adapted from a 2007 installation photograph. Portfolio figures as of January 2012.</p>
+  </div>
+</section>
+
+<style>
+  .forest-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(110deg,#071a33,#134c75);color:#fff;padding:2.6rem 0 1.5rem;min-height:730px}
+  .forest-hero__photo{position:absolute;inset:0;z-index:-2;overflow:hidden;background:linear-gradient(90deg,#0b2949 0%,#3675a2 70%,#84b5d4 100%)}
+  .forest-hero__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
+  .forest-hero__shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,23,43,.98) 0%,rgba(6,30,52,.94) 25%,rgba(7,35,57,.72) 42%,rgba(8,35,57,.20) 65%,rgba(8,31,48,.04) 100%),linear-gradient(0deg,rgba(2,23,37,.92) 0%,transparent 28%)}
+  .forest-hero__inner{width:min(1360px,calc(100% - 64px));margin-inline:auto;position:relative}
+  .forest-hero__top{display:flex;justify-content:space-between;gap:1.5rem;border-bottom:1px solid #ffffff55;padding-bottom:1rem;font-size:.75rem;letter-spacing:.16em;font-weight:750;color:#b8e5f5}
+  .forest-hero__body{padding:3.3rem 0 3.2rem;max-width:690px}
+  .forest-hero__eyebrow{font-size:.8rem;letter-spacing:.14em;font-weight:750;color:#8de2f1;margin:0 0 1.55rem;line-height:1.6}
+  .forest-hero h1{font-size:clamp(3.6rem,6.7vw,6.8rem);line-height:1.02;letter-spacing:-.055em;margin:0 0 1.3rem;color:#fff}
+  .forest-hero h1 em{font-style:normal;color:#9bd6ff}
+  .forest-hero h2{font-size:clamp(1.65rem,2.7vw,2.5rem);line-height:1.17;margin:0 0 1.3rem;color:#fff}
+  .forest-hero__description{font-size:1.06rem;line-height:1.7;color:#e0edf7;max-width:590px;margin:0}
+  .forest-hero__summary{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.15fr) minmax(0,1.9fr);border:1px solid #ffffff5e;border-radius:14px;background:rgba(4,28,47,.8);backdrop-filter:blur(9px);overflow:hidden}
+  .forest-hero__stat{display:flex;align-items:center;gap:1rem;padding:1.35rem 1.2rem;border-right:1px solid #ffffff45;min-width:0}
+  .forest-hero__stat svg{width:44px;height:55px;flex:none;color:#8de2f1}
+  .forest-hero__stat div{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+  .forest-hero__stat strong{font-size:clamp(1.8rem,3vw,2.65rem);line-height:1.05;letter-spacing:-.045em;white-space:nowrap}
+  .forest-hero__stat span{font-size:.85rem;color:#d7e6ef}
+  .forest-hero__clients{padding:1.1rem 1.5rem;display:flex;flex-direction:column;justify-content:center;gap:.85rem;min-width:0}
+  .forest-hero__clients-label{font-size:.74rem;letter-spacing:.14em;color:#8de2f1;font-weight:750}
+  .forest-hero__clients ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center}
+  .forest-hero__clients li{padding:0 .55rem;text-align:center;display:flex;align-items:center;justify-content:center;min-width:0;min-height:68px;overflow:hidden}
+  .forest-hero__clients li img{display:block;width:100%;max-width:165px;height:72px;object-fit:cover;object-position:center 77%;filter:brightness(1.18) contrast(1.15)}
+  .forest-hero__clients li+li{border-left:1px solid #ffffff55}
+  .forest-hero__note{font-size:.72rem;color:#c5d8e7;margin:.85rem 0 0;line-height:1.5}
+  @media(max-width:1000px){.forest-hero__summary{grid-template-columns:1fr 1fr}.forest-hero__clients{grid-column:1/-1;border-top:1px solid #ffffff45}.forest-hero__stat:nth-child(2){border-right:0}.forest-hero__photo img{object-position:65% center}}
+  @media(max-width:650px){.forest-hero{min-height:0;padding:1.7rem 0 1.4rem}.forest-hero__inner{width:calc(100% - 30px)}.forest-hero__top{font-size:.62rem;letter-spacing:.07em;gap:1rem}.forest-hero__body{padding:3.3rem 0 5rem}.forest-hero h1{font-size:clamp(2.8rem,11vw,4.5rem)}.forest-hero h2{font-size:clamp(1.45rem,6vw,2rem)}.forest-hero__description{font-size:.94rem}.forest-hero__photo img{object-position:70% center;opacity:.88}.forest-hero__shade{background:linear-gradient(90deg,rgba(4,23,43,.95),rgba(4,23,43,.76) 62%,rgba(4,23,43,.34)),linear-gradient(0deg,rgba(2,23,37,.94),transparent 40%)}.forest-hero__stat{padding:1rem .7rem;gap:.5rem}.forest-hero__stat svg{width:28px;height:40px}.forest-hero__stat strong{font-size:clamp(1.4rem,5vw,2rem)}.forest-hero__stat span{font-size:.74rem}.forest-hero__clients{padding:1rem}.forest-hero__clients ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;row-gap:.35rem}.forest-hero__clients li{padding:.25rem .5rem;min-height:68px}.forest-hero__clients li img{height:65px;max-width:150px}.forest-hero__clients li,.forest-hero__clients li+li{border-left:0}.forest-hero__clients li:nth-child(even){border-left:1px solid #ffffff55}.forest-hero__clients li:nth-child(n+3){border-top:1px solid #ffffff35}.desktop-break{display:none}}
+  @media(min-width:651px) and (max-width:1100px){.forest-hero__clients li img{height:62px}}
+  @media(max-width:370px){.forest-hero__top{flex-direction:column;gap:.4rem}.forest-hero__summary{grid-template-columns:1fr}.forest-hero__stat{border-right:0;border-bottom:1px solid #ffffff45}.forest-hero__clients{grid-column:auto;border-top:0}}
+</style>

@@ -85,7 +85,19 @@ const earlierRoles = [
           <h2>{role.name}</h2>
           <h3>{role.title}</h3>
           <p>{role.summary}</p>
-          <p class="future-note">Detailed project examples will be added in a subsequent stage.</p>
+          {role.name === "Aton Engenharia" ? (
+            <div class="aton-case-card">
+              <div class="aton-case-content">
+                <p class="aton-case-label">FEATURED CASE STUDY</p>
+                <h4>Forest Fire Monitoring</h4>
+                <p class="aton-case-tagline">From observation to a profitable business.</p>
+                <p class="aton-case-metrics">24 monitoring towers <span aria-hidden="true">·</span> +1,400 km² monitored <span aria-hidden="true">·</span> 4 international corporate clients</p>
+                <a class="aton-case-link" href="/cases/forest-fire-monitoring/">Explore Case Study <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          ) : (
+            <p class="future-note">Detailed project examples will be added in a subsequent stage.</p>
+          )}
         </article>
       ))}
     </div>
@@ -94,4 +106,16 @@ const earlierRoles = [
 
 <style>
   .experience-page{background:#f5f8fc;color:#152c4c;padding:0 0 6rem}.container{width:min(1160px,calc(100% - 40px));margin-inline:auto}.page-intro{padding:4.5rem 0 3.25rem}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:#2474bb}.page-intro h1{font-size:clamp(2rem,4vw,3.6rem);line-height:1.12;max-width:830px;margin:.8rem 0 1rem;color:#102b50}.intro-copy{font-size:1.08rem;line-height:1.7;max-width:730px;color:#52657d}.career-timeline{border-left:2px solid #c8d9eb;padding-left:30px}.career-entry{position:relative;margin:0 0 2.2rem}.timeline-marker{position:absolute;left:-39px;top:17px;width:16px;height:16px;border:3px solid #2a7ac1;border-radius:50%;background:white}.current>.timeline-marker{background:#2a7ac1;box-shadow:0 0 0 5px #dcecf9}.entry-header{padding:2rem;background:linear-gradient(120deg,#fff 50%,#e9f3fb);border-radius:16px;margin-bottom:1.2rem;border:1px solid #e2eaf4}.entry-period{font-size:.88rem;color:#56728f;margin:0 0 .75rem}.company-brand{display:flex;align-items:center;margin:0 0 .55rem}.company-logo{display:block;width:clamp(84px,10vw,118px);height:auto;object-fit:contain}.entry-header h2{font-size:clamp(1.6rem,3vw,2.35rem);margin:.15rem 0;color:#102b50}.entry-division{font-weight:650;color:#2b5785;margin:.4rem 0 1rem}.entry-description{max-width:760px;line-height:1.7;color:#435a72;margin:0}.panel{background:#fff;border:1px solid #e1eaf4;border-radius:14px;padding:1.35rem;box-shadow:0 5px 18px rgba(23,57,96,.035)}.delivery-overview{display:grid;grid-template-columns:minmax(0,2fr) minmax(230px,1fr);gap:1rem;margin-bottom:1rem}.section-heading h3,.contribution-section>h3,.impact-section>h3{font-size:1.2rem;color:#113460;margin:0 0 .25rem}.section-heading p{font-size:.88rem;color:#657a91;margin:0}.capacity-chart{display:flex;align-items:end;gap:1.2rem;height:230px;padding:1.3rem .4rem 0;border-bottom:1px solid #c9d9ea}.bar-group{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:.35rem;min-width:0}.bar-group strong{font-size:.84rem;color:#153d74;white-space:nowrap}.bar-track{height:175px;width:100%;display:flex;align-items:flex-end;justify-content:center}.bar{width:min(76px,80%);background:linear-gradient(#3f9bee,#2171c4);border-radius:4px 4px 0 0}.bar-group span{font-size:.82rem;color:#62788e}.chart-note,.diagram-note{font-size:.78rem;line-height:1.5;color:#64778a;margin:1rem 0 0}.value-panel{display:flex;flex-direction:column}.value{font-size:clamp(2rem,4vw,3.1rem);font-weight:850;letter-spacing:-.04em;color:#123c74;margin:auto 0 .3rem}.value-panel>p:last-child{margin:0 0 auto;color:#61768c;line-height:1.5}.upcoming-panel{margin-bottom:1rem}.stakeholder-levels{display:grid;gap:.65rem;margin-top:1.2rem}.stakeholder-row{display:grid;grid-template-columns:125px 1fr;align-items:center;gap:1rem;padding:.85rem 1rem;background:#f1f6fc;border-radius:9px}.stakeholder-row p{margin:0;font-size:.9rem;line-height:1.55}.level{font-weight:800;color:#15589d}.power-flow{display:flex;align-items:center;gap:.55rem;margin:1.4rem 0;flex-wrap:wrap}.power-flow span{flex:1;min-width:110px;text-align:center;padding:1.1rem .5rem;border:1px solid #c9dbef;border-radius:9px;background:#eff6fe;font-weight:700;font-size:.86rem}.power-flow b{color:#2979c4}.contribution-section,.impact-section{margin:1.8rem 0}.contribution-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-top:.85rem}.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin-top:.85rem}.contribution-grid h4,.impact-grid h4{font-size:.96rem;color:#16477f;margin:0 0 .75rem}.contribution-grid p,.impact-grid p{font-size:.87rem;line-height:1.65;color:#4e6278;margin:0}.map-categories{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0}.map-categories span{border:1px solid #d7e5f3;border-radius:99px;padding:.45rem .8rem;font-size:.78rem;color:#285d93}.map-categories span:nth-child(2){color:#248050}.map-categories span:nth-child(3){color:#cb7826}.map-categories span:nth-child(4){color:#8b4bb2}.footprint>p{color:#60768d;font-size:.88rem}.transition-note{position:relative;padding:1rem 0 1.4rem;color:#5b7087}.transition-note .timeline-marker{width:12px;height:12px;left:-37px;top:19px;border-width:2px}.transition-note p{margin:0}.earlier{background:#fff;border:1px solid #e1eaf4;border-radius:14px;padding:1.5rem 1.7rem}.earlier h2{color:#113460;font-size:1.5rem;margin:0 0 .35rem}.earlier h3{font-size:1rem;color:#32699d;margin:0 0 .7rem}.earlier>p:not(.entry-period){line-height:1.65;color:#4c6279;margin:.4rem 0}.earlier .future-note{font-size:.82rem;color:#778ba0!important;margin-top:1rem!important}@media(max-width:850px){.delivery-overview{grid-template-columns:1fr}.contribution-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.container{width:min(100% - 28px,1160px)}.career-timeline{padding-left:18px}.timeline-marker{left:-27px}.transition-note .timeline-marker{left:-25px}.page-intro{padding:3rem 0 2rem}.entry-header,.panel{padding:1.1rem}.contribution-grid,.impact-grid{grid-template-columns:1fr}.stakeholder-row{grid-template-columns:1fr;gap:.3rem}.power-flow{flex-direction:column;align-items:stretch}.power-flow b{transform:rotate(90deg);align-self:center}.capacity-chart{gap:.3rem}.bar-group strong{font-size:.73rem}}
+</style>
+
+<style>
+  .aton-case-card{margin-top:1.25rem;padding:1.25rem 1.4rem;border:1px solid #cbdedb;border-radius:14px;background:linear-gradient(110deg,#f0f8f5,#f8fbfd)}
+  .aton-case-label{font-size:.7rem!important;font-weight:800;letter-spacing:.12em;color:#188773!important;margin:0 0 .5rem!important}
+  .aton-case-card h4{font-size:1.3rem;color:#123c50;margin:0 0 .25rem}
+  .aton-case-tagline{font-size:.96rem;color:#486477!important;margin:0 0 .75rem!important}
+  .aton-case-metrics{font-size:.86rem;font-weight:650;color:#214f5c!important;margin:0 0 1rem!important}
+  .aton-case-metrics span{padding:0 .3rem;color:#168b79}
+  .aton-case-link{display:inline-flex;align-items:center;gap:.5rem;border-radius:8px;background:#127f71;color:#fff;text-decoration:none;font-size:.88rem;font-weight:750;padding:.7rem 1rem;transition:background .2s ease}
+  .aton-case-link:hover,.aton-case-link:focus-visible{background:#0e6259}
+  @media(max-width:560px){.aton-case-card{padding:1rem}.aton-case-metrics{line-height:1.7}}
 </style>

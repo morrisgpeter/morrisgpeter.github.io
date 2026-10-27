@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-26
+**Last updated:** 2026-10-27
 
 ## Status legend
 
@@ -378,3 +378,17 @@ When a decision is confirmed or revised:
 - **Mentoring and Knowledge Sharing:** Mentored project managers and shared practical experience to strengthen leadership capabilities.
 - **Empowering Teams:** Delegated responsibilities across project teams, encouraging autonomy and accountability.
 - **Long-Term Relationships:** Built trust and professional connections that continued beyond individual projects.
+
+
+## Aton Engenharia — Forest Fire Monitoring case study (2026-10-27)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-116 | 2026-10-27 | Case-first Aton architecture | Develop **Forest Fire Monitoring** as a standalone representative case before expanding the full Aton Experience chapter. | Accepted | Case content can later inform a concise Aton career summary without duplicating the full narrative. |
+| D-117 | 2026-10-27 | Case route and hero | Use `/cases/forest-fire-monitoring` with a responsive dark photographic hero: **Forest Fire Monitoring** / **From observation to a profitable business.** / **Product · Project · Commercial Management** / **Aton Engenharia · 2007–2012**. | Accepted (visual iteration) | Hero desktop/mobile visually reviewed; use `ForestCaseHero.astro`. Adapted panorama requires disclosure. |
+| D-118 | 2026-10-27 | Business-scale indicators | Show **24 monitoring towers**, **+1,400 km² monitored**, **4 international corporate clients**. Name **Saint-Gobain, Gerdau, ArcelorMittal, WestRock** as the four client groups. | Accepted | Do not confuse corporate groups with individual installations or claim the metrics cover all Aton operations. Client-logo assets remain provisional until rights/accuracy verification. |
+| D-119 | 2026-10-27 | Aton Experience entry point | Include a visually distinct **FEATURED CASE STUDY — Forest Fire Monitoring** card within the Aton Experience chapter, with the approved subtitle, three indicators and **Explore Case Study →** link. | Accepted (visual iteration) | User shared a desktop screenshot and accepted the card. Do not modify approved ABB or Fibra chapters. |
+| D-120 | 2026-10-27 | Opportunity section layout | Use **The Opportunity — Seeing What Others Didn’t** with a three-part desktop composition: discovery narrative, historical conventional watchtower photo, and progression from human observation toward remote cameras and location estimation; stack on mobile. | Accepted (design direction) | Use the 2007 full-tower photo as primary; photographs were taken at a prospective customer's facilities, **not** at Veracel. Implementation and exact diagram labels remain to be reviewed. |
+| D-121 | 2026-10-27 | Evidence and publication boundaries | Distinguish historical photographs from adapted/generated assets; describe the business model and discovery accurately; avoid unverified automated-detection, triangulation-accuracy, realized-payback or customer-permission claims. | Accepted (content integrity) | Hero background adapted from historical installation photo; verify client logos, publication permissions, data and captions before final release. Visual acceptance is not build/deployment confirmation. |
+
+**Implementation/release status:** The hero and Aton Featured Case Study card are visually approved; no independent build, commit/push or live deployment confirmation is recorded here for the new case. The Opportunity remains the next implementation milestone.

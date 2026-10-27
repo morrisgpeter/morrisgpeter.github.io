@@ -1,0 +1,107 @@
+---
+const watchtowerImage = '/images/cases/forest-fire-monitoring/forest-watchtower-2007.jpg';
+---
+<section class="forest-opportunity" aria-labelledby="forest-opportunity-title">
+  <div class="forest-opportunity__container">
+    <div class="forest-opportunity__story">
+      <p class="forest-opportunity__eyebrow"><span>01</span> THE OPPORTUNITY</p>
+      <h2 id="forest-opportunity-title">Seeing What Others Didn’t</h2>
+      <p>During a technical visit to a forestry operation in <strong>2006</strong>, I observed a traditional fire watchtower staffed by human operators.</p>
+      <p>Speaking with the monitoring team helped me understand how observations from different towers were used to estimate the location of potential fires through triangulation.</p>
+      <p>That experience raised a question: <strong>could remotely controlled cameras, communication networks and software provide an alternative to conventional forest surveillance?</strong></p>
+      <p>I presented the opportunity to Aton’s leadership and secured support to explore its technical and commercial feasibility.</p>
+      <div class="forest-opportunity__accent" aria-hidden="true"></div>
+    </div>
+
+    <figure class="forest-opportunity__photo">
+      <img src={watchtowerImage} alt="Traditional forest fire watchtower photographed during a prospective customer site visit in 2007" loading="lazy" width="480" height="640" />
+      <figcaption>Traditional forest watchtower · Prospective customer site visit, 2007</figcaption>
+    </figure>
+
+    <div class="forest-opportunity__concept" aria-label="Conceptual transition from human observation to remote monitoring">
+      <h3>From human observation to remote intelligence</h3>
+      <div class="forest-opportunity__steps">
+        <div class="forest-opportunity__step">
+          <div class="forest-opportunity__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="29" r="7"/><circle cx="34" cy="29" r="7"/><path d="M8 23l4-11h6l4 11m4 0 4-11h6l4 11M21 26h6"/></svg>
+          </div>
+          <strong>HUMAN<br />OBSERVATION</strong>
+          <span>Conventional staffed watchtowers</span>
+        </div>
+        <span class="forest-opportunity__arrow" aria-hidden="true">→</span>
+        <div class="forest-opportunity__step">
+          <div class="forest-opportunity__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="15" width="25" height="19" rx="3"/><path d="m33 21 9-5v17l-9-5M14 11h9"/><circle cx="20" cy="24" r="5"/></svg>
+          </div>
+          <strong>REMOTE<br />CAMERAS</strong>
+          <span>Remote visual monitoring</span>
+        </div>
+        <span class="forest-opportunity__arrow" aria-hidden="true">→</span>
+        <div class="forest-opportunity__step">
+          <div class="forest-opportunity__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 14 10-4 12 4 10-4v26l-10 4-12-4-10 4V14Zm10-4v26m12-22v26"/><path d="M24 19a5 5 0 0 1 5 5c0 4-5 9-5 9s-5-5-5-9a5 5 0 0 1 5-5Z"/><circle cx="24" cy="24" r="1"/></svg>
+          </div>
+          <strong>LOCATION<br />DATA</strong>
+          <span>Supporting fire location estimates</span>
+        </div>
+      </div>
+      <p class="forest-opportunity__note">Conceptual evolution of the monitoring approach</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .forest-opportunity { background: #f7fafc; color: #142b44; padding: clamp(1.75rem, 3vw, 2.5rem) 0; }
+  .forest-opportunity__container {
+    width: min(1420px, calc(100% - 48px)); margin: auto;
+    display: grid; grid-template-columns: minmax(0, 1.85fr) minmax(280px, .85fr);
+    grid-template-rows: auto auto; column-gap: clamp(1.5rem, 3vw, 3rem);
+    row-gap: 1.15rem; align-items: start;
+  }
+  .forest-opportunity__story { grid-column: 1; grid-row: 1; min-width: 0; }
+  .forest-opportunity__eyebrow { display: flex; align-items: center; gap: 1rem; margin: 0 0 .7rem; font-size: .8rem; font-weight: 800; letter-spacing: .16em; color: #315c78; }
+  .forest-opportunity__eyebrow span { font-size: 2rem; letter-spacing: 0; color: #123957; font-weight: 700; }
+  .forest-opportunity h2 { font-size: clamp(1.85rem, 2.6vw, 2.7rem); line-height: 1.15; margin: 0 0 .9rem; color: #102d49; }
+  .forest-opportunity__story p:not(.forest-opportunity__eyebrow) { font-size: .93rem; line-height: 1.55; color: #4a6073; margin: 0 0 .7rem; }
+  .forest-opportunity__story strong { color: #163d57; }
+  .forest-opportunity__accent { width: 50px; height: 3px; background: #66cba4; margin-top: .8rem; }
+  .forest-opportunity__photo {
+    grid-column: 2; grid-row: 1 / 3; align-self: stretch;
+    position: relative; margin: 0; min-height: 0; overflow: hidden;
+    border-radius: 12px; background: #d9e5eb;
+  }
+  .forest-opportunity__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+  .forest-opportunity__photo figcaption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(4,26,42,.9)); padding: 2.5rem .9rem .85rem; color: #fff; font-size: .72rem; line-height: 1.4; }
+  .forest-opportunity__concept {
+    grid-column: 1; grid-row: 2; min-width: 0;
+    border: 1px solid #dfeae5; border-radius: 12px;
+    background: #eef6f2; padding: 1.05rem 1.2rem .8rem;
+  }
+  .forest-opportunity__concept h3 { font-size: clamp(1.02rem, 1.35vw, 1.25rem); line-height: 1.3; margin: 0 0 .9rem; color: #1c3d39; }
+  .forest-opportunity__steps { display: grid; grid-template-columns: minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr); align-items: start; gap: .35rem; }
+  .forest-opportunity__step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .35rem; min-width: 0; }
+  .forest-opportunity__icon { display: grid; place-items: center; width: 55px; aspect-ratio: 1; border-radius: 50%; background: #d2e8db; color: #163d37; }
+  .forest-opportunity__icon svg { width: 52%; height: 52%; }
+  .forest-opportunity__step strong { font-size: .81rem; line-height: 1.2; letter-spacing: .02em; color: #183b37; }
+  .forest-opportunity__step span { font-size: .78rem; line-height: 1.3; color: #536e69; }
+  .forest-opportunity__arrow { padding-top: .6rem; font-size: 1.25rem; text-align: center; color: #345f58; }
+  .forest-opportunity__note { margin: .8rem 0 0; font-size: .67rem; color: #6d827e; text-align: right; }
+  @media (max-width: 900px) {
+    .forest-opportunity__container { grid-template-columns: minmax(0, 1.5fr) minmax(230px, .9fr); column-gap: 1.25rem; }
+    .forest-opportunity__concept { padding: .9rem; }
+  }
+  @media (max-width: 700px) {
+    .forest-opportunity { padding: 2rem 0; }
+    .forest-opportunity__container { width: min(100% - 32px, 540px); grid-template-columns: minmax(0,1fr); grid-template-rows: auto; gap: 1.2rem; }
+    .forest-opportunity__story { grid-column: 1; grid-row: 1; }
+    .forest-opportunity__photo { grid-column: 1; grid-row: 2; height: 360px; min-height: 360px; }
+    .forest-opportunity__concept { grid-column: 1; grid-row: 3; padding: 1rem .85rem; }
+    .forest-opportunity__concept h3 { text-align: center; }
+    .forest-opportunity__steps { grid-template-columns: minmax(0,1fr) 14px minmax(0,1fr) 14px minmax(0,1fr); gap: .15rem; }
+    .forest-opportunity__icon { width: 52px; }
+    .forest-opportunity__step strong { font-size: .72rem; }
+    .forest-opportunity__step span { font-size: .71rem; }
+    .forest-opportunity__note { text-align: center; }
+  }
+  @media (max-width: 370px) { .forest-opportunity__icon { width: 45px; } .forest-opportunity__arrow { font-size: 1rem; } }
+</style>

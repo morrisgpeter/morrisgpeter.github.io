@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-26  
+**Updated:** 2026-10-27  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -458,3 +458,26 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Check the status of other Fibra refinements and the separate **Commercial Growth Process** removal before deciding which additional files to include in the same commit.
 
 **Status:** People & Culture visual/content design approved. Build, commit and deployment not yet verified.
+
+
+## Aton Engenharia — Forest Fire Monitoring case study (2026-10-27)
+
+**Scope:** Develop a standalone case study first, then decide which elements belong in the shorter Aton Experience summary. Do not expand the full Aton chapter until the case is consolidated.
+
+- [x] Define the standalone case route: `src/pages/cases/forest-fire-monitoring.astro`.
+- [x] Review and approve the dark photographic hero on desktop and mobile; component: `src/components/cases/forest-fire-monitoring/ForestCaseHero.astro`.
+- [x] Approve hero framing: **Forest Fire Monitoring** / **From observation to a profitable business.** / **Product · Project · Commercial Management**.
+- [x] Retain the case indicators **24 monitoring towers**, **+1,400 km² monitored**, and **4 international corporate clients**.
+- [x] Identify the four corporate client groups: **Saint-Gobain, Gerdau, ArcelorMittal, WestRock**.
+- [x] Review and approve the **Featured Case Study** card inside Aton Experience, with **Explore Case Study →** linking to the standalone page; user supplied a desktop screenshot.
+- [x] Agree the next section's visual direction: **The Opportunity — Seeing What Others Didn’t**; three-part desktop composition (discovery narrative, historical watchtower photograph, observation-to-remote-monitoring concept), stacked on mobile.
+- [ ] Confirm final source files and image filenames in the local repository; preserve approved ABB and Fibra components.
+- [ ] Implement and visually review **The Opportunity** and subsequent case-study sections one at a time.
+- [ ] Check the case-study page and Experience-card link on desktop/mobile; run `npm run build`.
+- [ ] Verify photograph provenance, client-logo rights, metric scope, historical claims and disclosure suitability.
+- [ ] Commit/push case-study files and documentation; verify live GitHub Pages deployment and link navigation.
+- [ ] After completing the case, assess what to summarize in the broader Aton Experience chapter.
+
+**Historical-image distinction:** The conventional watchtower photographs were taken in 2007 at a prospective customer's facilities; they are **not** photographs from the Veracel visit and **not** photographs of Aton's remote-monitoring equipment. The hero panorama was adapted from a historical installation photograph; preserve a clear image-adaptation disclosure.
+
+**Status:** Hero and Aton featured-card visual iterations approved. The Opportunity structure agreed; implementation, production build, commit/push and public deployment of the case are not independently verified by these records.

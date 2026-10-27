@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-26
+**Last updated:** 2026-10-27
 
 ## Purpose
 
@@ -289,3 +289,23 @@ The approved narrative describes negotiations with US- and Israel-based supplier
 The **PEOPLE & CULTURE / Developing Teams and Building Lasting Relationships** section is visually approved on desktop and mobile. The approved narrative specifies mentoring approximately **three project managers** and coordinating multidisciplinary teams of **more than 50 professionals through delegated leadership**; it does **not** imply 50 direct reports. Three light-blue cards cover **Mentoring and Knowledge Sharing**, **Empowering Teams**, and **Long-Term Relationships**. The third card uses the final blue-outline **three-person circular network** SVG (not the superseded handshake/link attempts); the first two icons remain unchanged. The accompanying Fibra-branded team image is explicitly labeled **Illustrative image**.
 
 The reviewed final component source is `FibraRiskPeople_RelationshipNetwork_v5_FIXED.astro`, intended to replace `src/components/experience/fibra/FibraRiskPeople.astro`. The same component also contains the previously approved **Commercial Risk Management** card, which must not be modified as part of this update. User-approved screenshots establish visual/content acceptance, **not** successful build, commit/push, live publication, accessibility or disclosure clearance. See D-112–D-115.
+
+
+## Aton Engenharia — Forest Fire Monitoring representative case (2026-10-27)
+
+**Content architecture:** Build a dedicated professional case study at `/cases/forest-fire-monitoring` before attempting to reconstruct the complete Aton Engenharia Experience chapter. The Aton Experience summary contains a **Featured Case Study** card linking to the standalone case. This supports the broader distinction between Experience (career scope) and case studies (detailed evidence).
+
+**Files / structure discussed:**
+- `src/pages/cases/forest-fire-monitoring.astro` — case-study route.
+- `src/components/cases/forest-fire-monitoring/ForestCaseHero.astro` — approved responsive hero.
+- `src/components/cases/forest-fire-monitoring/ForestOpportunity.astro` — next planned section, not yet confirmed as implemented.
+- `public/images/cases/forest-fire-monitoring/forest-fire-monitoring-hero-panorama.jpg` — adapted panoramic historical installation photograph.
+- `public/images/cases/forest-fire-monitoring/logos/` — provisional client-logo assets; replace/verify official artwork and usage rights before final release.
+
+**Approved public-facing framing:** **Forest Fire Monitoring**; **From observation to a profitable business.**; **Product · Project · Commercial Management**; **Aton Engenharia · 2007–2012**. The Experience card uses **FEATURED CASE STUDY**, **Forest Fire Monitoring**, the same subtitle, **24 monitoring towers · +1,400 km² monitored · 4 international corporate clients**, and **Explore Case Study →**. Four corporate client groups: **Saint-Gobain, Gerdau, ArcelorMittal, WestRock**. These figures describe the monitoring business case, not all Aton projects.
+
+**Historical narrative and attribution:** During a visit to Veracel's forestry operation in southern Bahia with RedePetro Bahia, the user observed human-staffed fire-watchtower practices and discussed triangulation with the monitoring manager. This prompted an opportunity to use remotely controlled cameras, communications and software for forest surveillance. The idea was developed with support from Aton leadership and a technical team; an initial solution was operational by 2007. The user led concept, requirements, initial project delivery and commercial development, then delegated later project execution. The service/rental model involved Aton's upfront equipment investment, customer installation/survey charges and recurring fees. Historical estimates of 18–24-month payback are **estimates**, not verified realized payback. Do not describe the solution as fully automated fire detection without evidence.
+
+**Photography and design:** The approved hero uses a dark photographic treatment with an adapted panoramic historical installation image, responsive typography and a client-logo strip. The next section, **The Opportunity — Seeing What Others Didn’t**, should use a light background and a three-part layout: concise narrative, a conventional watchtower photograph, and a simple visual transition from human observation to remote monitoring/location estimation. Historical conventional-watchtower photographs were taken in **2007 at a prospective customer's facilities**, **not at Veracel** and **not of Aton's installed monitoring towers**. The full-tower photograph is preferred as the main image. Caption and adaptation disclosures must remain accurate.
+
+**Status:** Hero and Featured Case Study card visually approved in discussion (desktop/mobile hero; desktop card screenshot). No independent confirmation here of final case production build, Git commit, GitHub Pages deployment or asset rights. Preserve approved ABB and Fibra sections.

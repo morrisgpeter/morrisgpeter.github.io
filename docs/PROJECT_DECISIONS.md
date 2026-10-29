@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-27
+**Last updated:** 2026-10-29
 
 ## Status legend
 
@@ -392,3 +392,12 @@ When a decision is confirmed or revised:
 | D-121 | 2026-10-27 | Evidence and publication boundaries | Distinguish historical photographs from adapted/generated assets; describe the business model and discovery accurately; avoid unverified automated-detection, triangulation-accuracy, realized-payback or customer-permission claims. | Accepted (content integrity) | Hero background adapted from historical installation photo; verify client logos, publication permissions, data and captions before final release. Visual acceptance is not build/deployment confirmation. |
 
 **Implementation/release status:** The hero and Aton Featured Case Study card are visually approved; no independent build, commit/push or live deployment confirmation is recorded here for the new case. The Opportunity remains the next implementation milestone.
+
+## Aton Engenharia — Forest Fire Monitoring: progress and Business Model approval (2026-10-29)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-122 | 2026-10-29 | Opportunity and solution progress | **The Opportunity** and **From Idea to Solution** have progressed beyond the planning status recorded in D-120 and the earlier implementation-status note. Preserve the approved **ForestSolution.astro v12**; the compressed v13 was rejected. | Accepted (visual iterations) | Earlier notes describing The Opportunity as not implemented are historical and superseded by this progress update. |
+| D-123 | 2026-10-29 | Business Model & Commercial Development | Approve **Section 03 — Business Model & Commercial Development**, **version 7**, for desktop and mobile. | Accepted (visual iteration) | Implemented locally through `ForestBusinessModel.astro` and changes to the case page, as evidenced by user-provided `git status`; production build, commit, push and deployment remain unverified. |
+
+**Release scope:** Stage only `src/components/cases/forest-fire-monitoring/ForestBusinessModel.astro`, `src/pages/cases/forest-fire-monitoring.astro` and intentionally updated documentation for this commit. Do not include unrelated untracked scripts, `__pycache__` or Fibra logo images without separate review.

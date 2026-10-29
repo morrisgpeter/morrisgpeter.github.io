@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-27  
+**Updated:** 2026-10-29  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -481,3 +481,17 @@ Navigation, responsiveness, accessibility, and content verification should also 
 **Historical-image distinction:** The conventional watchtower photographs were taken in 2007 at a prospective customer's facilities; they are **not** photographs from the Veracel visit and **not** photographs of Aton's remote-monitoring equipment. The hero panorama was adapted from a historical installation photograph; preserve a clear image-adaptation disclosure.
 
 **Status:** Hero and Aton featured-card visual iterations approved. The Opportunity structure agreed; implementation, production build, commit/push and public deployment of the case are not independently verified by these records.
+
+## Aton — Forest Fire Monitoring, Section 03 release checkpoint (2026-10-29)
+
+- [x] Review and approve **01 — The Opportunity** (supersedes the earlier pending-implementation checklist).
+- [x] Review and approve **02 — From Idea to Solution**; retain **ForestSolution.astro v12** and do not use rejected compact v13.
+- [x] Review and approve **03 — Business Model & Commercial Development**, **v7**, on desktop and mobile.
+- [x] Confirm local working-tree changes through user-provided `git status`: modified `src/pages/cases/forest-fire-monitoring.astro` and untracked `src/components/cases/forest-fire-monitoring/ForestBusinessModel.astro`.
+- [ ] Inspect `git diff` and the new component; ensure the case page imports and renders Section 03 without modifying other approved sections.
+- [ ] Run `npm run build` successfully.
+- [ ] Stage only the two case files and intentionally updated `docs/` files; leave unrelated Fibra logos, scripts and `scripts/__pycache__/` untracked.
+- [ ] Commit and push; confirm GitHub Pages deployment and review live desktop/mobile rendering.
+- [ ] Plan **Section 04** separately; no Section 04 design or copy is approved here.
+
+**Status:** Section 03 v7 **visually approved**, but commit/publication not yet confirmed. The older Aton checklist remains as historical planning; this checkpoint records the more recent progress.

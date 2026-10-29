@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-27
+**Last updated:** 2026-10-29
 
 ## Purpose
 
@@ -309,3 +309,11 @@ The reviewed final component source is `FibraRiskPeople_RelationshipNetwork_v5_F
 **Photography and design:** The approved hero uses a dark photographic treatment with an adapted panoramic historical installation image, responsive typography and a client-logo strip. The next section, **The Opportunity — Seeing What Others Didn’t**, should use a light background and a three-part layout: concise narrative, a conventional watchtower photograph, and a simple visual transition from human observation to remote monitoring/location estimation. Historical conventional-watchtower photographs were taken in **2007 at a prospective customer's facilities**, **not at Veracel** and **not of Aton's installed monitoring towers**. The full-tower photograph is preferred as the main image. Caption and adaptation disclosures must remain accurate.
 
 **Status:** Hero and Featured Case Study card visually approved in discussion (desktop/mobile hero; desktop card screenshot). No independent confirmation here of final case production build, Git commit, GitHub Pages deployment or asset rights. Preserve approved ABB and Fibra sections.
+
+### Forest Fire Monitoring — current section progress (2026-10-29)
+
+This update supersedes the earlier paragraph identifying **The Opportunity** as the next unimplemented section. The case has an approved **01 — The Opportunity** section and an approved **02 — From Idea to Solution** presentation. The preferred **ForestSolution.astro v12** retains larger images and vertical scrolling; the compressed v13 was not accepted.
+
+**03 — Business Model & Commercial Development**: version **7** is approved for desktop and mobile. Its local component is `src/components/cases/forest-fire-monitoring/ForestBusinessModel.astro`, imported/used by `src/pages/cases/forest-fire-monitoring.astro` (verify final integration in the Git diff). The user's `git status` on 2026-10-29 shows the case page modified and the new component untracked; this confirms local working-tree changes only, not a production build or publication.
+
+Preserve all earlier approved ABB/Fibra sections, and do not stage unrelated scripts, cache files or Fibra logo images as part of this case-study commit.

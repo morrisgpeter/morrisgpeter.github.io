@@ -495,3 +495,23 @@ Navigation, responsiveness, accessibility, and content verification should also 
 - [ ] Plan **Section 04** separately; no Section 04 design or copy is approved here.
 
 **Status:** Section 03 v7 **visually approved**, but commit/publication not yet confirmed. The older Aton checklist remains as historical planning; this checkpoint records the more recent progress.
+
+
+## Aton — Forest Fire Monitoring, Sections 04–05 approval and next release checkpoint (2026-10-29)
+
+This section supersedes the older Section 03 release checklist and its statement that Section 04 had not been planned.
+
+- [x] Approve **01 — The Opportunity** and **02 — From Idea to Solution** (retain solution v12).
+- [x] Approve **03 — Business Model & Commercial Development v7** on desktop/mobile.
+- [x] Complete Section 03 local production build (six pages), commit and push: **`97f8824`**.
+- [x] Approve **04 — Operational Footprint / 24 Towers Across Brazil**, including four-client color legend, seven operations, 24 towers and approximately 1,400 km² monitored.
+- [x] Approve **05 — Business Impact / An Established Business**, with three cards: 4 Corporate clients; 24 Towers operational; Profitable business.
+- [ ] Verify map locations against documented operating sites and reconcile the seven-operation count; do not use mockup marker positions as authoritative coordinates.
+- [ ] Verify evidence and disclosure for actual profitability, recovered investment, customer expansion and continued Aton forest-sector offerings; projected 18–24-month payback is not proof of recovery.
+- [ ] Verify Sections 04–05 source files, case-page imports, responsive desktop/mobile rendering, keyboard accessibility and image/logo rights.
+- [ ] Run `npm run build`, review `git status`/`git diff`, and stage **only** the intended Section 04–05 files and updated documentation.
+- [ ] Commit/push Sections 04–05 and verify GitHub Pages deployment and live page behavior.
+- [ ] Independently verify the live publication of Section 03 if not already checked.
+- [ ] Once the case is released, decide what belongs in the shorter Aton Experience summary without duplicating the case study.
+
+**Status:** Sections **01–05 content/design approved**; Section 03 committed and pushed; Sections 04–05 publication not yet independently confirmed.

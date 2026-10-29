@@ -4,6 +4,8 @@ import ForestCaseHero from "../../components/cases/forest-fire-monitoring/Forest
 import ForestOpportunity from "../../components/cases/forest-fire-monitoring/ForestOpportunity.astro";
 import ForestSolution from "../../components/cases/forest-fire-monitoring/ForestSolution.astro";
 import ForestBusinessModel from "../../components/cases/forest-fire-monitoring/ForestBusinessModel.astro";
+import ForestOperationalFootprint from '../../components/cases/forest-fire-monitoring/ForestOperationalFootprint.astro';
+import ForestBusinessImpact from "../../components/cases/forest-fire-monitoring/ForestBusinessImpact.astro";
 ---
 
 <BaseLayout
@@ -15,5 +17,15 @@ import ForestBusinessModel from "../../components/cases/forest-fire-monitoring/F
     <ForestOpportunity />
     <ForestSolution />
     <ForestBusinessModel />
+    <div class="forest-results-grid">
+      <ForestOperationalFootprint />
+      <ForestBusinessImpact />
+    </div>
   </main>
 </BaseLayout>
+
+<style>
+  .forest-results-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;gap:1.25rem;max-width:1480px;margin:0 auto;padding:2rem 1.5rem;background:#f7fafc;}
+  @media(max-width:1050px){.forest-results-grid{grid-template-columns:1fr;}}
+  @media(max-width:600px){.forest-results-grid{padding:1.25rem 1rem;gap:1rem;}}
+</style>

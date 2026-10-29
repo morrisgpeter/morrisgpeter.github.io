@@ -401,3 +401,15 @@ When a decision is confirmed or revised:
 | D-123 | 2026-10-29 | Business Model & Commercial Development | Approve **Section 03 — Business Model & Commercial Development**, **version 7**, for desktop and mobile. | Accepted (visual iteration) | Implemented locally through `ForestBusinessModel.astro` and changes to the case page, as evidenced by user-provided `git status`; production build, commit, push and deployment remain unverified. |
 
 **Release scope:** Stage only `src/components/cases/forest-fire-monitoring/ForestBusinessModel.astro`, `src/pages/cases/forest-fire-monitoring.astro` and intentionally updated documentation for this commit. Do not include unrelated untracked scripts, `__pycache__` or Fibra logo images without separate review.
+
+
+## Aton Engenharia — Forest Fire Monitoring: Sections 04–05 approval and updated release record (2026-10-29)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-124 | 2026-10-29 | Section 03 release | **Business Model & Commercial Development v7** was committed and pushed as **`97f8824`** (`feat: add forest monitoring business model and economics`); `npm run build` succeeded (six pages). | Accepted (committed/pushed) | Supersedes D-123's earlier pending-commit status. Live deployment not separately verified. |
+| D-125 | 2026-10-29 | Section 04 Operational Footprint | Approve **24 Towers Across Brazil**: Brazil map with state borders and colored client markers, showing **four corporate groups**, **24 towers**, **approximately 1,400 km²** and **seven operations**. Legend: Saint-Gobain blue, Gerdau orange, ArcelorMittal red, WestRock green. | Accepted (content/visual design) | Seven operations are distinct from four client groups. Verify geographic markers against documented operation locations; screenshot coordinates are not authoritative. |
+| D-126 | 2026-10-29 | Section 05 Business Impact | Approve **An Established Business**, with cards **4 Corporate clients**, **24 Towers operational**, **Profitable business** and narrative about profitability, recovered initial investment, customer expansion and Aton's continued forest-sector activity. | Accepted (content/visual design) | Do not equate Section 03's projected payback with actual recovered investment. Validate financial and present-day business assertions before final external disclosure. |
+| D-127 | 2026-10-29 | Sections 04–05 release boundary | Keep Operational Footprint and Business Impact as separate sections; do not change approved Sections 01–03, ABB or Fibra. | Accepted (scope) | Approval is not proof of build, commit, push, deployment, source-data accuracy or image/logo permissions for Sections 04–05. |
+
+**Current status:** Sections **01–05 are approved** for this case-study iteration. Section 03 is committed/pushed; Sections 04–05 still require independent implementation/release verification. Earlier notes stating Section 04 was unplanned are superseded.

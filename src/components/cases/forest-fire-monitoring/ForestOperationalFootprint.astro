@@ -1,0 +1,260 @@
+---
+/**
+ * Forest Fire Monitoring — Section 04: Operational Footprint
+ * Standalone Astro component. All coordinates represent municipality-level
+ * reference points, NOT surveyed tower positions.
+ * Source: historical forest-*.md records supplied by portfolio owner.
+ * Veracel intentionally excluded: opportunity discovery, not commercial client.
+ * v5: fix dynamically generated state strokes and compact, top-aligned layout.
+ */
+const locations = [
+  { company: 'ArcelorMittal', city: 'Curvelo', state: 'Minas Gerais', lat: -18.75583, lon: -44.43083 },
+  { company: 'ArcelorMittal', city: 'Francisco Sá', state: 'Minas Gerais', lat: -16.47583, lon: -43.48833 },
+  { company: 'ArcelorMittal', city: 'Guanhães', state: 'Minas Gerais', lat: -18.7710002, lon: -42.9318885 },
+  { company: 'Gerdau', city: 'Brasilandia de Minas', state: 'Minas Gerais', lat: -17.0194, lon: -46.0152 },
+  { company: 'Gerdau', city: 'João Pinheiro', state: 'Minas Gerais', lat: -17.7458, lon: -46.1788 },
+  { company: 'Gerdau', city: 'Montes Claros', state: 'Minas Gerais', lat: -16.7368647, lon: -43.8652467 },
+  { company: 'Gerdau', city: 'Rio Pardo de Minas', state: 'Minas Gerais', lat: -15.60556, lon: -42.53417 },
+  { company: 'Gerdau', city: 'Três Marias', state: 'Minas Gerais', lat: -18.205, lon: -45.2326 },
+  { company: 'Saint-Gobain', city: 'Bom Jardim de Minas', state: 'Minas Gerais', lat: -21.94722, lon: -44.19111 },
+  { company: 'WestRock', city: 'Três Barras', state: 'Santa Catarina', lat: -26.105833, lon: -50.321944 },
+];
+const clients = [
+  { name: 'Saint-Gobain', color: '#4b92df' },
+  { name: 'Gerdau', color: '#ed9a49' },
+  { name: 'ArcelorMittal', color: '#df6b6b' },
+  { name: 'WestRock', color: '#48b99d' },
+];
+---
+
+<section class="operational-footprint" aria-labelledby="footprint-title">
+  <div class="section-inner">
+    <div class="intro">
+      <p class="eyebrow"><b class="section-index">04</b><span>OPERATIONAL FOOTPRINT</span></p>
+      <h2 id="footprint-title">24 Towers Across Brazil</h2>
+    </div>
+
+    <div class="map-panel">
+      <div class="map-heading"><span>Commercial footprint</span><span>Brazil</span></div>
+      <svg class="brazil-map" viewBox="10 0 240 255" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
+        <title id="map-title">Map of commercial forest monitoring locations in Brazil</title>
+        <desc id="map-desc">Ten municipality-level locations: three ArcelorMittal, five Gerdau, one Saint-Gobain, and one WestRock. Not exact tower locations.</desc>
+        <g class="state-boundaries" aria-hidden="true"></g>
+        <text class="map-status" x="130" y="145" text-anchor="middle">Loading state map…</text>
+        <g class="pin" tabindex="0" role="img" aria-label="ArcelorMittal — Curvelo, Minas Gerais" style="--pin-color: #df6b6b">
+          <title>ArcelorMittal — Curvelo, Minas Gerais</title>
+          <circle cx="181.12" cy="145.69" r="4.8" class="pin-halo" />
+          <circle cx="181.12" cy="145.69" r="2.9" class="pin-core" />
+        </g>
+        <g class="pin" tabindex="0" role="img" aria-label="ArcelorMittal — Francisco Sá, Minas Gerais" style="--pin-color: #df6b6b">
+          <title>ArcelorMittal — Francisco Sá, Minas Gerais</title>
+          <circle cx="186.49" cy="132.69" r="4.8" class="pin-halo" />
+          <circle cx="186.49" cy="132.69" r="2.9" class="pin-core" />
+        </g>
+        <g class="pin" tabindex="0" role="img" aria-label="ArcelorMittal — Guanhães, Minas Gerais" style="--pin-color: #df6b6b">
+          <title>ArcelorMittal — Guanhães, Minas Gerais</title>
+          <circle cx="189.66" cy="145.78" r="4.8" class="pin-halo" />
+          <circle cx="189.66" cy="145.78" r="2.9" class="pin-core" />
+        </g>
+        <g class="pin" tabindex="0" role="img" aria-label="Gerdau — Brasilandia de Minas, Minas Gerais" style="--pin-color: #ed9a49">
+          <title>Gerdau — Brasilandia de Minas, Minas Gerais</title>
+          <circle cx="172.08" cy="135.79" r="4.8" class="pin-halo" />
+          <circle cx="172.08" cy="135.79" r="2.9" class="pin-core" />
+        </g>
+        <g class="pin" tabindex="0" role="img" aria-label="Gerdau — João Pinheiro, Minas Gerais" style="--pin-color: #ed9a49">
+          <title>Gerdau — João Pinheiro, Minas Gerais</title>
+          <circle cx="171.15" cy="139.93" r="4.8" class="pin-halo" />
+          <circle cx="171.15" cy="139.93" r="2.9" class="pin-core" />
+        </g>
+        <g class="pin" tabindex="0" role="img" aria-label="Gerdau — Montes Claros, Minas Gerais" style="--pin-color: #ed9a49">
+          <title>Gerdau — Montes Claros, Minas Gerais</title>
+          <circle cx="184.34" cy="134.18" r="4.8" class="pin-halo" />
+          <circle cx="184.34" cy="134.18" r="2.9" class="pin-core" />
+        </g>
+        <g class="pin" tabindex="0" role="img" aria-label="Gerdau — Rio Pardo de Minas, Minas Gerais" style="--pin-color: #ed9a49">
+          <title>Gerdau — Rio Pardo de Minas, Minas Gerais</title>
+          <circle cx="191.92" cy="127.73" r="4.8" class="pin-halo" />
+          <circle cx="191.92" cy="127.73" r="2.9" class="pin-core" />
+        </g>
+        <g class="pin" tabindex="0" role="img" aria-label="Gerdau — Três Marias, Minas Gerais" style="--pin-color: #ed9a49">
+          <title>Gerdau — Três Marias, Minas Gerais</title>
+          <circle cx="176.54" cy="142.55" r="4.8" class="pin-halo" />
+          <circle cx="176.54" cy="142.55" r="2.9" class="pin-core" />
+        </g>
+        <g class="pin" tabindex="0" role="img" aria-label="Saint-Gobain — Bom Jardim de Minas, Minas Gerais" style="--pin-color: #4b92df">
+          <title>Saint-Gobain — Bom Jardim de Minas, Minas Gerais</title>
+          <circle cx="182.48" cy="163.88" r="4.8" class="pin-halo" />
+          <circle cx="182.48" cy="163.88" r="2.9" class="pin-core" />
+        </g>
+        <g class="pin" tabindex="0" role="img" aria-label="WestRock — Três Barras, Santa Catarina" style="--pin-color: #48b99d">
+          <title>WestRock — Três Barras, Santa Catarina</title>
+          <circle cx="147.53" cy="187.58" r="4.8" class="pin-halo" />
+          <circle cx="147.53" cy="187.58" r="2.9" class="pin-core" />
+        </g>
+      </svg>
+      <div class="legend" aria-label="Clients">
+        {clients.map((client) => <span class="legend-item"><i style={`background:${client.color}`}></i>{client.name}</span>)}
+      </div>
+      <p class="map-note">Markers indicate documented municipality references, not exact tower coordinates. Several locations are close together.</p>
+    </div>
+      <div class="figures" aria-label="Deployment highlights">
+        <div><strong>4</strong><span>Corporate clients</span></div>
+        <div><strong>10</strong><span>Projects</span></div>
+        <div><strong>~1,400</strong><span>km² monitored</span></div>
+      </div>
+  </div>
+</section>
+
+<script>
+  // Same GeoJSON source, state rendering and projection as FibraTimeline.astro.
+  const DATA_URL = 'https://cdn.jsdelivr.net/gh/codeforamerica/click_that_hood@48ba05ad/public/data/brazil-states.geojson';
+  const NS = 'http://www.w3.org/2000/svg';
+  const project = ([lon, lat]: number[]): [number, number] => [12 + (lon + 74.1) * 5.7, 8 + (5.4 - lat) * 5.7];
+  const polygons = (geometry: any): number[][][][] => geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+  const makePath = (geometry: any) => polygons(geometry).map(poly => poly.map(ring => ring.map((point, i) => {
+    const [x, y] = project(point);
+    return `${i ? 'L' : 'M'}${x.toFixed(2)},${y.toFixed(2)}`;
+  }).join(' ') + ' Z').join(' ')).join(' ');
+
+  function renderMap() {
+    const section = document.querySelector('.operational-footprint');
+    const shapes = section?.querySelector<SVGGElement>('.state-boundaries');
+    const status = section?.querySelector<SVGTextElement>('.map-status');
+    if (!shapes || shapes.childElementCount) return;
+    fetch(DATA_URL).then(response => {
+      if (!response.ok) throw new Error('Map unavailable');
+      return response.json();
+    }).then(data => {
+      if (!data.features?.length) throw new Error('No state boundaries');
+      for (const feature of data.features) {
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', makePath(feature.geometry));
+        path.setAttribute('fill', '#dce8f3');
+        // Inline SVG attributes also style dynamically created paths in Astro.
+        path.setAttribute('stroke', '#ffffff');
+        path.setAttribute('stroke-width', '0.85');
+        path.setAttribute('stroke-linejoin', 'round');
+        path.setAttribute('vector-effect', 'non-scaling-stroke');
+        const title = document.createElementNS(NS, 'title');
+        title.textContent = feature.properties?.name || 'Brazilian state';
+        path.append(title);
+        shapes.append(path);
+      }
+      status?.remove();
+    }).catch(() => { if (status) status.textContent = 'State map temporarily unavailable'; });
+  }
+  renderMap();
+  document.addEventListener('astro:page-load', renderMap);
+</script>
+
+<style>
+  .operational-footprint{padding:clamp(2rem,3vw,2.75rem) 1.5rem;background:var(--background,#0b1422);color:var(--text-primary,#e9eff7)}
+  .section-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(1.25rem,3vw,2.75rem);align-items:start}
+  .eyebrow{display:block;color:var(--accent,#68c5cf);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:1.25rem}
+  h2{font-size:clamp(2.2rem,4.1vw,3.8rem);line-height:1.1;letter-spacing:-.035em;margin:0 0 1.5rem;max-width:12ch}
+  .lead{font-size:clamp(1.05rem,1.6vw,1.23rem);line-height:1.65;margin:0 0 1rem;color:var(--text-primary,#e9eff7)}
+  .support{font-size:.96rem;line-height:1.7;color:var(--text-secondary,#9eafc1);margin:0}
+  .figures{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin-top:2.3rem}
+  .figures>div{border-top:1px solid rgba(149,172,197,.32);padding-top:1rem;display:flex;flex-direction:column;gap:.35rem}
+  .figures strong{font-size:clamp(1.65rem,2.7vw,2.35rem);font-weight:750;letter-spacing:-.04em;color:var(--text-primary,#fff)}
+  .figures span{font-size:.78rem;line-height:1.4;color:var(--text-secondary,#9eafc1)}
+  .map-panel{border:1px solid rgba(149,172,197,.2);border-radius:20px;padding:1.25rem;background:rgba(137,164,195,.055)}
+  .map-heading{display:flex;justify-content:space-between;gap:1rem;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-secondary,#a4b3c6);font-weight:650}
+  .brazil-map{display:block;width:100%;height:auto;max-height:510px;margin:.3rem auto}
+  .country{fill:#20334a;stroke:#6d8ba4;stroke-width:1.7;stroke-linejoin:round}
+  .pin{outline:none;cursor:default}
+  .pin-halo{fill:var(--pin-color);opacity:.19}
+  .pin-core{fill:var(--pin-color);stroke:#f7fafc;stroke-width:1.7}
+  .pin:focus .pin-halo,.pin:hover .pin-halo{opacity:.55}
+  .pin:focus .pin-core{stroke-width:3}
+  .legend{display:flex;flex-wrap:wrap;gap:.7rem 1.15rem;justify-content:center;padding:.5rem 0 .8rem}
+  .legend-item{display:inline-flex;align-items:center;gap:.42rem;font-size:.79rem;color:var(--text-secondary,#b4c3d1)}
+  .legend-item i{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0}
+  .map-note{text-align:center;font-size:.72rem;line-height:1.5;color:var(--text-secondary,#9eafc1);margin:.2rem 0 0}
+  @media(max-width:800px){.section-inner{grid-template-columns:1fr}.intro{max-width:650px}h2{max-width:none}.map-panel{max-width:650px;width:100%;margin:0 auto}.figures{margin-top:1.7rem}}
+  @media(max-width:420px){.operational-footprint{padding:3.5rem 1rem}.map-panel{padding:.8rem;border-radius:14px}.legend{gap:.55rem .75rem}.legend-item{font-size:.72rem}.figures{gap:.5rem}.figures strong{font-size:1.55rem}}
+
+/* Light visual language consistent with sections 01–03 */
+.operational-footprint {background:#f7fafc;color:#142b44;padding:clamp(1.5rem,2.6vw,2.25rem) 1.5rem;}
+.operational-footprint .eyebrow {color:#315c78;}
+.operational-footprint .section-index {color:#163d61;}
+.operational-footprint h2 {color:#102d49;}
+.operational-footprint .lead {color:#4a6073;}
+.operational-footprint .figures>div {border-top-color:#cddde6;}
+.operational-footprint .figures strong {color:#102d49;}
+.operational-footprint .figures span {color:#536e82;}
+.operational-footprint .map-panel {background:#fff;border-color:#d8e5ec;border-radius:16px;}
+.operational-footprint .map-heading {color:#315c78;}
+.operational-footprint .country {fill:#eaf2f7;stroke:#67869c;stroke-width:1.4;}
+.operational-footprint .state-boundaries path {fill:none;stroke:#9cb6c6;stroke-width:.85;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke;}
+.operational-footprint .legend-item {color:#38546c;}
+.operational-footprint .map-note {color:#647c8f;}
+/* Case-wide typography standard: sections 01–04 */
+.operational-footprint .eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.operational-footprint .section-index { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.operational-footprint h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .operational-footprint .eyebrow { font-size:.72rem; gap:.65rem; }
+  .operational-footprint .section-index { font-size:1.65rem; }
+  .operational-footprint h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Reduce the footprint section height without distorting coordinates */
+.operational-footprint .section-inner { align-items:start; gap:clamp(1.25rem,2.5vw,2.5rem); }
+.operational-footprint .map-panel { padding:.7rem .9rem; }
+.operational-footprint .brazil-map { display:block; height:310px; max-height:310px; width:100%; margin:0 auto; }
+.operational-footprint .lead { font-size:1rem; line-height:1.58; }
+.operational-footprint .support { font-size:.84rem; line-height:1.5; }
+.operational-footprint .figures { margin-top:1rem; }
+@media(max-width:800px){ .operational-footprint .brazil-map { height:auto; max-height:390px; } }
+</style>
+
+<style>
+  /* Match the established Fibra cartographic language. */
+  :global(.operational-footprint .state-boundaries path) { fill:#dce8f3; stroke:#fff; stroke-width:.85; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+  .operational-footprint .map-status { fill:#647c8f; font-size:7px; }
+  .operational-footprint .brazil-map { height:310px; max-height:310px; width:100%; }
+  .operational-footprint .pin-core { stroke:#fff; stroke-width:1.05; }
+  .operational-footprint .intro { padding-top:.3rem; }
+  @media(max-width:800px){ .operational-footprint .brazil-map { height:auto; max-height:390px; } }
+</style>
+
+<style>
+  /* Paired 04/05 layout: stack summary and map inside the left panel. */
+  .operational-footprint{height:100%;box-sizing:border-box;padding:clamp(1rem,2vw,1.5rem);background:#fff;border:1px solid #d8e5ec;border-radius:18px;}
+  .section-inner{display:flex;flex-direction:column;gap:1rem;max-width:none;}
+  .intro,.map-panel{width:100%;max-width:none;box-sizing:border-box;}
+  .operational-footprint h2{max-width:none;}
+  .operational-footprint .figures{margin-top:1rem;}
+  .operational-footprint .map-panel{padding:.85rem;}
+  .operational-footprint .brazil-map{height:340px;max-height:340px;}
+  @media(max-width:700px){.operational-footprint .brazil-map{height:auto;max-height:350px;}}
+</style>
+
+<style>
+  /* v8: map first, compact metrics beneath, matching approved mockup. */
+  .operational-footprint .section-inner { gap: .85rem; }
+  .operational-footprint .intro { margin-bottom: .1rem; }
+  .operational-footprint .map-panel { padding: .8rem 1rem .65rem; }
+  .operational-footprint .brazil-map { height: 400px; max-height: 400px; }
+  .operational-footprint .figures { margin: 0; padding: .65rem .45rem; gap: 0; border: 1px solid #d8e5ec; border-radius: 12px; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .operational-footprint .figures > div { border-top: 0; padding: .1rem .65rem; gap: .15rem; border-right: 1px solid #d8e5ec; }
+  .operational-footprint .figures > div:last-child { border-right: 0; }
+  .operational-footprint .figures strong { font-size: clamp(1.25rem, 1.8vw, 1.65rem); line-height: 1.15; }
+  .operational-footprint .figures span { font-size: .72rem; }
+  @media(max-width:700px) { .operational-footprint .brazil-map { height: auto; max-height: 380px; } .operational-footprint .figures > div { padding: .1rem .35rem; } .operational-footprint .figures strong { font-size: 1.25rem; } .operational-footprint .figures span { font-size: .66rem; } }
+</style>
+
+<style>
+  /* v9: stretch the compact metrics row to match the map card width. */
+  .operational-footprint .figures {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    box-sizing: border-box;
+    align-self: stretch;
+    justify-self: stretch;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .operational-footprint .figures > div { min-width: 0; }
+</style>

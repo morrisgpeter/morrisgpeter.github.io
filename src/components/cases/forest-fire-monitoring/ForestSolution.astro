@@ -34,9 +34,6 @@ const workflow = [
     <div class="forest-solution__intro">
       <p class="forest-solution__eyebrow"><span>02</span> FROM IDEA TO SOLUTION</p>
       <h2 id="forest-solution-title">Turning an Opportunity<br class="desktop-only" /> into a Working System</h2>
-      <p>I combined expertise in cameras, radio links and networks with new capabilities in monitoring software and autonomous solar power.</p>
-      <p>Each deployment was tailored to terrain, camera coverage, power supply and video transmission routes.</p>
-      <p>I coordinated development, integration and field validation of the first installation.</p>
       <div class="forest-solution__rule" aria-hidden="true"></div>
       <div class="forest-solution__skills">
         <h3>Building on Experience. Developing New Capabilities.</h3>
@@ -95,6 +92,19 @@ const workflow = [
 @media(max-width:1100px){.forest-solution__wrap{grid-template-columns:1fr}.forest-solution__intro{display:grid;grid-template-columns:1fr 1fr;column-gap:1.2rem}.forest-solution__intro .forest-solution__eyebrow,.forest-solution__intro h2,.forest-solution__intro .forest-solution__rule{grid-column:1}.forest-solution__intro>p{grid-column:1}.forest-solution__skills{grid-column:2;grid-row:1/7}.forest-solution__workflow-head{display:block}}
 @media(max-width:700px){.forest-solution__wrap{width:min(100% - 28px,540px)}.forest-solution__intro{display:block}.forest-solution h2{font-size:clamp(1.75rem,7vw,2.3rem)}.desktop-only{display:none}.forest-solution__architecture{grid-template-columns:1fr}.forest-solution__connection{flex-direction:row;gap:1rem;padding:.2rem}.forest-solution__connection span{transform:rotate(90deg)}.forest-solution__arch-card{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}.forest-solution__arch-heading{grid-column:1/-1}.forest-solution__tower,.forest-solution__network,.forest-solution__screens{height:135px}.forest-solution__arch-card ul{margin:0}.forest-solution__detection-flow{grid-template-columns:1fr}.forest-solution__flow-arrow{transform:rotate(90deg)}.forest-solution__detection figure>img,.forest-solution__map,.forest-solution__coordinates{height:170px}.forest-solution__workflow-steps{grid-template-columns:1fr 1fr}.forest-solution__workflow-head p{margin-bottom:1rem}}
 @media(max-width:400px){.forest-solution__skill-cols{gap:.55rem}.forest-solution__skill-cols>div+div{padding-left:.55rem}.forest-solution__workflow-steps{grid-template-columns:1fr}.forest-solution__arch-card{grid-template-columns:1fr}.forest-solution__arch-card ul{padding-left:1.25rem}}
+
+/* Case-wide typography standard: sections 01–04 */
+.forest-solution .forest-solution__eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.forest-solution__eyebrow span { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.forest-solution h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .forest-solution .forest-solution__eyebrow { font-size:.72rem; gap:.65rem; }
+  .forest-solution__eyebrow span { font-size:1.65rem; }
+  .forest-solution h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Case introductory copy — aligned with Section 01 */
+.forest-solution .forest-solution__intro > p:not(.forest-solution__eyebrow) { font-size:1rem; line-height:1.58; }
 </style>
 
 <style>
@@ -114,6 +124,19 @@ const workflow = [
 .forest-solution__coordinates--result strong{font-size:.76rem}
 .forest-solution__coordinates--result small{max-width:200px}
 @media(max-width:700px){.forest-solution__result-map{height:105px}.forest-solution__coordinates--result{height:auto;min-height:185px}}
+
+/* Case-wide typography standard: sections 01–04 */
+.forest-solution .forest-solution__eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.forest-solution__eyebrow span { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.forest-solution h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .forest-solution .forest-solution__eyebrow { font-size:.72rem; gap:.65rem; }
+  .forest-solution__eyebrow span { font-size:1.65rem; }
+  .forest-solution h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Case introductory copy — aligned with Section 01 */
+.forest-solution .forest-solution__intro > p:not(.forest-solution__eyebrow) { font-size:1rem; line-height:1.58; }
 </style>
 
 <style>
@@ -169,17 +192,56 @@ const workflow = [
   .forest-solution__workflow-step strong {font-size:.71rem;}
   .forest-solution__workflow-step small {font-size:.62rem;margin-top:2px;}
 }
+
+/* Case-wide typography standard: sections 01–04 */
+.forest-solution .forest-solution__eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.forest-solution__eyebrow span { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.forest-solution h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .forest-solution .forest-solution__eyebrow { font-size:.72rem; gap:.65rem; }
+  .forest-solution__eyebrow span { font-size:1.65rem; }
+  .forest-solution h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Case introductory copy — aligned with Section 01 */
+.forest-solution .forest-solution__intro > p:not(.forest-solution__eyebrow) { font-size:1rem; line-height:1.58; }
 </style>
 
 <style>
 /* Richer visual references for the three architecture cards only. */
 .forest-solution__arch-illustration{display:block;width:100%;height:145px;object-fit:cover;border-radius:9px;background:#dcecf0;}
 @media(max-width:700px){.forest-solution__arch-illustration{height:135px;}}
+
+/* Case-wide typography standard: sections 01–04 */
+.forest-solution .forest-solution__eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.forest-solution__eyebrow span { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.forest-solution h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .forest-solution .forest-solution__eyebrow { font-size:.72rem; gap:.65rem; }
+  .forest-solution__eyebrow span { font-size:1.65rem; }
+  .forest-solution h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Case introductory copy — aligned with Section 01 */
+.forest-solution .forest-solution__intro > p:not(.forest-solution__eyebrow) { font-size:1rem; line-height:1.58; }
 </style>
 
 <style>
 /* Fix: use three equal columns after removing connector elements. */
 @media (max-width:700px){.forest-solution__architecture{grid-template-columns:1fr;gap:10px}}
+
+/* Case-wide typography standard: sections 01–04 */
+.forest-solution .forest-solution__eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.forest-solution__eyebrow span { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.forest-solution h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .forest-solution .forest-solution__eyebrow { font-size:.72rem; gap:.65rem; }
+  .forest-solution__eyebrow span { font-size:1.65rem; }
+  .forest-solution h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Case introductory copy — aligned with Section 01 */
+.forest-solution .forest-solution__intro > p:not(.forest-solution__eyebrow) { font-size:1rem; line-height:1.58; }
 </style>
 
 <style>
@@ -188,6 +250,19 @@ const workflow = [
 .forest-solution__detection-flow--two figure>img{width:100%;height:160px;object-fit:contain;object-position:center;background:#eef4f1;}
 @media(min-width:1101px){.forest-solution__detection-flow--two{grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);gap:7px;}}
 @media(max-width:700px){.forest-solution__detection-flow--two{grid-template-columns:minmax(0,1fr);gap:8px;} .forest-solution__detection-flow--two .forest-solution__flow-arrow{transform:rotate(90deg);} .forest-solution__detection-flow--two figure>img{height:auto;aspect-ratio:16/9;object-fit:contain;}}
+
+/* Case-wide typography standard: sections 01–04 */
+.forest-solution .forest-solution__eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.forest-solution__eyebrow span { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.forest-solution h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .forest-solution .forest-solution__eyebrow { font-size:.72rem; gap:.65rem; }
+  .forest-solution__eyebrow span { font-size:1.65rem; }
+  .forest-solution h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Case introductory copy — aligned with Section 01 */
+.forest-solution .forest-solution__intro > p:not(.forest-solution__eyebrow) { font-size:1rem; line-height:1.58; }
 </style>
 
 <style>
@@ -220,6 +295,19 @@ const workflow = [
     object-fit: contain;
   }
 }
+
+/* Case-wide typography standard: sections 01–04 */
+.forest-solution .forest-solution__eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.forest-solution__eyebrow span { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.forest-solution h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .forest-solution .forest-solution__eyebrow { font-size:.72rem; gap:.65rem; }
+  .forest-solution__eyebrow span { font-size:1.65rem; }
+  .forest-solution h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Case introductory copy — aligned with Section 01 */
+.forest-solution .forest-solution__intro > p:not(.forest-solution__eyebrow) { font-size:1rem; line-height:1.58; }
 </style>
 
 
@@ -275,6 +363,19 @@ const workflow = [
   .forest-solution__wrap { grid-template-columns: minmax(260px, .95fr) minmax(250px, .8fr) minmax(345px, 1.35fr); }
   .forest-solution__detection-flow--two figure > img { height: 225px; }
 }
+
+/* Case-wide typography standard: sections 01–04 */
+.forest-solution .forest-solution__eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.forest-solution__eyebrow span { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.forest-solution h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .forest-solution .forest-solution__eyebrow { font-size:.72rem; gap:.65rem; }
+  .forest-solution__eyebrow span { font-size:1.65rem; }
+  .forest-solution h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Case introductory copy — aligned with Section 01 */
+.forest-solution .forest-solution__intro > p:not(.forest-solution__eyebrow) { font-size:1rem; line-height:1.58; }
 </style>
 
 <style>
@@ -295,4 +396,17 @@ const workflow = [
     object-fit: contain;
   }
 }
+
+/* Case-wide typography standard: sections 01–04 */
+.forest-solution .forest-solution__eyebrow { display:flex; align-items:center; gap:.85rem; margin:0 0 .65rem; font-size:.8rem; font-weight:800; letter-spacing:.12em; line-height:1.2; text-transform:uppercase; }
+.forest-solution__eyebrow span { font-size:2rem; font-weight:700; line-height:1; letter-spacing:0; }
+.forest-solution h2 { font-size:clamp(1.85rem,2.6vw,2.7rem); line-height:1.15; letter-spacing:-.025em; margin:0 0 .9rem; }
+@media(max-width:700px) {
+  .forest-solution .forest-solution__eyebrow { font-size:.72rem; gap:.65rem; }
+  .forest-solution__eyebrow span { font-size:1.65rem; }
+  .forest-solution h2 { font-size:clamp(1.75rem,5vw,2.3rem); line-height:1.13; }
+}
+
+/* Case introductory copy — aligned with Section 01 */
+.forest-solution .forest-solution__intro > p:not(.forest-solution__eyebrow) { font-size:1rem; line-height:1.58; }
 </style>

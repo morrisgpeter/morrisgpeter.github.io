@@ -515,3 +515,13 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] Once the case is released, decide what belongs in the shorter Aton Experience summary without duplicating the case study.
 
 **Status:** Sections **01–05 content/design approved**; Section 03 committed and pushed; Sections 04–05 publication not yet independently confirmed.
+
+
+## Forest Fire Monitoring — Section 06 and Commercial Expertise follow-up (2026-10-29)
+
+- [x] Publish Sections **01–05** as commit **`1907d76`** and confirm live page with user. This supersedes earlier unchecked publication tasks for Sections 04–05.
+- [x] Approve **06 — Industry Recognition / Sharing Expertise Beyond Project Delivery** on desktop and mobile: timeline of conference participation in **2007, 2015, 2017, 2018**, with three historical photographs and a text-only 2017 entry.
+- [ ] Verify Section 06 `ForestIndustryRecognition.astro`, the three photos in `public/images/forest-industry-recognition/`, case-page import and mobile accessibility; run `npm run build`.
+- [ ] Inspect `git diff` and `git status`, stage only Section 06 and these three documentation updates, commit/push and verify the live GitHub Pages page.
+- [ ] **Future — Commercial Expertise:** Review how to mention the forest-fire conferences and symposia as examples of technical credibility, industry engagement, professional relationships and knowledge sharing. Consider a short reference/link to the case study; **avoid duplicating the timeline**.
+- [ ] When designing that reference, distinguish **2007 at Aton** from **2015/2017/2018 while at Fibra**; do not imply those later presentations were Fibra commercial assignments, generated sales, or official representation without supporting evidence. Review alongside the deferred **Commercial Growth Process** integration (D-106–D-107).

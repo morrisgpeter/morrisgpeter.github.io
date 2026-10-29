@@ -413,3 +413,14 @@ When a decision is confirmed or revised:
 | D-127 | 2026-10-29 | Sections 04–05 release boundary | Keep Operational Footprint and Business Impact as separate sections; do not change approved Sections 01–03, ABB or Fibra. | Accepted (scope) | Approval is not proof of build, commit, push, deployment, source-data accuracy or image/logo permissions for Sections 04–05. |
 
 **Current status:** Sections **01–05 are approved** for this case-study iteration. Section 03 is committed/pushed; Sections 04–05 still require independent implementation/release verification. Earlier notes stating Section 04 was unplanned are superseded.
+
+
+## Forest Fire Monitoring — Industry Recognition and future Commercial Expertise (2026-10-29)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-128 | 2026-10-29 | Forest case publication checkpoint | Sections 01–05 were committed/pushed as `1907d76` and verified on the live site by the user. | Accepted (published) | Supersedes the earlier Sections 04–05 pending-release checkpoint; source-data and rights reviews remain independent. |
+| D-129 | 2026-10-29 | Section 06 — Industry Recognition | Approve **Sharing Expertise Beyond Project Delivery** as a responsive 2007 / 2015 / 2017 / 2018 conference timeline; use historical photos for 2007, 2015 and 2018, with text only for 2017. | Accepted (visual/content) | Desktop and mobile screenshots approved; no Section 06 commit/push/live verification is implied. Emphasize knowledge sharing rather than commercial delivery. |
+| D-130 | 2026-10-29 | Commercial Expertise cross-reference | During future **Commercial Expertise** development, evaluate referencing the conference and symposium appearances as evidence of technical authority, industry engagement and relationship-building, preferably with a link to the Forest Fire Monitoring case. | Accepted (future consideration; presentation open) | 2007 took place during Aton; 2015, 2017 and 2018 during Fibra. Participation was chiefly as a technical specialist; do not imply official Fibra commercial representation or attribute sales results to the events without evidence. Coordinate with D-106–D-107 and avoid repeating the full timeline. |
+
+**Next release action:** Verify Section 06 build, intended assets and source diff; stage only relevant files and documentation, commit/push, and confirm the live page.

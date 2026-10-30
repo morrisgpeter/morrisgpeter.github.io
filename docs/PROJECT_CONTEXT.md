@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-30
+**Last updated:** 2026-10-31
 
 ## Purpose
 
@@ -370,3 +370,16 @@ This checkpoint **supersedes earlier pending-release notes for Section 03** and 
 **Historical scope:** Forestry includes ten reference regions for Gerdau, ArcelorMittal, Saint-Gobain and WestRock; **Veracel Eunápolis is excluded** from operational footprint markers (it belongs in the separate Forest Fire Monitoring opportunity narrative). Do not infer precise facility coordinates, individual project counts, or additional projects from regional markers.
 
 **Release boundary:** Design/content approval does not itself establish final local integration, production build, Git commit/push, live deployment, map-data validation, accessibility or third-party map availability. **Next Aton section:** Major Projects Timeline; then Featured Case Studies and Other Selected Projects.
+
+
+## Experience — Aton Major Projects Timeline (approved 2026-10-31)
+
+**Component:** `src/components/experience/aton/AtonMajorProjectsTimeline.astro`, integrated after Project Footprint within `src/components/experience/aton/AtonExperience.astro`. **Status:** user approved the responsive timeline (latest reviewed iteration v3) on desktop and mobile and confirmed the sector filters function. This is design/interaction acceptance, not independent confirmation of production build, commit/push or deployment.
+
+**Approved heading:** **MAJOR PROJECTS TIMELINE / Selected Projects & Initiatives**. Subtitle: **Selected engineering projects and milestones across multiple industries, 2003–2012.** A simplified 2003–2012 Gantt-style visualization has filters **All sectors / Telecommunications / Utilities / Oil & Gas / Forestry / Mining**. The redundant selected-project detail panel was removed.
+
+**Ten selected historical initiatives:** Telecom Infrastructure Licensing (2003–2005); Utilities — Automation & Telecom (2004–2012); Underground Mining Communications (2004); Radio Link Installation (2005); RedePetro Bahia (2005–2006); Offshore Radio Communications (2005–2006); Structured Cabling Infrastructure (2006–2009); Hydroelectric Power Plant Integration (**2007–2008**, corrected by user); Forest Fire Monitoring (2007–2012); Oil & Gas Automation & Surveillance (2009–2012). These are selected examples, **not** the full Aton portfolio; years are historical reporting periods rather than verified exact contract dates. The forestry item summarizes the standalone case rather than duplicating its full content.
+
+**Newly confirmed professional responsibility:** From **2009 until departure in January 2012**, alongside Oil & Gas Automation & Surveillance, the user held **portfolio-wide project governance responsibility for Aton's automation and telecommunications projects**. This was not PMO limited to the Oil & Gas project, and it should be reflected in the Aton career/leadership narrative. Preserve the approved project timeline rather than adding an unreviewed extra project bar.
+
+**Next:** Verify final v3 source, integration and build; review diff and stage intended files; commit/push and verify live rendering. Continue with **Featured Case Studies** and **Other Selected Projects** separately. Preserve previously approved ABB, Fibra and Forest Fire Monitoring content.

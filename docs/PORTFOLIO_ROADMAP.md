@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-30  
+**Updated:** 2026-10-31  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -572,3 +572,19 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] **Next:** Develop **Major Projects Timeline**, followed by **Featured Case Studies** and **Other Selected Projects**.
 
 **Status:** Project Footprint v11 visually/content approved; Git release verification pending.
+
+
+## Aton Engenharia — Major Projects Timeline and portfolio governance checkpoint (2026-10-31)
+
+- [x] Approve **MAJOR PROJECTS TIMELINE / Selected Projects & Initiatives**, spanning **2003–2012**, as a responsive simplified Gantt chart.
+- [x] Review desktop and mobile visual design (latest reviewed iteration **v3**).
+- [x] Confirm the **All sectors / Telecommunications / Utilities / Oil & Gas / Forestry / Mining** filters work.
+- [x] Remove the selected-project detail panel and retain the timeline as the primary visualization.
+- [x] Record **10 selected initiatives**, including corrected **Hydroelectric Power Plant Integration (2007–2008)**, **Forest Fire Monitoring (2007–2012)** and **Oil & Gas Automation & Surveillance (2009–2012)**.
+- [x] Confirm **2009–January 2012 portfolio-wide project governance (PMO)** for **all automation and telecommunications projects** at Aton, beginning with the Oil & Gas Automation & Surveillance assignment. This is a career responsibility, not an additional project bar.
+- [ ] Verify `src/components/experience/aton/AtonMajorProjectsTimeline.astro` matches the approved v3 and is integrated after Project Footprint in `AtonExperience.astro`.
+- [ ] Run `npm run build`; check accessibility, filter operation, historical wording and responsive rendering.
+- [ ] Inspect `git status` and `git diff`, stage only intended Aton component(s) and these three documentation files, commit/push, and verify GitHub Pages live rendering.
+- [ ] **Next:** Develop **Featured Case Studies**, then **Other Selected Projects**, without duplicating the standalone Forest Fire Monitoring case.
+
+**Status:** Timeline v3 **approved for desktop/mobile design and interaction**. Production build, Git commit/push and deployment are not independently confirmed. Previously approved Project Footprint, Introduction, Key Achievements, ABB and Fibra sections remain unchanged.

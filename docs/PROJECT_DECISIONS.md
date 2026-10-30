@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-30
+**Last updated:** 2026-10-31
 
 ## Status legend
 
@@ -454,3 +454,13 @@ When a decision is confirmed or revised:
 | D-136 | 2026-10-31 | Aton Project Footprint v11 | Accept **Automation & Telecom Solutions Across Brazil** with responsive Brazil map and interactive **All sectors / Telecommunications / Utilities / Oil & Gas / Forestry / Mining** filters. Preserve approved desktop/mobile presentation. | Accepted (visual/content) | Final reviewed candidate `AtonProjectFootprint_v11.astro`; implementation target `src/components/experience/aton/AtonProjectFootprint.astro`, with `atonFootprintData.ts`. |
 | D-137 | 2026-10-31 | Geographic representation | Telecommunications: **17 states** shaded; Utilities: **15 regions**; Oil & Gas: **20 regions + 3 offshore regions**; Forestry: **10 regions**; Mining: **4 locations**. Markers represent approximate geographic references, not exact sites or individual projects. Exclude Veracel Eunápolis from installed forestry operations. | Accepted (data framing) | Retain disclosure that locations may overlap and do not necessarily represent individual projects. Offshore points are illustrative. |
 | D-138 | 2026-10-31 | Aton next milestone and release gate | Mark Project Footprint complete for this design iteration and proceed next to **Major Projects Timeline**. | Accepted (sequence) | Build, commit/push, deployment, external GeoJSON dependency, accessibility and disclosure checks remain separate; do not claim publication solely from visual approval. |
+
+
+## Aton Engenharia Experience — Major Projects Timeline and PMO responsibility (2026-10-31)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-139 | 2026-10-31 | Major Projects Timeline design | Accept **MAJOR PROJECTS TIMELINE / Selected Projects & Initiatives** as a simplified responsive Gantt-style chart for 2003–2012 with six sector selections (All sectors and five industries), without the selected-project details panel. | Accepted (visual/interaction) | Desktop and mobile reviewed; user confirmed filters work. Latest reviewed iteration identified as v3. |
+| D-140 | 2026-10-31 | Timeline historical scope | Include ten selected projects/initiatives; use **2007–2008** for Hydroelectric Power Plant Integration, **2007–2012** for Forest Fire Monitoring, and **2009–2012** for Oil & Gas Automation & Surveillance. Retain the historical-period and non-exhaustive-portfolio disclaimer. | Accepted (content) | Avoid interpreting broad initiative bars as exact individual contract dates; standalone forest case remains independent. |
+| D-141 | 2026-10-31 | Aton portfolio governance | Record **2009–January 2012** responsibility for project governance across **all Aton automation and telecommunications projects**, beginning when taking over Oil & Gas Automation & Surveillance. | Accepted (historical responsibility) | Company portfolio-level PMO/governance scope, not solely the Oil & Gas project; incorporate into the professional evolution narrative, without changing the approved timeline chart. |
+| D-142 | 2026-10-31 | Timeline release boundary and next section | Preserve approved Timeline v3; verify source/build/commit/push/live page independently. Proceed to Featured Case Studies and Other Selected Projects in separate design steps. | Accepted (sequence) | Visual approval is not proof of production release or accessibility/data/rights clearance. |

@@ -1,0 +1,66 @@
+---
+/** Aton Engenharia — selected historical projects, 2003–2012.
+ * Year-only records: bars indicate calendar-year coverage, not exact start/end dates.
+ */
+const projects = [
+  {id:'licensing',start:2003,end:2005,sector:'Telecommunications',title:'Telecom Infrastructure Licensing',detail:'Broadcast licensing and regulatory activities involving 4,764 telecom stations and 18,316 street cabinets.'},
+  {id:'utilities-automation',start:2004,end:2012,sector:'Utilities',title:'Utilities — Automation & Telecom',detail:'Automation and telecommunications solutions for the utilities sector.'},
+  {id:'mining',start:2004,end:2004,sector:'Mining',title:'Underground Mining Communications',detail:'Underground communications using Canadian leaky-feeder cable technology.'},
+  {id:'radio',start:2005,end:2005,sector:'Telecommunications',title:'Radio Link Installation',detail:'Radio link installation, including site surveys and frequency design.'},
+  {id:'redepetro',start:2005,end:2006,sector:'Oil & Gas',tag:'Business Development',title:'RedePetro Bahia',detail:'Founding member of RedePetro Bahia, a business association established to promote the oil and gas industry.'},
+  {id:'offshore',start:2005,end:2006,sector:'Oil & Gas',title:'Offshore Radio Communications',detail:'Radio communication systems for offshore platforms.'},
+  {id:'cabling',start:2006,end:2009,sector:'Telecommunications',title:'Structured Cabling Infrastructure',detail:'Structured cabling system connecting approximately 20,000 end-users.'},
+  {id:'hydro',start:2007,end:2008,sector:'Utilities',title:'Hydroelectric Power Plant Integration',detail:'Integrated IT, automation and telecommunications systems connecting seven hydroelectric power plants to transmission substations and network operations centers.'},
+  {id:'forest',start:2007,end:2012,sector:'Forestry',title:'Forest Fire Monitoring',detail:'Development and deployment of a customized forest-fire surveillance solution using cameras, photovoltaic modules and digital maps, monitoring more than 1,400 km².',href:'/cases/forest-fire-monitoring'},
+  {id:'wells',start:2009,end:2012,sector:'Oil & Gas',title:'Oil & Gas Automation & Surveillance',detail:'Automation and remote video surveillance covering 210 oil wells and seven facilities.'},
+];
+const years=Array.from({length:10},(_,i)=>2003+i);
+const colors:Record<string,string>={'Telecommunications':'#367dbb','Utilities':'#dc8b32','Oil & Gas':'#c75b55','Forestry':'#3c9776','Mining':'#8c70b6'};
+const sectors=['All sectors','Telecommunications','Utilities','Oil & Gas','Forestry','Mining'];
+---
+<section class="aton-timeline" data-aton-timeline aria-labelledby="aton-timeline-title">
+  <header class="intro">
+    <p class="eyebrow">MAJOR PROJECTS TIMELINE</p>
+    <h3 id="aton-timeline-title">Selected Projects &amp; Initiatives</h3>
+    <p>Selected engineering projects and milestones across multiple industries, 2003–2012.</p>
+  </header>
+  <div class="filters" role="group" aria-label="Filter projects by sector">
+    {sectors.map((sector,i)=><button type="button" data-filter={sector} aria-pressed={i===0?'true':'false'} class:list={['filter',{active:i===0}]}>{sector}</button>)}
+  </div>
+  <div class="chart" role="group" aria-label="Project timeline from 2003 through 2012">
+    <div class="axis"><span class="axis-label">PROJECT / INITIATIVE</span><div class="axis-years">{years.map(y=><span>{y}</span>)}</div></div>
+    <div class="rows">
+      {projects.map((p)=><div class="project-row" data-sector={p.sector} aria-label={`${p.title}, ${p.start}${p.end!==p.start?' to '+p.end:''}, ${p.sector}`}>
+        <span class="project-name"><span class="name-text">{p.title}</span><small>{p.sector}{p.tag?' · '+p.tag:''}</small></span>
+        <span class="plot" aria-hidden="true"><span class="gridlines">{years.map(()=> <i></i>)}</span><span class="bar" style={`--from:${p.start-2003};--duration:${p.end-p.start+1};--bar-color:${colors[p.sector]}`}><span class="bar-years">{p.start===p.end?p.start:`${p.start}–${p.end}`}</span></span></span>
+      </div>)}
+    </div>
+  </div>
+  <p class="method">Years indicate historical reporting periods, not exact project start or completion dates. Selected initiatives may overlap and do not represent the full  project portfolio.</p>
+</section>
+<script>
+  document.querySelectorAll('[data-aton-timeline]').forEach(root => {
+    const rows = Array.from(root.querySelectorAll('.project-row'));
+    const filters = Array.from(root.querySelectorAll('[data-filter]'));
+    filters.forEach(button => button.addEventListener('click', () => {
+      const sector = button.dataset.filter;
+      filters.forEach(filter => {
+        const active = filter === button;
+        filter.classList.toggle('active', active);
+        filter.setAttribute('aria-pressed', String(active));
+      });
+      rows.forEach(row => {
+        row.hidden = sector !== 'All sectors' && row.dataset.sector !== sector;
+      });
+    }));
+  });
+</script>
+<style>
+.aton-timeline{margin:1rem 0 1.4rem;padding:clamp(.9rem,2.2vw,1.5rem);border:1px solid #dce8f3;border-radius:18px;background:linear-gradient(135deg,#fff,#f5f9fe);color:#183451}
+.eyebrow{font-size:.71rem;font-weight:800;letter-spacing:.14em;color:#2875b7;margin:0 0 .55rem}.intro h3{font-size:clamp(1.35rem,2.5vw,1.9rem);line-height:1.2;color:#123e6b;margin:0 0 .45rem}.intro>p:last-child{font-size:.94rem;color:#5c7085;margin:0 0 .9rem}
+.filters{display:flex;flex-wrap:wrap;gap:.42rem;margin-bottom:.85rem}.filter{border:1px solid #d5e3f0;border-radius:999px;background:#fff;color:#45637e;font:inherit;font-size:.78rem;font-weight:650;padding:.47rem .75rem;cursor:pointer}.filter:hover,.filter:focus-visible{border-color:#3682c1}.filter.active{background:#174d7d;color:#fff;border-color:#174d7d}
+.chart{border:1px solid #dfe8f2;background:#fff;border-radius:13px;overflow:hidden}.axis,.project-row{display:grid;grid-template-columns:minmax(210px,34%) minmax(0,1fr);align-items:stretch}.axis{background:#eaf2fa;border-bottom:1px solid #dce6f0}.axis-label{padding:.55rem .75rem;font-size:.66rem;letter-spacing:.08em;font-weight:800;color:#54718d}.axis-years,.plot{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));position:relative}.axis-years span{font-size:.69rem;font-weight:750;color:#48647f;text-align:center;padding:.55rem 0;border-left:1px solid #d8e4f0}.project-row{width:100%;border:0;border-bottom:1px solid #edf1f6;padding:0;background:transparent;color:inherit;font:inherit;text-align:left}.project-row:last-child{border-bottom:0}.project-row[hidden]{display:none}.project-name{padding:.4rem .75rem;display:flex;flex-direction:column;justify-content:center;gap:.12rem;min-height:39px}.name-text{font-size:.81rem;font-weight:700;line-height:1.25}.project-name small{font-size:.67rem;color:#6b8094}.plot{min-height:39px;align-items:center}.gridlines{position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr)}.gridlines i{border-left:1px solid #edf1f6}.bar{position:relative;grid-column:calc(var(--from) + 1) / span var(--duration);height:18px;margin:0 3px;background:var(--bar-color);border-radius:5px;box-shadow:0 2px 4px #14395616;display:flex;align-items:center;justify-content:center;min-width:0}.bar-years{color:white;font-size:.63rem;font-weight:750;white-space:nowrap}.method{font-size:.72rem;line-height:1.55;color:#718296;margin:.65rem 0 0}
+@media(max-width:700px){.aton-timeline{padding:.85rem}.axis,.project-row{grid-template-columns:minmax(0,1fr)}.axis-label{display:none}.axis-years span{font-size:.59rem;padding:.48rem 0}.project-name{min-height:0;padding:.48rem .65rem .12rem}.plot{min-height:29px;margin:0 .5rem .25rem}.bar{height:17px;margin:0 1px}.bar-years{font-size:.55rem}.filter{font-size:.73rem;padding:.42rem .65rem}}
+@media(max-width:380px){.axis-years span{font-size:.52rem}.bar-years{font-size:.5rem}}
+@media(prefers-reduced-motion:no-preference){.filter{transition:background .15s ease,border-color .15s ease}}
+</style>

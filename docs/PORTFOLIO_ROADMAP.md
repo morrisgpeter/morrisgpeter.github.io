@@ -2,7 +2,7 @@
 
 **Project:** `morrisgpeter.github.io`  
 **Technology:** Astro · VS Code · GitHub Pages  
-**Updated:** 2026-10-29  
+**Updated:** 2026-10-30  
 **Purpose:** Build a professional portfolio that demonstrates experience, capabilities, measurable results, and selected projects. Technical work can be added progressively.
 
 > **Working method:** Develop one section at a time, review it locally, then commit and publish through GitHub Actions. Proposed content and visuals are not automatically approved decisions; record confirmed changes in `docs/PROJECT_DECISIONS.md`.
@@ -525,3 +525,36 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] Inspect `git diff` and `git status`, stage only Section 06 and these three documentation updates, commit/push and verify the live GitHub Pages page.
 - [ ] **Future — Commercial Expertise:** Review how to mention the forest-fire conferences and symposia as examples of technical credibility, industry engagement, professional relationships and knowledge sharing. Consider a short reference/link to the case study; **avoid duplicating the timeline**.
 - [ ] When designing that reference, distinguish **2007 at Aton** from **2015/2017/2018 while at Fibra**; do not imply those later presentations were Fibra commercial assignments, generated sales, or official representation without supporting evidence. Review alongside the deferred **Commercial Growth Process** integration (D-106–D-107).
+
+
+## Aton Engenharia — Experience Introduction checkpoint (2026-10-30)
+
+- [x] Approve the overall Aton Experience chapter structure and section sequence.
+- [x] Develop the Aton Introduction component and integrate the company logo.
+- [x] Prepare five diagonal sector-image panels: Utilities, Telecom, Oil & Gas, Forestry, Mining.
+- [x] Review and accept the Introduction's desktop and mobile visual composition.
+- [ ] Improve or replace the Utilities photograph (deferred; do not block subsequent design work).
+- [ ] Verify reuse rights, attribution and publication suitability for all five photographs.
+- [ ] Verify final integrated source, run `npm run build`, inspect `git diff` and `git status`.
+- [ ] Commit/push the approved Introduction and documentation; confirm live GitHub Pages rendering.
+- [x] Develop **Key Achievements** (desktop/mobile visual design approved; see latest checkpoint).
+- [ ] Develop **Project Footprint** with project-location evidence and sector filters.
+- [ ] Develop **Major Projects Timeline**.
+- [ ] Integrate **Featured Case Studies**, linking to the existing Forest Fire Monitoring case.
+- [ ] Develop **Other Selected Projects**.
+
+**Status:** Introduction and Key Achievements designs approved; source/build/commit/publication verification remains a separate release step.
+
+
+## Aton Engenharia — Key Achievements checkpoint (2026-10-30)
+
+- [x] Complete the **Introduction** design and review desktop/mobile.
+- [x] Complete the **Key Achievements** design and review desktop/mobile.
+- [ ] Confirm the exact approved Key Achievements metric copy against the implemented component before any future edits.
+- [ ] Verify the final integrated source and `npm run build`; inspect `git diff` and `git status`.
+- [ ] Commit/push approved Aton Experience changes and documentation; verify the live GitHub Pages rendering.
+- [ ] Check metric evidence, definitions, confidentiality and publication permissions.
+- [ ] **Next:** Develop **Project Footprint — Engineering Solutions Across Brazil**, with verified project-location evidence and sector filters.
+- [ ] Then develop **Major Projects Timeline**, **Featured Case Studies**, and **Other Selected Projects**.
+
+**Status:** Introduction and Key Achievements **visually approved** on desktop/mobile. Source/build/commit/publication verification is tracked separately. The earlier Introduction checkpoint's unchecked “Develop Key Achievements” item is superseded by this update.

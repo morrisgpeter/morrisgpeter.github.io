@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-29
+**Last updated:** 2026-10-30
 
 ## Purpose
 
@@ -337,3 +337,23 @@ This checkpoint **supersedes earlier pending-release notes for Section 03** and 
 **06 — Industry Recognition / Sharing Expertise Beyond Project Delivery:** Approved after desktop and mobile visual review. A responsive timeline documents participation in forest-fire prevention and control conferences in **2007, 2015, 2017 and 2018**, with historical photographs for 2007, 2015 and 2018 and a text-only 2017 entry. The 2007 event occurred during Aton Engenharia; the later events occurred while working at Fibra Engenharia. These appearances primarily reflect the sharing of **technical expertise in forest-fire monitoring and detection**, not necessarily official commercial representation of either company. Component: `src/components/cases/forest-fire-monitoring/ForestIndustryRecognition.astro`; historical photos: `public/images/forest-industry-recognition/`. Visual approval does not itself confirm Section 06 commit, push or production deployment. Preserve approved Sections 01–05.
 
 **Future Commercial Expertise page:** When developing **Commercial Leadership / Commercial Expertise**, assess a concise reference to these conferences as evidence of technical credibility, industry engagement, relationship-building and thought leadership that can support consultative business development. Link back to the case-study timeline rather than duplicating all four events. **Do not portray the 2015–2018 participation as Fibra sales activity, customer acquisition, or formal company representation without evidence.** Placement and wording remain to be designed and approved alongside the deferred Commercial Growth Process.
+
+
+## Experience — Aton Engenharia Introduction (approved 2026-10-30)
+
+**Scope:** The Aton Experience chapter is being developed incrementally after ABB and Fibra, while the standalone Forest Fire Monitoring case remains an independent detailed case study. Do not change previously approved ABB/Fibra components.
+
+**Introduction:** Aton Engenharia · **Senior Project Manager — Sales & Solutions** · **September 2003–January 2012** · Brazil. Heading: **Engineering Solutions for Complex Challenges**. The approved desktop composition places the professional introduction beside five diagonal sector photographs: **Utilities, Telecom, Oil & Gas, Forestry, Mining**. The Aton logo is integrated. Desktop and mobile presentation were reviewed and accepted.
+
+**Implementation:** `src/components/experience/aton/AtonExperience.astro` and `AtonIntroduction.astro`, integrated into `src/pages/experience.astro` between Fibra and Telenge. The introduction is accepted for this design iteration; this record does not independently confirm build, commit, push or live publication.
+
+**Deferred image checks:** Improve/replace the Utilities photograph and verify image reuse rights, attribution and publication suitability for all five sector images. Do not imply these checks are complete.
+
+**Approved subsequent section order:** **Key Achievements → Project Footprint → Major Projects Timeline → Featured Case Studies → Other Selected Projects**. Develop and validate each separately.
+
+
+## Experience — Aton Engenharia Key Achievements (approved visual iteration, 2026-10-30)
+
+**Progress:** The **Key Achievements** section has been developed and visually accepted on **desktop and mobile**, following the previously approved Aton Introduction. Retain the approved implementation and wording; do not redesign without a new request. This checkpoint records visual approval, not independent verification of exact component source, build, commit, push, deployment, metric evidence or disclosure rights.
+
+**Next design task:** **Project Footprint — Engineering Solutions Across Brazil**, with geographically supported project locations and sector filters. Subsequent sections remain Major Projects Timeline, Featured Case Studies, and Other Selected Projects. The standalone Forest Fire Monitoring case remains separate.

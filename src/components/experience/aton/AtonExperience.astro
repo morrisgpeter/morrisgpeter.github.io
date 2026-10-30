@@ -1,0 +1,36 @@
+---
+import AtonIntroduction from "./AtonIntroduction.astro";
+import AtonKeyAchievements from "./AtonKeyAchievements.astro";
+---
+
+<article class="aton-entry" aria-labelledby="aton-title">
+  <div class="aton-marker" aria-hidden="true"></div>
+
+  <AtonIntroduction />
+  <AtonKeyAchievements />
+</article>
+
+<style>
+  .aton-entry {
+    position: relative;
+    margin: 0 0 2.2rem;
+    color: #152c4c;
+  }
+
+  .aton-marker {
+    position: absolute;
+    left: -39px;
+    top: 22px;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #2a7ac1;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  @media (max-width: 560px) {
+    .aton-marker {
+      left: -27px;
+    }
+  }
+</style>

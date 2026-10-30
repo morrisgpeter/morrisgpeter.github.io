@@ -1,0 +1,169 @@
+---
+const sectors = [
+  { name: "Utilities", image: "/images/aton/utilities.webp" },
+  { name: "Telecom", image: "/images/aton/telecom.webp" },
+  { name: "Oil & Gas", image: "/images/aton/oil-gas.webp" },
+  { name: "Forestry", image: "/images/aton/forestry.webp" },
+  { name: "Mining", image: "/images/aton/mining.webp" },
+];
+---
+
+<header class="aton-hero">
+  <div class="aton-hero-content">
+    <p class="aton-period">2003–2012 · Salvador, Brazil</p>
+
+    <img
+      class="aton-logo"
+      src="/images/aton/aton-logo.png"
+      alt="Aton Engenharia logo"
+      width="90"
+      height="90"
+    />
+
+    <h2 id="aton-title">Senior Project Manager — Sales &amp; Solutions</h2>
+
+    <p class="aton-tagline">Engineering Solutions for Complex Challenges</p>
+
+    <p class="aton-description">
+      Delivered multidisciplinary engineering solutions across utilities,
+      telecommunications, oil &amp; gas, forestry, and mining,
+      combining complex project delivery, technical leadership,
+      systems integration, and commercial development.
+    </p>
+  </div>
+
+  <div class="aton-sectors" aria-label="Industry sectors">
+    {sectors.map((sector) => (
+      <div class="aton-sector">
+        <img src={sector.image} alt="" loading="lazy" />
+        <span>{sector.name}</span>
+      </div>
+    ))}
+  </div>
+</header>
+
+<style>
+  .aton-hero {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    min-height: 320px;
+    background: linear-gradient(115deg, #fff 42%, #eef6fd 100%);
+    border: 1px solid #e1eaf4;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .aton-hero-content {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    position: relative;
+    z-index: 2;
+  }
+
+  .aton-period {
+    font-size: .9rem;
+    color: #56728f;
+    margin: 0 0 .75rem;
+  }
+
+  .aton-logo {
+    display: block;
+    width: clamp(56px, 6vw, 82px);
+    height: auto;
+    margin: 0 0 .65rem;
+  }
+
+  .aton-hero h2 {
+    font-size: clamp(1.55rem, 2.3vw, 2.35rem);
+    line-height: 1.14;
+    color: #102b50;
+    margin: 0 0 .65rem;
+  }
+
+  .aton-tagline {
+    font-size: clamp(.98rem, 1.25vw, 1.15rem);
+    font-weight: 750;
+    color: #35618f;
+    margin: 0 0 1rem;
+  }
+
+  .aton-description {
+    font-size: .94rem;
+    line-height: 1.65;
+    color: #435a72;
+    margin: 0;
+  }
+
+  .aton-sectors {
+    display: flex;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  .aton-sector {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    margin-left: -12px;
+    clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
+  }
+
+  .aton-sector:first-child {
+    margin-left: 0;
+  }
+
+  .aton-sector img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .aton-sector::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 20, 45, .75),
+      transparent 45%
+    );
+  }
+
+  .aton-sector span {
+    position: absolute;
+    bottom: 1rem;
+    left: 20%;
+    z-index: 1;
+    color: white;
+    font-size: .75rem;
+    font-weight: 750;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 850px) {
+    .aton-hero {
+      grid-template-columns: 1fr;
+    }
+
+    .aton-sectors {
+      height: 220px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .aton-hero-content {
+      padding: 1.4rem;
+    }
+
+    .aton-sectors {
+      height: 160px;
+    }
+
+    .aton-sector span {
+      font-size: .58rem;
+      bottom: .6rem;
+    }
+  }
+</style>

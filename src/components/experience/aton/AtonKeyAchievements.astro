@@ -1,0 +1,81 @@
+---
+// Compact metric-panel presentation aligned with FibraExperience.astro.
+const metrics = [
+  { value: '5', label: 'Main Industry Sectors', detail: 'Multidisciplinary engineering solutions' },
+  { value: '200+', label: 'Professionals', detail: 'Largest multidisciplinary project team' },
+  { value: '8', label: 'Hydropower Plants', detail: 'Integrated into centralized control systems' },
+  { value: '~1,400 km²', label: 'Forest Area Monitored', detail: 'Remote fire monitoring solutions' },
+  { value: '20,000', label: 'Network Points', detail: 'Structured cabling infrastructure' },
+];
+---
+
+<section class="aton-impact" aria-labelledby="aton-achievements-title">
+  <div class="aton-section-heading">
+    <p class="aton-kicker">KEY ACHIEVEMENTS</p>
+    <h3 id="aton-achievements-title">Engineering Scale. Business Impact.</h3>
+    <p class="aton-intro">Selected achievements across multidisciplinary engineering, project leadership, and solution development.</p>
+  </div>
+
+  <div class="aton-metrics">
+    <div class="aton-metric">
+      <strong>{metrics[0].value}</strong>
+      <h4>{metrics[0].label}</h4>
+      <p>{metrics[0].detail}</p>
+    </div>
+    <div class="aton-metric">
+      <strong>{metrics[1].value}</strong>
+      <h4>{metrics[1].label}</h4>
+      <p>{metrics[1].detail}</p>
+    </div>
+    <div class="aton-metric aton-oil-gas">
+      <div class="aton-dual-metrics">
+        <div><strong>210</strong><span>Oil Wells</span></div>
+        <div><strong>~30%</strong><span>Cost Reduction</span></div>
+      </div>
+      <h4>Oil &amp; Gas Projects</h4>
+      <p>Engineering, automation and cost optimization through preassembly.</p>
+    </div>
+    {metrics.slice(2).map((metric) => (
+      <div class="aton-metric">
+        <strong>{metric.value}</strong>
+        <h4>{metric.label}</h4>
+        <p>{metric.detail}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .aton-impact{background:#fff;border:1px solid #e1eaf4;border-radius:16px;padding:clamp(1.3rem,3vw,2rem);margin:1rem 0 2.2rem;color:#152c4c}
+  .aton-kicker{font-size:.72rem;letter-spacing:.14em;font-weight:800;color:#2474bb;margin:0 0 .8rem}
+  .aton-section-heading h3{font-size:1.2rem;color:#113460;margin:0 0 .45rem;line-height:1.3}
+  .aton-intro{font-size:.85rem;line-height:1.5;color:#52677e;margin:0 0 1.2rem;max-width:75ch}
+  .aton-metrics{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));row-gap:.9rem}
+  .aton-metric{min-width:0;padding:0 .75rem;border-left:1px solid #d9e5f1}
+  .aton-metric:first-child{border-left:0;padding-left:0}
+  .aton-metric strong{display:block;color:#155c9b;font-size:clamp(1.25rem,1.8vw,2rem);font-weight:750;letter-spacing:-.04em;line-height:1.1;white-space:nowrap}
+  .aton-metric h4{font-size:.78rem;color:#153b68;margin:.38rem 0 .2rem;line-height:1.35}
+  .aton-metric p{font-size:.72rem;line-height:1.45;color:#52677e;margin:0}
+  .aton-dual-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.2rem}
+  .aton-dual-metrics>div{min-width:0}
+  .aton-dual-metrics>div+div{border-left:1px solid #d9e5f1;padding-left:.3rem}
+  .aton-dual-metrics strong{font-size:clamp(1rem,1.4vw,1.6rem)}
+  .aton-dual-metrics span{display:block;margin-top:.2rem;font-size:.65rem;font-weight:650;color:#52677e}
+  @media(max-width:1100px){
+    .aton-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .aton-metric{border-left:1px solid #d9e5f1;padding:0 1rem}
+    .aton-metric:nth-child(3n+1){border-left:0;padding-left:0}
+    .aton-metric:nth-child(n+4){border-top:1px solid #d9e5f1;padding-top:1.1rem}
+    .aton-metric strong{font-size:clamp(1.6rem,2.7vw,2.2rem)}
+    .aton-dual-metrics strong{font-size:clamp(1.35rem,2.1vw,1.85rem)}
+  }
+  @media(max-width:560px){
+    .aton-metrics{grid-template-columns:1fr;row-gap:1rem}
+    .aton-metric,.aton-metric:nth-child(3n+1){border-left:0;border-top:1px solid #d9e5f1;padding:1rem 0 0}
+    .aton-metric:first-child{border-top:0;padding-top:0}
+    .aton-metric strong{font-size:2rem}
+    .aton-dual-metrics strong{font-size:1.8rem}
+    .aton-metric h4{font-size:.9rem}
+    .aton-metric p{font-size:.81rem}
+  }
+</style>

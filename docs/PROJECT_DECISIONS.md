@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-29
+**Last updated:** 2026-10-30
 
 ## Status legend
 
@@ -424,3 +424,24 @@ When a decision is confirmed or revised:
 | D-130 | 2026-10-29 | Commercial Expertise cross-reference | During future **Commercial Expertise** development, evaluate referencing the conference and symposium appearances as evidence of technical authority, industry engagement and relationship-building, preferably with a link to the Forest Fire Monitoring case. | Accepted (future consideration; presentation open) | 2007 took place during Aton; 2015, 2017 and 2018 during Fibra. Participation was chiefly as a technical specialist; do not imply official Fibra commercial representation or attribute sales results to the events without evidence. Coordinate with D-106–D-107 and avoid repeating the full timeline. |
 
 **Next release action:** Verify Section 06 build, intended assets and source diff; stage only relevant files and documentation, commit/push, and confirm the live page.
+
+
+## Aton Engenharia Experience — Introduction (2026-10-30)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-131 | 2026-10-30 | Aton Experience architecture | Develop the Aton Experience incrementally, retaining the standalone Forest Fire Monitoring case. Chapter order: Introduction, Key Achievements, Project Footprint, Major Projects Timeline, Featured Case Studies, Other Selected Projects. | Accepted (structure) | Preserve ABB, Fibra and Telenge. Do not duplicate the full forest case study. |
+| D-132 | 2026-10-30 | Aton Introduction | Approve **Engineering Solutions for Complex Challenges**, Aton logo, **Senior Project Manager — Sales & Solutions**, September 2003–January 2012, and five diagonal sector panels: Utilities, Telecom, Oil & Gas, Forestry, Mining. | Accepted (desktop/mobile visual design) | Layout, typography, hierarchy and responsiveness accepted. Do not redesign without a new request. |
+| D-133 | 2026-10-30 | Introduction image follow-up | Defer improvement of the Utilities photo; verify reuse rights, attribution and disclosure for all five photographs. | Pending (asset quality/rights) | Visual approval does not establish permission to publish the photographs. |
+
+**Release boundary:** The approved Introduction is not independently confirmed built, committed, pushed or deployed by this documentation update. Next design task: **Key Achievements**.
+
+
+## Aton Engenharia Experience — Key Achievements (2026-10-30)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-134 | 2026-10-30 | Aton Key Achievements visual review | Accept the completed **Key Achievements** section on **desktop and mobile**. Preserve the reviewed metrics, wording, component and responsive presentation unless a subsequent change is explicitly requested. | Accepted (desktop/mobile visual design) | The approved screenshot/source is the reference for exact metric labels; this documentation checkpoint does not independently validate the final numbers or text. |
+| D-135 | 2026-10-30 | Aton next design milestone | Proceed to **Project Footprint — Engineering Solutions Across Brazil**, with sector filters and locations grounded in historical project evidence. | Accepted (sequence / next task) | Do not modify the approved Introduction or Key Achievements while planning the map. |
+
+**Release boundary:** Introduction and Key Achievements are visually approved. Verify exact files, production build, Git diff, commit/push, live deployment, source data and disclosure independently before marking them published.

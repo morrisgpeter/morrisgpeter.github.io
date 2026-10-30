@@ -357,3 +357,16 @@ This checkpoint **supersedes earlier pending-release notes for Section 03** and 
 **Progress:** The **Key Achievements** section has been developed and visually accepted on **desktop and mobile**, following the previously approved Aton Introduction. Retain the approved implementation and wording; do not redesign without a new request. This checkpoint records visual approval, not independent verification of exact component source, build, commit, push, deployment, metric evidence or disclosure rights.
 
 **Next design task:** **Project Footprint — Engineering Solutions Across Brazil**, with geographically supported project locations and sector filters. Subsequent sections remain Major Projects Timeline, Featured Case Studies, and Other Selected Projects. The standalone Forest Fire Monitoring case remains separate.
+
+
+## Experience — Aton Project Footprint (approved 2026-10-31)
+
+**Approved visual iteration:** `src/components/experience/aton/AtonProjectFootprint.astro` (reviewed candidate `AtonProjectFootprint_v11.astro`), supported by `src/components/experience/aton/atonFootprintData.ts`. **Title:** **Automation & Telecom Solutions Across Brazil**. Desktop/mobile layout, interactive Brazil state map and sector-selection panel were accepted. Preserve this version unless a new revision is requested.
+
+**Sector coverage:** Telecommunications — **17 states**, represented by state shading rather than invented municipal markers; Utilities — **15 regions**; Oil & Gas — **20 regions + 3 offshore regions**; Forestry — **10 regions**; Mining — **4 locations**. Other sectors use approximate geographic reference points, not exact installations or one-to-one project counts. Offshore references are illustrative. Locations can overlap.
+
+**Interaction:** All sectors initially active; five individual sector filters; a single selected filter at a time; selected sector changes map display. Approved supporting copy: **Geographic footprint of engineering activities across five sectors.** and **Telecommunications is represented by state coverage; other sectors use geographic reference points. Locations may overlap and do not necessarily represent individual projects.**
+
+**Historical scope:** Forestry includes ten reference regions for Gerdau, ArcelorMittal, Saint-Gobain and WestRock; **Veracel Eunápolis is excluded** from operational footprint markers (it belongs in the separate Forest Fire Monitoring opportunity narrative). Do not infer precise facility coordinates, individual project counts, or additional projects from regional markers.
+
+**Release boundary:** Design/content approval does not itself establish final local integration, production build, Git commit/push, live deployment, map-data validation, accessibility or third-party map availability. **Next Aton section:** Major Projects Timeline; then Featured Case Studies and Other Selected Projects.

@@ -1,0 +1,88 @@
+---
+import {points,telecomStates,sectorColors} from './atonFootprintData';
+const sectors = Object.keys(sectorColors);
+---
+<section class="aton-footprint" aria-labelledby="aton-footprint-heading" data-aton-footprint>
+  <header class="heading"><div><p class="eyebrow">PROJECT FOOTPRINT</p><h3 id="aton-footprint-heading">Automation &amp; Telecom Solutions Across Brazil</h3><p>Geographic footprint of engineering activities across five sectors.</p></div></header>
+  <div class="map-layout">
+    <div class="map-box">
+      <svg viewBox="0 0 390 345" role="img" aria-label="Brazil map showing state-level telecommunications coverage and geographic references for four additional sectors"><g data-states></g><g data-points></g></svg>
+      <p data-status class="status">Loading map boundaries…</p>
+    </div>
+    <aside class="legend" aria-label="Interactive sector coverage filters">
+      <p class="legend-heading">SECTOR COVERAGE</p>
+      <p class="legend-hint">Select a sector to explore</p>
+      <div class="legend-options" role="group" aria-label="Filter map by sector">
+        <button type="button" class="legend-row active" data-sector="All" aria-pressed="true" aria-label="Show all sectors">
+          <span class="legend-name"><i class="all-dot" aria-hidden="true"></i>All sectors</span>
+          <span class="legend-detail">View all sectors</span>
+        </button>
+        {sectors.map(s=><button type="button" class="legend-row" data-sector={s} aria-pressed="false" aria-label={`Show ${s} coverage`}>
+          <span class="legend-name"><i aria-hidden="true" style={`background:${sectorColors[s as keyof typeof sectorColors]}`}></i>{s}</span>
+          <span class="legend-detail">{s === "Telecommunications" ? "17 states" : s === "Utilities" ? "15 regions" : s === "Oil & Gas" ? "20 regions + 3 offshore regions" : s === "Forestry" ? "10 regions" : "4 locations"}</span>
+        </button>)}
+      </div>
+      <p class="offshore-key">◌ Offshore reference</p>
+      <p class="coverage-note"><span class="coverage-note-icon" aria-hidden="true">ⓘ</span><span>Telecommunications is represented by state coverage; other sectors use geographic reference points. Locations may overlap and do not necessarily represent individual projects.</span></p>
+    </aside>
+  </div>
+</section>
+<script define:vars={{points,telecomStates,sectorColors}}>
+  const root=document.querySelector('[data-aton-footprint]');
+  if(root){
+    const NS='http://www.w3.org/2000/svg'; const states=root.querySelector('[data-states]');const dots=root.querySelector('[data-points]');const status=root.querySelector('[data-status]');
+    const project=([lon,lat])=>[15+(lon+74.1)*8.25,8+(5.4-lat)*8.25];
+    const rings=g=>g.type==='Polygon'?[g.coordinates]:g.coordinates;
+    const makePath=g=>rings(g).map(poly=>poly.map(ring=>ring.map((p,i)=>{const [x,y]=project(p);return `${i?'L':'M'}${x.toFixed(2)},${y.toFixed(2)}`}).join(' ')+' Z').join(' ')).join(' ');
+    const stateAbbr={acre:'AC',alagoas:'AL',amapa:'AP',amazonas:'AM',bahia:'BA',ceara:'CE','distrito federal':'DF','espirito santo':'ES',goias:'GO',maranhao:'MA','mato grosso':'MT','mato grosso do sul':'MS','minas gerais':'MG',para:'PA',paraiba:'PB',parana:'PR',pernambuco:'PE',piaui:'PI','rio de janeiro':'RJ','rio grande do norte':'RN','rio grande do sul':'RS',rondonia:'RO',roraima:'RR','santa catarina':'SC','sao paulo':'SP',sergipe:'SE',tocantins:'TO'};
+    // Correct map dictionary entries after object creation for readability.
+    stateAbbr.pernambuco='PE';stateAbbr.piaui='PI';
+    const norm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+    let features=[];let selected='All';
+    function draw(){
+      states.replaceChildren();dots.replaceChildren();
+      features.forEach(f=>{const raw=String(f.properties?.name||f.properties?.nome||f.properties?.sigla||'');const key=norm(raw);const abbr=stateAbbr[key]||raw.toUpperCase();const highlighted=(selected==='All'||selected==='Telecommunications')&&telecomStates.includes(abbr);
+        const path=document.createElementNS(NS,'path');path.setAttribute('d',makePath(f.geometry));path.setAttribute('fill',highlighted?'#a6cdf6':'#e3ebf3');path.setAttribute('stroke','#fff');path.setAttribute('stroke-width','1');path.setAttribute('vector-effect','non-scaling-stroke');const title=document.createElementNS(NS,'title');title.textContent=raw;path.append(title);states.append(path);
+      });
+      const visible=points.filter(p=>selected==='All'||p.sectors.includes(selected));
+      // Slightly spread markers at identical coordinates; no invented additional locations.
+      const occupied=new Map();visible.forEach(p=>{const [x0,y0]=project([p.lon,p.lat]);const key=`${x0.toFixed(1)}:${y0.toFixed(1)}`;const n=occupied.get(key)||0;occupied.set(key,n+1);const angle=n*2.4;const x=x0+(n?Math.cos(angle)*5:0),y=y0+(n?Math.sin(angle)*5:0);
+        const circle=document.createElementNS(NS,'circle');circle.setAttribute('cx',String(x));circle.setAttribute('cy',String(y));circle.setAttribute('r',p.offshore?'5.3':'4.4');circle.setAttribute('fill',p.offshore?'#fff':sectorColors[p.sectors[0]]);circle.setAttribute('stroke',p.offshore?sectorColors['Oil & Gas']:'#fff');circle.setAttribute('stroke-width','1.8');if(p.offshore)circle.setAttribute('stroke-dasharray','2 1');const title=document.createElementNS(NS,'title');title.textContent=`${p.name} (${p.state}) · ${p.sectors.join(', ')}`;circle.append(title);dots.append(circle);
+      });
+    }
+    root.querySelectorAll('[data-sector]').forEach(b=>b.addEventListener('click',()=>{selected=b.dataset.sector;root.querySelectorAll('[data-sector]').forEach(x=>{const active=x.dataset.sector===selected;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active))});draw()}));
+    fetch('https://cdn.jsdelivr.net/gh/codeforamerica/click_that_hood@48ba05ad/public/data/brazil-states.geojson').then(r=>{if(!r.ok)throw Error('Map unavailable');return r.json()}).then(data=>{features=data.features||[];if(!features.length)throw Error('Missing states');status.remove();draw()}).catch(()=>{status.textContent='Map boundaries unavailable. Check internet connection.'});
+  }
+</script>
+<style>
+.aton-footprint{margin:1.3rem 0 2rem;padding:clamp(1.2rem,3vw,2rem);border:1px solid #dfe9f4;border-radius:18px;background:linear-gradient(130deg,#fff,#f4f9ff);color:#183451}
+.eyebrow{color:#2774b8;font-weight:800;letter-spacing:.15em;font-size:.7rem;margin:0 0 .5rem}
+.heading h3{font-size:clamp(1.35rem,2.3vw,1.85rem);color:#113b68;margin:0 0 .4rem}
+.heading p:last-child{font-size:.89rem;color:#557089;line-height:1.5;margin:0}
+.map-layout{width:100%;display:grid;grid-template-columns:minmax(0,7fr) minmax(245px,3fr);align-items:center;gap:clamp(.7rem,2vw,1.4rem);margin-top:1rem}
+.map-box{width:100%;min-width:0;display:flex;justify-content:center;align-items:center;position:relative}
+.map-box svg{display:block;width:min(100%,740px);height:auto;max-height:650px}
+.status{text-align:center;font-size:.8rem;color:#627c94;position:absolute;bottom:0}
+.legend{min-width:0;box-sizing:border-box;padding:.85rem;border:1px solid #dce8f4;border-radius:14px;background:#fff;color:#3e5871}
+.legend-heading{font-size:.68rem;font-weight:800;letter-spacing:.12em;color:#2774b8;margin:0 0 .3rem}
+.legend-hint{font-size:.69rem;line-height:1.45;color:#68829b;margin:0 0 .5rem}
+.legend-options{display:flex;flex-direction:column;gap:.32rem}
+.legend-row{appearance:none;-webkit-appearance:none;display:flex;flex-direction:column;align-items:stretch;gap:.2rem;width:100%;min-height:52px;text-align:left;padding:.52rem .65rem;border:1px solid #dfeaf5;border-radius:10px;background:#f8fbff;color:inherit;cursor:pointer;font:inherit;transition:background .15s,border-color .15s}
+.legend-row:hover{background:#f0f6fd}
+.legend-row[aria-pressed="true"]{background:#e8f3ff;border-color:#367dbd;box-shadow:inset 3px 0 0 #2875b6}
+.legend-row:focus-visible{outline:3px solid #f5a623;outline-offset:2px}
+.legend-name{display:flex;align-items:center;gap:.55rem;font-size:.8rem;font-weight:700;color:#21486e}
+.legend i{width:12px;height:12px;border-radius:50%;display:inline-block;flex-shrink:0}.legend i.all-dot{background:conic-gradient(#246ee5 0 20%,#f58b20 20% 40%,#dc4056 40% 60%,#169a78 60% 80%,#7051d9 80% 100%)}
+.legend-detail{font-size:.7rem;color:#5c748c;padding-left:1.55rem;line-height:1.35}
+.offshore-key{font-size:.7rem;color:#5c748c;margin:.55rem .6rem 0}
+.coverage-note{display:flex;align-items:flex-start;gap:.45rem;border-top:1px solid #e5edf5;padding-top:.55rem;margin:.55rem 0 0;font-size:.68rem;color:#627b92;line-height:1.5}
+.coverage-note-icon{flex-shrink:0;color:#2774b8;font-size:.85rem;line-height:1.2}
+@media(max-width:760px){
+ .map-layout{grid-template-columns:1fr;gap:.65rem}
+ .map-box svg{width:min(100%,460px);max-height:none}
+ .legend{width:100%;padding:.85rem}
+ .legend-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.3rem}
+ .legend-row{min-width:0;min-height:64px}
+}
+@media(max-width:390px){.legend-options{grid-template-columns:1fr}.legend-row{min-height:52px}}
+</style>

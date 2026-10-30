@@ -558,3 +558,17 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] Then develop **Major Projects Timeline**, **Featured Case Studies**, and **Other Selected Projects**.
 
 **Status:** Introduction and Key Achievements **visually approved** on desktop/mobile. Source/build/commit/publication verification is tracked separately. The earlier Introduction checkpoint's unchecked “Develop Key Achievements” item is superseded by this update.
+
+
+## Aton Engenharia — Project Footprint checkpoint (2026-10-31)
+
+- [x] Approve **Automation & Telecom Solutions Across Brazil** (`AtonProjectFootprint_v11.astro`) on desktop and mobile.
+- [x] Approve five interactive sector filters plus **All sectors**.
+- [x] Approve coverage framing: **17 telecommunications states; 15 utilities regions; 20 oil & gas regions + 3 offshore regions; 10 forestry regions; 4 mining locations**.
+- [x] Preserve the geographic-reference disclaimer and avoid implying that each marker is an individual project or exact installation site. Exclude Veracel Eunápolis from operational forestry footprint.
+- [ ] Confirm the final v11 source and `atonFootprintData.ts` are integrated in `AtonExperience.astro`; run `npm run build` and review desktop/mobile behavior.
+- [ ] Inspect `git status` / `git diff`, stage only intended Aton files and these three documentation files, commit and push, then verify the live page.
+- [ ] Independently check third-party Brazil GeoJSON availability, map coordinates, keyboard/touch accessibility and disclosure permissions.
+- [ ] **Next:** Develop **Major Projects Timeline**, followed by **Featured Case Studies** and **Other Selected Projects**.
+
+**Status:** Project Footprint v11 visually/content approved; Git release verification pending.

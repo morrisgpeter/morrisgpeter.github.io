@@ -445,3 +445,12 @@ When a decision is confirmed or revised:
 | D-135 | 2026-10-30 | Aton next design milestone | Proceed to **Project Footprint — Engineering Solutions Across Brazil**, with sector filters and locations grounded in historical project evidence. | Accepted (sequence / next task) | Do not modify the approved Introduction or Key Achievements while planning the map. |
 
 **Release boundary:** Introduction and Key Achievements are visually approved. Verify exact files, production build, Git diff, commit/push, live deployment, source data and disclosure independently before marking them published.
+
+
+## Aton Engenharia Experience — Project Footprint (2026-10-31)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-136 | 2026-10-31 | Aton Project Footprint v11 | Accept **Automation & Telecom Solutions Across Brazil** with responsive Brazil map and interactive **All sectors / Telecommunications / Utilities / Oil & Gas / Forestry / Mining** filters. Preserve approved desktop/mobile presentation. | Accepted (visual/content) | Final reviewed candidate `AtonProjectFootprint_v11.astro`; implementation target `src/components/experience/aton/AtonProjectFootprint.astro`, with `atonFootprintData.ts`. |
+| D-137 | 2026-10-31 | Geographic representation | Telecommunications: **17 states** shaded; Utilities: **15 regions**; Oil & Gas: **20 regions + 3 offshore regions**; Forestry: **10 regions**; Mining: **4 locations**. Markers represent approximate geographic references, not exact sites or individual projects. Exclude Veracel Eunápolis from installed forestry operations. | Accepted (data framing) | Retain disclosure that locations may overlap and do not necessarily represent individual projects. Offshore points are illustrative. |
+| D-138 | 2026-10-31 | Aton next milestone and release gate | Mark Project Footprint complete for this design iteration and proceed next to **Major Projects Timeline**. | Accepted (sequence) | Build, commit/push, deployment, external GeoJSON dependency, accessibility and disclosure checks remain separate; do not claim publication solely from visual approval. |

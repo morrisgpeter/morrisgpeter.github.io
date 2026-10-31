@@ -2,19 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FibraExperience from "../components/experience/fibra/FibraExperience.astro";
 import AtonExperience from "../components/experience/aton/AtonExperience.astro";
+import TelengeExperience from "../components/experience/telenge/TelengeExperience.astro";
 import StakeholderNetwork from "../components/experience/StakeholderNetwork.astro";
 import DataCenterPowerFlow from '../components/experience/DataCenterPowerFlow.astro';
 import GlobalProjectFootprint from '../components/experience/GlobalProjectFootprint.astro';
 import PortfolioGrowth from '../components/experience/PortfolioGrowth.astro';
 
-const earlierRoles = [
-  {
-    name: "Telenge Telecomunicações",
-    years: "1997–2003",
-    title: "Engineering Management",
-    summary: "Coordinated telecommunications infrastructure and engineering services for utilities, public-sector organizations and industrial customers.",
-  },
-];
 ---
 
 <BaseLayout title="Professional Experience | Peter Morris" description="Professional experience in international project delivery, engineering and commercial leadership.">
@@ -75,16 +68,7 @@ const earlierRoles = [
 
       <AtonExperience />
 
-      {earlierRoles.map((role) => (
-        <article class="career-entry earlier" aria-label={`${role.name}, ${role.years}`}>
-          <div class="timeline-marker" aria-hidden="true"></div>
-          <p class="entry-period">{role.years}</p>
-          <h2>{role.name}</h2>
-          <h3>{role.title}</h3>
-          <p>{role.summary}</p>
-          <p class="future-note">Detailed project examples will be added in a subsequent stage.</p>
-        </article>
-      ))}
+      <TelengeExperience />
     </div>
   </main>
 </BaseLayout>

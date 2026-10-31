@@ -1,0 +1,207 @@
+---
+const categories = [
+  { id: 'all', name: 'All Infrastructure', summary: 'All four activities · Northeast Brazil', color: '#24659f' },
+  { id: 'pstn', name: 'PSTN Expansion', summary: '+310 localities · Bahia', color: '#287be0', client: 'Telemar · PAM', metric: '+310', unit: 'Localities in Bahia', description: 'Public telephone network expansion in more than 310 localities across Bahia under Telemar’s Plano de Antecipação de Metas (PAM).' },
+  { id: 'fiber', name: 'Optical Networks', summary: '+4,250 km · Bahia', color: '#159d70', client: 'Multiple contracts · Mainly Telemar', metric: '+4,250 km', unit: 'Optical networks in Bahia', description: 'Aerial, underground and direct-buried optical fiber deployed across Bahia. Separate OPGW services for other clients are not included in this figure.' },
+  { id: 'maintenance', name: 'Optical Maintenance', summary: '~600 km · Salvador–Maceió', color: '#ed8626', client: 'Intelig', metric: '~600 km', unit: 'Salvador–Maceió corridor', description: 'Maintenance of a buried optical network along the Salvador–Maceió corridor, with a contractual 24-hour restoration commitment.' },
+  { id: 'radio', name: 'Radio Communications', summary: '~3,500 km² · BA, PE, RN, CE', color: '#7b50de', client: 'Petrobras', metric: '~3,500 km²', unit: 'Regional radio coverage', description: 'Radio communications maintenance across regions in BA, PE, RN and CE. Highlighted states indicate geographic scope, not statewide coverage.' }
+];
+---
+<section class="telenge-footprint" data-telenge-footprint aria-labelledby="telenge-map-heading">
+  <header class="heading">
+    <p class="eyebrow">PROJECT FOOTPRINT</p>
+    <h3 id="telenge-map-heading">Telecommunications Infrastructure Across Northeast Brazil</h3>
+    <p>Geographic footprint of telecommunications infrastructure deployment and maintenance activities.</p>
+  </header>
+  <div class="footprint-layout">
+    <div class="map-panel">
+      <svg viewBox="20 105 660 545" role="img" aria-label="Map with actual Brazilian state boundaries, highlighting the geographic scope of the selected telecommunications contract">
+        <g data-state-paths></g>
+        <g data-map-labels></g>
+        <g data-route></g>
+        <g data-markers></g>
+        <g data-scale aria-label="Approximate map scale"></g>
+      </svg>
+      <p class="map-status" data-map-status>Loading state boundaries…</p>
+    </div>
+    <aside class="selector" aria-label="Select telecommunications infrastructure view">
+      <div class="selector-list">
+        {categories.map((item, i) => (
+          <button type="button" class="selector-button" data-select={item.id} aria-pressed={i === 0 ? 'true' : 'false'} style={`--accent:${item.color}`}>
+            <span class="dot" aria-hidden="true"></span><span class="selector-copy"><strong>{item.name}</strong><small>{item.summary}</small></span><span class="chevron" aria-hidden="true">›</span>
+          </button>
+        ))}
+      </div>
+
+    </aside>
+    <p class="selector-note">State boundaries are geographic. Highlighted areas indicate regional contract scope, not statewide coverage. The maintenance corridor follows approximate municipality locations, not the surveyed cable route.</p>
+  </div>
+</section>
+<script define:vars={{ categories }}>
+  const root = document.querySelector('[data-telenge-footprint]');
+  if (root) {
+    const NS = 'http://www.w3.org/2000/svg';
+    const paths = root.querySelector('[data-state-paths]');
+    const labels = root.querySelector('[data-map-labels]');
+    const route = root.querySelector('[data-route]');
+    const markers = root.querySelector('[data-markers]');
+    const status = root.querySelector('[data-map-status]');
+    const scale = root.querySelector('[data-scale]');
+    const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const names = { bahia:'BA', alagoas:'AL', pernambuco:'PE', ceara:'CE', 'rio grande do norte':'RN', paraiba:'PB', piaui:'PI', sergipe:'SE', maranhao:'MA', 'minas gerais':'MG', 'espirito santo':'ES', goias:'GO', tocantins:'TO', para:'PA', 'mato grosso':'MT', 'sao paulo':'SP' };
+    // Fixed regional projection (longitude/latitude). Shapes come from real GeoJSON boundaries.
+    const project = ([lon, lat]) => [35 + (lon + 49) * 29, 28 + (1.5 - lat) * 29];
+    const polygonRings = geometry => geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+    const makePath = geometry => polygonRings(geometry).map(poly => poly.map(ring => ring.map((coordinate, index) => { const [x,y] = project(coordinate); return `${index ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`; }).join(' ') + ' Z').join(' ')).join(' ');
+    const create = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for (const [key,value] of Object.entries(attrs)) el.setAttribute(key, String(value)); parent.append(el); return el; };
+    // Approximate municipality centres for a geographic corridor overview.
+    // NOT surveyed cable/railway coordinates; several station details remain unverified.
+    const corridorMunicipalities = [
+      ['Salvador','BA',-38.5014,-12.9777],
+      ['Simões Filho','BA',-38.403,-12.784],
+      ['Camaçari','BA',-38.324,-12.698],
+      ["Dias d’Ávila",'BA',-38.298,-12.612],
+      ['Mata de São João','BA',-38.299,-12.530],
+      ['Pojuca','BA',-38.329,-12.430],
+      ['Catu','BA',-38.380,-12.352],
+      ['Alagoinhas','BA',-38.419,-12.136],
+      ['Entre Rios','BA',-38.083,-11.941],
+      ['Esplanada','BA',-37.945,-11.793],
+      ['Acajutiba','BA',-38.018,-11.662],
+      ['Rio Real','BA',-37.933,-11.484],
+      ['Itabaianinha','SE',-37.790,-11.276],
+      ['Boquim','SE',-37.620,-11.147],
+      ['Salgado','SE',-37.475,-11.032],
+      ['São Cristóvão','SE',-37.206,-11.014],
+      ['Aracaju','SE',-37.073,-10.911],
+      ['Laranjeiras','SE',-37.170,-10.806],
+      ['Riachuelo','SE',-37.188,-10.729],
+      ['Maruim','SE',-37.083,-10.737],
+      ['Rosário do Catete','SE',-37.031,-10.696],
+      ['Carmópolis','SE',-36.989,-10.644],
+      ['Japaratuba','SE',-36.940,-10.593],
+      ['Muribeca','SE',-36.963,-10.427],
+      ['Malhada dos Bois','SE',-36.925,-10.348],
+      ['Propriá','SE',-36.842,-10.212],
+      ['Porto Real do Colégio','AL',-36.836,-10.185],
+      ['São Brás','AL',-36.898,-10.125],
+      ['Arapiraca','AL',-36.661,-9.752],
+      ['Palmeira dos Índios','AL',-36.633,-9.407],
+      ['Rio Largo','AL',-35.853,-9.478],
+      ['Maceió','AL',-35.735,-9.666],
+    ];
+    const selectedStates = { all:['BA','SE','AL','PE','RN','CE'], pstn:['BA'], fiber:['BA'], maintenance:['BA','SE','AL'], radio:['BA','PE','RN','CE'] };
+    const labelPoints = { BA:[-41.7,-12.6], SE:[-37.45,-10.5], AL:[-36.6,-9.45], PE:[-38.4,-8.25], RN:[-36.6,-5.8], CE:[-39.5,-5.35], PB:[-36.5,-7.05], PI:[-42.8,-7.1], MA:[-45,-5.25] };
+    let features = []; let selected = 'all';
+    function render() {
+      paths.replaceChildren(); labels.replaceChildren(); route.replaceChildren(); markers.replaceChildren();
+      const item = categories.find(entry => entry.id === selected);
+      features.forEach(feature => {
+        const raw = String(feature.properties?.name || feature.properties?.nome || feature.properties?.sigla || '');
+        const code = names[normalize(raw)] || raw.toUpperCase();
+        const active = selectedStates[selected].includes(code);
+        // In the combined view, blue denotes PSTN in Bahia, purple denotes radio
+        // scope in PE/RN/CE, while maintenance is a route overlay. No invented
+        // fiber routes or statewide radio coverage are implied.
+        const allColor = code === 'BA' ? '#287be0' : ['PE','RN','CE'].includes(code) ? '#7b50de' : '#ed8626';
+        const fillColor = selected === 'all' ? allColor : item.color;
+        const shape = create('path', { d:makePath(feature.geometry), fill: active ? fillColor : '#e4ebf2', 'fill-opacity':active ? '.25' : '1', stroke:'#fff', 'stroke-width':'1.6', 'vector-effect':'non-scaling-stroke' }, paths);
+        // No native SVG title tooltip: state labels already appear on the map.
+      });
+      Object.entries(labelPoints).forEach(([code,coords]) => {
+        const [x,y] = project(coords);
+        const label = create('text', {x,y, 'text-anchor':'middle', 'font-size':'13', 'font-weight':selectedStates[selected].includes(code)?'800':'500', fill:'#45617b', 'pointer-events':'none'}, labels);
+        label.textContent = code;
+      });
+      // Municipality-centre corridor, not an exact railway alignment or as-built cable route.
+      if (selected === 'maintenance' || selected === 'all') {
+        const points = corridorMunicipalities.map(([name, state, lon, lat]) => ({name,state,coords:project([lon,lat])}));
+        create('polyline', {
+          points:points.map(p=>p.coords.map(v=>v.toFixed(1)).join(',')).join(' '),
+          fill:'none',stroke:'#ed8626','stroke-width':'3',
+          'stroke-dasharray':'6 5','stroke-linejoin':'round','stroke-linecap':'round'
+        },route);
+        points.forEach((point,index)=>{
+          const terminal=index===0||index===points.length-1;
+          const circle=create('circle', {
+            cx:point.coords[0],cy:point.coords[1],r:terminal?5:2.8,
+            fill:'#ed8626',stroke:'#fff','stroke-width':terminal?1.7:0.8,
+            tabindex:'0',role:'img','aria-label':`${point.name}, ${point.state} — approximate municipality centre`
+          },markers);
+          const title=create('title',{},circle);
+          title.textContent=`${index+1}. ${point.name} (${point.state}) — approximate municipality centre`;
+          if(terminal){
+            const label=create('text',{
+              x:point.coords[0]+(index===0?9:8),y:point.coords[1]-9,
+              'font-size':'12','font-weight':'700',fill:'#183451',
+              'paint-order':'stroke',stroke:'#f4f8fc','stroke-width':'3'
+            },markers);
+            label.textContent=point.name;
+          }
+        });
+      }
+      root.querySelectorAll('[data-select]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.select===selected)));
+      // Approximate latitude-based scale (equirectangular projection); not a survey scale.
+      scale.replaceChildren();
+      const scaleX = 570, scaleY = 618, scaleWidth = 52.3; // ~200 km at 29 px/degree latitude
+      create('line',{x1:scaleX,y1:scaleY,x2:scaleX+scaleWidth,y2:scaleY,stroke:'#294c70','stroke-width':2},scale);
+      for (const x of [scaleX,scaleX+scaleWidth]) create('line',{x1:x,y1:scaleY-5,x2:x,y2:scaleY+5,stroke:'#294c70','stroke-width':2},scale);
+      const scaleText=create('text',{x:scaleX,y:scaleY-11,'font-size':11,fill:'#294c70'},scale);scaleText.textContent='≈ 200 km';
+
+    }
+    root.querySelectorAll('[data-select]').forEach(button => button.addEventListener('click',()=>{selected=button.dataset.select;render();}));
+    fetch('https://cdn.jsdelivr.net/gh/codeforamerica/click_that_hood@48ba05ad/public/data/brazil-states.geojson')
+      .then(response=>{if(!response.ok)throw Error('Unavailable');return response.json();})
+      .then(data=>{features=(data.features||[]).filter(feature=>{const raw=String(feature.properties?.name||feature.properties?.nome||feature.properties?.sigla||'');return ['BA','SE','AL','PE','RN','CE','PB','PI','MA','MG','ES','GO','TO','PA','MT','SP'].includes(names[normalize(raw)]||raw.toUpperCase());});if(!features.length)throw Error('Missing features');status.remove();render();})
+      .catch(()=>{status.textContent='Map boundaries unavailable. Check internet connection.';});
+  }
+</script>
+<style>
+.telenge-footprint{margin:1.4rem 0 2rem;padding:clamp(1rem,2.5vw,1.8rem);border:1px solid #dce7f3;border-radius:18px;background:linear-gradient(130deg,#fff,#f5f9fe);color:#183451}
+.heading{margin-bottom:1.15rem}.eyebrow,.section-label,.detail-label{font-size:.72rem;font-weight:800;letter-spacing:.12em;color:#2877bf;margin:0 0 .45rem}.heading h3{font-size:clamp(1.4rem,2.5vw,2rem);color:#12355b;margin:0 0 .35rem;line-height:1.2}.heading>p:last-child{color:#5c748d;font-size:.92rem;margin:0;line-height:1.5}
+.footprint-layout{display:grid;grid-template-columns:minmax(0, 1.75fr) minmax(300px, 1fr);gap:1.1rem;align-items:start;width:100%;max-width:none}
+.map-panel{background:linear-gradient(145deg,#eaf1f8,#f8fbff);border:1px solid #dce7f3;border-radius:14px;position:relative;min-width:0;overflow:hidden;display:flex;flex-direction:column}
+.map-panel svg{display:block;width:100%;height:440px;max-height:440px;object-fit:contain}
+.map-status{position:absolute;top:40%;left:10%;font-size:.8rem;color:#5d758d}
+.telenge-footprint .selector-note{display:block !important;position:static !important;width:100%;max-width:100%;box-sizing:border-box;grid-column:auto !important;align-self:auto !important;font-size:.72rem;color:#667e95;line-height:1.5;margin:.8rem .2rem 0}
+.telenge-footprint .selector{min-width:0;width:100%;max-width:100%;box-sizing:border-box;display:flex !important;flex-direction:column !important;align-items:stretch !important;gap:0 !important;grid-template-columns:none !important}
+.telenge-footprint .selector-list{display:grid;min-width:0;width:100%;grid-template-rows:repeat(5,minmax(0,1fr));gap:.65rem;height:440px}
+.selector-button{--accent:#287be0;display:flex;align-items:center;gap:.85rem;width:100%;padding:.82rem .9rem;border:1px solid #dbe6f2;border-radius:11px;background:#fff;color:#193954;text-align:left;font:inherit;cursor:pointer;transition:background .15s,border-color .15s}
+.selector-button:hover{background:#f5f9fe}
+.selector-button[aria-pressed=true]{background:#edf5ff;border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent)}
+.selector-button:focus:not(:focus-visible){outline:none}
+.selector-button:focus-visible{outline:3px solid #e4a32b;outline-offset:2px}
+.dot{height:15px;width:15px;flex:0 0 15px;border-radius:50%;background:var(--accent)}
+.selector-copy{display:flex;flex-direction:column;gap:.25rem;min-width:0}
+.selector-copy strong{font-size:.96rem;line-height:1.3}
+.selector-copy small{font-size:.8rem;color:#657e96;line-height:1.35}
+.chevron{margin-left:auto;font-size:1.4rem;color:#5b7590}
+@media(max-width:900px){.footprint-layout{grid-template-columns:minmax(0, 1.4fr) minmax(270px, 1fr)}.map-panel svg{height:420px;max-height:420px}.selector-list{height:420px}}
+@media(max-width:700px){.footprint-layout{grid-template-columns:1fr}.map-panel svg{height:auto;max-height:540px}.selector-list{height:auto;grid-template-rows:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.selector-button{padding:.8rem .65rem}.chevron{display:none}}
+@media(max-width:420px){.selector-list{grid-template-columns:1fr}}
+</style>
+
+<style>
+/* Keep the two-column layout insulated from global experience styles. */
+.telenge-footprint .footprint-layout > * { min-width:0; max-width:100%; box-sizing:border-box; }
+.telenge-footprint .selector { grid-column:auto; }
+</style>
+
+<style>
+/* The note belongs below the four buttons, never in the outer grid. */
+.telenge-footprint .footprint-layout > .selector { display:flex !important; flex-direction:column !important; }
+.telenge-footprint .selector > .selector-list { flex:0 0 auto; }
+.telenge-footprint .selector > .selector-note { flex:0 0 auto; margin-top:1rem; }
+</style>
+
+<style>
+/* Full-width note below both map and selectors. */
+.telenge-footprint .footprint-layout > .selector-note {
+  grid-column: 1 / -1 !important;
+  width: 100%;
+  max-width: none;
+  margin: .1rem 0 0;
+  padding: 0 .15rem;
+  box-sizing: border-box;
+}
+</style>

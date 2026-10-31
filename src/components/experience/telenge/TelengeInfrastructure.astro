@@ -1,0 +1,45 @@
+<section class="telenge-scale" aria-labelledby="telenge-scale-title">
+  <div class="scale-heading">
+    <div>
+      <h3 id="telenge-scale-title">Infrastructure at Scale</h3>
+      <p class="intro">Telecommunications network expansion, deployment and maintenance across Northeast Brazil.</p>
+    </div>
+  </div>
+  <div class="scale-grid">
+    <div class="metric metric-blue">
+      <p class="metric-value"><span>+</span>310</p>
+      <h4>Localities Reached</h4>
+      <p class="metric-description">Public telephone network expansion in Bahia</p>
+      <p class="metric-client">Telemar · PAM</p>
+    </div>
+    <div class="metric metric-green">
+      <p class="metric-value"><span>+</span>4,250<span> km</span></p>
+      <h4>Optical Networks</h4>
+      <p class="metric-description">Aerial, underground and direct-buried fiber deployed in Bahia</p>
+      <p class="metric-client">Multiple contracts · Mainly Telemar</p>
+    </div>
+    <div class="metric metric-purple">
+      <p class="metric-value"><span>~</span>3,500<span> km²</span></p>
+      <h4>Radio Coverage</h4>
+      <p class="metric-description">Radio communications across regions in BA, PE, RN and CE.</p>
+      <p class="metric-client">Petrobras</p>
+    </div>
+  </div>
+  <p class="scale-note">Additional experience included OPGW services for other clients; these are not included in the 4,250 km deployment figure.</p>
+</section>
+<style>
+  .telenge-scale{margin:1.15rem 0 1.65rem;color:#152c4c}
+  .scale-heading{margin-bottom:1rem}
+  h3{font-size:clamp(1.4rem,2vw,1.85rem);line-height:1.2;margin:0 0 .45rem;color:#102b50}
+  .intro{font-size:.94rem;line-height:1.55;color:#58708b;margin:0}
+  .scale-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+  .metric{--metric-color:#2876d8;background:linear-gradient(150deg,#fff,#f5f9fe);border:1px solid #e1eaf4;border-top:3px solid var(--metric-color);border-radius:14px;padding:1.05rem 1.3rem;min-width:0;display:flex;flex-direction:column}
+  .metric-green{--metric-color:#199d71}.metric-purple{--metric-color:#7650d8}
+  .metric-value{font-size:clamp(1.9rem,3vw,2.65rem);font-weight:800;line-height:1.1;letter-spacing:-.035em;color:var(--metric-color);margin:0 0 .55rem;white-space:nowrap}
+  .metric-value span{font-size:.56em;letter-spacing:-.015em}
+  h4{font-size:1.05rem;color:#17365c;margin:0 0 .45rem}
+  .metric-description{font-size:.88rem;line-height:1.55;color:#526a84;margin:0 0 .7rem;flex:1}
+  .metric-client{font-size:.78rem;font-weight:750;color:#456481;border-top:1px solid #e1eaf4;padding-top:.55rem;margin:0}
+  .scale-note{font-size:.78rem;line-height:1.55;color:#657c93;margin:.85rem .15rem 0}
+  @media(max-width:850px){.scale-grid{grid-template-columns:1fr}.metric{padding:1rem 1.15rem}.metric-description{margin-bottom:.85rem}.metric-value{white-space:normal}}
+</style>

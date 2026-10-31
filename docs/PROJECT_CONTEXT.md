@@ -399,3 +399,21 @@ This checkpoint **supersedes earlier pending-release notes for Section 03** and 
 The **Forest Fire Monitoring** standalone case is published and linked from the Featured card (`/cases/forest-fire-monitoring`). The user confirmed the final Aton Featured card works on GitHub Pages. **Other Selected Projects is deferred to post-MVP / v2.0**, along with further case studies to be added gradually as evidence is reconstructed. The earlier Aton section plan in this document is historical and superseded for MVP scope by this checkpoint.
 
 **Next Experience work:** Telenge, in a new conversation, emphasizing career scope, responsibilities, and selected evidence-based achievements without requiring standalone cases. Preserve completed ABB, Fibra, Aton and Forest case components. Final release QA (accessibility, content accuracy, image rights and confidentiality) remains outstanding and is not implied by chapter completion.
+
+
+## Experience — Telenge Telecomunicações complete for MVP (2026-10-31)
+
+**Status:** The user approved and closed the Telenge Experience chapter for MVP v1.0. The Experience page now has four completed professional chapters: **ABB, Fibra Engenharia, Aton Engenharia and Telenge Telecomunicações**. This is a content/design milestone; it does not by itself confirm that the latest local changes have been built, committed, pushed or deployed.
+
+**Telenge:** Engineering Manager, **May 1997–September 2003**, based in Salvador, Natal and Fortaleza, Brazil. Responsibilities included engineering delivery, coordination of in-house teams, contract budgets/costs/financial results, customer relationships and tender/proposal support.
+
+**Final Telenge section sequence (approved):**
+1. **Introduction** — role and leadership scope.
+2. **Key Projects & Contracts** — four categories: PSTN expansion, optical network deployment, optical maintenance and radio communications.
+3. **Project Footprint** — interactive Northeast Brazil map with five selectors including **All Infrastructure**, plus four supporting category summaries.
+
+The proposed **Infrastructure at Scale** section was deliberately **removed** to avoid duplicating metrics and content elsewhere. The Telenge chapter does **not** require standalone case studies for MVP.
+
+**Historical figures and attribution:** **310+ localities** served in Bahia (Telemar/PAM PSTN); **4,250+ km** of optical networks installed in Bahia across contracts (principally Telemar; aerial, underground and direct-buried); **approximately 600 km** of buried fiber maintained on the Salvador–Maceió corridor for Intelig, with a **24-hour restoration commitment**; and radio communications maintenance covering **approximately 3,500 km²** across specific municipalities in Bahia, Pernambuco, Rio Grande do Norte and Ceará for Petrobras. OPGW services for other customers are **not** part of the 4,250 km figure. The 600 km maintenance and restoration commitment refer to **one contract**, not separate projects. Map points and paths are geographic illustrations, not verified precise site coordinates or statewide coverage.
+
+**MVP implication:** The **Experience** page is complete in content/design scope for v1.0. Remaining site-wide work includes any unfinished essential pages, build/deployment verification, navigation/responsive/accessibility QA, historical evidence, image/map rights and confidentiality review. Preserve the approved Experience chapters unless a specific change is requested. Earlier references to Telenge as the next chapter are superseded by this checkpoint.

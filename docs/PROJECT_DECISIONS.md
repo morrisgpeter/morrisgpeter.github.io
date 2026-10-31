@@ -476,3 +476,16 @@ When a decision is confirmed or revised:
 | D-146 | 2026-10-31 | Next Experience chapter | Develop **Telenge** next, in a separate conversation, using MVP scope: professional narrative, responsibilities and evidence-based highlights; no requirement to create individual project case studies now. | Accepted | Complete the fourth company chapter before revisiting optional enhancements. |
 
 **Release interpretation:** Aton chapter is complete for MVP content and verified live by the user; this is not certification of full-site v1.0 release or of remaining accessibility, historical-source, copyright and confidentiality checks.
+
+
+## Telenge Experience and four-company MVP milestone (2026-10-31)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-147 | 2026-10-31 | Telenge historical scope | Present **Engineering Manager, May 1997–September 2003**, with engineering and in-house team leadership, contract financial accountability, customers and bid/proposal involvement. | Accepted | Do not invent team sizes or imply formal job-title changes. |
+| D-148 | 2026-10-31 | Telenge infrastructure evidence | Distinguish **310+ Bahia PSTN localities (Telemar/PAM)**, **4,250+ km optical network installations in Bahia**, **~600 km Salvador–Maceió buried fiber maintenance (Intelig; 24-hour restoration commitment)**, and **~3,500 km² Petrobras radio coverage in municipalities of BA/PE/RN/CE**. | Accepted | The optical installation metric excludes separate OPGW services; optical maintenance and restoration are one contract. No statewide radio-coverage claim. |
+| D-149 | 2026-10-31 | Telenge final chapter structure | Retain **Introduction → Key Projects & Contracts → Project Footprint**. Remove **Infrastructure at Scale** to prevent repetition. | Accepted (MVP design) | Supersedes the earlier proposed four-section arrangement; no separate Telenge case study required for v1.0. |
+| D-150 | 2026-10-31 | Telenge Project Footprint | Approve Northeast Brazil geographic visualization with **All Infrastructure** and four category selectors: **PSTN, Optical Networks, Optical Maintenance, Radio Communications**. | Accepted (visual/interaction) | Map points and routes are approximate references, not exact installations; do not imply complete state coverage or map undocumented OPGW locations. |
+| D-151 | 2026-10-31 | Experience MVP completion | Mark **ABB, Fibra Engenharia, Aton Engenharia and Telenge Telecomunicações** chapters complete for MVP v1.0 content/design. Freeze further Experience refinements until requested. | Accepted | Site-wide v1.0 release, Git commit/push and final technical/evidence/rights QA are separate milestones and remain unverified here. |
+
+**Release checkpoint:** Review the local Git working tree, run `npm run build`, commit/push intended code and these documentation changes, and verify GitHub Pages. Do not treat approval of screenshots as confirmation of a successful deployment.

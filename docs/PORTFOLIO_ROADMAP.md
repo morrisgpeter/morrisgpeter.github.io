@@ -605,3 +605,20 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] **Post-MVP / v2.0:** Evaluate **Other Selected Projects** and add further Aton/other company case studies incrementally; do not block Telenge or v1.0 on these.
 
 **Status:** Aton Experience is **complete for MVP and published**, based on the user's live-site confirmation on 2026-10-31. Earlier Aton checkpoints that list Featured Case Studies and Other Selected Projects as pending are historical; this entry supersedes them. This is not a claim that the whole site MVP has been released or that final QA is complete.
+
+
+## Experience — Telenge completion and MVP checkpoint (2026-10-31)
+
+- [x] **Telenge Introduction** — Engineering Manager (May 1997–September 2003); leadership, customer and financial responsibilities.
+- [x] **Key Projects & Contracts** — PSTN expansion, optical installations, optical maintenance and radio communications; maintain accurate customer/geographic/contract distinctions.
+- [x] **Project Footprint** — Northeast Brazil map, **All Infrastructure** plus four infrastructure-category selectors; visually accepted.
+- [x] **Remove Infrastructure at Scale** — redundant section excluded from final chapter.
+- [x] **Experience MVP v1.0 content/design complete** — ABB, Fibra Engenharia, Aton Engenharia and Telenge Telecomunicações.
+- [ ] Run `npm run build` and inspect `git status` / `git diff` for all pending intended changes.
+- [ ] Stage intended Astro components, assets, integration and the three updated `docs/` files; commit and push to `main`.
+- [ ] Verify the GitHub Actions workflow and live Experience page after push, including Telenge map selectors on desktop/mobile.
+- [ ] Complete site-wide MVP release QA: navigation, responsiveness, accessibility, historical/source-data checks, image/map rights and confidentiality.
+- [ ] Resolve remaining essential site pages/content before declaring **portfolio MVP v1.0 published**.
+- [ ] **Post-MVP:** additional Aton and other company case studies, Commercial Expertise and deferred visual refinements.
+
+**Status:** Experience chapters approved for MVP; repository commit, deployment and site-wide v1.0 release are **not confirmed by this documentation update**. Earlier Telenge-as-next-task roadmap entries are superseded.

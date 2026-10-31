@@ -98,7 +98,7 @@
       .hero-text {
         position: relative;
         z-index: 2;
-        padding: 70px 0;
+        padding: 38px 0;
       }
 
       .eyebrow {
@@ -177,13 +177,13 @@
       ======================================== */
 
       .expertise {
-        padding: 100px 0;
+        padding: 44px 0 46px;
         background: #f5f8fb;
       }
 
       .expertise h2 {
         font-size: 36px;
-        margin: 0 0 45px;
+        margin: 0 0 24px;
       }
 
       .expertise-grid {
@@ -197,7 +197,7 @@
       .expertise-card {
         background: white;
 
-        padding: 40px;
+        padding: 30px 34px;
 
         border-radius: 10px;
 
@@ -270,7 +270,7 @@
         }
 
         .expertise {
-          padding: 70px 0;
+          padding: 38px 0;
         }
 
       }
@@ -317,7 +317,7 @@
         }
 
         .expertise-card {
-          padding: 28px;
+          padding: 24px;
         }
 
         .expertise-card h3 {

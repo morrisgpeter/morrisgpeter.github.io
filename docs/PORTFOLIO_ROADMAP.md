@@ -622,3 +622,16 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] **Post-MVP:** additional Aton and other company case studies, Commercial Expertise and deferred visual refinements.
 
 **Status:** Experience chapters approved for MVP; repository commit, deployment and site-wide v1.0 release are **not confirmed by this documentation update**. Earlier Telenge-as-next-task roadmap entries are superseded.
+
+
+## Home — MVP v1.0 closure (2026-10-31)
+
+- [x] **Home content/design approved for MVP v1.0** — preserve the current page and approved section composition.
+- [x] **PMP® badge/seal and responsive refinements approved** — desktop and mobile final visual baseline accepted.
+- [x] **Home design freeze** — no further changes unless explicitly requested.
+- [ ] **Commit Home closure** — copy updated Context, Decisions and Roadmap files into `docs/`; review pending Home source/assets and `git diff`; run `npm run build`; commit/push intended changes.
+- [ ] **Verify Home deployment** — check GitHub Actions and the published Home on desktop/mobile after push.
+- [ ] **Final MVP QA** — navigation, accessibility, content/source accuracy, rights and confidentiality remain separate release gates.
+- [ ] **Deferred Home metrics review** — revisit Key Achievements definitions only when requested/approved; do not alter the four existing values as part of MVP closure.
+
+**Status:** Home approved and closed for MVP v1.0 **content/design**; no new commit, push or deployment is asserted by this documentation update.

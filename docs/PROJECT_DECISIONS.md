@@ -489,3 +489,14 @@ When a decision is confirmed or revised:
 | D-151 | 2026-10-31 | Experience MVP completion | Mark **ABB, Fibra Engenharia, Aton Engenharia and Telenge Telecomunicações** chapters complete for MVP v1.0 content/design. Freeze further Experience refinements until requested. | Accepted | Site-wide v1.0 release, Git commit/push and final technical/evidence/rights QA are separate milestones and remain unverified here. |
 
 **Release checkpoint:** Review the local Git working tree, run `npm run build`, commit/push intended code and these documentation changes, and verify GitHub Pages. Do not treat approval of screenshots as confirmation of a successful deployment.
+
+
+## Home — MVP v1.0 final approval (2026-10-31)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-152 | 2026-10-31 | Home MVP completion | **Approve and close the current Home page for MVP v1.0**, preserving its existing content, section composition and executive visual direction. | Accepted (content/visual design) | User explicitly confirmed final approval; no further Home redesign unless requested. |
+| D-153 | 2026-10-31 | Home PMP® seal and responsiveness | Retain the **PMP® badge/seal** and the approved desktop/mobile responsive refinements as part of the Home baseline. | Accepted (visual design) | Preserve the final reviewed version; no unrequested changes to badge or responsive layout. |
+| D-154 | 2026-10-31 | Home metrics and release boundary | Keep the four existing **Key Achievements** indicators unchanged pending any separately approved evidence review. Distinguish Home design acceptance from build, commit/push, live deployment and final site-wide QA. | Accepted (scope/release boundary) | D-097 remains an optional pending verification/review, not authorization to replace published values. |
+
+**Next release action:** Update the three project documents in the local repository, inspect `git status` and `git diff`, run `npm run build`, stage intended Home/documentation files, commit and push to `main`, then verify GitHub Pages. These actions are **not** claimed as completed by this log entry.

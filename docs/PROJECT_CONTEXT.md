@@ -417,3 +417,12 @@ The proposed **Infrastructure at Scale** section was deliberately **removed** to
 **Historical figures and attribution:** **310+ localities** served in Bahia (Telemar/PAM PSTN); **4,250+ km** of optical networks installed in Bahia across contracts (principally Telemar; aerial, underground and direct-buried); **approximately 600 km** of buried fiber maintained on the Salvador–Maceió corridor for Intelig, with a **24-hour restoration commitment**; and radio communications maintenance covering **approximately 3,500 km²** across specific municipalities in Bahia, Pernambuco, Rio Grande do Norte and Ceará for Petrobras. OPGW services for other customers are **not** part of the 4,250 km figure. The 600 km maintenance and restoration commitment refer to **one contract**, not separate projects. Map points and paths are geographic illustrations, not verified precise site coordinates or statewide coverage.
 
 **MVP implication:** The **Experience** page is complete in content/design scope for v1.0. Remaining site-wide work includes any unfinished essential pages, build/deployment verification, navigation/responsive/accessibility QA, historical evidence, image/map rights and confidentiality review. Preserve the approved Experience chapters unless a specific change is requested. Earlier references to Telenge as the next chapter are superseded by this checkpoint.
+
+
+## Home — MVP v1.0 approved and closed (2026-10-31)
+
+**Status:** The user explicitly approved the current Home page for **MVP v1.0** after reviewing the final responsive refinements. Preserve the existing Home design, copy and section composition, including the **PMP® badge/seal** and the accepted desktop/mobile presentation. Do not reopen visual refinements without a new request.
+
+**Scope of approval:** Home content and visual/responsive design. This does **not** independently establish a new production build, Git commit/push, GitHub Actions deployment, accessibility audit, or final evidence/confidentiality clearance. The four published Key Achievements indicators remain unchanged; the previously recorded evidence/definition review is deferred and should not trigger unapproved copy changes.
+
+**MVP progress:** Home and all four Experience chapters are approved in content/design scope. Continue with remaining essential site-wide work and release checks before declaring the complete portfolio MVP v1.0 published.

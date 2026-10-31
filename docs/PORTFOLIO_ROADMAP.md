@@ -588,3 +588,20 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] **Next:** Develop **Featured Case Studies**, then **Other Selected Projects**, without duplicating the standalone Forest Fire Monitoring case.
 
 **Status:** Timeline v3 **approved for desktop/mobile design and interaction**. Production build, Git commit/push and deployment are not independently confirmed. Previously approved Project Footprint, Introduction, Key Achievements, ABB and Fibra sections remain unchanged.
+
+
+## MVP v1.0 scope decision and Aton Experience completion (2026-10-31)
+
+**Priority:** Deliver a coherent, usable professional portfolio **MVP v1.0** before expanding optional projects or technical work. The earlier roadmap's proposed comprehensive Portfolio/case-study tasks remain long-term ideas, **not mandatory prerequisites for the MVP**; decide the minimal Portfolio overview during final site completion. See D-143–D-146.
+
+- [x] **Aton Introduction** — approved and published.
+- [x] **Aton Key Achievements** — approved and published.
+- [x] **Aton Project Footprint v11** — approved and published.
+- [x] **Aton Major Projects Timeline v3** — approved, published and verified live by user.
+- [x] **Aton Featured Case Studies v3** — desktop/mobile approved; two vertical indicator dividers on both; committed/pushed and verified live by user. Links to the published Forest Fire Monitoring case.
+- [x] **Aton Experience MVP chapter complete** — no further Aton sections required for v1.0.
+- [ ] **Next MVP chapter: Telenge** — develop in a separate conversation, focusing on core career story and verified achievements.
+- [ ] **MVP completion:** finish remaining essential site content and conduct final navigation, responsive, accessibility, source-data, rights and confidentiality QA before declaring site-wide v1.0 released.
+- [ ] **Post-MVP / v2.0:** Evaluate **Other Selected Projects** and add further Aton/other company case studies incrementally; do not block Telenge or v1.0 on these.
+
+**Status:** Aton Experience is **complete for MVP and published**, based on the user's live-site confirmation on 2026-10-31. Earlier Aton checkpoints that list Featured Case Studies and Other Selected Projects as pending are historical; this entry supersedes them. This is not a claim that the whole site MVP has been released or that final QA is complete.

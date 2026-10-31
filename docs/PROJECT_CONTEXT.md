@@ -383,3 +383,19 @@ This checkpoint **supersedes earlier pending-release notes for Section 03** and 
 **Newly confirmed professional responsibility:** From **2009 until departure in January 2012**, alongside Oil & Gas Automation & Surveillance, the user held **portfolio-wide project governance responsibility for Aton's automation and telecommunications projects**. This was not PMO limited to the Oil & Gas project, and it should be reflected in the Aton career/leadership narrative. Preserve the approved project timeline rather than adding an unreviewed extra project bar.
 
 **Next:** Verify final v3 source, integration and build; review diff and stage intended files; commit/push and verify live rendering. Continue with **Featured Case Studies** and **Other Selected Projects** separately. Preserve previously approved ABB, Fibra and Forest Fire Monitoring content.
+
+
+## MVP strategy — Aton Experience complete; Telenge next (2026-10-31)
+
+**Agreed release approach:** Complete a coherent **professional portfolio MVP (version 1.0)** before expanding individual historical projects. Additional case studies and optional refinements can be developed incrementally after the first site-wide release (version 2.0 and later). This does not change the long-term professional and technical portfolio vision. See D-143–D-146.
+
+**Aton Engenharia Experience — complete for MVP, published and user-verified:**
+1. Introduction
+2. Key Achievements
+3. Project Footprint (approved v11)
+4. Major Projects Timeline (approved v3, published)
+5. Featured Case Studies (approved v3, published; desktop and mobile indicator dividers)
+
+The **Forest Fire Monitoring** standalone case is published and linked from the Featured card (`/cases/forest-fire-monitoring`). The user confirmed the final Aton Featured card works on GitHub Pages. **Other Selected Projects is deferred to post-MVP / v2.0**, along with further case studies to be added gradually as evidence is reconstructed. The earlier Aton section plan in this document is historical and superseded for MVP scope by this checkpoint.
+
+**Next Experience work:** Telenge, in a new conversation, emphasizing career scope, responsibilities, and selected evidence-based achievements without requiring standalone cases. Preserve completed ABB, Fibra, Aton and Forest case components. Final release QA (accessibility, content accuracy, image rights and confidentiality) remains outstanding and is not implied by chapter completion.

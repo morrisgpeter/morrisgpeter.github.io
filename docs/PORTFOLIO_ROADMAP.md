@@ -635,3 +635,18 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] **Deferred Home metrics review** — revisit Key Achievements definitions only when requested/approved; do not alter the four existing values as part of MVP closure.
 
 **Status:** Home approved and closed for MVP v1.0 **content/design**; no new commit, push or deployment is asserted by this documentation update.
+
+
+## GitHub Project #3 — Ideas backlog triage completed (2026-11-01)
+
+- [x] Export pre-reorganization Project #3 data to `backups/portfolio-project-before-reorganization.json`.
+- [x] Review **23 Ideas** items using `scripts/reorganize-github-project-v2.py`.
+- [x] Prioritize **#60, #61, #64, #69** into **Todo**.
+- [x] Mark **#59 and #65** **Done** in the project (without assuming GitHub issue closure); retain #65 historical detail and link its scope to completed forest-monitoring case #75.
+- [x] Retain **#51, #52, #53, #54, #55, #57, #62, #63, #67, #68, #70, #76, #77, #78, #79, #80** as v2.0 **Ideas**, and **#66** as a beyond-v2.0 **Idea**.
+- [x] Organize sub-issues: **#52 under #80**, **#67/#68 under #79**, **#76 under #78**.
+- [x] Verify script convergence: `python3 scripts/reorganize-github-project-v2.py --dry-run` → `Current Project: #3 | Reviewed: 23 | Actions: 0`.
+- [ ] Review project board and individual issue relationships manually if independent confirmation is needed; the dry-run checks only script-defined changes.
+- [ ] Commit these documentation updates after reviewing the local diff; do not mix with unrelated Astro changes.
+
+**Scope boundary:** This backlog housekeeping does **not** complete the remaining MVP v1.0 site-wide release tasks. Keep existing Home and Experience design approvals and outstanding build/deployment, accessibility, source-evidence, asset-rights and confidentiality checks unchanged. Issue #58 already records ABB training; do not create a duplicate issue. Preserve the approved **170+ hours** display until a separately reviewed change.

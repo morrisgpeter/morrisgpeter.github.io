@@ -500,3 +500,16 @@ When a decision is confirmed or revised:
 | D-154 | 2026-10-31 | Home metrics and release boundary | Keep the four existing **Key Achievements** indicators unchanged pending any separately approved evidence review. Distinguish Home design acceptance from build, commit/push, live deployment and final site-wide QA. | Accepted (scope/release boundary) | D-097 remains an optional pending verification/review, not authorization to replace published values. |
 
 **Next release action:** Update the three project documents in the local repository, inspect `git status` and `git diff`, run `npm run build`, stage intended Home/documentation files, commit and push to `main`, then verify GitHub Pages. These actions are **not** claimed as completed by this log entry.
+
+
+## GitHub Project #3 — backlog reorganization decisions (2026-11-01)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-155 | 2026-11-01 | Ideas triage | Move #60, #61, #64 and #69 from **Ideas** to **Todo**. | Accepted (project update; dry-run consistent) | Bring actionable work into the delivery backlog without implying implementation. |
+| D-156 | 2026-11-01 | Completed historical items | Move #59 and #65 from **Ideas** to **Done** in Project #3; preserve original issue content and cross-reference forest-monitoring case #75 from #65. | Accepted (project update; dry-run consistent) | Project status **Done** does not itself close the underlying GitHub issue. The historical V-Fibra initiative is distinct from Fibra's S-Fibra application. |
+| D-157 | 2026-11-01 | Deferred backlog | Keep #51, #52, #53, #54, #55, #57, #62, #63, #67, #68, #70, #76, #77, #78, #79 and #80 as **Ideas** for v2.0 consideration; #66 remains **Ideas** beyond v2.0. | Accepted | Separate optional future enhancements from MVP v1.0 completion gates. |
+| D-158 | 2026-11-01 | Issue hierarchy | Make #52 a sub-issue of #80; #67 and #68 sub-issues of #79; #76 a sub-issue of #78. | Accepted (project update; dry-run consistent) | Clarify related work while retaining existing issue descriptions. |
+| D-159 | 2026-11-01 | Preservation and verification | Preserve existing issues, original descriptions, and other project statuses; retain the pre-reorganization export; avoid re-running legacy seed scripts. `scripts/reorganize-github-project-v2.py --dry-run` reported `Current Project: #3 | Reviewed: 23 | Actions: 0`. | Accepted | A zero-action dry-run validates the script's current desired state only; it does not prove site deployment, independent issue-content audit or MVP release. |
+
+**Training evidence:** Issue #58 already covers ABB training (119 hours). PMI PDUs total 53.75; combined 172.75 hours supports the rounded **170+** display. Do not duplicate the issue or replace original historical descriptions.

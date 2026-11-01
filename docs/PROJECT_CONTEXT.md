@@ -426,3 +426,16 @@ The proposed **Infrastructure at Scale** section was deliberately **removed** to
 **Scope of approval:** Home content and visual/responsive design. This does **not** independently establish a new production build, Git commit/push, GitHub Actions deployment, accessibility audit, or final evidence/confidentiality clearance. The four published Key Achievements indicators remain unchanged; the previously recorded evidence/definition review is deferred and should not trigger unapproved copy changes.
 
 **MVP progress:** Home and all four Experience chapters are approved in content/design scope. Continue with remaining essential site-wide work and release checks before declaring the complete portfolio MVP v1.0 published.
+
+
+## GitHub Project #3 — Ideas backlog reorganization (2026-11-01)
+
+The professional portfolio backlog was reorganized in GitHub Project **#3**, using `scripts/reorganize-github-project-v2.py` and a project export retained in `backups/portfolio-project-before-reorganization.json`. The script reviewed **23** items originally classified as **Ideas**. A subsequent `--dry-run` returned **`Reviewed: 23 | Actions: 0`**, indicating no remaining actions according to the script's rules; this is a consistency check, not an independent audit of GitHub or the website.
+
+- **Ideas → Todo:** #60, #61, #64, #69.
+- **Ideas → Done:** #59 (PMI PDU consolidation) and #65 (historical V-Fibra / Aton forest-monitoring product initiative; retain the original issue history and reference the completed case #75).
+- **Remain Ideas, v2.0 candidates:** #51, #52, #53, #54, #55, #57, #62, #63, #67, #68, #70, #76, #77, #78, #79, #80.
+- **Remain Ideas, beyond v2.0:** #66.
+- **Sub-issue hierarchy:** #52 → #80; #67 and #68 → #79; #76 → #78 (arrows indicate child → parent).
+
+This was a **project-planning metadata and issue-documentation update**, not a change to the Astro website, a declaration that MVP v1.0 has shipped, or a request to close GitHub issues. Preserve the original issue descriptions and existing project records. Existing ABB training issue #58 already documents 119 hours; consolidated totals are **119 ABB hours + 53.75 PMI PDUs = 172.75 hours**, shown publicly as **170+ hours**. Do not create a duplicate training issue or silently change the published metric.

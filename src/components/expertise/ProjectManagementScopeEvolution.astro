@@ -1,0 +1,86 @@
+---
+/**
+ * Management Scope Evolution — 100% stacked bars.
+ * Percentages are the author's retrospective qualitative assessment of responsibility focus,
+ * not measured hours, project counts, budgets, or formal role allocation.
+ */
+const companies = [
+  { name: 'Telenge', logo: '/images/telenge/telenge-logo.png', values: [70, 30, 0] },
+  { name: 'Aton', logo: '/images/aton/aton-logo.svg', values: [30, 40, 30] },
+  { name: 'Fibra', logo: '/images/fibra-engenharia-logo.png', values: [10, 30, 60] },
+  { name: 'ABB', logo: '/images/abb_logo.png', values: [45, 35, 20] },
+];
+const categories = [
+  { label: 'Project Delivery', color: '#A9C7E5' },
+  { label: 'Multi-Project Coordination', color: '#568DBB' },
+  { label: 'Portfolio Governance', color: '#173B68' },
+];
+---
+
+<section class="scope" aria-labelledby="scope-title">
+  <div class="scope__container">
+    <p class="scope__eyebrow">HOW MY RESPONSIBILITIES EVOLVED</p>
+    <h2 id="scope-title">Management Scope Evolution</h2>
+    <p class="scope__lead">How my responsibilities evolved across project delivery, multi-project coordination and portfolio governance.</p>
+
+    <div class="scope__chart">
+      <div class="scope__legend" aria-label="Management scope categories">
+        {categories.map((category) => (
+          <div class="scope__legend-item"><span class="scope__swatch" style={`background:${category.color}`}></span>{category.label}</div>
+        ))}
+      </div>
+
+      <div class="scope__rows">
+        {companies.map((company) => (
+          <div class="scope__row" aria-label={`${company.name}: ${categories.map((c, i) => `${c.label} ${company.values[i]}%`).join(', ')}`}>
+            <div class="scope__logo"><img src={company.logo} alt={company.name} loading="lazy" /></div>
+            <div class="scope__bar" role="img" aria-label={`${company.name}: ${categories.map((c, i) => `${c.label} ${company.values[i]}%`).join(', ')}`}>
+              {categories.map((category, i) => company.values[i] > 0 && (
+                <div class="scope__segment" style={`width:${company.values[i]}%;background:${category.color}`} title={`${category.label}: ${company.values[i]}%`}>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <p class="scope__note">Illustrative distribution based on a retrospective qualitative assessment of responsibilities.</p>
+  </div>
+</section>
+
+<style>
+  .scope { padding: clamp(28px, 3.5vw, 46px) 22px; background: #f4f8fc; color: #19365b; }
+  .scope__container { max-width: 1240px; margin: 0 auto; }
+  .scope__eyebrow { margin: 0 0 7px; font-size: 11px; font-weight: 700; letter-spacing: .15em; color: #317db3; }
+  h2 { margin: 0 0 8px; font-size: clamp(23px, 2.2vw, 29px); line-height: 1.2; color: #17365c; }
+  .scope__lead { margin: 0 0 17px; color: #5a718c; font-size: 14px; line-height: 1.45; }
+  .scope__chart { padding: clamp(16px, 2.3vw, 28px); background: #fff; border: 1px solid #dce8f3; border-radius: 20px; box-shadow: 0 10px 24px #17365c08; }
+  .scope__legend { display: flex; justify-content: flex-end; gap: 13px 24px; flex-wrap: wrap; margin-bottom: 22px; }
+  .scope__legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: #294969; }
+  .scope__swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+  .scope__rows { display: grid; gap: 15px; }
+  .scope__row { display: grid; grid-template-columns: 80px minmax(0, 1fr); align-items: center; gap: 12px; }
+  .scope__logo { display: flex; align-items: center; justify-content: center; min-height: 34px; }
+  .scope__logo img { max-width: 72px; width: 100%; height: 30px; object-fit: contain; }
+  .scope__bar { display: flex; width: 100%; height: 24px; overflow: hidden; border-radius: 9px; background: #e9f0f6; }
+  .scope__segment { min-width: 0; border-right: 2px solid #fff; box-sizing: border-box; }
+  .scope__segment:last-child { border-right: 0; }
+  .scope__note { margin: 11px 2px 0; font-size: 11px; color: #718295; line-height: 1.5; }
+  @media (max-width: 760px) {
+    .scope { padding: 28px 18px; }
+    .scope__chart { padding: 15px 12px; border-radius: 17px; }
+    .scope__legend { justify-content: flex-start; gap: 9px 15px; margin-bottom: 17px; }
+    .scope__legend-item { font-size: .73rem; gap: 6px; }
+    .scope__swatch { width: 10px; height: 10px; }
+    .scope__rows { gap: 13px; }
+    .scope__row { grid-template-columns: 62px minmax(0, 1fr); gap: 9px; }
+    .scope__logo { min-height: 29px; }
+    .scope__logo img { max-width: 57px; height: 26px; }
+    .scope__bar { height: 22px; border-radius: 7px; }
+    .scope__segment { border-right-width: 1px; }
+  }
+  @media (max-width: 380px) {
+    .scope__row { grid-template-columns: 54px minmax(0, 1fr); gap: 7px; }
+    .scope__logo img { max-width: 50px; }
+  }
+</style>

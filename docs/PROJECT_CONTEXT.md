@@ -451,3 +451,15 @@ This was a **project-planning metadata and issue-documentation update**, not a c
 - Treat this section as **complete for the current MVP design scope**. Additional companies, numerical leadership scale and other expertise sections remain separate future work unless explicitly approved.
 
 **Release boundary:** Design approval does not independently confirm that the final helper-text removal, production build, Git commit/push, GitHub Pages deployment, accessibility testing or data/disclosure review has occurred.
+
+
+## Project & Program Management — overview cards approved (2026-11-03)
+
+**Page:** `src/pages/project-management.astro`. The desktop overview uses two equal-width cards side by side: **Project Management Approaches** (left) and **Management Scope Evolution** (right). The accepted layout is represented by `project-management_TwoColumns_V3.astro`; retain responsive single-column stacking on narrower viewports. This is a visual/content approval for the current iteration, not confirmation of a build or deployment.
+
+- **Project Management Approaches:** company selector **All / ABB / Fibra / Aton / Telenge**, donut chart and three distinct approach colors. All-company view displays **43 classified experience records**: **Predictive (Waterfall) 65% (28)**, **Hybrid 21% (9)** and **Agile 14% (6)**. These are classified records, **not necessarily 43 distinct projects**. Retain the existing methodology disclaimer.
+- **Management Scope Evolution:** four 100%-stacked bars in chronological career order **Telenge → Aton → Fibra → ABB**, with categories **Project Delivery**, **Multi-Project Coordination** and **Portfolio Governance**. Retrospective qualitative distributions: Telenge **70/30/0**, Aton **30/40/30**, Fibra **10/30/60**, ABB **45/35/20**. These percentages are illustrative responsibility assessments, not measured effort, formal reporting relationships or audited statistics.
+- **Approved V7 palette:** the scope chart uses three tonal blues (**#A9C7E5**, **#568DBB**, **#173B68**) to distinguish its categories from the Approaches chart's separate methodology palette. Retain the current legend, logos and disclaimers. The screenshot was approved on desktop; **mobile verification remains pending**.
+- **Next expertise section:** **Project Management Capabilities**, to be designed separately. Preserve the approved Leadership & Stakeholder Management section and both overview cards.
+
+**Release boundary:** The user's local repository is not available in this workspace. The reviewed screenshot and source artifacts do not establish successful local build, commit/push, GitHub Actions deployment or live verification.

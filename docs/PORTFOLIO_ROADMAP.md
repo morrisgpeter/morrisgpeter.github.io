@@ -663,3 +663,19 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] Perform final accessibility and source/disclosure QA independently of visual approval.
 
 **Scope:** Section 03 is closed for the current design iteration. Do not reopen its design or silently add Aton/Telenge maps; handle any future company expansion and leadership-scale metrics separately.
+
+
+## Project & Program Management — overview cards V7 (2026-11-03)
+
+- [x] Approve the desktop **two-column overview**: Project Management Approaches (left) and Management Scope Evolution (right).
+- [x] Preserve Approaches company filters and **43 classified records** (28 Predictive, 9 Hybrid, 6 Agile), with methodology note.
+- [x] Approve Scope Evolution's four company bars and qualitative responsibility distribution with the explanatory disclaimer.
+- [x] Approve **V7 three-blue palette** for Scope Evolution, distinct from the Approaches palette.
+- [ ] Verify responsive/mobile presentation of both overview cards; do not change approved desktop layout without a new request.
+- [ ] Copy approved `project-management_TwoColumns_V3.astro` to `src/pages/project-management.astro` and `ProjectManagementScopeEvolution_V7.astro` to `src/components/expertise/ProjectManagementScopeEvolution.astro` **only if these versions are not already present locally**. Confirm the current Approaches component matches the approved screenshot.
+- [ ] Run `npm run build`, inspect `git status` and `git diff`, and stage only the intended page/component and three documentation files.
+- [ ] Commit and push to `main`; verify GitHub Actions and the live page on desktop/mobile.
+- [ ] Complete accessibility and underlying data/claim verification separately.
+- [ ] **Next design task:** Project Management Capabilities.
+
+**Status:** V7 desktop visual approved. No local Git commit or production deployment is claimed by this documentation update.

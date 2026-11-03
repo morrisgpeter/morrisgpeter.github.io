@@ -1,0 +1,99 @@
+---
+/** Fibra desktop V4 — refined organic spacing. ABB approved version remains unchanged. */
+const center = { x: 620, y: 272 };
+const groups = [
+  { label: 'Leadership & Management', lines: ['Leadership &','Management'], x: 385, y: 117, color: '#e6e7fa', nodes: [
+    { label: 'Business Partners', x: 94, y: 48, type: 'stakeholder' },
+    { label: 'Customer Management', x: 168, y: 112, type: 'stakeholder' },
+  ]},
+  { label: 'Engineering & Delivery', lines: ['Engineering &','Delivery'], x: 360, y: 335, color: '#dce9fa', nodes: [
+    { label: 'Project Managers', x: 206, y: 395, type: 'direct', children: [
+      { label: 'Field Teams', x: 52, y: 402, type: 'direct' },
+      { label: 'Technical Specialists', x: 100, y: 482, type: 'direct' },
+      { label: 'Commissioning Teams', x: 274, y: 492, type: 'direct' },
+    ]},
+    { label: 'Engineering Team', x: 150, y: 277, type: 'direct' },
+  ]},
+  { label: 'Commercial', lines: ['Commercial'], x: 825, y: 111, color: '#d8eff2', nodes: [
+    { label: 'Sales / Business Development', x: 912, y: 30, type: 'direct' },
+    { label: 'Proposals & Contracts', x: 982, y: 101, type: 'direct' },
+  ]},
+  { label: 'Functional Disciplines', lines: ['Functional','Disciplines'], x: 895, y: 333, color: '#e2edda', nodes: [
+    { label: 'Administrative Management', x: 988, y: 237, type: 'matrix' },
+    { label: 'Finance', x: 1055, y: 290, type: 'stakeholder' },
+    { label: 'HR', x: 1070, y: 347, type: 'matrix' },
+    { label: 'HSE', x: 1055, y: 405, type: 'matrix' },
+    { label: 'Procurement', x: 846, y: 462, type: 'matrix' },
+    { label: 'Legal', x: 1014, y: 450, type: 'matrix' },
+  ]},
+  { label: 'Partners', lines: ['Partners'], x: 707, y: 439, color: '#e9e3f7', nodes: [
+    { label: 'Suppliers / Vendors', x: 560, y: 498, type: 'stakeholder' },
+    { label: 'Technology Partners', x: 782, y: 498, type: 'stakeholder' },
+  ]},
+];
+const leafWidth = (label) => Math.max(90, Math.min(215, label.length * 6.2 + 24));
+const nodes = groups.map(g => ({ ...g, nodes: g.nodes.map(n => ({ ...n, w: leafWidth(n.label), children: (n.children ?? []).map(c => ({ ...c, w: leafWidth(c.label) })) })) }));
+const path = (x1,y1,x2,y2) => `M ${x1} ${y1} C ${(x1+x2)/2} ${y1}, ${(x1+x2)/2} ${y2}, ${x2} ${y2}`;
+const dash = (type) => type === 'direct' ? undefined : type === 'matrix' ? '6 5' : '2 5';
+const color = (type) => type === 'direct' ? '#4b86aa' : type === 'matrix' ? '#89aec7' : '#a9a4c8';
+---
+<section class="leadership-fibra" aria-labelledby="fibra-leadership-title">
+  <p class="eyebrow">HOW DIVERSE AND COMPLEX IS THE STAKEHOLDER ENVIRONMENT I MANAGE?</p>
+  <h2 id="fibra-leadership-title">Leadership &amp; Stakeholder Management</h2>
+  <p class="intro">Navigating complex stakeholder environments across functions, organisations and countries.</p>
+  <div class="toolbar"><span class="selected">Fibra</span></div>
+  <div class="visual">
+    <svg viewBox="0 0 1200 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fibra-svg-title fibra-svg-desc">
+      <title id="fibra-svg-title">Fibra stakeholder network</title>
+      <desc id="fibra-svg-desc">Five stakeholder groups: Leadership and Management, Engineering and Delivery, Commercial, Functional Disciplines, and Partners. Solid lines indicate direct leadership, dashed lines matrix coordination, and dotted lines stakeholder relationships. Group-level links are organisational grouping only.</desc>
+      <!-- Connections from center to groups indicate grouping, not reporting relationships. -->
+      <g fill="none" stroke="#b8cedc" stroke-width="1.8" stroke-linecap="round">
+        {nodes.map(g => <path d={path(center.x,center.y,g.x,g.y)} stroke-dasharray="3 5" />)}
+      </g>
+      <!-- Connections between group and leaves. -->
+      <g fill="none" stroke-linecap="round" stroke-width="1.7">
+        {nodes.map(g => g.nodes.map(n => <path d={g.label === 'Engineering & Delivery' ? path(g.x-42,g.y,n.x+n.w/2,n.y+14) : path(g.x,g.y,n.x+n.w/2,n.y+14)} stroke={color(n.type)} stroke-dasharray={dash(n.type)} />))}
+        {nodes.map(g => g.nodes.map(n => (n.children ?? []).map(c => <path d={path(n.x+n.w/2,n.y+14,c.x+c.w/2,c.y+14)} stroke={color(c.type)} stroke-dasharray={dash(c.type)} />)))}
+      </g>
+      {nodes.map(g => <g>
+        {g.nodes.map(n => <g>
+          {(n.children ?? []).map(c => <g>
+            <rect x={c.x} y={c.y} width={c.w} height="28" rx="14" fill="#fff" stroke="#c4d9e8" stroke-width="1.4" />
+            <text x={c.x+c.w/2} y={c.y+18} text-anchor="middle" font-size="11.5" font-weight="500" fill="#19395e">{c.label}</text>
+          </g>)}
+          <rect x={n.x} y={n.y} width={n.w} height="28" rx="14" fill="#fff" stroke="#c4d9e8" stroke-width="1.4" />
+          <text x={n.x+n.w/2} y={n.y+18} text-anchor="middle" font-size="11.5" font-weight="600" fill="#19395e">{n.label}</text>
+        </g>)}
+        <circle cx={g.x} cy={g.y} r="47" fill={g.color} stroke="#acc8d9" stroke-width="1.5" />
+        <text x={g.x} y={g.y-(g.lines.length-1)*8+5} text-anchor="middle" font-size="12.4" font-weight="700" fill="#173b68">
+          {g.lines.map((line,i) => <tspan x={g.x} dy={i===0?0:16}>{line}</tspan>)}
+        </text>
+      </g>)}
+      <circle cx={center.x} cy={center.y} r="63" fill="#e6f0f7" />
+      <circle cx={center.x} cy={center.y} r="57" fill="#173b68" />
+      <text x={center.x} y={center.y-5} text-anchor="middle" font-size="17" font-weight="700" fill="#fff">Stakeholder</text>
+      <text x={center.x} y={center.y+17} text-anchor="middle" font-size="17" font-weight="700" fill="#fff">Network</text>
+    </svg>
+  </div>
+  <div class="footer">
+    <span><strong>LEADERSHIP MODEL</strong> Direct leadership · Matrix coordination · Stakeholder relationships</span>
+    <span class="legend"><i class="solid"></i> Direct <i class="dashed"></i> Matrix <i class="dotted"></i> Stakeholder</span>
+  </div>
+</section>
+<style>
+  .leadership-fibra{max-width:1200px;margin:0 auto;padding:20px 20px 26px;color:#19395e;font-family:inherit}
+  .leadership-fibra .eyebrow{color:#287f91;font-size:.8rem;letter-spacing:.14em;font-weight:800;margin:0 0 12px;max-width:780px}
+  .leadership-fibra h2{font-size:clamp(1.9rem,3vw,3rem);line-height:1.15;margin:0 0 12px;color:#17365b}
+  .leadership-fibra .intro{color:#5c728a;font-size:1.05rem;margin:0 0 14px}
+  .leadership-fibra .toolbar{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+  .leadership-fibra .selected{background:#173b68;color:#fff;border-radius:99px;padding:8px 20px;font-weight:700}
+  .leadership-fibra .visual{border:1px solid #d7e6f2;border-radius:20px;background:#f8fbfe;overflow:hidden}
+  .leadership-fibra svg{display:block;width:100%;height:auto}
+  .leadership-fibra .footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-bottom:1px solid #d7e6f2;padding:16px 2px;font-size:.9rem;color:#49677f}
+  .leadership-fibra .footer strong{color:#287f91;font-size:.76rem;letter-spacing:.08em;margin-right:8px}
+  .leadership-fibra .legend{display:flex;align-items:center;gap:9px;font-size:.8rem}
+  .leadership-fibra .legend i{display:inline-block;width:25px;border-top:2px solid #4b86aa}
+  .leadership-fibra .legend .dashed{border-top:2px dashed #89aec7;margin-left:10px}
+  .leadership-fibra .legend .dotted{border-top:2px dotted #a9a4c8;margin-left:10px}
+  @media(max-width:700px){.leadership-fibra .visual{overflow-x:auto}.leadership-fibra svg{width:1050px;max-width:none}}
+</style>

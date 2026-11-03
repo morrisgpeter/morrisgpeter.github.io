@@ -1,0 +1,228 @@
+---
+/** ABB (approved V10) + Fibra (approved V4). Original SVGs remain unchanged. */
+import ABBLeadership from './ProjectManagementLeadership.astro';
+import FibraLeadership from './ProjectManagementLeadership_Fibra_V1.astro';
+---
+<section class="leadership-combined" aria-labelledby="leadership-combined-title" data-leadership-switcher>
+  <header class="section-heading">
+    <p class="eyebrow">HOW DIVERSE AND COMPLEX IS THE STAKEHOLDER ENVIRONMENT I MANAGE?</p>
+    <h2 id="leadership-combined-title">Leadership &amp; Stakeholder Management</h2>
+    <p class="intro">Navigating complex stakeholder environments across functions, organisations and countries.</p>
+  </header>
+  <div class="company-tabs" role="group" aria-label="Choose company">
+    <button type="button" class="company-tab is-active" data-company="abb" aria-pressed="true" aria-controls="leadership-abb-panel">ABB</button>
+    <button type="button" class="company-tab" data-company="fibra" aria-pressed="false" aria-controls="leadership-fibra-panel">Fibra</button>
+  </div>
+  <div class="mobile-map-tools" aria-label="Map navigation controls">
+    <div class="zoom-buttons">
+      <button type="button" data-zoom="fit" aria-label="Fit entire map">Fit</button>
+      <button type="button" data-zoom="explore" aria-label="Explore enlarged map">Explore</button>
+      <button type="button" data-zoom="out" aria-label="Zoom out">−</button>
+      <button type="button" data-zoom="in" aria-label="Zoom in">+</button>
+      <button type="button" data-zoom="reset" aria-label="Reset map view">Reset</button>
+    </div>
+  </div>
+  <div id="leadership-abb-panel" class="company-panel" data-panel="abb"><ABBLeadership /></div>
+  <div id="leadership-fibra-panel" class="company-panel" data-panel="fibra" hidden><FibraLeadership /></div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-leadership-switcher]').forEach((root) => {
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-company]'));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('[data-panel]'));
+    const mobile = window.matchMedia('(max-width: 700px)');
+    const zoomByPanel = new WeakMap<HTMLElement, number>();
+    const maxZoom = 3;
+    const exploreHeight = 350;
+    const activePanel = () => panels.find(p => !p.hidden);
+    const visualOf = (p: HTMLElement) => p.querySelector<HTMLElement>('.visual');
+    const svgOf = (p: HTMLElement) => visualOf(p)?.querySelector<SVGSVGElement>('svg');
+    const intrinsic = (svg: SVGSVGElement) => {
+      const vb = svg.viewBox.baseVal;
+      return { width: vb?.width || 1200, height: vb?.height || 580 };
+    };
+    // Fit uses the SVG aspect ratio, so the frame has no unused vertical space.
+    function fitWidth(panel: HTMLElement): number {
+      const visual = visualOf(panel);
+      return visual ? Math.max(1, visual.clientWidth - 4) : 0;
+    }
+    function setFrame(panel: HTMLElement, mode: 'fit' | 'explore') {
+      const visual = visualOf(panel), svg = svgOf(panel);
+      if (!visual || !svg) return;
+      visual.dataset.mapMode = mode;
+      const { width, height } = intrinsic(svg);
+      visual.style.height = mode === 'fit'
+        ? `${Math.ceil(fitWidth(panel) * height / width) + 4}px`
+        : `${exploreHeight}px`;
+      root.querySelectorAll<HTMLButtonElement>('[data-zoom="fit"], [data-zoom="explore"]').forEach(btn => {
+        const selected = btn.dataset.zoom === mode;
+        btn.classList.toggle('is-selected', selected);
+        btn.setAttribute('aria-pressed', String(selected));
+      });
+    }
+    function apply(panel: HTMLElement, width: number, x?: number, y?: number) {
+      if (!mobile.matches) return;
+      const visual = visualOf(panel), svg = svgOf(panel);
+      if (!visual || !svg) return;
+      const oldWidth = svg.getBoundingClientRect().width || fitWidth(panel);
+      const oldHeight = svg.getBoundingClientRect().height || 1;
+      const minWidth = fitWidth(panel);
+      const newWidth = Math.max(minWidth, Math.min(minWidth * maxZoom, width));
+      if (newWidth <= minWidth + 1) { fit(panel); return; }
+      const anchorX = x ?? visual.clientWidth / 2;
+      const anchorY = y ?? visual.clientHeight / 2;
+      const relativeX = (visual.scrollLeft + anchorX) / oldWidth;
+      const relativeY = (visual.scrollTop + anchorY) / oldHeight;
+      setFrame(panel, 'explore');
+      svg.style.setProperty('width', `${newWidth}px`, 'important');
+      svg.style.setProperty('max-width', 'none', 'important');
+      svg.style.setProperty('height', 'auto', 'important');
+      zoomByPanel.set(panel, newWidth);
+      requestAnimationFrame(() => {
+        visual.scrollLeft = relativeX * newWidth - anchorX;
+        visual.scrollTop = relativeY * svg.getBoundingClientRect().height - anchorY;
+      });
+    }
+    function fit(panel: HTMLElement) {
+      if (!mobile.matches) return;
+      const visual = visualOf(panel), svg = svgOf(panel);
+      if (!visual || !svg) return;
+      const width = fitWidth(panel);
+      setFrame(panel, 'fit');
+      svg.style.setProperty('width', `${width}px`, 'important');
+      svg.style.setProperty('max-width', 'none', 'important');
+      svg.style.setProperty('height', 'auto', 'important');
+      zoomByPanel.set(panel, width);
+      visual.scrollLeft = 0;
+      visual.scrollTop = 0;
+    }
+    function explore(panel: HTMLElement) {
+      if (!mobile.matches) return;
+      fit(panel);
+      const visual = visualOf(panel);
+      if (!visual) return;
+      apply(panel, fitWidth(panel) * 1.8);
+      requestAnimationFrame(() => {
+        visual.scrollLeft = Math.max(0, (visual.scrollWidth - visual.clientWidth) / 2);
+        visual.scrollTop = Math.max(0, (visual.scrollHeight - visual.clientHeight) / 2);
+      });
+    }
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const company = button.dataset.company;
+      buttons.forEach(b => {
+        const active = b.dataset.company === company;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', String(active));
+      });
+      panels.forEach(p => { p.hidden = p.dataset.panel !== company; });
+      const panel = activePanel();
+      if (panel && mobile.matches) requestAnimationFrame(() => fit(panel));
+    }));
+    root.querySelectorAll<HTMLButtonElement>('[data-zoom]').forEach(button => {
+      button.addEventListener('click', () => {
+        const panel = activePanel();
+        if (!panel || !mobile.matches) return;
+        const action = button.dataset.zoom;
+        if (action === 'fit' || action === 'reset') fit(panel);
+        else if (action === 'explore') explore(panel);
+        else apply(panel, (zoomByPanel.get(panel) ?? fitWidth(panel)) * (action === 'in' ? 1.25 : 0.8));
+      });
+    });
+    panels.forEach(panel => {
+      const visual = visualOf(panel);
+      if (!visual) return;
+      let pinchDistance = 0, pinchWidth = 0;
+      visual.addEventListener('touchstart', event => {
+        if (!mobile.matches || event.touches.length !== 2) return;
+        pinchDistance = Math.hypot(event.touches[0].clientX - event.touches[1].clientX, event.touches[0].clientY - event.touches[1].clientY);
+        pinchWidth = zoomByPanel.get(panel) ?? fitWidth(panel);
+      }, { passive: true });
+      visual.addEventListener('touchmove', event => {
+        if (!mobile.matches || event.touches.length !== 2 || !pinchDistance) return;
+        event.preventDefault();
+        const a = event.touches[0], b = event.touches[1];
+        const distance = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        const bounds = visual.getBoundingClientRect();
+        apply(panel, pinchWidth * distance / pinchDistance, (a.clientX + b.clientX) / 2 - bounds.left, (a.clientY + b.clientY) / 2 - bounds.top);
+      }, { passive: false });
+      visual.addEventListener('touchend', event => { if (event.touches.length < 2) pinchDistance = 0; }, { passive: true });
+    });
+    function restoreDesktop() {
+      panels.forEach(panel => {
+        const svg = svgOf(panel);
+        if (!svg) return;
+        ['width', 'height', 'max-width'].forEach(prop => svg.style.removeProperty(prop));
+        const visual = visualOf(panel);
+        if (visual) { visual.style.removeProperty('height'); delete visual.dataset.mapMode; }
+      });
+    }
+    if (mobile.matches) requestAnimationFrame(() => { const panel = activePanel(); if (panel) fit(panel); });
+    mobile.addEventListener('change', () => {
+      restoreDesktop();
+      if (mobile.matches) requestAnimationFrame(() => { const panel = activePanel(); if (panel) fit(panel); });
+    });
+    // Refit on mobile viewport changes (rotation, responsive inspector resize).
+    let lastWidth = 0;
+    const observer = new ResizeObserver(() => {
+      if (!mobile.matches) return;
+      const panel = activePanel(), visual = panel && visualOf(panel);
+      if (!panel || !visual || visual.clientWidth === lastWidth) return;
+      lastWidth = visual.clientWidth;
+      fit(panel);
+    });
+    const firstVisual = visualOf(panels[0]);
+    if (firstVisual) observer.observe(firstVisual);
+  });
+</script>
+
+<style>
+  .leadership-combined{max-width:1200px;margin:0 auto;padding:20px 20px 26px;color:#19395e;font-family:inherit}
+  .eyebrow{color:#287f91;font-size:.8rem;letter-spacing:.14em;font-weight:800;margin:0 0 12px;max-width:780px}
+  h2{font-size:clamp(1.9rem,3vw,3rem);line-height:1.15;margin:0 0 12px;color:#17365b}
+  .intro{color:#5c728a;font-size:1.05rem;margin:0 0 14px}
+  .company-tabs{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+  .company-tab{font:inherit;font-weight:700;color:#173b68;background:white;border:1px solid #b7d0e1;border-radius:999px;padding:8px 22px;cursor:pointer;transition:background .15s,color .15s}
+  .company-tab:hover{background:#e8f2f8}
+  .company-tab.is-active{background:#173b68;color:white;border-color:#173b68}
+  .company-tab:focus-visible{outline:3px solid #20b8a6;outline-offset:3px}
+  .company-panel[hidden]{display:none !important}
+  /* Both approved maps share one frame height; their SVG geometry stays untouched. */
+  .company-panel :global(.leadership-v10 .visual),
+  .company-panel :global(.leadership-fibra .visual){
+    aspect-ratio:1200 / 580;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .company-panel :global(.leadership-v10 .visual svg),
+  .company-panel :global(.leadership-fibra .visual svg){
+    width:100%;
+    height:100%;
+    display:block;
+  }
+  .mobile-map-tools{display:none}
+  @media(max-width:700px){
+    .mobile-map-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:4px 0 10px}
+    .map-hint{font-size:.76rem;color:#5c728a;flex-basis:100%}
+    .zoom-buttons{display:flex;gap:5px;flex-wrap:wrap}
+    .zoom-buttons button{font:inherit;font-size:.9rem;font-weight:700;color:#173b68;background:white;border:1px solid #b7d0e1;border-radius:8px;min-width:34px;min-height:34px;padding:0 9px;cursor:pointer}
+    .zoom-buttons button.is-selected{background:#e8f5f4;border-color:#20b8a6}
+    .zoom-buttons button:focus-visible{outline:3px solid #20b8a6;outline-offset:2px}
+    .company-panel :global(.leadership-v10 .visual),
+    .company-panel :global(.leadership-fibra .visual){aspect-ratio:auto;display:block;height:auto;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+    .company-panel :global(.leadership-v10 .visual svg),
+    .company-panel :global(.leadership-fibra .visual svg){width:100%;max-width:none;height:auto;display:block}
+    .company-panel :global(.footer){flex-wrap:wrap;gap:12px}
+    .company-panel :global(.legend){flex-wrap:wrap}
+  }
+  /* The two approved components keep their exact SVG and legend; only duplicate headings and badges are hidden. */
+  .company-panel :global(.leadership-v10),.company-panel :global(.leadership-fibra){padding:0;max-width:none}
+  .company-panel :global(.leadership-v10 > .eyebrow),
+  .company-panel :global(.leadership-v10 > h2),
+  .company-panel :global(.leadership-v10 > .intro),
+  .company-panel :global(.leadership-v10 > .toolbar),
+  .company-panel :global(.leadership-fibra > .eyebrow),
+  .company-panel :global(.leadership-fibra > h2),
+  .company-panel :global(.leadership-fibra > .intro),
+  .company-panel :global(.leadership-fibra > .toolbar){display:none}
+</style>

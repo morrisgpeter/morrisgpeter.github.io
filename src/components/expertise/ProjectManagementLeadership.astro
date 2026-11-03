@@ -1,0 +1,98 @@
+---
+/** V10 desktop prototype — ABB only (suppliers repositioned). Organic, asymmetric stakeholder network; previous versions preserved. */
+const groups = [
+  { label: 'Product & R&D', x: 385, y: 168, color: '#dce9fa', nodes: [
+    { label: 'Product Owners', x: 100, y: 65 },
+    { label: 'Product Management', x: 42, y: 145 },
+    { label: 'R&D', x: 115, y: 224 },
+  ] },
+  { label: 'Functional Disciplines', x: 820, y: 157, color: '#d8eff2', nodes: [
+    { label: 'Business Development', x: 940, y: 14 },
+    { label: 'Sales / Commercial', x: 1040, y: 72 },
+    { label: 'Project & Program Management', x: 965, y: 150 },
+    { label: 'Customer Service', x: 1025, y: 218 },
+  ] },
+  { label: 'Leadership', x: 643, y: 108, color: '#e6e7fa', nodes: [
+    { label: 'Local Management', x: 474, y: 16 },
+    { label: 'Global Management', x: 664, y: 16 },
+  ] },
+  { label: 'Factory & Operations', x: 402, y: 344, color: '#e2edda', nodes: [
+    { label: 'Quality', x: 186, y: 278 },
+    { label: 'Manufacturing / IPU', x: 34, y: 333 },
+    { label: 'Engineering', x: 80, y: 404 },
+    { label: 'Planning & Fulfilment', x: 290, y: 424 },
+    { label: 'Supply Chain & Procurement', x: 540, y: 384 },
+    { label: 'Logistics', x: 535, y: 328 },
+    { label: 'Suppliers / Vendors', x: 345, y: 257 },
+  ] },
+  { label: 'Customer & Site', x: 833, y: 345, color: '#e9e3f7', nodes: [
+    { label: 'Customer', x: 1050, y: 281 },
+    { label: 'Site Management', x: 1030, y: 329 },
+    { label: 'Service', x: 1050, y: 377 },
+    { label: 'Commissioning Support', x: 965, y: 428 },
+    { label: 'Regulatory Bodies', x: 805, y: 454 },
+  ] },
+];
+const center = { x: 635, y: 258 };
+const groupR = 47;
+const groupLines = (label) => ({
+  'Product & R&D': ['Product', '& R&D'],
+  'Functional Disciplines': ['Functional', 'Disciplines'],
+  'Leadership': ['Leadership'],
+  'Factory & Operations': ['Factory &', 'Operations'],
+  'Customer & Site': ['Customer', '& Site'],
+})[label];
+const leafW = (s) => Math.max(92, Math.min(205, s.length * 6.2 + 24));
+const path = (x1,y1,x2,y2) => `M ${x1} ${y1} C ${(x1+x2)/2} ${y1}, ${(x1+x2)/2} ${y2}, ${x2} ${y2}`;
+const svgGroups = groups.map(g => ({...g, lines:groupLines(g.label), nodes:g.nodes.map(n=>({...n,w:leafW(n.label)}))}));
+---
+<section class="leadership-v10" aria-labelledby="leadership-v10-title">
+  <p class="eyebrow">HOW DIVERSE AND COMPLEX IS THE STAKEHOLDER ENVIRONMENT I MANAGE?</p>
+  <h2 id="leadership-v10-title">Leadership &amp; Stakeholder Management</h2>
+  <p class="intro">Navigating complex stakeholder environments across functions, organisations and countries.</p>
+  <div class="toolbar"><span class="selected">ABB</span></div>
+  <div class="visual">
+    <svg viewBox="0 0 1200 495" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="v10-title v10-desc">
+      <title id="v10-title">ABB stakeholder mind map</title>
+      <desc id="v10-desc">Stakeholder Network connects through matrix relationships to five groups: Product and R&amp;D, Functional Disciplines, Leadership, Factory and Operations, and Customer and Site. No direct reports at ABB.</desc>
+      <g fill="none" stroke-linecap="round" stroke-dasharray="6 5">
+        {svgGroups.map(g => <path d={path(center.x,center.y,g.x,g.y)} stroke="#89aec7" stroke-width="2" />)}
+        {svgGroups.map(g => g.nodes.map(n => <path d={path(g.x,g.y,n.x+n.w/2,n.y+14)} stroke="#b1c8d8" stroke-width="1.4" />))}
+      </g>
+      {svgGroups.map(g => <g>
+        {g.nodes.map(n => <g>
+          <rect x={n.x} y={n.y} width={n.w} height="28" rx="14" fill="#fff" stroke="#c4d9e8" stroke-width="1.4" />
+          <text x={n.x+n.w/2} y={n.y+18} text-anchor="middle" font-size="11.5" font-weight="500" fill="#19395e">{n.label}</text>
+        </g>)}
+        <circle cx={g.x} cy={g.y} r={groupR} fill={g.color} stroke="#acc8d9" stroke-width="1.5" />
+        <text x={g.x} y={g.y-(g.lines.length-1)*8+5} text-anchor="middle" font-size="12.4" font-weight="700" fill="#173b68">
+          {g.lines.map((line, i) => <tspan x={g.x} dy={i === 0 ? 0 : 16}>{line}</tspan>)}
+        </text>
+      </g>)}
+      <circle cx={center.x} cy={center.y} r="63" fill="#e6f0f7" />
+      <circle cx={center.x} cy={center.y} r="57" fill="#173b68" />
+      <text x={center.x} y={center.y-5} text-anchor="middle" font-size="17" font-weight="700" fill="#fff">Stakeholder</text>
+      <text x={center.x} y={center.y+17} text-anchor="middle" font-size="17" font-weight="700" fill="#fff">Network</text>
+    </svg>
+  </div>
+  <div class="footer">
+    <span><strong>LEADERSHIP MODEL</strong> Matrix coordination · No direct reports at ABB</span>
+    <span class="legend"><i class="solid"></i> Direct reports <i class="dashed"></i> Matrix coordination</span>
+  </div>
+</section>
+<style>
+  .leadership-v10{max-width:1200px;margin:0 auto;padding:20px 20px 26px;color:#19395e;font-family:inherit}
+  .leadership-v10 .eyebrow{color:#287f91;font-size:.8rem;letter-spacing:.14em;font-weight:800;margin:0 0 12px;max-width:780px}
+  .leadership-v10 h2{font-size:clamp(1.9rem,3vw,3rem);line-height:1.15;margin:0 0 12px;color:#17365b}
+  .leadership-v10 .intro{color:#5c728a;font-size:1.05rem;margin:0 0 14px}
+  .leadership-v10 .toolbar{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+  .leadership-v10 .selected{background:#173b68;color:#fff;border-radius:99px;padding:8px 20px;font-weight:700}
+  .leadership-v10 .visual{border:1px solid #d7e6f2;border-radius:20px;background:#f8fbfe;overflow:hidden}
+  .leadership-v10 svg{display:block;width:100%;height:auto}
+  .leadership-v10 .footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-bottom:1px solid #d7e6f2;padding:16px 2px;font-size:.9rem;color:#49677f}
+  .leadership-v10 .footer strong{color:#287f91;font-size:.76rem;letter-spacing:.08em;margin-right:8px}
+  .leadership-v10 .legend{display:flex;align-items:center;gap:9px;font-size:.8rem}
+  .leadership-v10 .legend i{display:inline-block;width:27px;border-top:2px solid #89aec7}
+  .leadership-v10 .legend .dashed{border-top-style:dashed;margin-left:12px}
+  @media(max-width:700px){.leadership-v10 .visual{overflow-x:auto}.leadership-v10 svg{width:1050px;max-width:none}.leadership-v10 .prototype{font-size:.75rem}}
+</style>

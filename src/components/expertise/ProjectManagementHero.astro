@@ -1,0 +1,143 @@
+---
+/**
+ * Project & Program Management — compact expertise-page hero.
+ * Standalone styles: does not change the approved Home hero or global.css.
+ */
+const credentials = [
+  {
+    short: 'PMP®',
+    label: 'Project Management Professional',
+    href: 'https://www.credly.com/badges/40e3fb6d-937a-4479-a67f-bbd3026aa5bc',
+    image: '/images/certifications/pmp.png',
+  },
+  {
+    short: 'PSM I',
+    label: 'Professional Scrum Master I',
+    href: 'https://www.credly.com/badges/89bcaf52-15e6-4ad1-99d8-1ee939d0bb67',
+    image: '/images/certifications/psm-i.png',
+  },
+];
+---
+
+<section class="pm-hero" aria-labelledby="pm-hero-title">
+  <div class="pm-hero__inner">
+    <div class="pm-hero__copy">
+      <p class="pm-hero__eyebrow">EXPERTISE</p>
+      <h1 id="pm-hero-title">Project &amp; Program Management</h1>
+      <p class="pm-hero__description">
+        Delivering complex projects, coordinating multiple initiatives, managing
+        risks and opportunities, and establishing governance to create business value.
+      </p>
+    </div>
+
+    <div class="pm-hero__credentials" aria-label="Professional certifications">
+      {credentials.map((credential) => (
+        <a
+          class="pm-hero__credential"
+          href={credential.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Verify ${credential.label} on Credly (opens in a new tab)`}
+        >
+          <img
+            src={credential.image}
+            alt={credential.short}
+            width="88"
+            height="88"
+            loading="lazy"
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pm-hero {
+    background: linear-gradient(110deg, #f1f7fc 0%, #e6f1fa 100%);
+    border-bottom: 1px solid #d5e5f1;
+    color: #172b4d;
+  }
+
+  .pm-hero__inner {
+    width: min(1200px, 90%);
+    min-height: 205px;
+    margin: 0 auto;
+    padding: 27px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: center;
+  }
+
+  .pm-hero__eyebrow {
+    margin: 0 0 9px;
+    color: #2874a7;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+  }
+
+  .pm-hero h1 {
+    margin: 0 0 12px;
+    font-size: clamp(27px, 3.1vw, 41px);
+    line-height: 1.14;
+    letter-spacing: -0.025em;
+    color: #102b4c;
+  }
+
+  .pm-hero__description {
+    max-width: 710px;
+    margin: 0;
+    font-size: clamp(14px, 1.35vw, 16px);
+    line-height: 1.55;
+    color: #4b6278;
+  }
+
+  .pm-hero__credentials {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+  }
+
+  .pm-hero__credential {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+  }
+
+  .pm-hero__credential:hover {
+    transform: scale(1.06);
+  }
+
+  .pm-hero__credential:focus-visible {
+    outline: 3px solid #216fe0;
+    outline-offset: 5px;
+  }
+
+  .pm-hero__credential img {
+    display: block;
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 800px) {
+    .pm-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 27px 0;
+    }
+
+    .pm-hero__credentials {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pm-hero__credential { transition: none; }
+  }
+</style>

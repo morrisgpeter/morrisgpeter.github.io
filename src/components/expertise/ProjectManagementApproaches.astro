@@ -1,0 +1,143 @@
+---
+/**
+ * Compact Project Management Approaches — V3 — 43 classified experience records.
+ * Portfolio-specific grouping (not methodological equivalence):
+ * Predictive → Predictive; Incremental + Hybrid → Hybrid;
+ * Iterative + Adaptive → Agile.
+ */
+const breakdown = {
+  all: { predictive: 28, hybrid: 9, agile: 6 },
+  abb: { predictive: 19, hybrid: 0, agile: 0 },
+  fibra: { predictive: 3, hybrid: 3, agile: 4 },
+  aton: { predictive: 5, hybrid: 3, agile: 2 },
+  telenge: { predictive: 1, hybrid: 3, agile: 0 },
+};
+---
+
+<section class="pm-approaches" aria-labelledby="pm-approaches-title" data-pm-approaches>
+  <div class="pm-approaches__inner">
+    <p class="pm-approaches__eyebrow">HOW I DELIVER</p>
+    <h2 id="pm-approaches-title">Project Management Approaches</h2>
+    <p class="pm-approaches__intro">Delivery approaches across four organizations.</p>
+
+    <div class="pm-approaches__filters" role="group" aria-label="Filter by company">
+      <button type="button" class="is-active" data-company="all" aria-pressed="true">All</button>
+      <button type="button" data-company="abb" aria-pressed="false">ABB</button>
+      <button type="button" data-company="fibra" aria-pressed="false">Fibra</button>
+      <button type="button" data-company="aton" aria-pressed="false">Aton</button>
+      <button type="button" data-company="telenge" aria-pressed="false">Telenge</button>
+    </div>
+
+    <div class="pm-approaches__content">
+      <div class="pm-approaches__chart" role="img" aria-label="All companies: Predictive 65%, Hybrid 21%, Agile 14%" data-chart>
+        <div class="pm-approaches__center">
+          <strong data-total>43</strong>
+          <span>records</span>
+        </div>
+      </div>
+      <div class="pm-approaches__details" aria-live="polite" aria-atomic="true">
+        <div class="pm-approaches__row" title="28 records">
+          <span class="pm-approaches__name"><i class="pm-approaches__swatch predictive" aria-hidden="true"></i>Predictive (Waterfall)</span>
+          <strong data-percent="predictive">65%</strong>
+          <span class="pm-approaches__sr" data-count="predictive">28 records</span>
+        </div>
+        <div class="pm-approaches__row" title="9 records">
+          <span class="pm-approaches__name"><i class="pm-approaches__swatch hybrid" aria-hidden="true"></i>Hybrid</span>
+          <strong data-percent="hybrid">21%</strong>
+          <span class="pm-approaches__sr" data-count="hybrid">9 records</span>
+        </div>
+        <div class="pm-approaches__row" title="6 records">
+          <span class="pm-approaches__name"><i class="pm-approaches__swatch agile" aria-hidden="true"></i>Agile</span>
+          <strong data-percent="agile">14%</strong>
+          <span class="pm-approaches__sr" data-count="agile">6 records</span>
+        </div>
+      </div>
+    </div>
+    <p class="pm-approaches__note" title="Portfolio grouping: Incremental + Hybrid → Hybrid; Iterative + Adaptive → Agile. Records are not necessarily distinct projects.">
+      Based on classified experience records. <span>Approaches grouped for this portfolio view.</span>
+    </p>
+  </div>
+</section>
+
+<script define:vars={{ breakdown }}>
+  const section = document.querySelector('[data-pm-approaches]');
+  if (section) {
+    const chart = section.querySelector('[data-chart]');
+    const colors = { predictive: '#173B68', hybrid: '#287F91', agile: '#20B8A6' };
+    const labels = { all: 'All companies', abb: 'ABB', fibra: 'Fibra', aton: 'Aton', telenge: 'Telenge' };
+    const keys = ['predictive', 'hybrid', 'agile'];
+    const render = (company) => {
+      const values = breakdown[company];
+      const total = keys.reduce((sum, key) => sum + values[key], 0);
+      const percentages = keys.map((key) => total ? (values[key] / total) * 100 : 0);
+      let position = 0;
+      const segments = keys.filter((key) => values[key] > 0).map((key) => {
+        const start = position;
+        position += (values[key] / total) * 100;
+        return `${colors[key]} ${start}% ${position}%`;
+      });
+      chart.style.background = `conic-gradient(${segments.join(', ')})`;
+      chart.setAttribute('aria-label', `${labels[company]}: ${keys.map((key, i) => `${key} ${Math.round(percentages[i])}%`).join(', ')}`);
+      section.querySelector('[data-total]').textContent = String(total);
+      keys.forEach((key, i) => {
+        const count = `${values[key]} ${values[key] === 1 ? 'record' : 'records'}`;
+        section.querySelector(`[data-count="${key}"]`).textContent = count;
+        section.querySelector(`[data-count="${key}"]`).parentElement.title = count;
+        section.querySelector(`[data-percent="${key}"]`).textContent = `${Math.round(percentages[i])}%`;
+      });
+      section.querySelectorAll('[data-company]').forEach((button) => {
+        const selected = button.dataset.company === company;
+        button.classList.toggle('is-active', selected);
+        button.setAttribute('aria-pressed', String(selected));
+      });
+    };
+    section.querySelectorAll('[data-company]').forEach((button) => {
+      button.addEventListener('click', () => render(button.dataset.company));
+    });
+    render('all');
+  }
+</script>
+
+<style>
+  .pm-approaches { background: #fff; color: #153252; padding: 28px 0 32px; }
+  .pm-approaches__inner { width: min(1200px, 90%); margin: 0 auto; max-width: 1200px; }
+  /* Desktop: this section occupies approximately half the main content width. */
+  .pm-approaches__inner > * { max-width: 500px; }
+  .pm-approaches__eyebrow { margin: 0 0 6px; color: #317db3; font-size: 11px; font-weight: 700; letter-spacing: .15em; }
+  .pm-approaches h2 { font-size: clamp(23px, 2.2vw, 29px); line-height: 1.2; margin: 0 0 6px; }
+  .pm-approaches__intro { color: #5b7086; font-size: 14px; margin: 0 0 16px; }
+  .pm-approaches__filters { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+  .pm-approaches__filters button { font: inherit; font-size: 12px; padding: 6px 11px; border: 1px solid #d5e4ef; border-radius: 999px; background: #fff; color: #3d5871; cursor: pointer; transition: background .2s, border-color .2s; }
+  .pm-approaches__filters button:hover { background: #edf5fb; }
+  .pm-approaches__filters button:focus-visible { outline: 3px solid #2b9ac4; outline-offset: 2px; }
+  .pm-approaches__filters button.is-active { background: #12375d; border-color: #12375d; color: white; }
+  .pm-approaches__content { display: flex; align-items: center; gap: 18px; }
+  .pm-approaches__chart { width: 158px; height: 158px; flex: 0 0 158px; border-radius: 50%; background: conic-gradient(#173B68 0% 65.116%, #287F91 65.116% 86.046%, #20B8A6 86.046% 100%); display: grid; place-items: center; }
+  .pm-approaches__center { width: 66%; height: 66%; background: #fff; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .pm-approaches__center strong { font-size: 35px; line-height: 1; }
+  .pm-approaches__center span { margin-top: 5px; color: #6b7f90; font-size: 11px; }
+  .pm-approaches__details { flex: 1 1 0; min-width: 0; }
+  .pm-approaches__row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 7px 0; }
+  .pm-approaches__name { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; }
+  .pm-approaches__swatch { width: 11px; height: 11px; border-radius: 3px; display: inline-block; flex: 0 0 auto; }
+  .pm-approaches__swatch.predictive { background: #173B68; }
+  .pm-approaches__swatch.hybrid { background: #287F91; }
+  .pm-approaches__swatch.agile { background: #20B8A6; }
+  .pm-approaches__row strong { text-align: right; font-size: 15px; }
+  .pm-approaches__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  .pm-approaches__note { margin: 15px 0 0; color: #718295; font-size: 11px; line-height: 1.5; }
+  @media (max-width: 620px) {
+    .pm-approaches { padding: 28px 0 34px; }
+    .pm-approaches__content { gap: 16px; }
+    .pm-approaches__chart { width: 132px; height: 132px; flex-basis: 132px; }
+    .pm-approaches__center strong { font-size: 28px; }
+    .pm-approaches__name { font-size: 13px; }
+    .pm-approaches__row strong { font-size: 16px; }
+  }
+  @media (max-width: 370px) {
+    .pm-approaches__content { gap: 12px; }
+    .pm-approaches__chart { width: 112px; height: 112px; flex-basis: 112px; }
+    .pm-approaches__name { gap: 6px; font-size: 12px; }
+    .pm-approaches__row { padding: 10px 0; }
+  }
+</style>

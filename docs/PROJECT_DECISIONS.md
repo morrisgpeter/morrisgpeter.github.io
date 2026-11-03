@@ -1,7 +1,7 @@
 # Professional & Technical Portfolio — Decision Log
 
 **Project:** `morrisgpeter.github.io`  
-**Last updated:** 2026-10-31
+**Last updated:** 2026-11-03
 
 ## Status legend
 
@@ -513,3 +513,11 @@ When a decision is confirmed or revised:
 | D-159 | 2026-11-01 | Preservation and verification | Preserve existing issues, original descriptions, and other project statuses; retain the pre-reorganization export; avoid re-running legacy seed scripts. `scripts/reorganize-github-project-v2.py --dry-run` reported `Current Project: #3 | Reviewed: 23 | Actions: 0`. | Accepted | A zero-action dry-run validates the script's current desired state only; it does not prove site deployment, independent issue-content audit or MVP release. |
 
 **Training evidence:** Issue #58 already covers ABB training (119 hours). PMI PDUs total 53.75; combined 172.75 hours supports the rounded **170+** display. Do not duplicate the issue or replace original historical descriptions.
+
+## Project & Program Management — Leadership & Stakeholder Management (2026-11-03)
+
+| ID | Date | Topic | Decision / direction | Status | Rationale / notes |
+| --- | --- | --- | --- | --- | --- |
+| D-160 | 2026-11-03 | Stakeholder network presentation | Approve Section 03 **Leadership & Stakeholder Management** with organic company-specific stakeholder mind maps and **Stakeholder Network** as the central label. Current company selector covers **ABB** and **Fibra**. | Accepted (desktop/mobile design) | Preserve approved labels, group structure and visual composition; avoid presenting matrix stakeholders as direct reports. |
+| D-161 | 2026-11-03 | Interaction and reporting semantics | Preserve **Fit** and **Explore**, drag/pan, zoom and Reset, plus company-specific legend and direct-report versus matrix-coordination line semantics. | Accepted (interaction design) | Maintain usability on desktop and mobile; numeric leadership scope is a separate section. |
+| D-162 | 2026-11-03 | Final UI cleanup and design freeze | Remove **“Fit: full map · Explore: drag & zoom”** helper text while retaining all controls. Mark Section 03 complete for the current design iteration. | Accepted (final visual decision) | User explicitly approved closure after this deletion. Build, commit/push, deployment and accessibility checks remain separate. |

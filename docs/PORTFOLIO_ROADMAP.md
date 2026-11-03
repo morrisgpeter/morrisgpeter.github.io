@@ -650,3 +650,16 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] Commit these documentation updates after reviewing the local diff; do not mix with unrelated Astro changes.
 
 **Scope boundary:** This backlog housekeeping does **not** complete the remaining MVP v1.0 site-wide release tasks. Keep existing Home and Experience design approvals and outstanding build/deployment, accessibility, source-evidence, asset-rights and confidentiality checks unchanged. Issue #58 already records ABB training; do not create a duplicate issue. Preserve the approved **170+ hours** display until a separately reviewed change.
+
+## Project & Program Management — Leadership & Stakeholder Management (2026-11-03)
+
+- [x] Approve Section 03 **Leadership & Stakeholder Management** on desktop and mobile.
+- [x] Approve ABB and Fibra company-specific organic mind maps and the **Stakeholder Network** center.
+- [x] Approve company selector, reporting-line legend, **Fit / Explore**, pan/drag, zoom and Reset interactions.
+- [x] Approve removal of redundant **“Fit: full map · Explore: drag & zoom”** text.
+- [ ] Confirm the helper text is removed from `src/components/expertise/ProjectManagementLeadership_Combined.astro` in the local repository.
+- [ ] Run `npm run build`, inspect `git diff` and `git status`, then stage only intended component and documentation changes.
+- [ ] Commit and push to `main`; confirm GitHub Actions and live desktop/mobile behavior.
+- [ ] Perform final accessibility and source/disclosure QA independently of visual approval.
+
+**Scope:** Section 03 is closed for the current design iteration. Do not reopen its design or silently add Aton/Telenge maps; handle any future company expansion and leadership-scale metrics separately.

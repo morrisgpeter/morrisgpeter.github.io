@@ -3,7 +3,7 @@
 **Project:** Peter Morris professional and technical portfolio  
 **Repository:** `morrisgpeter/morrisgpeter.github.io`  
 **Live site:** `https://morrisgpeter.github.io/`  
-**Last updated:** 2026-10-31
+**Last updated:** 2026-11-03
 
 ## Purpose
 
@@ -439,3 +439,15 @@ The professional portfolio backlog was reorganized in GitHub Project **#3**, usi
 - **Sub-issue hierarchy:** #52 → #80; #67 and #68 → #79; #76 → #78 (arrows indicate child → parent).
 
 This was a **project-planning metadata and issue-documentation update**, not a change to the Astro website, a declaration that MVP v1.0 has shipped, or a request to close GitHub issues. Preserve the original issue descriptions and existing project records. Existing ABB training issue #58 already documents 119 hours; consolidated totals are **119 ABB hours + 53.75 PMI PDUs = 172.75 hours**, shown publicly as **170+ hours**. Do not create a duplicate training issue or silently change the published metric.
+
+## Project & Program Management expertise — Leadership & Stakeholder Management (approved 2026-11-03)
+
+**Page:** `src/pages/project-management.astro`. Section 03, **Leadership & Stakeholder Management**, is approved for the current desktop and mobile design iteration. The approved implementation target is `src/components/expertise/ProjectManagementLeadership_Combined.astro`.
+
+- Organic, interactive stakeholder mind maps with a company selector for **ABB** and **Fibra**; preserve each company's tailored relationships and labels. Do not imply ABB stakeholders are direct reports.
+- The center is **Stakeholder Network**. Solid and dashed links distinguish direct reporting from matrix coordination, with company-specific leadership-model notes and legends.
+- Desktop and mobile interactions retain **Fit** and **Explore** modes, drag/pan, zoom and Reset.
+- **Final approved cleanup:** remove the redundant helper text **“Fit: full map · Explore: drag & zoom”**, without removing the actual controls or changing interactions.
+- Treat this section as **complete for the current MVP design scope**. Additional companies, numerical leadership scale and other expertise sections remain separate future work unless explicitly approved.
+
+**Release boundary:** Design approval does not independently confirm that the final helper-text removal, production build, Git commit/push, GitHub Pages deployment, accessibility testing or data/disclosure review has occurred.

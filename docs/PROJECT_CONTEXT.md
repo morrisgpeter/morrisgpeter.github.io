@@ -463,3 +463,20 @@ This was a **project-planning metadata and issue-documentation update**, not a c
 - **Next expertise section:** **Project Management Capabilities**, to be designed separately. Preserve the approved Leadership & Stakeholder Management section and both overview cards.
 
 **Release boundary:** The user's local repository is not available in this workspace. The reviewed screenshot and source artifacts do not establish successful local build, commit/push, GitHub Actions deployment or live verification.
+
+
+## Project & Program Management — Capabilities V5 approved (2026-11-04)
+
+**Section 04: Project Management Capabilities** is approved after desktop and mobile screenshot review. The implementation source is `ProjectManagementCapabilities_V5.astro`, targeting `src/components/expertise/ProjectManagementCapabilities.astro`, rendered from `src/pages/project-management.astro`.
+
+- **Eyebrow:** FROM COMPLEXITY TO VALUE. **Title:** Project Management Capabilities.
+- **Introduction:** Turning complex project challenges into business outcomes through structured management and cross-functional leadership.
+- **Three-stage flow:** **Complex Challenges → Management Capabilities → Business Value**. Desktop presents three horizontal panels connected by arrows; mobile stacks the panels with downward arrows and a two-column, three-row capability grid.
+- **Challenges:** Technical complexity; Multiple stakeholders; Global & matrix environments; Risk & uncertainty.
+- **Six capabilities:** Planning & Project Controls; Risk & Opportunity Management; Stakeholder & Matrix Leadership; Contract & Change Management; Governance & Portfolio Management; Lessons Learned & Continuous Improvement.
+- **Business value:** Delivery reliability; Cost & risk optimization; Operational performance; Sustainable long-term results.
+- **Visual decisions:** restrained navy/blue styling; mountain outline for Challenges, blue line icons for capabilities, green bar-chart icon and checkmarks for Value; retain the approved V5 spacing, typography and responsive composition.
+
+**Status:** V5 content and visual design accepted for desktop and mobile. Do not change this section without a new request. This does not establish successful build, Git commit/push, deployment, accessibility compliance or claim validation.
+
+**Next section:** **Experience in Action**, connecting ABB, Fibra Engenharia, Aton Engenharia and Telenge to their already published Experience chapters, without duplicating full case studies.

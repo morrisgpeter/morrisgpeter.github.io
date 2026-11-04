@@ -1,0 +1,98 @@
+---
+const challenges = ['Technical complexity', 'Multiple stakeholders', 'Global & matrix environments', 'Risk & uncertainty'];
+const capabilities = [
+  { title: 'Planning & Project Controls', icon: 'calendar' },
+  { title: 'Risk & Opportunity Management', icon: 'risk' },
+  { title: 'Stakeholder & Matrix Leadership', icon: 'people' },
+  { title: 'Contract & Change Management', icon: 'document' },
+  { title: 'Governance & Portfolio Management', icon: 'network' },
+  { title: 'Lessons Learned & Continuous Improvement', icon: 'cycle' },
+];
+const outcomes = ['Delivery reliability', 'Cost & risk optimization', 'Operational performance', 'Sustainable long-term results'];
+---
+<section class="pm-capabilities" aria-labelledby="pm-capabilities-title">
+  <div class="pm-capabilities__wrap">
+    <header class="pm-capabilities__header">
+      <p class="pm-capabilities__eyebrow">FROM COMPLEXITY TO VALUE</p>
+      <h2 id="pm-capabilities-title">Project Management Capabilities</h2>
+      <p>Turning complex project challenges into business outcomes through structured management and cross-functional leadership.</p>
+    </header>
+    <div class="pm-capabilities__flow">
+      <div class="pm-capabilities__panel pm-capabilities__challenges">
+        <h3 class="pm-capabilities__panel-heading"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 26 12 9l6 10 4-7 7 14H3Z"/><path d="m9 17 3-3 3 3"/></svg><span>Complex Challenges</span></h3>
+        <ul>{challenges.map(item => <li><span class="pm-capabilities__dot" aria-hidden="true"></span>{item}</li>)}</ul>
+      </div>
+      <div class="pm-capabilities__arrow" aria-hidden="true">➜</div>
+      <div class="pm-capabilities__panel pm-capabilities__middle">
+        <h3>Management Capabilities</h3>
+        <div class="pm-capabilities__grid">
+          {capabilities.map(capability => (
+            <div class="pm-capabilities__item">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                {capability.icon === 'calendar' && <><rect x="5" y="8" width="22" height="19" rx="2"/><path d="M5 14h22M11 5v6M21 5v6"/></>}
+                {capability.icon === 'risk' && <><path d="M16 4 29 27H3L16 4Z"/><path d="M16 12v7M16 23v1"/></>}
+                {capability.icon === 'people' && <><circle cx="16" cy="10" r="4"/><circle cx="6.5" cy="13" r="3"/><circle cx="25.5" cy="13" r="3"/><path d="M9 26v-4c0-4 3-6 7-6s7 2 7 6v4H9ZM2 25v-4c0-3 2-5 5-5M30 25v-4c0-3-2-5-5-5"/></>}
+                {capability.icon === 'document' && <><path d="M8 3h12l6 6v20H8V3Z"/><path d="M20 3v7h6M12 16h10M12 21h10M12 26h7"/></>}
+                {capability.icon === 'network' && <><rect x="12" y="3" width="8" height="6" rx="1"/><rect x="2" y="23" width="8" height="6" rx="1"/><rect x="12" y="23" width="8" height="6" rx="1"/><rect x="22" y="23" width="8" height="6" rx="1"/><path d="M16 9v8M6 23v-6h20v6M16 17v6"/></>}
+                {capability.icon === 'cycle' && <><path d="M27 13A11 11 0 0 0 7 9L4 13M4 6v7h7M5 19a11 11 0 0 0 20 4l3-4M28 26v-7h-7"/></>}
+              </svg>
+              <h4>{capability.title}</h4>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="pm-capabilities__arrow" aria-hidden="true">➜</div>
+      <div class="pm-capabilities__panel pm-capabilities__value">
+        <h3 class="pm-capabilities__panel-heading"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 27h24M7 23v-7h5v7M15 23V11h5v12M23 23V5h5v18"/></svg><span>Business Value</span></h3>
+        <ul>{outcomes.map(item => <li><span aria-hidden="true">✓</span>{item}</li>)}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .pm-capabilities{padding:8px 0 32px;background:#fff;color:#173b68}
+  .pm-capabilities__wrap{width:min(1200px,calc(100% - 40px));margin:auto}
+  .pm-capabilities__header{text-align:left;max-width:100%;margin:0 0 22px}
+  .pm-capabilities__eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;color:#267a9d;margin:0 0 10px}
+  .pm-capabilities__header h2{font-size:clamp(24px,2.2vw,30px);line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}
+  .pm-capabilities__header>p:last-child{max-width:780px;margin:0;font-size:14px;line-height:1.55;color:#52677c}
+  .pm-capabilities__flow{display:grid;grid-template-columns:minmax(0,1.15fr) 20px minmax(0,2.4fr) 20px minmax(0,1.15fr);gap:8px;align-items:center}
+  .pm-capabilities__panel{border:1px solid #d7e6f4;border-radius:18px;padding:18px 16px;min-width:0}
+  .pm-capabilities__panel h3{font-size:16px;margin:0 0 14px;line-height:1.3}
+  .pm-capabilities__panel-heading{display:flex;align-items:center;gap:10px}
+  .pm-capabilities__panel-heading svg{width:25px;height:25px;flex:0 0 25px;color:#167fc1}
+  .pm-capabilities__value .pm-capabilities__panel-heading svg{color:#078a76}
+  .pm-capabilities__challenges{background:#eef7ff}
+  .pm-capabilities__value{background:#e9f8f6}
+  .pm-capabilities__middle{background:#fbfdff;border-color:#b7d7f2}
+  .pm-capabilities__panel ul{padding:0;margin:0;list-style:none;display:grid;gap:13px}
+  .pm-capabilities__panel li{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.4;color:#294967}
+  .pm-capabilities__dot{width:7px;height:7px;border-radius:50%;background:#4d92c5;flex:0 0 7px;margin-top:6px}
+  .pm-capabilities__value li span{color:#078a76;font-size:17px;font-weight:800;line-height:1;flex:0 0 16px}
+  .pm-capabilities__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+  .pm-capabilities__item{min-height:76px;display:flex;align-items:center;gap:10px;padding:10px 7px;min-width:0}
+  .pm-capabilities__item:nth-child(-n+3){border-bottom:1px solid #d8e7f3}
+  .pm-capabilities__item:not(:nth-child(3n)){border-right:1px solid #d8e7f3}
+  .pm-capabilities__item svg{width:31px;height:31px;flex:0 0 31px;color:#167fc1}
+  .pm-capabilities__item h4{font-size:11px;line-height:1.35;font-weight:700;margin:0;color:#173b68;overflow-wrap:anywhere}
+  .pm-capabilities__arrow{font-size:27px;color:#237db7;text-align:center}
+  @media(max-width:1100px){
+    .pm-capabilities__flow{grid-template-columns:1fr;gap:10px}
+    .pm-capabilities__arrow{transform:rotate(90deg);line-height:1;height:28px}
+    .pm-capabilities__panel{padding:20px}
+  }
+  @media(max-width:640px){
+    .pm-capabilities{padding:16px 0 36px}
+    .pm-capabilities__wrap{width:calc(100% - 32px)}
+    .pm-capabilities__header{text-align:left;margin-bottom:24px}
+    .pm-capabilities__header>p:last-child{font-size:14px}
+    .pm-capabilities__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .pm-capabilities__item:nth-child(-n+3){border-bottom:0}
+    .pm-capabilities__item:not(:nth-child(3n)){border-right:0}
+    .pm-capabilities__item:nth-child(-n+4){border-bottom:1px solid #d8e7f3}
+    .pm-capabilities__item:nth-child(odd){border-right:1px solid #d8e7f3}
+    .pm-capabilities__item{min-height:80px;gap:8px;padding:10px 8px}
+    .pm-capabilities__item svg{width:25px;height:25px;flex-basis:25px}
+    .pm-capabilities__item h4{font-size:11px}
+  }
+</style>

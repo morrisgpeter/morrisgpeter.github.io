@@ -679,3 +679,18 @@ This section supersedes the older Section 03 release checklist and its statement
 - [ ] **Next design task:** Project Management Capabilities.
 
 **Status:** V7 desktop visual approved. No local Git commit or production deployment is claimed by this documentation update.
+
+
+## Project & Program Management — Capabilities V5 and next steps (2026-11-04)
+
+- [x] Approve **Project Management Capabilities V5** copy, three-stage flow and six management competencies.
+- [x] Review and approve desktop three-panel layout, arrows, icons, spacing and colors.
+- [x] Review and approve mobile stacked panels, downward arrows and 2 × 3 capability grid.
+- [x] Freeze Capabilities V5 for the current MVP design iteration; do not modify without a new request.
+- [ ] Ensure approved `ProjectManagementCapabilities_V5.astro` is installed as `src/components/expertise/ProjectManagementCapabilities.astro` and imported in `src/pages/project-management.astro`.
+- [ ] Review `git status` and intended source/documentation diffs; run `npm run build`.
+- [ ] Commit and push intended page/component/documentation changes; verify GitHub Actions and the live page on desktop/mobile.
+- [ ] Complete independent accessibility and claims/disclosure QA.
+- [ ] **Next design task:** **Experience in Action**, with concise links to ABB, Fibra Engenharia, Aton Engenharia and Telenge Experience sections; avoid duplicating their detailed narratives.
+
+**Status:** V5 visual/content approved on desktop and mobile. Build, commit and live deployment are not confirmed here. Prior roadmap lines identifying Capabilities as the next design task are historical and superseded by this checkpoint.
